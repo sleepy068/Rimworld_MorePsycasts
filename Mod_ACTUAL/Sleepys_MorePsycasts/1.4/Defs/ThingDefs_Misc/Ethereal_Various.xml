@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThingDef ParentName="EtherealThingBase">
-		<defName>SLP_ArcticPinhole</defName>
+		<defName>SLP_ETH_ArcticPinhole</defName>
 		<label>arctic pinhole</label>
 		<thingClass>ThingWithComps</thingClass>
 		<tickerType>Normal</tickerType>

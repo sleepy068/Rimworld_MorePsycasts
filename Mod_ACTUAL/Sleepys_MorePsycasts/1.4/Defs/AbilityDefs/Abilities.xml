@@ -2,7 +2,7 @@
 <Defs>
 
   <AbilityDef ParentName="PsycastBaseSkip">
-    <defName>SLP_ArcticPinhole</defName>
+    <defName>SLP_PSY_ArcticPinhole</defName>
     <label>arctic pinhole</label>
     <description>Generate a microscopic shielded skipgate linked to deep interstellar space. Atmospheric and Solar material are protected from leaking through the pinprick in spacetime into the vacuum but energy is not. The skipgate rapidly draws heat from the surrounding area and radiating it into deep space until it closes. The skipgate generates a very amount of light but this is only from the gate itself.</description>
     <level>1</level>
@@ -23,7 +23,7 @@
     </verbProperties>
     <comps>
       <li Class="CompProperties_AbilitySpawn">
-        <thingDef>SLP_ArcticPinhole</thingDef>
+        <thingDef>SLP_ETH_ArcticPinhole</thingDef>
         <allowOnBuildings>False</allowOnBuildings>
       </li>
       <li Class="CompProperties_AbilityEffecterOnTarget">
@@ -39,6 +39,74 @@
         <scale>0.42</scale>
         <sound>Psycast_Skip_Exit</sound>
         <preCastTicks>5</preCastTicks>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_ImmunityBoost</defName>
+    <label>immunity boost</label>
+    <description>Generate a resonating energy field within the body of a organic being that boosts both the bodies ability to fight off infections and actively attacks foreign entities.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_Psycast_ImmunityBoost</iconPath>
+    <statBases>
+      <Ability_EntropyGain>15</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.3</Ability_PsyfocusCost>
+      <Ability_Duration>240</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>4.0</warmupTime>
+      <!--<range>24.9</range>-->
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_ImmunityBoost</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_HealingBoost</defName>
+    <label>healing boost</label>
+    <description>Generate a resonating energy field within the body of a mechanical or organic being that boosts both the bodies ability to repair damage.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_Psycast_HealingBoost</iconPath>
+    <statBases>
+      <Ability_EntropyGain>15</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.3</Ability_PsyfocusCost>
+      <Ability_Duration>240</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>4.0</warmupTime>
+      <!--<range>24.9</range>-->
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>True</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_HealingBoost</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>True</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
       </li>
     </comps>
   </AbilityDef>
