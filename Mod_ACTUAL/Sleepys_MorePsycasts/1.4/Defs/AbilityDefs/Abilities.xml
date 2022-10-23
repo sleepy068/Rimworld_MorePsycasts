@@ -56,7 +56,7 @@
     </statBases>
     <verbProperties>
       <warmupTime>4.0</warmupTime>
-      <!--<range>24.9</range>-->
+      <range>3.9</range>
       <targetParams>
         <canTargetSelf>True</canTargetSelf>
 		<canTargetMechs>False</canTargetMechs>
@@ -90,7 +90,7 @@
     </statBases>
     <verbProperties>
       <warmupTime>4.0</warmupTime>
-      <!--<range>24.9</range>-->
+      <range>3.9</range>
       <targetParams>
         <canTargetSelf>True</canTargetSelf>
 		<canTargetMechs>True</canTargetMechs>
