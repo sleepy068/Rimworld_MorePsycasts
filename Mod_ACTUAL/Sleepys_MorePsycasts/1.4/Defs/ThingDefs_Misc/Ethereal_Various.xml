@@ -14,6 +14,7 @@
 		  <graphicClass>Graphic_Single</graphicClass>
 		  <texPath>Things/Mote/SolarPinhole</texPath>
 		  <shaderType>MoteGlowDistorted</shaderType>
+		  <!--<color>(0, 3, 34)</color>-->
 		  <color>(255, 255, 245)</color>
 		  <drawSize>2</drawSize>
 		  <shaderParameters>
@@ -26,12 +27,13 @@
 		<comps>
 		  <li Class="CompProperties_Glower">
 			<glowRadius>3</glowRadius>
-			<glowColor>(208,217,217,0)</glowColor>
+			<glowColor>(0, 11, 81 ,0)</glowColor>
+			<!--<glowColor>(208,217,217,0)</glowColor>-->
 		  </li>
 		  <li Class="CompProperties_HeatPusher">
 			<compClass>CompHeatPusherPowered</compClass>
 			<heatPerSecond>-10</heatPerSecond>
-			<heatPushMaxTemperature>-5</heatPushMaxTemperature>
+			<heatPushMinTemperature>-5</heatPushMinTemperature>
 		  </li>
 		  <li Class="CompProperties_DestroyAfterDelay">
 			<delayTicks>300000</delayTicks>
