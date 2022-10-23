@@ -1,0 +1,17 @@
+D:\Steam\steamapps\common\RimWorld\Mods\More Psycasts\Assemblies\MorePsycasts.dll
+D:\Steam\steamapps\common\RimWorld\Mods\More Psycasts\Source\MorePsycasts\MorePsycasts\obj\Debug\MorePsycasts.csprojAssemblyReference.cache
+D:\Steam\steamapps\common\RimWorld\Mods\More Psycasts\Source\MorePsycasts\MorePsycasts\obj\Debug\MorePsycasts.csproj.CoreCompileInputs.cache
+D:\Steam\steamapps\common\RimWorld\Mods\More Psycasts\Source\MorePsycasts\MorePsycasts\obj\Debug\MorePsycasts.dll
+D:\Steam\steamapps\common\RimWorld\Mods\MorePsycasting\Assemblies\MorePsycasts.dll
+D:\Steam\steamapps\common\RimWorld\Mods\MorePsycasting\Source\MorePsycasts\MorePsycasts\obj\Debug\MorePsycasts.csprojAssemblyReference.cache
+D:\Steam\steamapps\common\RimWorld\Mods\MorePsycasting\Source\MorePsycasts\MorePsycasts\obj\Debug\MorePsycasts.csproj.CoreCompileInputs.cache
+D:\Steam\steamapps\common\RimWorld\Mods\MorePsycasting\Source\MorePsycasts\MorePsycasts\obj\Debug\MorePsycasts.dll
+D:\Steam\steamapps\common\RimWorld\Mods\MorePsycasting\Source\MorePsycasts\MorePsycasts\obj\Debug\MorePsycasts.csproj.CopyComplete
+D:\Steam\steamapps\common\RimWorld\Mods\MorePsycasting\Source\MorePsycasts\obj\Debug\MorePsycasts.csprojAssemblyReference.cache
+D:\Steam\steamapps\common\RimWorld\Mods\MorePsycasting\Source\MorePsycasts\obj\Debug\MorePsycasts.csproj.CoreCompileInputs.cache
+D:\Steam\steamapps\common\RimWorld\Mods\MorePsycasting\Source\MorePsycasts\obj\Debug\MorePsycasts.dll
+D:\Steam\steamapps\common\RimWorld\Mods\Assemblies\MorePsycasts.dll
+D:\Steam\steamapps\common\RimWorld\Mods\MorePsycasting\Source\MorePsycasts\obj\Debug\MorePsycasts.csproj.CopyComplete
+C:\Users\ethan\Documents\GitHub\ModWorkspace\Rimworld\More PsyCasts\Source\MorePsycasts\obj\Debug\MorePsycasts.csproj.AssemblyReference.cache
+C:\Users\ethan\Documents\GitHub\ModWorkspace\Rimworld\More PsyCasts\Source\MorePsycasts\obj\Debug\MorePsycasts.csproj.CoreCompileInputs.cache
+C:\Users\ethan\Documents\GitHub\ModWorkspace\Rimworld\More PsyCasts\Source\MorePsycasts\obj\Debug\MorePsycasts.dll

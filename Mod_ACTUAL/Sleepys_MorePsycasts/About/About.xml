@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Sleepy's More Psycasts</name>
+    <author>Sleepy068</author>
+    <url>https://github.com/sleepy068/Rimworld_MorePsycasts</url>
+    <packageId>sleepy068.morepsycasts</packageId>
+    <supportedVersions>
+		<li>1.4</li>
+    </supportedVersions>
+
+    <description>
+[h2]Sleepy's More Psycasts (v1.0.0)[/h2]
+
+[b]Credit[/b]
+
+[img]https://i.imgur.com/DbnM7jC.png[/img]
+[b]What Does This Mod Add?[/b]
+
+
+[img]https://i.imgur.com/ss8ZNXk.png[/img]
+[b]Roadmap:[/b]
+
+
+[img]https://i.imgur.com/YySbEPN.png[/img]
+[b]On Going Games:[/b]
+- Safe to add to an ongoing game
+- It will cause issues if removed from an existing save (consider starting a new game to see if you are happy with the content).
+
+[b]Compatibility[/b]
+- Combat Extended: Not Compatible (I don't play with this mod sorry, if my mod becomes popular enough, I'll write a patch)
+
+[b]Integrated Compatibility:[/b]
+None at the moment.
+
+[img]https://i.imgur.com/gghc3iQ.png[/img]
+[b]Conflicts[/b]
+None yet detected.
+
+[img]https://i.imgur.com/31kQWwH.png[/img]
+[b]Known Issues[/b]
+No known issues.
+
+[img]https://i.imgur.com/WokZwPP.png[/img]
+[b]Language Support[/b]
+English (Always Latest)(Developed in this Language)
+
+Latest Version:
+https://github.com/sleepy068/Rimworld_MorePsycasts
+    </description>
+
+    <modDependencies>
+    </modDependencies>
+	
+    <modDependenciesByVersion>
+    </modDependenciesByVersion>
+
+    <loadAfter>
+    </loadAfter>
+
+    <incompatibleWith>
+    </incompatibleWith>
+	
+</ModMetaData>
