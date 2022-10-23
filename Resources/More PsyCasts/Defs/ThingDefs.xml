@@ -14,7 +14,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <texPath>Things/Mote/SolarPinhole</texPath>
       <shaderType>MoteGlowDistorted</shaderType>
-      <color>(180, 255, 255)</color>
+      <color>(28, 34, 34)</color>
       <drawSize>2</drawSize>
       <shaderParameters>
         <_DistortionTex>/Other/Ripples</_DistortionTex>
