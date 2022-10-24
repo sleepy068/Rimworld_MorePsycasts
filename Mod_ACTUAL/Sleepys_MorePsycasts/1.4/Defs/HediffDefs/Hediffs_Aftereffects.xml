@@ -12,10 +12,6 @@
     <initialSeverity>7</initialSeverity>
     <maxSeverity>21</maxSeverity>
     <comps>
-	  <li Class="HediffCompProperties_TendDuration">
-        <baseTendDurationHours>12</baseTendDurationHours>
-        <severityPerDayTended>-1.0</severityPerDayTended>
-      </li>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-0.5</severityPerDay>
         <showDaysToRecover>true</showDaysToRecover>
