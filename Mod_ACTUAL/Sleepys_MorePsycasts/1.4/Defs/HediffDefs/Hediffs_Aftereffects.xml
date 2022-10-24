@@ -4,10 +4,9 @@
 	<HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
     <defName>SLP_RegenSickness</defName>
     <label>renewal sickness</label>
-    <description>Deep psychic destabilisation of the body from over-driving natural healing processes. Renewal Sickness, also known as Regeneration sickness, last from few to several weeks depending on the exposure, causing consciousness reduction, discomfort, tiredness and an increased appetite. It resolves itself with time and medical attention will make this even quicker. Renewal sickness can be treated with medicine but nothing can cure it outright other than time.</description>
+    <description>Deep psychic destabilisation of the body from over-driving natural healing processes. Renewal Sickness, also known as Regeneration sickness, lasts from few to several weeks depending on the exposure, causing consciousness reduction, discomfort, tiredness and an increased appetite. It resolves itself with time and skilled medical attention will make this even quicker. Renewal sickness can be treated with medicine but nothing can cure it outright other than time.</description>
     <isBad>true</isBad>
 	<tendable>true</tendable>
-	<!--<cureAllAtOnceIfCuredByItem>false</cureAllAtOnceIfCuredByItem>-->
 	<everCurableByItem>false</everCurableByItem>
 	
     <initialSeverity>7</initialSeverity>
@@ -77,12 +76,12 @@
           </li>
 		  <li>
             <capacity>Moving</capacity>
-            <offset>-0.3</offset>
+            <offset>-0.15</offset>
           </li>
         </capMods>
       </li>
 	  <li>
-        <minSeverity>17.0</minSeverity>
+        <minSeverity>18.0</minSeverity>
         <label>extreme</label>
 		<painOffset>0.35</painOffset>
 		<hungerRateFactorOffset>0.35</hungerRateFactorOffset>
@@ -93,7 +92,7 @@
           </li>
 		  <li>
             <capacity>Moving</capacity>
-            <offset>-0.3</offset>
+            <offset>-0.2</offset>
           </li>
         </capMods>
       </li>
