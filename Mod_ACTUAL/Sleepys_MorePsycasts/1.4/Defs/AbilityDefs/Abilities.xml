@@ -49,6 +49,10 @@
     <description>Generate a resonating energy field within the body of a organic being that boosts both the bodies ability to fight off infections and actively attacks foreign entities.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_ImmunityBoost</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <statBases>
       <Ability_EntropyGain>15</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.3</Ability_PsyfocusCost>
@@ -56,7 +60,8 @@
     </statBases>
     <verbProperties>
       <warmupTime>4.0</warmupTime>
-      <range>3.9</range>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
       <targetParams>
         <canTargetSelf>True</canTargetSelf>
 		<canTargetMechs>False</canTargetMechs>
@@ -83,6 +88,10 @@
     <description>Generate a resonating energy field within the body of a mechanical or organic being that boosts both the bodies ability to repair damage.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_HealingBoost</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <statBases>
       <Ability_EntropyGain>15</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.3</Ability_PsyfocusCost>
@@ -90,7 +99,8 @@
     </statBases>
     <verbProperties>
       <warmupTime>4.0</warmupTime>
-      <range>3.9</range>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
       <targetParams>
         <canTargetSelf>True</canTargetSelf>
 		<canTargetMechs>True</canTargetMechs>
@@ -104,6 +114,49 @@
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
         <applicableToMechs>True</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_RegenMajor</defName>
+    <label>deep regeneration</label>
+    <description>Generate a very power psychic energy field within the body of a organic being that boosts the bodies ability to heal, helps recovery from illness or forces it to regenerate lost organs or limbs. It can be used on any condition but the caster wont be able to choose the specific condition. While the process is very quick, those exposed to it will be rather drained and will take time to adjust to the changes.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/WIP</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_EntropyGain>65</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.8</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>10.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_RegenSickness</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+	  <li Class = "CompProperties_AbilityEffect">
+        <compClass>CompAbilityEffect_FixWorstHealthCondition</compClass>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>PsycastPsychicEffect</fleckDef>

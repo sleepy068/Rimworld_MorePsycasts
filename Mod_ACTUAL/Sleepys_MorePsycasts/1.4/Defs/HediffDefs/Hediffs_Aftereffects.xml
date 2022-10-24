@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    
+	<HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
+    <defName>SLP_RegenSickness</defName>
+    <label>renewal sickness</label>
+    <description>Deep psychic destabilisation of the body from over-driving natural healing processes. Renewal Sickness, also known as Regeneration sickness, last from few to several weeks depending on the exposure, causing consciousness reduction, discomfort, tiredness and an increased appetite. It resolves itself with time and medical attention will make this even quicker. Renewal sickness can be treated with medicine but nothing can cure it outright other than time.</description>
+    <isBad>true</isBad>
+	<tendable>true</tendable>
+	<!--<cureAllAtOnceIfCuredByItem>false</cureAllAtOnceIfCuredByItem>-->
+	<everCurableByItem>false</everCurableByItem>
+	
+    <initialSeverity>7</initialSeverity>
+    <maxSeverity>21</maxSeverity>
+    <comps>
+	  <li Class="HediffCompProperties_TendDuration">
+        <baseTendDurationHours>12</baseTendDurationHours>
+        <severityPerDayTended>-1.0</severityPerDayTended>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.5</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+    <stages>
+      <li>
+        <label>acclimatising</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.02</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>2.0</minSeverity>
+        <label>minor</label>
+		<painOffset>0.10</painOffset>
+		<hungerRateFactorOffset>0.1</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>5.0</minSeverity>
+        <label>major</label>
+		<painOffset>0.15</painOffset>
+		<hungerRateFactorOffset>0.2</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.1</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+        <minSeverity>10.0</minSeverity>
+        <label>severe</label>
+		<painOffset>0.30</painOffset>
+		<hungerRateFactorOffset>0.3</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.25</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.3</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+        <minSeverity>17.0</minSeverity>
+        <label>extreme</label>
+		<painOffset>0.35</painOffset>
+		<hungerRateFactorOffset>0.35</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.5</setMax>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+	
+</Defs>

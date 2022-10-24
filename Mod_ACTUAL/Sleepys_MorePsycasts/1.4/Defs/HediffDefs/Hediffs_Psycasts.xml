@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     
-	<HediffDef ParentName = "PsycastHediffBase">
+	<HediffDef ParentName="PsycastHediffBase">
     <defName>SLP_Psycast_ImmunityBoost</defName>
     <label>psychic immunity boost</label>
     <description>Psychically-induced immune system boost.</description>
@@ -15,7 +15,7 @@
     </stages>
   </HediffDef>
   
-  <HediffDef ParentName = "PsycastHediffBase">
+  <HediffDef ParentName="PsycastHediffBase">
     <defName>SLP_Psycast_HealingBoost</defName>
     <label>psychic rapid healing</label>
     <description>Psychically-induced healing and repair.</description>
