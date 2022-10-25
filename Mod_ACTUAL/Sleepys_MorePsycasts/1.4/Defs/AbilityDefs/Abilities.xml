@@ -124,9 +124,9 @@
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_RegenMajor</defName>
     <label>deep regeneration</label>
-    <description>Generate a very power psychic energy field within the body of a organic being that boosts the bodies ability to heal, helps recovery from illness or forces it to regenerate lost organs or limbs. It can be used on any condition but the caster wont be able to choose the specific condition. While the process is very quick, those exposed to it will be rather drained and will take time to adjust to the changes.</description>
+    <description>Generate a very powerful psychic energy field within the body of a organic being that boosts the bodies ability to heal, helps recovery from illness or forces it to regenerate from scars, lost organs, limbs or even addiction. It can be used on any condition but the caster wont be able to choose the specific one, instead the psychic field will focus on the worst condition. While the process is very quick, those exposed to it will be rather drained and will take significant time to adjust to the changes.</description>
     <level>5</level>
-    <iconPath>UI/Abilities/WIP</iconPath>
+    <iconPath>UI/Abilities/SLP_Psycast_DeepRegen</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
