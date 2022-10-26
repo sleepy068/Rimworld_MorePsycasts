@@ -175,7 +175,7 @@
     <label>flash heal</label>
     <description>Generate a powerful resonating energy field within the body of a organic being that rapidly forces the body to repair damage. While the process is very quick, those exposed to it will be somewhat drained and it will take a little time to adjust. Continuous exposure will lengthen the time it takes to recover from the negative effects.</description>
     <level>4</level>
-    <iconPath>UI/Abilities/WIP</iconPath>
+    <iconPath>UI/Abilities/SLP_Psycast_FlashHeal</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
