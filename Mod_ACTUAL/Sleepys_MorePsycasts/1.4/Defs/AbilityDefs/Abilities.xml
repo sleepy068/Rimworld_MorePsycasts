@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
+  
+  <!-- Arctic Pinhole -->
   <AbilityDef ParentName="PsycastBaseSkip">
     <defName>SLP_PSY_ArcticPinhole</defName>
     <label>arctic pinhole</label>
@@ -43,6 +44,7 @@
     </comps>
   </AbilityDef>
   
+  <!-- Immunity Boost -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_ImmunityBoost</defName>
     <label>immunity boost</label>
@@ -82,10 +84,11 @@
     </comps>
   </AbilityDef>
   
+  <!-- Healing Boost -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_HealingBoost</defName>
     <label>healing boost</label>
-    <description>Generate a resonating energy field within the body of a mechanical or organic being that boosts both the bodies ability to repair damage.</description>
+    <description>Generate a resonating energy field within the body of a organic being that boosts the bodies ability to repair damage.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_HealingBoost</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
@@ -103,7 +106,7 @@
 	  <range>-1</range>
       <targetParams>
         <canTargetSelf>True</canTargetSelf>
-		<canTargetMechs>True</canTargetMechs>
+		<canTargetMechs>False</canTargetMechs>
         <canTargetAnimals>True</canTargetAnimals>
       </targetParams>
     </verbProperties>
@@ -113,7 +116,7 @@
         <hediffDef>SLP_Psycast_HealingBoost</hediffDef>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
-        <applicableToMechs>True</applicableToMechs>
+        <applicableToMechs>False</applicableToMechs>
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>PsycastPsychicEffect</fleckDef>
@@ -121,10 +124,11 @@
     </comps>
   </AbilityDef>
   
+  <!-- Deep Regeneration -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_RegenMajor</defName>
     <label>deep regeneration</label>
-    <description>Generate a very powerful psychic energy field within the body of a organic being that boosts the bodies ability to heal, helps recovery from illness or forces it to regenerate from scars, lost organs, limbs or even addiction. It can be used on any condition but the caster wont be able to choose the specific one, instead the psychic field will focus on the worst condition. While the process is very quick, those exposed to it will be rather drained and will take significant time to adjust to the changes.</description>
+    <description>Generate an incredibly powerful psychic energy field within the body of a organic being that boosts the bodies ability to heal. It will help with recovery from illness, fade scars, regenerate lost organs, limbs or even reset a brain suffering from addiction. It can be used on any condition but the caster wont be able to choose the specific one, instead the psychic flow will focus on the condition causing the most pain and problems. While the process is very quick, those exposed to it will be rather drained and will take significant time to adjust to the changes.</description>
     <level>5</level>
     <iconPath>UI/Abilities/SLP_Psycast_DeepRegen</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
@@ -134,6 +138,7 @@
     <statBases>
       <Ability_EntropyGain>65</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.8</Ability_PsyfocusCost>
+	  <Ability_Duration>20</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>10.0</warmupTime>
@@ -155,6 +160,52 @@
       </li>
 	  <li Class = "CompProperties_AbilityEffect">
         <compClass>CompAbilityEffect_FixWorstHealthCondition</compClass>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Flash Heal -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_FlashHeal</defName>
+    <label>flash heal</label>
+    <description>Generate a powerful resonating energy field within the body of a organic being that rapidly forces the body to repair damage. While the process is very quick, those exposed to it will be somewhat drained and it will take a little time to adjust. Continuous exposure will lengthen the time it takes to recover from the negative effects.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/WIP</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.55</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>5.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_HealingPains</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+	  <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_FlashHeal</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
         <applicableToMechs>False</applicableToMechs>
       </li>

@@ -17,13 +17,27 @@
   
   <HediffDef ParentName="PsycastHediffBase">
     <defName>SLP_Psycast_HealingBoost</defName>
-    <label>psychic rapid healing</label>
-    <description>Psychically-induced healing and repair.</description>
+    <label>psychic healing</label>
+    <description>Psychically-induced healing.</description>
     <isBad>false</isBad>
     <stages>
       <li>
         <statOffsets>
           <InjuryHealingFactor>0.60</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_FlashHeal</defName>
+    <label>psychic rapid healing</label>
+    <description>Rapid and draining psychically-induced healing.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <InjuryHealingFactor>10.0</InjuryHealingFactor>
         </statOffsets>
       </li>
     </stages>
