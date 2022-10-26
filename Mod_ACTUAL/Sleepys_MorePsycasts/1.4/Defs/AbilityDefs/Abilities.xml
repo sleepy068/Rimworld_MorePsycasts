@@ -183,6 +183,7 @@
     <statBases>
       <Ability_EntropyGain>40</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.55</Ability_PsyfocusCost>
+	  <Ability_Duration>21</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>5.0</warmupTime>
@@ -195,16 +196,11 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class = "CompProperties_AbilityGiveHediff">
-        <compClass>CompAbilityEffect_GiveHediff</compClass>
-        <hediffDef>SLP_HealingPains</hediffDef>
-        <durationMultiplier>PsychicSensitivity</durationMultiplier>
-        <psychic>True</psychic>
-        <applicableToMechs>False</applicableToMechs>
-      </li>
-	  <li Class = "CompProperties_AbilityGiveHediff">
-        <compClass>CompAbilityEffect_GiveHediff</compClass>
-        <hediffDef>SLP_Psycast_FlashHeal</hediffDef>
+	  <!-- Clone of the GiveHediff code that allows me to give two hediffs at once instead of only one -->
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityGiveTwoHediff">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_GiveTwoHediff</compClass>
+		<hediffDef>SLP_Psycast_FlashHeal</hediffDef>
+        <hediffDef2>SLP_HealingPains</hediffDef2>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
         <applicableToMechs>False</applicableToMechs>
