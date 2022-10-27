@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     
-	<HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
+  <HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
     <defName>SLP_RegenSickness</defName>
     <label>renewal sickness</label>
     <description>Deep psychic destabilisation of the body from hypercharging natural healing processes and pushing beyond them. Renewal Sickness, also known as Regeneration sickness, lasts from a few to several weeks depending on the level of exposure, causing consciousness reduction, discomfort, sluggishness and an increased appetite. It resolves itself with time.</description>
     <isBad>true</isBad>
-	<tendable>true</tendable>
 	<everCurableByItem>false</everCurableByItem>
 	
     <initialSeverity>7</initialSeverity>
@@ -100,7 +99,6 @@
     <label>healing pains</label>
     <description>Residue pains and discomfort from psychically supercharging the bodies natural healing processes. Healing pains cause general pain throughout the body as well as making sleep less effective while the supercharged bodily functions return to normal. Healing pains will last days to weeks depending on the level of exposure. It will pass with time.</description>
     <isBad>true</isBad>
-	<tendable>true</tendable>
 	<everCurableByItem>false</everCurableByItem>
 	
     <initialSeverity>7</initialSeverity>

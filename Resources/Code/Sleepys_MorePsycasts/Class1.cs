@@ -76,6 +76,74 @@ namespace Sleepys_MorePsycasts
         }
     }
 
+    public class CompAbilityEffect_FertilitySkip : CompAbilityEffect
+    {
+        public static IEnumerable<IntVec3> AffectedCells(
+        LocalTargetInfo target,
+        Map map,
+        Ability parent)
+        {
+            if (!target.Cell.Filled(parent.pawn.Map))
+            {
+                foreach (IntVec3 intVec3 in GenRadial.RadialCellsAround(target.Cell, parent.def.EffectRadius, true))
+                {
+                    IntVec3 item = intVec3;
+                    if (item.InBounds(map) && GenSight.LineOfSightToEdges(target.Cell, item, map, true))
+                        yield return item;
+                    item = new IntVec3();
+                }
+            }
+        }
+
+        public new CompProperties_AbilityEffect Props => (CompProperties_AbilityEffect)this.props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            Map map = this.parent.pawn.Map;
+            foreach (IntVec3 affectedCell in AffectedCells(target, map, this.parent))
+            {
+                TerrainDef terrain = map.terrainGrid.TerrainAt(affectedCell);
+                if (!terrain.IsRiver)
+                {
+                    if (terrain.IsWater)
+                    {
+                        TerrainDef named = DefDatabase<TerrainDef>.GetNamed("Mud");
+                        if (named != null)
+                            map.terrainGrid.SetTerrain(affectedCell, named);
+                        else
+                            map.terrainGrid.SetTerrain(affectedCell, TerrainDefOf.Sand);
+                    }
+                    else
+                    {
+                        List<TerrainDef> terrainDefList = new List<TerrainDef>();
+                        terrainDefList.Add(TerrainDefOf.Gravel);
+                        terrainDefList.Add(TerrainDefOf.Soil);
+                        foreach (TerrainThreshold terrainThreshold in map.Biome.terrainsByFertility)
+                        {
+                            if (!terrainDefList.Contains(terrainThreshold.terrain))
+                                terrainDefList.Add(terrainThreshold.terrain);
+                        }
+                        foreach (TerrainPatchMaker terrainPatchMaker in map.Biome.terrainPatchMakers)
+                        {
+                            foreach (TerrainThreshold threshold in terrainPatchMaker.thresholds)
+                            {
+                                if (!terrainDefList.Contains(threshold.terrain))
+                                    terrainDefList.Add(threshold.terrain);
+                            }
+                        }
+                        IOrderedEnumerable<TerrainDef> source = terrainDefList.FindAll((Predicate<TerrainDef>)(e => (double)e.fertility > (double)terrain.fertility && (double)e.fertility <= 1.0)).OrderBy<TerrainDef, float>((Func<TerrainDef, float>)(e => e.fertility));
+                        if (source.Count<TerrainDef>() != 0)
+                        {
+                            TerrainDef newTerr = source.First<TerrainDef>();
+                            map.terrainGrid.SetTerrain(affectedCell, newTerr);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     [DefOf]
     public class HediffDefOf
     {

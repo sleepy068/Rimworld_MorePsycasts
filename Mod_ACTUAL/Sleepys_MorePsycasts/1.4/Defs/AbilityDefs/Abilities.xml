@@ -183,7 +183,7 @@
     <statBases>
       <Ability_EntropyGain>40</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.55</Ability_PsyfocusCost>
-	  <Ability_Duration>21</Ability_Duration>
+	  <Ability_Duration>28</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>5.0</warmupTime>
@@ -196,7 +196,7 @@
       </targetParams>
     </verbProperties>
     <comps>
-	  <!-- Clone of the GiveHediff code that allows me to give two hediffs at once instead of only one -->
+	  <!-- Clone of the GiveHediff CompProp and CompAbility code that allows me to give two hediffs at once instead of only one -->
 	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityGiveTwoHediff">
         <compClass>Sleepys_MorePsycasts.CompAbilityEffect_GiveTwoHediff</compClass>
 		<hediffDef>SLP_Psycast_FlashHeal</hediffDef>
@@ -207,6 +207,115 @@
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Carry All -->
+  <!--
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_CarryAll</defName>
+    <label>carry all</label>
+    <description>Psychically enhance and support a humans ability to carry and haul more. The psychic energy helps take the pressure off the muscles and body effectively acting like a exoskeleton for a moderate amount of time.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_CarryAll</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
+	  <Ability_Duration>1000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_CarryAll</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  -->
+  
+  <!-- Resurrect -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Resurrect</defName>
+    <label>resurrect</label>
+    <description>Generate an incredibly powerful psychic energy field within the body of a organic being that boosts the bodies ability to heal. It will help with recovery from illness, fade scars, regenerate lost organs, limbs or even reset a brain suffering from addiction. It can be used on any condition but the caster wont be able to choose the specific one, instead the psychic flow will focus on the condition causing the most pain and problems. While the process is very quick, those exposed to it will be rather drained and will take significant time to adjust to the changes.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Res</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_EntropyGain>150</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.9</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>5.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetItems>True</canTargetItems>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <li Class = "CompProperties_AbilityEffect">
+        <compClass>CompAbilityEffect_Resurrect</compClass>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Ignite -->
+  
+  <!-- Clean Skip -->
+  
+  <!-- Fertility Skip -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_FertilitySkip</defName>
+    <label>fertility skip</label>
+    <description>Using psychically linked skipgates to either remove or add components from soil, the soils fertility is increased. The precision of this psycast does not allow for the generation of rich soil.</description>
+    <level>6</level>
+    <iconPath>UI/Abilities/SLP_Psycast_FertilitySkip</iconPath>
+	<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <statBases>
+      <Ability_PsyfocusCost>0.8</Ability_PsyfocusCost>
+	  <Ability_EffectRadius>1.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>3</warmupTime>
+      <range>14.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityEffect">
+		<compClass>Sleepys_MorePsycasts.CompAbilityEffect_FertilitySkip</compClass>
+	    <sound>PsycastPsychicEffect</sound>
       </li>
     </comps>
   </AbilityDef>
