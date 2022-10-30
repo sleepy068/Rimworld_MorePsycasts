@@ -373,7 +373,7 @@
     <comps>
       <li Class = "CompProperties_AbilityGiveHediff">
         <compClass>CompAbilityEffect_GiveHediff</compClass>
-        <hediffDef>SLP_Psycast_StabilizingTouch</hediffDef>
+        <hediffDef>SLP_Psycast_Haemostasis</hediffDef>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
         <applicableToMechs>False</applicableToMechs>
