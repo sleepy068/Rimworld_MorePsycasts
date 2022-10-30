@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
+using Verse.Sound;
 using RimWorld;
+using UnityEngine;
 
 namespace Sleepys_MorePsycasts
 {
@@ -16,7 +18,7 @@ namespace Sleepys_MorePsycasts
 
     public class CompAbilityEffect_GiveTwoHediff : CompAbilityEffect_WithDuration
     {
-        public CompProperties_SLP_AbilityGiveTwoHediff Props => (CompProperties_SLP_AbilityGiveTwoHediff)this.props;
+        public new CompProperties_SLP_AbilityGiveTwoHediff Props => (CompProperties_SLP_AbilityGiveTwoHediff)this.props;
 
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
@@ -141,6 +143,102 @@ namespace Sleepys_MorePsycasts
                     }
                 }
             }
+        }
+    }
+
+    public class SLP_CompAbilityEffect_Mending : CompAbilityEffect
+    {
+        public new CompProperties_AbilityEffect Props => (CompProperties_AbilityEffect)this.props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            Map map = this.parent.pawn.Map;
+            Thing thing = target.Thing == null ? target.Cell.GetThingList(map).RandomElement<Thing>() : target.Thing;
+            int num = Math.Min(thing.MaxHitPoints - thing.HitPoints - (thing.HitPoints / 2), 300);
+            thing.HitPoints += num;
+            SoundDefOf.Psycast_Skip_Exit.PlayOneShot((SoundInfo)new TargetInfo(target.Cell, map));
+            SLP_Utilities.SpawnFleck(target, FleckDefOf.PsycastSkipInnerExit, map);
+            SLP_Utilities.SpawnFleck(target, FleckDefOf.PsycastSkipOuterRingExit, map);
+            SLP_Utilities.SpawnEffecter(target, EffecterDefOf.Skip_Exit, map, 60, this.parent);
+        }
+    }
+
+    public class SLP_CompAbilityEffect_Ignite : CompAbilityEffect
+    {
+        public new CompProperties_AbilityEffect Props => (CompProperties_AbilityEffect)this.props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            if (target == (LocalTargetInfo)(Thing)null)
+                Log.Message("Tried to apply ignite to nothing.");
+            else
+                FireUtility.TryStartFireIn(target.Cell, this.parent.pawn.Map, 0.1f);
+        }
+
+        public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest) => (double)FireUtility.ChanceToStartFireIn(target.Cell, this.parent.pawn.Map) > 0.0;
+    }
+
+    public class SLP_CompAbilityEffect_CleanSkip : CompAbilityEffect
+    {
+        public new CompProperties_AbilityEffect Props => (CompProperties_AbilityEffect)this.props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            Map map = this.parent.pawn.Map;
+            foreach (IntVec3 affectedCell in SLP_Utilities.AffectedCells(target, map, this.parent))
+            {
+                List<Thing> thingList = affectedCell.GetThingList(map);
+                for (int index = 0; index < thingList.Count; ++index)
+                {
+                    if (thingList[index] is Filth filth)
+                    {
+                        filth.Destroy();
+                        SoundDefOf.Psycast_Skip_Exit.PlayOneShot((SoundInfo)new TargetInfo(affectedCell, map));
+                        SLP_Utilities.SpawnFleck(new LocalTargetInfo(affectedCell), FleckDefOf.PsycastSkipInnerExit, map);
+                        SLP_Utilities.SpawnFleck(new LocalTargetInfo(affectedCell), FleckDefOf.PsycastSkipOuterRingExit, map);
+                        SLP_Utilities.SpawnEffecter(new LocalTargetInfo(affectedCell), EffecterDefOf.Skip_Exit, map, 60, this.parent);
+                    }
+                }
+            }
+        }
+    }
+
+    public class SLP_Utilities
+    {
+        public static IEnumerable<IntVec3> AffectedCells(LocalTargetInfo target, Map map, Ability parent)
+        {
+            if (!target.Cell.Filled(parent.pawn.Map))
+            {
+                foreach (IntVec3 intVec3 in GenRadial.RadialCellsAround(target.Cell, parent.def.EffectRadius, true))
+                {
+                    IntVec3 item = intVec3;
+                    if (item.InBounds(map) && GenSight.LineOfSightToEdges(target.Cell, item, map, true))
+                        yield return item;
+                    item = new IntVec3();
+                }
+            }
+        }
+
+        public static void SpawnFleck(LocalTargetInfo target, FleckDef def, Map map)
+        {
+            if (target.HasThing)
+                FleckMaker.AttachedOverlay(target.Thing, def, Vector3.zero);
+            else
+                FleckMaker.Static(target.Cell, map, def);
+        }
+
+        public static void SpawnEffecter(
+          LocalTargetInfo target,
+          EffecterDef def,
+          Map map,
+          int maintainForTicks,
+          Ability parent)
+        {
+            Effecter eff = !target.HasThing ? def.Spawn(target.Cell, map) : def.Spawn(target.Thing, map);
+            parent.AddEffecterToMaintain(eff, target.Cell, maintainForTicks);
         }
     }
 

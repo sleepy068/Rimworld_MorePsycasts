@@ -288,9 +288,33 @@
     </comps>
   </AbilityDef>
   
-  <!-- Ignite -->
-  
   <!-- Clean Skip -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_CleanSkip</defName>
+    <label>clean skip</label>
+    <description>Skips all filth in the selected area into the core of a nearby star, destroying it.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_CleanSkip</iconPath>
+	<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <statBases>
+      <Ability_PsyfocusCost>0.1</Ability_PsyfocusCost>
+	  <Ability_EffectRadius>14.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityEffect">
+		<compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_CleanSkip</compClass>
+	    <sound>PsycastPsychicEffect</sound>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Fertility Skip -->
   <AbilityDef ParentName="PsycastBaseSkip">
@@ -320,4 +344,100 @@
     </comps>
   </AbilityDef>
   
+  <!-- Haemostasis  -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Haemostasis</defName>
+    <label>haemostasis</label>
+    <description>Create psychic energy fields on any open wounds to stop any bleeding for a short time.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/WIP</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_EntropyGain>5</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+	  <Ability_Duration>180</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.1</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_StabilizingTouch</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- Ignite -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Ignite</defName>
+    <label>ignite</label>
+    <description>Psychically energise the atoms of a nearby object to their flash point, causing a small fire.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/WIP</iconPath>
+    <statBases>
+	  <Ability_EntropyGain>5</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <range>9.9</range>
+      <targetParams>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetItems>True</canTargetItems>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityEffect">
+		<compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Ignite</compClass>
+	    <sound>PsycastPsychicEffect</sound>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Recondition -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>MorePsycasts_Recondition</defName>
+    <label>recondition</label>
+    <description>Rapidly generate thousands of microscopic skip gates across multiple planets and stellar objects while focusing them to replace and organically repair any damaged items. The process will generally repair the focused object but the neural heat generated is significant.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/WIP</iconPath>
+    <statBases>
+	  <Ability_EntropyGain>90</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2.5</warmupTime>
+      <range>14.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+		<canTargetItems>True</canTargetItems>
+		<canTargetBuildings>True</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityEffect">
+		<compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Mending</compClass>
+	    <sound>PsycastPsychicEffect</sound>
+      </li>
+    </comps>
+  </AbilityDef>
 </Defs>

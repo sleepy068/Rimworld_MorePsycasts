@@ -43,4 +43,16 @@
     </stages>
   </HediffDef>
   
+  <HediffDef ParentName = "PsycastHediffBase">
+	<defName>SLP_Psycast_Haemostasis</defName>
+	<label>haemostasis</label>
+	<description>Psychically-induced haemostasis.</description>
+	<isBad>false</isBad>
+	<stages>
+	  <li>
+		<totalBleedFactor>0.0</totalBleedFactor>
+	  </li>
+	</stages>
+  </HediffDef>
+  
 </Defs>
