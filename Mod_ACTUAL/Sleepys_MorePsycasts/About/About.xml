@@ -9,17 +9,38 @@
     </supportedVersions>
 
     <description>
+[img]https://i.imgur.com/IIdHbEw.png[/img]
 [h2]Sleepy's More Psycasts (v1.0.0)[/h2]
 
 [b]Credit[/b]
+This mod is a fork of Noodles and DC's amazing [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2460833332]More Psycasts[/url] mod. I absolutely loved their mod, so much so i approached them to fork it when 1.4 released. During this process I become worried that what I envisioned and considered balanced was skewing too far from what they originally designed. In releasing this, I supported Noodles in updating the original mod to 1.4 so as to ensure those that enjoyed that mod could continue to do so while I could make my fork exactly how I wanted too.
+
 
 [img]https://i.imgur.com/DbnM7jC.png[/img]
 [b]What Does This Mod Add?[/b]
+15 new psycasts:
+[img]https://i.imgur.com/SLmwvWv.png[/img]
+[img]https://i.imgur.com/2rh1iv6.png[/img]
+[img]https://i.imgur.com/o6QJzTR.png[/img]
+[img]https://i.imgur.com/HzzR7xj.png[/img]
+[img]https://i.imgur.com/kycUCKb.png[/img]
+[img]https://i.imgur.com/F1v79QI.png[/img]
+[img]https://i.imgur.com/gow9Ur4.png[/img]
+[img]https://i.imgur.com/FltS3da.png[/img]
+[img]https://i.imgur.com/tt3I7AF.png[/img]
+[img]https://i.imgur.com/wBbkahm.png[/img]
+[img]https://i.imgur.com/hTEeTvq.png[/img]
+[img]https://i.imgur.com/TiKhA6i.png[/img]
+[img]https://i.imgur.com/DarpE8a.png[/img]
+[img]https://i.imgur.com/bIh1sIe.png[/img]
+[img]https://i.imgur.com/22QLKRl.png[/img]
 
 
 [img]https://i.imgur.com/ss8ZNXk.png[/img]
 [b]Roadmap:[/b]
-
+- Add VPE Compatibility (In the works but I basically have to add a second version of every psycast I add into their format so it'll take time).
+- Mod Options (I did try to add this but I was having trouble getting it to work so it'll be something I need to research and look into getting to work).
+- Add more relevant and balanced psycasts.
 
 [img]https://i.imgur.com/YySbEPN.png[/img]
 [b]On Going Games:[/b]
@@ -27,18 +48,18 @@
 - It will cause issues if removed from an existing save (consider starting a new game to see if you are happy with the content).
 
 [b]Compatibility[/b]
-- Combat Extended: Not Compatible (I don't play with this mod sorry, if my mod becomes popular enough, I'll write a patch)
+- Combat Extended: Not Compatible
 
 [b]Integrated Compatibility:[/b]
 None at the moment.
 
 [img]https://i.imgur.com/gghc3iQ.png[/img]
 [b]Conflicts[/b]
-None yet detected.
+No know conflicts.
 
 [img]https://i.imgur.com/31kQWwH.png[/img]
 [b]Known Issues[/b]
-No known issues.
+Psycasts won't currently show up if you are playing with Vanilla Psycasts Expanded. I am working on fixing this.
 
 [img]https://i.imgur.com/WokZwPP.png[/img]
 [b]Language Support[/b]
@@ -46,6 +67,7 @@ English (Always Latest)(Developed in this Language)
 
 Latest Version:
 https://github.com/sleepy068/Rimworld_MorePsycasts
+    
     </description>
 
     <modDependencies>

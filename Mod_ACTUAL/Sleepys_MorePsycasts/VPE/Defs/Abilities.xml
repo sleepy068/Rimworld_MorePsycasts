@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>MorePsycasts_StabilizingTouch</defName>
+      <label>stabilizing touch</label>
+      <description>Stem the bleeding of a creature for a limited time.</description>
+      <iconPath>Icons/stabilize</iconPath>
+	  <castTime>30</castTime>
+	  <durationTime>7500</durationTime>
+	  <targetMode>Pawn</targetMode>
+	  <range>20</range>
+	  <goodwillImpact>-100</goodwillImpact>
+	  <abilityClass>VanillaPsycastsExpanded.Ability_PsychicShock</abilityClass>
+	  <castSound>PsychicShockLanceCast</castSound>
+	  <fleckOnTarget>PsycastAreaEffect</fleckOnTarget>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>NoodlesMorePsycasts_Dcier</path>
+          <level>1</level>
+          <order>1</order>
+          <psyfocusCost>0.12</psyfocusCost>
+          <entropyGain>30</entropyGain>
+          <psychic>true</psychic>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>PsychicShock</hediff>
+			<durationMultiplier>PsychicSensitivity</durationMultiplier>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+
+</Defs>
