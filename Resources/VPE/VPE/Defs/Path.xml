@@ -5,8 +5,8 @@
         <defName>SleepysMorePsycasts_Paramedica</defName>
         <label>paramedica</label>
         <description>Paramedica psycasts are focused on healing and recovery of others.</description>
-		<background>UI/Paramedica</background>
-		<altBackground>UI/ParamedicaAlt</altBackground>
+		<background>UI/VPE/Paramedica</background>
+		<altBackground>UI/VPE/ParamedicaAlt</altBackground>
         <tab>Psycasts</tab>
         <tooltip>Paramedica psycasters are committed and focused on healing allies. Their abilities may not always turn the tide of the battle but they'll ensure their kin are always at their best before battle.</tooltip>
     </VanillaPsycastsExpanded.PsycasterPathDef>
@@ -16,8 +16,8 @@
         <defName>SleepysMorePsycasts_Slekcaster</defName>
         <label>slekcaster</label>
         <description>Slekcaster psycasts are focused on utility and ability.</description>
-		<background>UI/Slekcaster</background>
-		<altBackground>UI/SlekcasterAlt</altBackground>
+		<background>UI/VPE/Slekcaster</background>
+		<altBackground>UI/VPE/SlekcasterAlt</altBackground>
         <tab>Psycasts</tab>
         <tooltip>Slekcaster psycasters are commited to providing utility and ability for their kin.</tooltip>
     </VanillaPsycastsExpanded.PsycasterPathDef>
@@ -27,9 +27,9 @@
 	<VanillaPsycastsExpanded.PsycasterPathDef>
         <defName>SleepysMorePsycasts_Ciphicer</defName>
         <label>ciphicer</label>
-        <description>Ciphicer psycasts are focused on ruses and trickier but have incredible power.</description>
-		<background>UI/Ciphicer</background>
-		<altBackground>UI/CiphicerAlt</altBackground>
+        <description>Ciphicer psycasts are focused on ruses and tricks but have incredible power.</description>
+		<background>UI/VPE/Ciphicer</background>
+		<altBackground>UI/VPE/CiphicerAlt</altBackground>
         <tab>Psycasts</tab>
         <tooltip>Ciphicer psycasters follow the story of an ancient and long lost inter-dimensional demon. Although the demon has only ever been rumoured to visit the psycasters dreams and has never been seen the psycasts that have been created from these stories are certainly real and certainly powerful.</tooltip>
     </VanillaPsycastsExpanded.PsycasterPathDef>

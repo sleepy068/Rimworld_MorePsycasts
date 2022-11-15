@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_SLP_PSY_ArcticPinhole</defName>
+    <label>arctic pinhole</label>
+    <description>Generate a microscopic material-shielded skipgate linked to deep interstellar space. Atmospheric and Solar material are protected from leaking through the pinprick in spacetime into the vacuum but energy is not. The skipgate rapidly draws heat from the surrounding area and radiates it into deep space until it closes. The skipgate generates a very amount of light but this is only from the gate itself.</description>
+	<iconPath>UI/Abilities/SLP_Psycast_ArcticPinhole</iconPath>
+	<abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+    <needsTicking>true</needsTicking>
+    <castTime>0.2</castTime>
+    <durationTime>5000</durationTime>
+    <radius>14.9</radius>
+    <range>24.9</range>
+    <targetMode>Location</targetMode>
+	<showUndrafted>true</showUndrafted>
+	<!--
+	<targetModes>
+      <li>Pawn</li>
+      <li>Location</li>
+    </targetModes>
+    <targetingParametersList>
+      <li>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetPawns>True</canTargetPawns>
+        <canTargetBuildings>False</canTargetBuildings>
+        <canTargetItems>true</canTargetItems>
+		<canTargetAnimals>False</canTargetAnimals>
+        <canTargetMechs>False</canTargetMechs>
+		<canTargetLocations>false</canTargetLocations>
+      </li>
+      <li Class="VFECore.Abilities.TargetingParametersForAoE">
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetBlockedLocations>false</canTargetBlockedLocations>
+      </li>
+    </targetingParametersList>
+	-->
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>SleepysMorePsycasts_Paramedica</path>
+          <level>1</level>
+          <order>1</order>
+          <psyfocusCost>0.08</psyfocusCost>
+          <entropyGain>0</entropyGain>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Spawn">
+        <thing>SLP_ETH_ArcticPinhole</thing>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>0.42</scale>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <scale>0.42</scale>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+</Defs>
