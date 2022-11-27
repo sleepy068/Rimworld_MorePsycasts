@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     
+  <!-- Renewal Sickness -->
   <HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
     <defName>SLP_RegenSickness</defName>
     <label>renewal sickness</label>
@@ -94,6 +95,7 @@
     </stages>
   </HediffDef>
   
+  <!-- Healing Pains -->
   <HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
     <defName>SLP_HealingPains</defName>
     <label>healing pains</label>
@@ -153,4 +155,130 @@
     </stages>
   </HediffDef>
 	
+  <!-- Phoenix Syndrome -->
+  <HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
+    <defName>SLP_PhoenixSyndrome</defName>
+    <label>phoenix syndrome</label>
+    <description>Pains, blurred restored memories and serious discomfort from psychically restarting the body, flash restoring any damage it had and bringing the person back to life. Phoenix syndrome causes general pain throughout the body as well as an array of other issues related to being dead and that suddenly changing, including mental instability and learning difficulties. Phoenix syndrome will last months to years before it finally passes but it gets progressively worse if the person dies and is psychically resurrected again.</description>
+    <isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
+	
+    <initialSeverity>10</initialSeverity>
+    <maxSeverity>30</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.5</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	  <!--<li Class="HediffCompProperties_DisappearsOnDeath"/>-->
+    </comps>
+    <stages>
+      <li>
+        <label>acclimatising</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>1.0</minSeverity>
+        <label>minor</label>
+		<painOffset>0.075</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.10</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>6.5</minSeverity>
+        <label>major</label>
+		<painOffset>0.10</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.15</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+		<mentalStateGivers>
+          <li>
+            <mentalState>WanderConfused</mentalState>
+            <mtbDays>6</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+	  <li>
+        <minSeverity>11.0</minSeverity>
+        <label>severe</label>
+		<painOffset>0.15</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.30</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.15</offset>
+          </li>
+        </capMods>
+		<mentalStateGivers>
+          <li>
+            <mentalState>WanderConfused</mentalState>
+            <mtbDays>5</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+	  <li>
+        <minSeverity>21.0</minSeverity>
+        <label>extreme</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+	
+  <!-- ResSickness -->	
+  <HediffDef ParentName="DiseaseBase">
+    <defName>SLP_ResurrectionSickness</defName>
+    <label>resurrection sickness</label>
+    <description>After-effects of resurrection. Psychically-restarted body processes take time to rebalance themselves.</description>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>90000~150000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <vomitMtbDays>0.5</vomitMtbDays>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>0.1</postFactor>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <postFactor>0.1</postFactor>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  
 </Defs>

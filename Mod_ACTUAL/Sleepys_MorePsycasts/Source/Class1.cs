@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 using Verse.Sound;
+using Verse.AI.Group;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 
 namespace Sleepys_MorePsycasts
@@ -270,6 +269,149 @@ namespace Sleepys_MorePsycasts
         }
     }
 
+    public class SLP_CompAbilityEffect_Resurrect : CompAbilityEffect
+    {
+        public new CompProperties_Resurrect Props => (CompProperties_Resurrect)this.props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
+            SLP_ResurrectionUtility.ResurrectWithSideEffects(innerPawn);
+            Messages.Message((string)"MessagePawnResurrected".Translate((NamedArgument)(Thing)innerPawn), (LookTargets)(Thing)innerPawn, MessageTypeDefOf.PositiveEvent);
+            MoteMaker.MakeAttachedOverlay((Thing)innerPawn, ThingDefOf.Mote_ResurrectFlash, Vector3.zero);
+        }
+
+        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+        {
+            if (!target.HasThing || !(target.Thing is Corpse thing) || thing.GetRotStage() != RotStage.Dessicated)
+                return base.Valid(target, throwMessages);
+            if (throwMessages)
+                Messages.Message((string)"MessageCannotResurrectDessicatedCorpse".Translate(), (LookTargets)(Thing)thing, MessageTypeDefOf.RejectInput, false);
+            return false;
+        }
+    }
+
+    public static class SLP_ResurrectionUtility
+    {
+        private static SimpleCurve DementiaChancePerRotDaysCurve = new SimpleCurve()
+    {
+      {
+        new CurvePoint(0.1f, 0.02f),
+        true
+      },
+      {
+        new CurvePoint(5f, 0.8f),
+        true
+      }
+    };
+        private static SimpleCurve BlindnessChancePerRotDaysCurve = new SimpleCurve()
+    {
+      {
+        new CurvePoint(0.1f, 0.02f),
+        true
+      },
+      {
+        new CurvePoint(5f, 0.8f),
+        true
+      }
+    };
+
+        public static void Resurrect(Pawn pawn)
+        {
+            if (!pawn.Dead)
+                Log.Error("Tried to resurrect a pawn who is not dead: " + pawn.ToStringSafe<Pawn>());
+            else if (pawn.Discarded)
+            {
+                Log.Error("Tried to resurrect a discarded pawn: " + pawn.ToStringSafe<Pawn>());
+            }
+            else
+            {
+                Corpse corpse = pawn.Corpse;
+                bool flag1 = false;
+                IntVec3 loc = IntVec3.Invalid;
+                Map map = (Map)null;
+                bool flag2 = Find.Selector.IsSelected((object)corpse);
+                if (corpse != null)
+                {
+                    flag1 = corpse.Spawned;
+                    loc = corpse.Position;
+                    map = corpse.Map;
+                    corpse.InnerPawn = (Pawn)null;
+                    corpse.Destroy(DestroyMode.Vanish);
+                }
+                if (flag1 && pawn.IsWorldPawn())
+                    Find.WorldPawns.RemovePawn(pawn);
+                pawn.ForceSetStateToUnspawned();
+                PawnComponentsUtility.CreateInitialComponents(pawn);
+                pawn.health.Notify_Resurrected();
+                if (pawn.Faction != null && pawn.Faction.IsPlayer)
+                {
+                    if (pawn.workSettings != null)
+                        pawn.workSettings.EnableAndInitialize();
+                    Find.StoryWatcher.watcherPopAdaptation.Notify_PawnEvent(pawn, PopAdaptationEvent.GainedColonist);
+                }
+                if (pawn.RaceProps.IsMechanoid && MechRepairUtility.IsMissingWeapon(pawn))
+                    MechRepairUtility.GenerateWeapon(pawn);
+                if (flag1)
+                {
+                    GenSpawn.Spawn((Thing)pawn, loc, map);
+                    if (pawn.Faction != null && pawn.Faction != Faction.OfPlayer && pawn.HostileTo(Faction.OfPlayer))
+                        LordMaker.MakeNewLord(pawn.Faction, (LordJob)new LordJob_AssaultColony(pawn.Faction), pawn.Map, Gen.YieldSingle<Pawn>(pawn));
+                    if (pawn.apparel != null)
+                    {
+                        List<Apparel> wornApparel = pawn.apparel.WornApparel;
+                        for (int index = 0; index < wornApparel.Count; ++index)
+                            wornApparel[index].Notify_PawnResurrected();
+                    }
+                }
+                PawnDiedOrDownedThoughtsUtility.RemoveDiedThoughts(pawn);
+                if (pawn.royalty != null)
+                    pawn.royalty.Notify_Resurrected();
+                if (pawn.guest != null && pawn.guest.interactionMode == PrisonerInteractionModeDefOf.Execution)
+                    pawn.guest.interactionMode = PrisonerInteractionModeDefOf.NoInteraction;
+                if (!flag2 || pawn == null)
+                    return;
+                Find.Selector.Select((object)pawn, false, false);
+            }
+        }
+
+        public static void ResurrectWithSideEffects(Pawn pawn)
+        {
+            Corpse corpse = pawn.Corpse;
+            float x1 = corpse == null ? 0.0f : corpse.GetComp<CompRottable>().RotProgress / 60000f;
+            ResurrectionUtility.Resurrect(pawn);
+            BodyPartRecord brain = pawn.health.hediffSet.GetBrain();
+            Hediff hediff1 = HediffMaker.MakeHediff(SLP_HediffDefOf.SLP_ResurrectionSickness, pawn);
+            Hediff hediffslp = HediffMaker.MakeHediff(SLP_HediffDefOf.SLP_PhoenixSyndrome, pawn);
+            if (!pawn.health.WouldDieAfterAddingHediff(hediff1))
+                pawn.health.AddHediff(hediff1);
+            if (!pawn.health.WouldDieAfterAddingHediff(hediffslp))
+                pawn.health.AddHediff(hediffslp);
+            if (Rand.Chance(SLP_ResurrectionUtility.DementiaChancePerRotDaysCurve.Evaluate(x1)) && brain != null)
+            {
+                Hediff hediff2 = HediffMaker.MakeHediff(HediffDefOf.Dementia, pawn, brain);
+                if (!pawn.health.WouldDieAfterAddingHediff(hediff2))
+                    pawn.health.AddHediff(hediff2);
+            }
+            if (Rand.Chance(SLP_ResurrectionUtility.BlindnessChancePerRotDaysCurve.Evaluate(x1)))
+            {
+                foreach (BodyPartRecord bodyPartRecord in pawn.health.hediffSet.GetNotMissingParts().Where<BodyPartRecord>((Func<BodyPartRecord, bool>)(x => x.def == BodyPartDefOf.Eye)))
+                {
+                    if (!pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(bodyPartRecord))
+                    {
+                        Hediff hediff3 = HediffMaker.MakeHediff(HediffDefOf.Blindness, pawn, bodyPartRecord);
+                        pawn.health.AddHediff(hediff3);
+                    }
+                }
+            }
+            if (!pawn.Dead)
+                return;
+            Log.Error("The pawn has died while being resurrected.");
+            ResurrectionUtility.Resurrect(pawn);
+        }
+    }
+
     public class SLP_Utilities
     {
         public static Hediff_Injury FindPermanentInjury(Pawn pawn, IEnumerable<BodyPartRecord> allowedBodyParts = null)
@@ -319,11 +461,12 @@ namespace Sleepys_MorePsycasts
     }
 
     [DefOf]
-    public class HediffDefOf
+    public class SLP_HediffDefOf
     {
         public static HediffDef SLP_Psycast_FlashHeal;
         public static HediffDef SLP_HealingPains;
-
+        public static HediffDef SLP_PhoenixSyndrome;
+        public static HediffDef SLP_ResurrectionSickness;
     }
 
 }

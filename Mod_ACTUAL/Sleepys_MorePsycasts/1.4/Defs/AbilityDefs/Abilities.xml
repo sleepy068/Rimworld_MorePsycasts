@@ -309,21 +309,26 @@
     <statBases>
       <Ability_EntropyGain>150</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.9</Ability_PsyfocusCost>
+	  <Ability_Duration>0</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>5.0</warmupTime>
       <drawAimPie>False</drawAimPie>
 	  <range>-1</range>
       <targetParams>
-        <canTargetSelf>True</canTargetSelf>
+	    <canTargetCorpses>True</canTargetCorpses>
+        <canTargetSelf>False</canTargetSelf>
 		<canTargetMechs>False</canTargetMechs>
         <canTargetAnimals>True</canTargetAnimals>
-		<canTargetItems>True</canTargetItems>
+		<canTargetItems>False</canTargetItems>
+		<canTargetPawns>False</canTargetPawns>
+        <!--<canTargetHumans>False</canTargetHumans>-->
+		<neverTargetIncapacitated>True</neverTargetIncapacitated>
       </targetParams>
     </verbProperties>
     <comps>
 	  <li Class = "CompProperties_AbilityEffect">
-        <compClass>CompAbilityEffect_Resurrect</compClass>
+        <compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Resurrect</compClass>
         <psychic>True</psychic>
         <applicableToMechs>False</applicableToMechs>
       </li>
@@ -597,7 +602,7 @@
   <AbilityDef ParentName="WordOfBase">
     <defName>SLP_PSY_WordOfVigor</defName>
     <label>word of vigor</label>
-    <description>v</description>
+    <description>Speak motivating and inspiring words to someone while using psychic suggestion to help them find hidden energy deep within.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_WordOfVigor</iconPath>
     <statBases>
@@ -650,5 +655,14 @@
   
   <!-- Static Burst -->
   <!-- Lvl X - EMP AOE Attack to stun Mechs -->
+  
+  <!-- Endothermic Pinhole -->
+  <!-- Lvl X - Spawn a long term arctic pinhole at negatives to the pawn -->
+  
+  <!-- Air Bolt -->
+  <!-- Lvl X - Fire a super sonic burst of air at a specific target, short range -->
+  
+  <!-- Air Burst -->
+  <!-- Lvl X - Fire create a super sonic shock wave around the caster -->
   
 </Defs>

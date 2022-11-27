@@ -1,13 +1,14 @@
-Update v1.0.0
+Update v1.0.2
 
 Additions:
 N/A
 
 Changes:
-N/A
+Balance changes to Resurrect, keeping it in line with similar effects of other psycasts and keeping it from been overpowered (thank you The Bard of Hearts!)
+New assembly code to support the above changes.
 
 Localisation:
 N/A
 
 Bug Fixes:
-N/A
+Fixed a bug with Resurrect causing a log spam bug when used on a living pawn with heat overflow off
