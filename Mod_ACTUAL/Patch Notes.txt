@@ -1,9 +1,8 @@
 Update v1.0.3
 
 Additions:
-Added 3 New Psycasts
+Added 2 New Psycasts
 - Skipscreen
-- Dart
 - Potential Unleashed
 
 Changes:
