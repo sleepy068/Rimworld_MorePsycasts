@@ -98,4 +98,33 @@
     </comps>
   </HediffDef>
   
+  <HediffDef ParentName = "PsycastHediffBase">
+	<defName>SLP_Psycast_PU</defName>
+	<label>potential unleashed</label>
+	<description>Psychically-induced body override.</description>
+	<isBad>false</isBad>
+	<stages>
+	  <li>
+	    <hungerRateFactorOffset>-0.30</hungerRateFactorOffset>
+		<restFallFactor>0.70</restFallFactor>
+		<painFactor>0.5</painFactor>
+		<capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>0.15</offset>
+            </li>
+			<li>
+              <capacity>Moving</capacity>
+              <offset>0.30</offset>
+            </li>
+          </capMods>
+		<statOffsets>
+		  <MentalBreakThreshold>-0.10</MentalBreakThreshold>
+		  <MeleeHitChance>2.00</MeleeHitChance>
+		  <MeleeDodgeChance>2.00</MeleeDodgeChance>
+        </statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+  
 </Defs>

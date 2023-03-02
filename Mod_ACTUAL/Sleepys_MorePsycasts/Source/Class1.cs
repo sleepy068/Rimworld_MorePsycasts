@@ -16,14 +16,6 @@ namespace Sleepys_MorePsycasts
         public HediffDef hediffDef2;
     }
 
-    public class HediffCompProperties_SLP_NeedOffset : HediffCompProperties
-    {
-        public NeedDef need;
-        public float offset;
-
-        public HediffCompProperties_SLP_NeedOffset() => this.compClass = typeof(SLP_HediffComp_AdjustNeed);
-    }
-
     public class CompAbilityEffect_SLP_GiveTwoHediff : CompAbilityEffect_WithDuration
     {
         public new CompProperties_SLP_AbilityGiveTwoHediff Props => (CompProperties_SLP_AbilityGiveTwoHediff)this.props;
@@ -84,6 +76,14 @@ namespace Sleepys_MorePsycasts
             }
             target.health.AddHediff(hediff2);
         }
+    }
+
+    public class HediffCompProperties_SLP_NeedOffset : HediffCompProperties
+    {
+        public NeedDef need;
+        public float offset;
+
+        public HediffCompProperties_SLP_NeedOffset() => this.compClass = typeof(SLP_HediffComp_AdjustNeed);
     }
 
     public class CompAbilityEffect_SLP_FertilitySkip : CompAbilityEffect
@@ -292,6 +292,11 @@ namespace Sleepys_MorePsycasts
         }
     }
 
+    //Below has been Added in 1.0.3 ---------------------------------------------------------------------------
+
+
+    //Additions End Here
+    //Utility Code
     public static class SLP_ResurrectionUtility
     {
         private static SimpleCurve DementiaChancePerRotDaysCurve = new SimpleCurve()
@@ -411,6 +416,7 @@ namespace Sleepys_MorePsycasts
             ResurrectionUtility.Resurrect(pawn);
         }
     }
+
 
     public class SLP_Utilities
     {

@@ -252,49 +252,7 @@
       </li>
     </comps>
   </AbilityDef>
-  
-  <!-- Carry All -->
-  <!--
-  <AbilityDef ParentName="PsycastBase">
-    <defName>SLP_PSY_CarryAll</defName>
-    <label>carry all</label>
-    <description>Psychically enhance and support a humans ability to carry and haul more. The psychic energy helps take the pressure off the muscles and body effectively acting like a exoskeleton for a moderate amount of time.</description>
-    <level>3</level>
-    <iconPath>UI/Abilities/SLP_Psycast_CarryAll</iconPath>
-	<jobDef>CastAbilityOnThingMelee</jobDef>
-	<stunTargetWhileCasting>True</stunTargetWhileCasting>
-    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
-	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
-    <statBases>
-      <Ability_EntropyGain>30</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
-	  <Ability_Duration>1000</Ability_Duration>
-    </statBases>
-    <verbProperties>
-      <warmupTime>1.0</warmupTime>
-      <drawAimPie>False</drawAimPie>
-	  <range>-1</range>
-      <targetParams>
-        <canTargetSelf>True</canTargetSelf>
-		<canTargetMechs>False</canTargetMechs>
-        <canTargetAnimals>True</canTargetAnimals>
-      </targetParams>
-    </verbProperties>
-    <comps>
-	  <li Class = "CompProperties_AbilityGiveHediff">
-        <compClass>CompAbilityEffect_GiveHediff</compClass>
-        <hediffDef>SLP_Psycast_CarryAll</hediffDef>
-        <durationMultiplier>PsychicSensitivity</durationMultiplier>
-        <psychic>True</psychic>
-        <applicableToMechs>False</applicableToMechs>
-      </li>
-      <li Class="CompProperties_AbilityFleckOnTarget">
-        <fleckDef>PsycastPsychicEffect</fleckDef>
-      </li>
-    </comps>
-  </AbilityDef>
-  -->
-  
+ 
   <!-- Resurrect -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Resurrect</defName>
@@ -635,11 +593,115 @@
   <!-- Word of Comfort -->
   <!-- Lvl X - Remove one negative non-permanent memory. Increases neural heat * times the removed mood points. Idea Credit: Hahkethomemah -->
   
+  <!-- Dart -->
+  <!-- Had to table, no standard means to get the event to trigger without using the incident code, I'll need to build a abilityEffect to do this from the ground up
+  Lvl 3 - Spawn a meteorite event to randomly strike the map. 
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Dart</defName>
+    <label>dart</label>
+    <description>Although the small asteroids in this planets orbit are typically too large and heavy to skip, using skipgates and psychic guidance, the caster can skip a much lighter satellite in orbit into a direct collision course with one of these asteroids. Hitting it precisely and at tremendous speeds allows the casters to knock these asteroids out of orbit and enable them to land nearby.\n\nWhile the asteroid will land nearby, the caster cannot control exactly where it will land.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Dart</iconPath>
+    <statBases>
+      <Ability_EntropyGain>25</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.80</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <range>39.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+	<comps>
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_Dart">
+        <compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Dart</compClass>
+     </li>
+    </comps>
+  </AbilityDef> -->
+  
+  <!--  Skipscreen -->
+  <!-- Lvl 4 - Generate an anti mortar shield -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Skipscreen</defName>
+    <label>skipscreen</label>
+    <description>Generate a spherical skipgate that detonates any high level projectiles trying to pass in or out of it, such as a mortar rounds. People and items are not affected.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Skipscreen</iconPath>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <statBases>
+      <Ability_EntropyGain>65</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
+      <Ability_EffectRadius>15.9</Ability_EffectRadius>
+      <Ability_Duration>45</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilitySpawn">
+        <thingDef>SLP_MortarShieldPsychic</thingDef>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>BulletShieldAreaEffect</fleckDef>
+        <sound>Psycast_Skip_Exit</sound>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Potential Unleashed -->
+  <!-- Lvl 5 - Enchance a pawn by 30% in most generic and combat fields (4hrs), after it is done, causes negative effects and damage to the pawn (Overdriven) -->
+  <!-- Superficial Regeneration -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_PotentialUnleashed</defName>
+    <label>potential unleashed</label>
+    <description>Using psychic energy and suggestion, the caster can remove the limits the body places on muscle groups and bodily functions of the target. This effectively allows the target to have hysterical strength, dulled pain and go beyond their bodies limits in almost every way.\n\nThe body has these limits in place for a reason and the target will suffer greatly after these effects wear off.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/SLP_Psycast_PotentialUnleashed</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_EntropyGain>50</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
+	  <Ability_Duration>10800</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>3.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <!-- Clone of the GiveHediff CompProp and CompAbility code that allows me to give two hediffs at once instead of only one -->
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityGiveTwoHediff">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_GiveTwoHediff</compClass>
+		<hediffDef>SLP_Psycast_PU</hediffDef>
+        <hediffDef2>SLP_HealingPains</hediffDef2>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  
   <!-- Dash -->
   <!-- Lvl X - Increase Movement Speed of target or self. Cause negative hediff aftereffect -->
-  
-  <!-- Meteorite -->
-  <!-- Lvl 6 - Spawn a meteorite strike to the target location. Force miss X titles. 120ish Heat. -->
   
   <!-- Brickgate -->
   <!-- Lvl 1 - Turn a chunk into stone blocks - Idea Credit: Twinkie Doge -->
@@ -663,6 +725,6 @@
   <!-- Lvl X - Fire a super sonic burst of air at a specific target, short range -->
   
   <!-- Air Burst -->
-  <!-- Lvl X - Fire create a super sonic shock wave around the caster -->
+  <!-- Lvl X - Create a super sonic shock wave around the caster -->
   
 </Defs>

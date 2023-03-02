@@ -40,5 +40,44 @@
 		  </li>
 		</comps>
     </ThingDef>
+	
+	<ThingDef ParentName="EtherealThingBase">
+    <defName>SLP_MortarShieldPsychic</defName>
+    <label>skipscreen</label>
+    <thingClass>ThingWithComps</thingClass>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <drawOffscreen>true</drawOffscreen>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Ethereal/PsychicShieldRipples</texPath>
+      <shaderType>BulletShieldPsychic</shaderType>
+      <color>(180, 231, 237)</color>
+      <drawSize>29.9</drawSize>
+      <shaderParameters>
+        <_PulseInterval>1.5</_PulseInterval>
+        <_DistortionScale>0.25</_DistortionScale>
+        <_DistortionIntensity>0.10</_DistortionIntensity>
+        <_MinAlpha>0.1</_MinAlpha>
+        <_MaxAlpha>0.3</_MaxAlpha>
+        <_DistortionTex>/Things/Mote/SmokeTiled</_DistortionTex>
+      </shaderParameters>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_ProjectileInterceptor">
+        <radius>15.9</radius>
+        <interceptGroundProjectiles>false</interceptGroundProjectiles>
+		<interceptAirProjectiles>true</interceptAirProjectiles>
+        <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+        <interceptOutgoingProjectiles>true</interceptOutgoingProjectiles>
+        <color>(0.4, 0.4, 0.4)</color>
+        <minAlpha>0.2</minAlpha>
+        <interceptEffect>Interceptor_BlockedProjectilePsychic</interceptEffect>
+      </li>
+      <li Class="CompProperties_DestroyAfterDelay">
+        <delayTicks>2700</delayTicks>
+      </li>
+    </comps>
+  </ThingDef>
   
 </Defs>

@@ -1,14 +1,16 @@
-Update v1.0.2
+Update v1.0.3
 
 Additions:
-N/A
+Added 3 New Psycasts
+- Skipscreen
+- Dart
+- Potential Unleashed
 
 Changes:
-Balance changes to Resurrect, keeping it in line with similar effects of other psycasts and keeping it from been overpowered (thank you The Bard of Hearts!)
-New assembly code to support the above changes.
+N/A
 
 Localisation:
 N/A
 
 Bug Fixes:
-Fixed a bug with Resurrect causing a log spam bug when used on a living pawn with heat overflow off
+N/A
