@@ -1,9 +1,11 @@
 Update v1.0.3
 
 Additions:
-Added 2 New Psycasts
+Added 3 New Psycasts
 - Skipscreen
 - Potential Unleashed
+- Dash
+- Psychic Contempt
 
 Changes:
 N/A
@@ -12,4 +14,4 @@ Localisation:
 N/A
 
 Bug Fixes:
-N/A
+Couple of grammer and spelling mistakes corrected.

@@ -353,7 +353,7 @@
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Haemostasis</defName>
     <label>haemostasis</label>
-    <description>Create psychic energy fields on any open wounds t stop any bleeding for a short time.</description>
+    <description>Create psychic energy fields on any open wounds to stop any bleeding for a short time.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_Psycast_Haemostasis</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
@@ -521,40 +521,6 @@
     </comps>
   </AbilityDef>
   
-  <!-- Word of Contempt -->
-  <!-- Idea Credit: Geojak -->
-  <!-- I have to do a full rework of Word of Love to get the desired results, tabling for now
-  <AbilityDef ParentName="WordOfBase">
-    <defName>SLP_PSY_WordOfContempt</defName>
-    <label>word of contempt</label>
-    <description>Speak about someone's petty issues and flaws while using psychic suggestion to implant hate in the listener. For days afterwards, the listener will feel psychically-induced rivalry towards the other person. This greatly reduces the opinion of one person and another. This power can be used to connect two other people but in a negative way, inducing rivalry for the caster, or force oneself to hate another.</description>
-    <level>3</level>
-    <iconPath>UI/Abilities/SLP_Psycast_WordOfComtempt</iconPath>
-    <statBases>
-      <Ability_PsyfocusCost>0.5</Ability_PsyfocusCost>
-      <Ability_Duration>8000</Ability_Duration>
-    </statBases>
-    <verbProperties>
-      <warmupTime>2</warmupTime>
-      <targetParams>
-        <canTargetAnimals>False</canTargetAnimals>
-        <canTargetSelf>True</canTargetSelf>
-        <canTargetMechs>False</canTargetMechs>
-      </targetParams>
-    </verbProperties>
-    <comps>
-      <li Class="CompProperties_AbilityWordOfLove">
-        <destination>Selected</destination>
-        <psychic>True</psychic>
-        <applicableToMechs>False</applicableToMechs>
-      </li>
-      <li Class="CompProperties_AbilitySocialInteraction">
-        <interactionDef>SLP_WordOfContempt</interactionDef>
-      </li>
-    </comps>
-  </AbilityDef>
-  -->
-  
   <!-- Word of Vigor -->
   <!-- Idea Credit: bl1tz3n -->
   <AbilityDef ParentName="WordOfBase">
@@ -590,9 +556,6 @@
     </comps>
   </AbilityDef>
   
-  <!-- Word of Comfort -->
-  <!-- Lvl X - Remove one negative non-permanent memory. Increases neural heat * times the removed mood points. Idea Credit: Hahkethomemah -->
-  
   <!-- Dart -->
   <!-- Had to table, no standard means to get the event to trigger without using the incident code, I'll need to build a abilityEffect to do this from the ground up
   Lvl 3 - Spawn a meteorite event to randomly strike the map. 
@@ -621,7 +584,7 @@
     </comps>
   </AbilityDef> -->
   
-  <!--  Skipscreen -->
+  <!-- Skipscreen -->
   <!-- Lvl 4 - Generate an anti mortar shield -->
   <AbilityDef ParentName="PsycastBaseSkip">
     <defName>SLP_PSY_Skipscreen</defName>
@@ -666,12 +629,10 @@
     <iconPath>UI/Abilities/SLP_Psycast_PotentialUnleashed</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
-    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
-	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <statBases>
       <Ability_EntropyGain>50</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
-	  <Ability_Duration>10800</Ability_Duration>
+	  <Ability_Duration>420</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>3.0</warmupTime>
@@ -687,8 +648,8 @@
 	  <!-- Clone of the GiveHediff CompProp and CompAbility code that allows me to give two hediffs at once instead of only one -->
 	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityGiveTwoHediff">
         <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_GiveTwoHediff</compClass>
-		<hediffDef>SLP_Psycast_PU</hediffDef>
-        <hediffDef2>SLP_HealingPains</hediffDef2>
+		<hediffDef>SLP_Overdriven</hediffDef>
+        <hediffDef2>SLP_Psycast_PU</hediffDef2>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
         <applicableToMechs>False</applicableToMechs>
@@ -699,9 +660,114 @@
     </comps>
   </AbilityDef>
   
-  
   <!-- Dash -->
-  <!-- Lvl X - Increase Movement Speed of target or self. Cause negative hediff aftereffect -->
+  <!-- Lvl 3 - Increase Movement Speed of target or self. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Dash</defName>
+    <label>dash</label>
+    <description>Use psychic energy to increase the target's movement speed temporarily.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Dash</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_EntropyGain>50</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
+	  <Ability_Duration>84</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.1</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Dash</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Word of Contempt -->
+  <!-- Lvl 3 - Similar effects as Word of Love but negative -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_WordOfContempt</defName>
+    <label>word of contempt</label>
+    <description>Speak about someone's faults and flaws while using psychic suggestion to implant disgust and hate in the listener. For days afterwards, the listener will feel psychically-induced rivalry towards the other person. This greatly reduces opinion and makes them much more likely to start social fights with that person if they get the chance. This power can be used to disconnect two other people, induce hate for the caster, or force oneself to hate another. The psycast will not work on those too young to understand the suggestion.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_WordOfComtempt</iconPath>
+    <statBases>
+      <Ability_PsyfocusCost>0.5</Ability_PsyfocusCost>
+      <Ability_Duration>8000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetMechs>False</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="Sleepys_MorePsycasts.CompProperties_SLP_AbilityWordOfContempt">
+        <destination>Selected</destination>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>SLP_WordOfContempt</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Joyfuzz WT -->
+  <!-- Lvl 1 - Turn a chunk into stone blocks - Idea Credit: Twinkie Doge 
+  <AbilityDef ParentName="WordOfBase">
+    <defName>WordOfJoy</defName>
+    <label>word of joy</label>
+    <description>Speak happy, calming words to someone while using psychic suggestion to implant a joyfuzz loop in their mind. The joyfuzz will suppress uncomfortable thoughts and sensations in the target to improve mood. This has the side-effect of dulling sensation and decision-making, which reduces consciousness.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/WordOfJoy</iconPath>
+    <hotKey>Misc12</hotKey>
+    <statBases>
+      <Ability_PsyfocusCost>0.4</Ability_PsyfocusCost>
+      <Ability_Duration>5000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>True</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>Joyfuzz</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+        <goodwillImpact>-25</goodwillImpact>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>WordOfJoy</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef> -->
   
   <!-- Brickgate -->
   <!-- Lvl 1 - Turn a chunk into stone blocks - Idea Credit: Twinkie Doge -->

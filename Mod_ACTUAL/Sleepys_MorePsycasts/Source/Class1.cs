@@ -294,6 +294,109 @@ namespace Sleepys_MorePsycasts
 
     //Below has been Added in 1.0.3 ---------------------------------------------------------------------------
 
+    public class SLP_Hediff_PsychicContempt : HediffWithTarget
+    {
+        public override string LabelBase => base.LabelBase + " " + this.def.targetPrefix + " " + this.target?.LabelShortCap;
+
+        public override void Notify_RelationAdded(Pawn otherPawn, PawnRelationDef relationDef)
+        {
+            if (otherPawn != this.target || relationDef != PawnRelationDefOf.Lover && relationDef != PawnRelationDefOf.Fiance && relationDef != PawnRelationDefOf.Spouse)
+                return;
+            this.pawn.health.RemoveHediff((Hediff)this);
+        }
+    }
+
+    public class CompProperties_SLP_AbilityWordOfContempt : CompProperties_EffectWithDest
+    {
+        public CompProperties_SLP_AbilityWordOfContempt() => this.compClass = typeof(CompAbilityEffect_SLP_WordOfLove);
+    }
+
+    public class CompAbilityEffect_SLP_WordOfLove : CompAbilityEffect_WithDest
+    {
+        private const int MinAge = 3;
+
+        public override bool HideTargetPawnTooltip => true;
+
+        public override TargetingParameters targetParams => new TargetingParameters()
+        {
+            canTargetSelf = true,
+            canTargetBuildings = false,
+            canTargetAnimals = false,
+            canTargetMechs = false
+        };
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            Pawn pawn = target.Pawn;
+            Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(SLP_HediffDefOf.SLP_PsychicContempt);
+            if (firstHediffOfDef != null)
+                pawn.health.RemoveHediff(firstHediffOfDef);
+            SLP_Hediff_PsychicContempt hd = (SLP_Hediff_PsychicContempt)HediffMaker.MakeHediff(SLP_HediffDefOf.SLP_PsychicContempt, pawn, pawn.health.hediffSet.GetBrain());
+            hd.target = dest.Thing;
+            HediffComp_Disappears comp = hd.TryGetComp<HediffComp_Disappears>();
+            if (comp != null)
+            {
+                float numSeconds = this.parent.def.EffectDuration(this.parent.pawn) * pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+                comp.ticksToDisappear = numSeconds.SecondsToTicks();
+            }
+            pawn.health.AddHediff((Hediff)hd);
+        }
+
+        public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest) => this.Valid(target, false);
+
+        public override bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
+        {
+            Pawn pawn1 = this.selectedTarget.Pawn;
+            Pawn pawn2 = target.Pawn;
+            if (pawn1 == pawn2)
+                return false;
+            if ((double)pawn1.ageTracker.AgeBiologicalYearsFloat < MinAge)
+            {
+                Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityCantApplyTooYoung".Translate((NamedArgument)(Thing)pawn1)), (LookTargets)(Thing)pawn1, MessageTypeDefOf.RejectInput, false);
+                return false;
+            }
+            if ((double)pawn2.ageTracker.AgeBiologicalYearsFloat < MinAge)
+            {
+                Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityCantApplyTooYoung".Translate((NamedArgument)(Thing)pawn2)), (LookTargets)(Thing)pawn2, MessageTypeDefOf.RejectInput, false);
+                return false;
+            }
+            /*
+            if (pawn1 != null && pawn2 != null && !pawn1.story.traits.HasTrait(TraitDefOf.Bisexual))
+            {
+                Gender gender1 = pawn1.gender;
+                Gender gender2 = pawn1.story.traits.HasTrait(TraitDefOf.Gay) ? gender1 : gender1.Opposite();
+                if (pawn2.gender != gender2)
+                {
+                    Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityCantApplyWrongAttractionGender".Translate((NamedArgument)(Thing)pawn1, (NamedArgument)(Thing)pawn2)), (LookTargets)(Thing)pawn1, MessageTypeDefOf.RejectInput, false);
+                    return false;
+                }
+            }
+            */
+            return base.ValidateTarget(target, true);
+        }
+
+        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+        {
+            Pawn pawn = target.Pawn;
+            if (pawn != null)
+            {   
+                /*
+                if (pawn.story.traits.HasTrait(TraitDefOf.Asexual))
+                {
+                    if (throwMessages)
+                        Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityCantApplyOnAsexual".Translate()), (LookTargets)(Thing)pawn, MessageTypeDefOf.RejectInput, false);
+                    return false;
+                }
+                */
+                if (!AbilityUtility.ValidateNoMentalState(pawn, throwMessages, this.parent))
+                    return false;
+            }
+            return true;
+        }
+
+        public override string ExtraLabelMouseAttachment(LocalTargetInfo target) => this.selectedTarget.IsValid ? (string)"PsychicContemptFor".Translate() : (string)"PsychicContemptInduceIn".Translate();
+    }
 
     //Additions End Here
     //Utility Code
@@ -417,7 +520,6 @@ namespace Sleepys_MorePsycasts
         }
     }
 
-
     public class SLP_Utilities
     {
         public static Hediff_Injury FindPermanentInjury(Pawn pawn, IEnumerable<BodyPartRecord> allowedBodyParts = null)
@@ -473,6 +575,9 @@ namespace Sleepys_MorePsycasts
         public static HediffDef SLP_HealingPains;
         public static HediffDef SLP_PhoenixSyndrome;
         public static HediffDef SLP_ResurrectionSickness;
+        public static HediffDef SLP_Overdriven;
+        public static HediffDef SLP_PsychicContempt;
+
     }
 
 }

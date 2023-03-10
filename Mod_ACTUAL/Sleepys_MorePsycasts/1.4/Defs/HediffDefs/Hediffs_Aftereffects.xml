@@ -280,5 +280,85 @@
     </stages>
   </HediffDef>
   
+  <!-- Overdriven -->
+  <HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
+    <defName>SLP_Overdriven</defName>
+    <label>overdrive exhaustion</label>
+    <description>Serious pains, torn muscles and possibly broken bones from psychically removing the bodies natural muscle group and capability limiter. Only time and rest can help the body recover.</description>
+    <isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <makesAlert>false</makesAlert>
+    <initialSeverity>10</initialSeverity>
+    <maxSeverity>10</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-2.0</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+	<li>
+        <label>recovering</label>
+		<painOffset>0.10</painOffset>
+		<restFallFactorOffset>0.05</restFallFactorOffset>
+        <capMods>
+        </capMods>
+		<statOffsets>
+		  <ImmunityGainSpeed>-0.03</ImmunityGainSpeed>
+		  <InjuryHealingFactor>-0.5</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>2.0</minSeverity>
+        <label>minor</label>
+		<painOffset>0.20</painOffset>
+		<restFallFactorOffset>0.10</restFallFactorOffset>
+        <capMods>
+        </capMods>
+		<statOffsets>
+		  <ImmunityGainSpeed>-0.05</ImmunityGainSpeed>
+		  <InjuryHealingFactor>-0.10</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>6.0</minSeverity>
+        <label>major</label>
+		<painOffset>0.4</painOffset>
+		<restFallFactorOffset>0.20</restFallFactorOffset>
+		<hungerRateFactorOffset>0.10</hungerRateFactorOffset>
+        <capMods>
+			<li>
+				  <capacity>Consciousness</capacity>
+				  <offset>-0.07</offset>
+			</li>
+        </capMods>
+		<statOffsets>
+		  <ImmunityGainSpeed>-0.10</ImmunityGainSpeed>
+		  <InjuryHealingFactor>-0.20</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+	  <li>
+        <minSeverity>8.0</minSeverity>
+        <label>severe</label>
+		<painOffset>0.5</painOffset>
+		<restFallFactorOffset>0.30</restFallFactorOffset>
+		<hungerRateFactorOffset>0.20</hungerRateFactorOffset>
+        <capMods>
+			<li>
+				  <capacity>Consciousness</capacity>
+				  <offset>-0.10</offset>
+			</li>
+        </capMods>
+		<statOffsets>
+		  <ImmunityGainSpeed>-0.15</ImmunityGainSpeed>
+		  <InjuryHealingFactor>-0.25</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+	  <li>
+        <minSeverity>9.0</minSeverity>
+        <label>onset</label>
+      </li>
+    </stages>
+  </HediffDef>
   
 </Defs>
