@@ -52,5 +52,18 @@
       </rulesStrings>
     </logRulesInitiator>
   </InteractionDef>
+  
+  <InteractionDef>
+    <defName>SLP_Calm</defName>
+    <label>psychic calm</label>
+    <workerClass>InteractionWorker</workerClass>
+    <ignoreTimeSinceLastInteraction>True</ignoreTimeSinceLastInteraction>
+    <symbol>Things/Mote/SpeechSymbols/WIP</symbol>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] psychically calmed [RECIPIENT_nameDef].</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef> 
 
 </Defs>

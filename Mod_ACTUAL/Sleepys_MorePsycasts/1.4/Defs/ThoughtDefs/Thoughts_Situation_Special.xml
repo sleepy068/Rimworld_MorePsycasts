@@ -15,5 +15,20 @@
       </li>
     </stages>
   </ThoughtDef>
+  
+  <ThoughtDef>
+    <defName>SLP_PsychicCalm</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>SLP_Calm</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>psychic calm</label>
+        <description>I feel warm, content and happy but it isn't distracting me from my tasks at hand.</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 
 </Defs>

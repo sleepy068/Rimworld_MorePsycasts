@@ -172,4 +172,19 @@
     <stages><li></li></stages>
   </HediffDef>
   
+  <!-- Psychic Calm -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Calm</defName>
+    <label>psychic calm</label>
+    <description>Psychically-induced feelings of contentment. This improves mood slightly but at the added benefit that it does not have an effect on the targets mental performance.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <partEfficiencyOffset>-0.00</partEfficiencyOffset>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  
+  
 </Defs>

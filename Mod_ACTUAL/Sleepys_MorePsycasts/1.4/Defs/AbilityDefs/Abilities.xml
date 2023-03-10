@@ -620,7 +620,6 @@
   
   <!-- Potential Unleashed -->
   <!-- Lvl 5 - Enchance a pawn by 30% in most generic and combat fields (4hrs), after it is done, causes negative effects and damage to the pawn (Overdriven) -->
-  <!-- Superficial Regeneration -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_PotentialUnleashed</defName>
     <label>potential unleashed</label>
@@ -702,7 +701,7 @@
   </AbilityDef>
   
   <!-- Word of Contempt -->
-  <!-- Lvl 3 - Similar effects as Word of Love but negative -->
+  <!-- Lvl 3 - Similar effects as Word of Love but negative - Idea Credit: Geojak -->
   <AbilityDef ParentName="WordOfBase">
     <defName>SLP_WordOfContempt</defName>
     <label>word of contempt</label>
@@ -733,41 +732,82 @@
     </comps>
   </AbilityDef>
   
-  <!-- Joyfuzz WT -->
-  <!-- Lvl 1 - Turn a chunk into stone blocks - Idea Credit: Twinkie Doge 
+  <!-- Psychic Calm -->
+  <!-- Lvl 2 - Similar effects to Word of Joy but heavily reduced and with no negatives -->
   <AbilityDef ParentName="WordOfBase">
-    <defName>WordOfJoy</defName>
-    <label>word of joy</label>
-    <description>Speak happy, calming words to someone while using psychic suggestion to implant a joyfuzz loop in their mind. The joyfuzz will suppress uncomfortable thoughts and sensations in the target to improve mood. This has the side-effect of dulling sensation and decision-making, which reduces consciousness.</description>
+    <defName>SLP_Calm</defName>
+    <label>psychic calm</label>
+    <description>Speak happy, soothing words to someone while using psychic suggestion to implant a much lower powered version of a joyfuzz loop in their mind, known as a psychic calm. The psychic calm will suppress uncomfortable thoughts and sensations in the target to improve mood. Unlike a joyfuzz, the psychic calm will not effect mental performance at the cost of a heavily reduced benefit and its inability for the caster to focus the cast on themselves.</description>
     <level>2</level>
-    <iconPath>UI/Abilities/WordOfJoy</iconPath>
-    <hotKey>Misc12</hotKey>
+    <iconPath>UI/Abilities/WIP</iconPath>
     <statBases>
       <Ability_PsyfocusCost>0.4</Ability_PsyfocusCost>
-      <Ability_Duration>5000</Ability_Duration>
+      <Ability_Duration>2500</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>2</warmupTime>
       <targetParams>
         <canTargetAnimals>False</canTargetAnimals>
-        <canTargetSelf>True</canTargetSelf>
+        <canTargetSelf>False</canTargetSelf>
       </targetParams>
     </verbProperties>
     <comps>
       <li Class="CompProperties_AbilityGiveHediff">
         <compClass>CompAbilityEffect_GiveHediff</compClass>
-        <hediffDef>Joyfuzz</hediffDef>
+        <hediffDef>SLP_Calm</hediffDef>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <onlyBrain>True</onlyBrain>
         <psychic>True</psychic>
         <applicableToMechs>False</applicableToMechs>
-        <goodwillImpact>-25</goodwillImpact>
       </li>
       <li Class="CompProperties_AbilitySocialInteraction">
-        <interactionDef>WordOfJoy</interactionDef>
+        <interactionDef>SLP_Calm</interactionDef>
       </li>
     </comps>
-  </AbilityDef> -->
+  </AbilityDef>
+  
+  <!-- Gaspop -->
+  <!-- Lvl 4 - Generate a Tox Gas cloud 
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_Gaspop</defName>
+    <label>gaspop</label>
+    <description>Skip toxic particles up from deep under the ground surface to form a thick poisonous cloud. Tox gas burns the lungs and eyes, causing a temporary shortness of breath and reduction in sight. Continued exposure to tox gas results in toxic buildup which can be lethal.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/Smokepop</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <hotKey>Misc10</hotKey>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilitySmokepop">
+        <smokeRadius>3.5</smokeRadius>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>15</clamorRadius>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </comps>
+  </AbilityDef>  -->
   
   <!-- Brickgate -->
   <!-- Lvl 1 - Turn a chunk into stone blocks - Idea Credit: Twinkie Doge -->
@@ -776,10 +816,80 @@
   <!-- Lvl 2 - Turn one corpse (body size * x) into chemfuel. Reduce amount depending on how much it is degraded. Idea Credit: Hahkethomemah -->
   
   <!-- Mass Burden -->
-  <!-- Lvl X - Idea Credit: bl1tz3n -->
+  <!-- Lvl 3 - Idea Credit: bl1tz3n -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_MassBurden</defName>
+    <label>mass burden</label>
+    <description>Slow all targets within a small area for a short time by suppressing motor activity in the brain.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/WIP</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <statBases>
+      <Ability_EntropyGain>24</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
+      <Ability_Duration>17</Ability_Duration>
+	  <Ability_EffectRadius>3.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.25</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+		<applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>PsychicBurden</hediffDef>
+        <psychic>True</psychic>
+        <goodwillImpact>-15</goodwillImpact>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Mass Stun -->
-  <!-- Lvl X - Idea Credit: bl1tz3n -->
+  <!-- Lvl 3 - Idea Credit: bl1tz3n -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_MassStun</defName>
+    <label>mass stun</label>
+    <description>Momentarily disrupt motor function in the brain of all targets in a small area, preventing any movement.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/WIP</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <statBases>
+      <Ability_EntropyGain>36</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
+      <Ability_Duration>2.5</Ability_Duration>
+	  <Ability_EffectRadius>3.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.25</warmupTime>
+      <range>20.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+		<applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityEffectWithDuration">
+        <compClass>CompAbilityEffect_Stun</compClass>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <goodwillImpact>-15</goodwillImpact>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Static Burst -->
   <!-- Lvl X - EMP AOE Attack to stun Mechs -->
