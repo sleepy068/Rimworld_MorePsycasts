@@ -1,15 +1,15 @@
 Update v1.0.3
 
 Additions:
-Added 4 New Psycasts
+Added 8 New Psycasts
 - Skipscreen
 - Potential Unleashed
 - Dash
-- Word of Contempt (Thanks Geojak for the idea)
-
+- Word of Contempt
 - Psychic Calm
-- Mass Burden (Thanks bl1tz3n for the idea)
-- Mass Stun (Thanks bl1tz3n for the idea)
+- Mass Burden
+- Mass Stun
+- Mass Beckon
 
 Changes:
 N/A

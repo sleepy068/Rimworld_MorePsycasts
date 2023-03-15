@@ -136,8 +136,8 @@
           </capMods>
 		<statOffsets>
 		  <MentalBreakThreshold>-0.10</MentalBreakThreshold>
-		  <MeleeHitChance>2.00</MeleeHitChance>
-		  <MeleeDodgeChance>2.00</MeleeDodgeChance>
+		  <MeleeHitChance>4.00</MeleeHitChance>
+		  <MeleeDodgeChance>4.00</MeleeDodgeChance>
         </statOffsets>
 	  </li>
 	</stages>
@@ -184,7 +184,5 @@
       </li>
     </stages>
   </HediffDef>
-  
-  
   
 </Defs>
