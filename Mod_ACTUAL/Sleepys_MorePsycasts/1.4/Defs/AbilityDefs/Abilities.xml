@@ -957,7 +957,15 @@
       <warmupTime>0.13</warmupTime>
       <range>22.9</range>
       <targetParams>
-        <canTargetSelf>True</canTargetSelf>
+		<canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+		<canTargetSelf>true</canTargetSelf>
+		<!--
+		<canTargetAnimals>False</canTargetAnimals>
+		<onlyTargetColonists>True</onlyTargetColonists>
+        <neverTargetIncapacitated>True</neverTargetIncapacitated>
+		-->
       </targetParams>
     </verbProperties>
     <comps>
@@ -980,7 +988,7 @@
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Skipstep</defName>
     <label>skipstep</label>
-    <description>A much more powerful version of the flashstep that allows the caster to both briefly move faster than the eye can follow and utilise the skip's teleportation ability to increase the range. Unlike a true skip ability, the caster can only use this technique on themselves.</description>
+    <description>A much more powerful version of the flashstep that allows the caster to both briefly move faster than the eye can follow and utilise the skip's teleportation ability to increase the range and responsiveness. Unlike a true skip ability, the caster can only use this technique on themselves.</description>
     <level>4</level>
     <iconPath>UI/Abilities/SLP_Psycast_Skipstep</iconPath>
     <writeCombatLog>True</writeCombatLog>
@@ -994,7 +1002,15 @@
       <warmupTime>0.10</warmupTime>
       <range>31.9</range>
       <targetParams>
-        <canTargetSelf>True</canTargetSelf>
+		<canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+		<canTargetSelf>true</canTargetSelf>
+		<!--
+		<canTargetAnimals>False</canTargetAnimals>
+		<onlyTargetColonists>True</onlyTargetColonists>
+        <neverTargetIncapacitated>True</neverTargetIncapacitated>
+		-->
       </targetParams>
     </verbProperties>
     <comps>
@@ -1003,43 +1019,6 @@
         <destination>Selected</destination>
         <requiresLineOfSight>True</requiresLineOfSight>
         <range>31.9</range>
-        <clamorType>Ability</clamorType>
-        <clamorRadius>10</clamorRadius>
-        <destClamorType>Ability</destClamorType>
-        <destClamorRadius>10</destClamorRadius>
-        <stunTicks>5~10</stunTicks>	
-      </li>
-    </comps>
-  </AbilityDef>
-  
-  <!-- Vanish -->
-  <!-- Lvl 6 -->
-  <AbilityDef ParentName="PsycastBase">
-    <defName>SLP_PSY_Vanish</defName>
-    <label>vanish</label>
-    <description>The pinnacle in tactical movement psycasts that allows the caster to briefly go well beyond the speed even a bionic eye can accurately follow. Allowing them to move a great distance almost instantaneously. Unlike a skip ability, the caster can only use this technique on themselves.</description>
-    <level>6</level>
-    <iconPath>UI/Abilities/SLP_Psycast_Vanish</iconPath>
-    <writeCombatLog>True</writeCombatLog>
-    <showPsycastEffects>False</showPsycastEffects>
-    <statBases>
-      <Ability_EntropyGain>30</Ability_EntropyGain> <!-- Balance 1.330 -->
-      <Ability_PsyfocusCost>0.04</Ability_PsyfocusCost>
-    </statBases>
-	<warmupSound></warmupSound>
-    <verbProperties>
-      <warmupTime>0.05</warmupTime>
-      <range>39.9</range>
-      <targetParams>
-        <canTargetSelf>True</canTargetSelf>
-      </targetParams>
-    </verbProperties>
-    <comps>
-      <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityTeleport">
-		<compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_Vanish</compClass>
-        <destination>Selected</destination>
-        <requiresLineOfSight>True</requiresLineOfSight>
-        <range>39.9</range>
         <clamorType>Ability</clamorType>
         <clamorRadius>10</clamorRadius>
         <destClamorType>Ability</destClamorType>

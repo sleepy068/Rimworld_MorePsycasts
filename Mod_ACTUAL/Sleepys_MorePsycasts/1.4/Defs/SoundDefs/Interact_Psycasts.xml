@@ -16,6 +16,22 @@
       </li>
     </subSounds>
   </SoundDef>
+  
+  <SoundDef>
+    <defName>SLP_Psycast_Shunpo2</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>WAV_Shunpo2</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>50~50</volumeRange>
+        <pitchRange>0.9~1.1</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
 
   <SoundDef>
     <defName>SLP_Psycast_Sonido</defName>
@@ -28,22 +44,6 @@
           </li>
         </grains>
         <volumeRange>50~50</volumeRange>
-        <pitchRange>0.9~1.1</pitchRange>
-      </li>
-    </subSounds>
-  </SoundDef>
-  
-  <SoundDef>
-    <defName>SLP_Psycast_Vanish</defName>
-    <context>MapOnly</context>
-    <subSounds>
-      <li>
-        <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>WAV_Vanish</clipFolderPath>
-          </li>
-        </grains>
-        <volumeRange>70~70</volumeRange>
         <pitchRange>0.9~1.1</pitchRange>
       </li>
     </subSounds>

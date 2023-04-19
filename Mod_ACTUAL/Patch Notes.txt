@@ -1,7 +1,7 @@
 Update v1.0.3
 
 Additions:
-Added 8 New Psycasts
+Added 10 New Psycasts
 - Skipscreen
 - Potential Unleashed
 - Dash
@@ -10,6 +10,8 @@ Added 8 New Psycasts
 - Mass Burden
 - Mass Stun
 - Mass Beckon
+- Flashstep
+- Skipstep
 
 Changes:
 N/A
