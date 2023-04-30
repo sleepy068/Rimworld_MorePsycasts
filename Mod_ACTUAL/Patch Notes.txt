@@ -1,23 +1,13 @@
-Update v1.0.3
+Update v1.0.4 Build 30/04/23
 
 Additions:
-Added 10 New Psycasts
-- Skipscreen
-- Potential Unleashed
-- Dash
-- Word of Contempt
-- Psychic Calm
-- Mass Burden
-- Mass Stun
-- Mass Beckon
-- Flashstep
-- Skipstep
+N/A
 
 Changes:
-N/A
+Adjusted Dash gizmo to no longer show when undrafted.
 
 Localisation:
 N/A
 
 Bug Fixes:
-Couple of grammer and spelling mistakes corrected.
+N/A

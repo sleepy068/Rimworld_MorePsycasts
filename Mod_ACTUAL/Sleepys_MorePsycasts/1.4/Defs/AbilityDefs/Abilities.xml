@@ -668,8 +668,6 @@
     <iconPath>UI/Abilities/SLP_Psycast_Dash</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
-    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
-	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <statBases>
       <Ability_EntropyGain>50</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
@@ -810,6 +808,11 @@
   
   <!-- Brickgate -->
   <!-- Lvl 1 - Turn a chunk into stone blocks -->
+  
+  <!-- Thermal Shield -->
+  <!-- Lvl 2 - Boost a pawns comfortable temperature range by -24 and +24, lasts 3 days.
+	<description>Envelop the target in a thermal shield that will help protect them from extreme low and extreme high environmental temperature hazards.</description>
+    -->
   
   <!-- Chemskip -->
   <!-- Lvl 2 - Turn one corpse (body size * x) into chemfuel. Reduce amount depending on how much it is degraded. -->
