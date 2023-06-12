@@ -183,7 +183,7 @@
     <statBases>
       <Ability_EntropyGain>40</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.55</Ability_PsyfocusCost>
-	  <Ability_Duration>38</Ability_Duration>
+	  <Ability_Duration>42</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>0.5</warmupTime>
@@ -353,7 +353,7 @@
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Haemostasis</defName>
     <label>haemostasis</label>
-    <description>Create psychic energy fields on any open wounds to stop any bleeding for a short time.</description>
+    <description>Create psychic energy fields on any open wounds to help stop any bleeding for a short time.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_Psycast_Haemostasis</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
@@ -594,7 +594,7 @@
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
     <statBases>
       <Ability_EntropyGain>65</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.18</Ability_PsyfocusCost>
       <Ability_EffectRadius>15.9</Ability_EffectRadius>
       <Ability_Duration>45</Ability_Duration>
     </statBases>
@@ -902,9 +902,9 @@
     <iconPath>UI/Abilities/SLP_Psycast_StunPulse</iconPath>
     <writeCombatLog>True</writeCombatLog>
     <statBases>
-      <Ability_EntropyGain>36</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
-      <Ability_Duration>2.5</Ability_Duration>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+      <Ability_Duration>3.0</Ability_Duration>
 	  <Ability_EffectRadius>2.9</Ability_EffectRadius>
     </statBases>
     <verbProperties>

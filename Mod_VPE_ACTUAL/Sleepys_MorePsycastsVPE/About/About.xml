@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Sleepy's More Psycasts VPE</name>
+    <author>Sleepy068</author>
+    <url>https://github.com/sleepy068/Rimworld_MorePsycasts</url>
+    <packageId>sleepy068.morepsycastsVPE</packageId>
+    <supportedVersions>
+		<li>1.4</li>
+    </supportedVersions>
+
+    <description>
+[img]https://i.imgur.com/IIdHbEw.png[/img]
+[h2]Sleepy's More Psycasts (v1.0.3)[/h2]
+
+[b]Credit[/b]
+This mod is a fork of Noodles and DC's amazing [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2460833332]More Psycasts[/url] mod. I absolutely loved their mod, so much so i approached them to fork it when 1.4 released. During this process I became worried that what I envisioned and considered balanced was skewing too far from what they originally designed. In realising this, I supported Noodles in updating the original mod to 1.4 so as to ensure those that enjoyed that mod could continue to do so while I could make my fork exactly how I wanted too.
+
+I love to add content to this game that I feel is missing or that I'd like expanded. I figure that if I enjoy what I've added, others may too so I to post my mods to the workshop. Balance is critical to me as I am a vanilla player and I'll try to ensure nothing is unbalanced but ultimately I have a goal in mind for the content I am adding so what I consider balanced may not always be what you'd consider balanced. Hopefully you enjoy the mod none the less.
+
+This is the Vanilla Psycast Expanded Edition of Sleepy's More Psycasts and will therefore require that to work. 
+I have kept the two versions separate to make things easier with trouble shooting potential issues and keeping the mod's code a bit cleaner and focused.
+
+
+[img]https://i.imgur.com/DbnM7jC.png[/img]
+[b]What Does This Mod Add?[/b]
+25 new psycasts:
+[img]https://i.imgur.com/SLmwvWv.png[/img]
+[img]https://i.imgur.com/2rh1iv6.png[/img]
+[img]https://i.imgur.com/o6QJzTR.png[/img]
+[img]https://i.imgur.com/HzzR7xj.png[/img]
+[img]https://i.imgur.com/7HZRDG2.png[/img]
+[img]https://i.imgur.com/3fGzzTE.png[/img]
+[img]https://i.imgur.com/IbY9lVQ.png[/img]
+[img]https://i.imgur.com/6P4uu0d.png[/img]
+[img]https://i.imgur.com/Es2S9Jw.png[/img]
+[img]https://i.imgur.com/kycUCKb.png[/img]
+[img]https://i.imgur.com/oy8JKfA.png[/img]
+[img]https://i.imgur.com/4zFQHgs.png[/img]
+[img]https://i.imgur.com/F1v79QI.png[/img]
+[img]https://i.imgur.com/v5KdOJa.png[/img]
+[img]https://i.imgur.com/KmBxQ9N.png[/img]
+[img]https://i.imgur.com/tpIwAWA.png[/img]
+[img]https://i.imgur.com/gow9Ur4.png[/img]
+[img]https://i.imgur.com/FltS3da.png[/img]
+[img]https://i.imgur.com/tt3I7AF.png[/img]
+[img]https://i.imgur.com/wBbkahm.png[/img]
+[img]https://i.imgur.com/hTEeTvq.png[/img]
+[img]https://i.imgur.com/TiKhA6i.png[/img]
+[img]https://i.imgur.com/DarpE8a.png[/img]
+[img]https://i.imgur.com/bIh1sIe.png[/img]
+[img]https://i.imgur.com/22QLKRl.png[/img]
+
+[img]https://i.imgur.com/ss8ZNXk.png[/img]
+[b]Roadmap:[/b]
+- Add more relevant and balanced psycasts.
+
+[img]https://i.imgur.com/YySbEPN.png[/img]
+[b]On Going Games:[/b]
+- Maintain a VPE compatible mirror of Sleepy's More Psycasts
+
+[b]Compatibility[/b]
+- Vanilla Psycasts Expanded: Required
+- Combat Extended: Not Compatible
+
+[b]Integrated Compatibility:[/b]
+- Vanilla Psycasts Expanded: Required
+
+[img]https://i.imgur.com/gghc3iQ.png[/img]
+[b]Conflicts[/b]
+None reported.
+
+[img]https://i.imgur.com/31kQWwH.png[/img]
+[b]Known Issues[/b]
+None at the moment.
+
+[img]https://i.imgur.com/WokZwPP.png[/img]
+[b]Language Support[/b]
+English (Always Latest)(Developed in this Language)
+
+Github:
+https://github.com/sleepy068/Rimworld_MorePsycasts
+
+Please post any issue reports to my Github. I appreciate any feedback but please keep in mind I have a goal in mind for the content I am adding so what I consider balanced may not always be what you'd consider balanced.
+
+    
+    </description>
+
+    <modDependencies>
+    </modDependencies>
+	
+    <modDependenciesByVersion>
+    </modDependenciesByVersion>
+
+    <loadAfter>
+    </loadAfter>
+
+    <incompatibleWith>
+    </incompatibleWith>
+	
+</ModMetaData>

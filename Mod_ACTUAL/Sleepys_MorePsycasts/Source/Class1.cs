@@ -116,6 +116,7 @@ namespace Sleepys_MorePsycasts
                 TerrainDef terrain = map.terrainGrid.TerrainAt(affectedCell);
                 if (!terrain.IsRiver)
                 {
+                    /*
                     if (terrain.IsWater)
                     {
                         TerrainDef named = DefDatabase<TerrainDef>.GetNamed("Mud");
@@ -125,6 +126,8 @@ namespace Sleepys_MorePsycasts
                             map.terrainGrid.SetTerrain(affectedCell, TerrainDefOf.Sand);
                     }
                     else
+                    */
+                    if (!terrain.IsWater)
                     {
                         List<TerrainDef> terrainDefList = new List<TerrainDef>();
                         terrainDefList.Add(TerrainDefOf.Gravel);
@@ -406,7 +409,11 @@ namespace Sleepys_MorePsycasts
 
     public class CompAbilityEffect_SLP_Flashstep : CompAbilityEffect_WithDest
     {
-        public Thing Caster => (Thing)this.parent.pawn; // New 1.0.3.1
+        //public Thing Caster => (Thing)this.parent.pawn; // New 1.0.3.1
+        public Thing GetCaster()
+        {
+            return (Thing)this.parent.pawn; // New 1.0.3.1
+        }
 
         public new CompProperties_SLP_AbilityTeleport Props
         {
@@ -532,7 +539,7 @@ namespace Sleepys_MorePsycasts
                     return "CannotSkipTargetPsychicResistant".Translate();
                 }
                 // New 1.0.3.1
-                if (Caster != pawn)
+                if (GetCaster() != pawn)
                 {
                     return "CannotSkipTargetIsntCaster".Translate();
                 }
@@ -555,7 +562,12 @@ namespace Sleepys_MorePsycasts
 
     public class CompAbilityEffect_SLP_Skipstep : CompAbilityEffect_WithDest
     {
-        public Thing Caster => (Thing)this.parent.pawn; // New 1.0.3.1
+
+        //public Thing Caster => (Thing)this.parent.pawn; // New 1.0.3.1
+        public Thing GetCaster()
+        {
+            return (Thing)this.parent.pawn; // New 1.0.3.1
+        }
 
         public new CompProperties_SLP_AbilityTeleport Props
         {
@@ -680,7 +692,7 @@ namespace Sleepys_MorePsycasts
                     return "CannotSkipTargetPsychicResistant".Translate();
                 }
                 // New 1.0.3.1
-                if (Caster != pawn)
+                if (GetCaster() != pawn)
                 {
                     return "CannotSkipTargetIsntCaster".Translate();
                 }

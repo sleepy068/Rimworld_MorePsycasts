@@ -1,13 +1,16 @@
-Update v1.0.4 Build 30/04/23
+Update v1.0.5 Build 12/06/23 | Post 
 
 Additions:
 N/A
 
 Changes:
-Adjusted Dash gizmo to no longer show when undrafted.
+N/A
 
 Localisation:
 N/A
 
 Bug Fixes:
+N/A
+
+Code Changes:
 N/A

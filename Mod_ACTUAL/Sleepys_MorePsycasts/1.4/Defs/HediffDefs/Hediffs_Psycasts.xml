@@ -53,7 +53,7 @@
 	<isBad>false</isBad>
 	<stages>
 	  <li>
-		<totalBleedFactor>0.0</totalBleedFactor>
+		<totalBleedFactor>0.10</totalBleedFactor>
 	  </li>
 	</stages>
   </HediffDef>

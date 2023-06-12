@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Immunity Boost -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_ImmunityBoost</defName>
+    <label>psychic immunity boost</label>
+    <description>Psychically-induced immune system boost.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <ImmunityGainSpeed>0.30</ImmunityGainSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Healing Boost -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_HealingBoost</defName>
+    <label>psychic healing</label>
+    <description>Psychically-induced healing.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <InjuryHealingFactor>0.60</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Psychic Rapid Healing -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_FlashHeal</defName>
+    <label>psychic rapid healing</label>
+    <description>Rapid and draining psychically-induced healing.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <InjuryHealingFactor>10.0</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Haemostasis -->
+  <HediffDef ParentName = "PsycastHediffBase">
+	<defName>SLP_Psycast_Haemostasis</defName>
+	<label>haemostasis</label>
+	<description>Psychically-induced haemostasis.</description>
+	<isBad>false</isBad>
+	<stages>
+	  <li>
+		<totalBleedFactor>0.0</totalBleedFactor>
+	  </li>
+	</stages>
+  </HediffDef>
+  
+  <!-- Superficial Regeneration -->
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>SLP_Psycast_SuperficialRegen</defName>
+	<hediffClass>HediffWithComps</hediffClass>
+	<label>superficial regeneration</label>
+	<description>Draining psychically-induced scar healing.</description>
+	<isBad>false</isBad>
+	<comps>
+      <li>
+        <compClass>Sleepys_MorePsycasts.SLP_HediffComp_ScarsHealing</compClass>
+      </li>
+    </comps>
+  </HediffDef>
+  
+  <!-- Word of Sleep -->
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>SLP_Psycast_WordOfSleep</defName>
+	<hediffClass>HediffWithComps</hediffClass>
+	<label>word of sleep</label>
+	<description>Psychically-induced sleepiness.</description>
+	<isBad>false</isBad>
+	<comps>
+      <li Class="Sleepys_MorePsycasts.HediffCompProperties_SLP_NeedOffset">
+	    <compClass>Sleepys_MorePsycasts.SLP_HediffComp_AdjustNeed</compClass>
+        <need>Rest</need>
+        <offset>-0.75</offset>
+      </li>
+    </comps>
+  </HediffDef>
+  
+  <!-- Word of Vigor -->
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>SLP_Psycast_WordOfVigor</defName>
+	<hediffClass>HediffWithComps</hediffClass>
+	<label>word of vigor</label>
+	<description>Psychically-induced energy.</description>
+	<isBad>false</isBad>
+	<comps>
+      <li Class="Sleepys_MorePsycasts.HediffCompProperties_SLP_NeedOffset">
+	    <compClass>Sleepys_MorePsycasts.SLP_HediffComp_AdjustNeed</compClass>
+        <need>Rest</need>
+        <offset>0.40</offset>
+      </li>
+    </comps>
+  </HediffDef>
+  
+  <!-- Potential Unleashed -->
+  <HediffDef ParentName = "PsycastHediffBase">
+	<defName>SLP_Psycast_PU</defName>
+	<hediffClass>HediffWithComps</hediffClass>
+	<label>potential unleashed</label>
+	<description>Psychically-induced body overdrive.</description>
+	<isBad>false</isBad>
+	<stages>
+	  <li>
+	    <hungerRateFactorOffset>-0.30</hungerRateFactorOffset>
+		<restFallFactor>0.70</restFallFactor>
+		<painFactor>0.5</painFactor>
+		<capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>0.10</offset>
+            </li>
+			<li>
+              <capacity>Sight</capacity>
+              <offset>0.30</offset>
+            </li>
+			<li>
+              <capacity>Hearing</capacity>
+              <offset>0.30</offset>
+            </li>
+			<li>
+              <capacity>Moving</capacity>
+              <offset>0.30</offset>
+            </li>
+          </capMods>
+		<statOffsets>
+		  <MentalBreakThreshold>-0.10</MentalBreakThreshold>
+		  <MeleeHitChance>4.00</MeleeHitChance>
+		  <MeleeDodgeChance>4.00</MeleeDodgeChance>
+        </statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+  
+  <!-- Dash -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_Dash</defName>
+    <label>dash</label>
+    <description>Psychically-induced increased movement speed.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <capMods>
+			<li>
+              <capacity>Moving</capacity>
+              <offset>0.30</offset>
+            </li>
+          </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Psychic Contempt -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_PsychicContempt</defName>
+    <label>psychic contempt</label>
+    <description>Psychically-induced abhorrence. This decreases an individual's opinion of someone else and increases the likelihood of rivalry and social fights among to the two, while with adults, increasing the chance of a breakup.</description>
+    <hediffClass>Sleepys_MorePsycasts.SLP_Hediff_PsychicContempt</hediffClass>
+    <targetPrefix>for</targetPrefix>
+    <isBad>false</isBad>
+    <stages><li></li></stages>
+  </HediffDef>
+  
+  <!-- Psychic Calm -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Calm</defName>
+    <label>psychic calm</label>
+    <description>Psychically-induced feelings of contentment. This improves mood slightly but at the added benefit that it does not have an effect on the targets mental performance.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <partEfficiencyOffset>-0.00</partEfficiencyOffset>
+      </li>
+    </stages>
+  </HediffDef>
+  
+</Defs>
