@@ -185,4 +185,20 @@
     </stages>
   </HediffDef>
   
+  <!-- Comfort Shield -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_ComfortShield</defName>
+    <label>psychic calm</label>
+    <description>Psychically-induced thermal barrier between those effected and the environment. The barrier helps prevent the environment leaching heat from the user while also dumping excess heat when needed and protecting them from overheating to some extent.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <ComfyTemperatureMin>-24</ComfyTemperatureMin>
+		  <ComfyTemperatureMax>24</ComfyTemperatureMax>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
 </Defs>

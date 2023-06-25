@@ -555,34 +555,6 @@
     </comps>
   </AbilityDef>
   
-  <!-- Dart -->
-  <!-- Had to table, no standard means to get the event to trigger without using the incident code, I'll need to build a abilityEffect to do this from the ground up
-  Lvl 3 - Spawn a meteorite event to randomly strike the map. 
-  <AbilityDef ParentName="PsycastBaseSkip">
-    <defName>SLP_PSY_Dart</defName>
-    <label>dart</label>
-    <description>Although the small asteroids in this planets orbit are typically too large and heavy to skip, using skipgates and psychic guidance, the caster can skip a much lighter satellite in orbit into a direct collision course with one of these asteroids. Hitting it precisely and at tremendous speeds allows the casters to knock these asteroids out of orbit and enable them to land nearby.\n\nWhile the asteroid will land nearby, the caster cannot control exactly where it will land.</description>
-    <level>3</level>
-    <iconPath>UI/Abilities/SLP_Psycast_Dart</iconPath>
-    <statBases>
-      <Ability_EntropyGain>25</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.80</Ability_PsyfocusCost>
-    </statBases>
-    <verbProperties>
-      <warmupTime>2</warmupTime>
-      <range>39.9</range>
-      <targetParams>
-        <canTargetPawns>False</canTargetPawns>
-        <canTargetLocations>True</canTargetLocations>
-      </targetParams>
-    </verbProperties>
-	<comps>
-	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_Dart">
-        <compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Dart</compClass>
-     </li>
-    </comps>
-  </AbilityDef> -->
-  
   <!-- Skipscreen -->
   <!-- Lvl 4 - Generate an anti mortar shield -->
   <AbilityDef ParentName="PsycastBaseSkip">
@@ -763,60 +735,6 @@
     </comps>
   </AbilityDef>
   
-  <!-- Gaspop -->
-  <!-- Lvl 4 - Generate a Tox Gas cloud 
-  <AbilityDef ParentName="PsycastBaseSkip">
-    <defName>SLP_Gaspop</defName>
-    <label>gaspop</label>
-    <description>Skip toxic particles up from deep under the ground surface to form a thick poisonous cloud. Tox gas burns the lungs and eyes, causing a temporary shortness of breath and reduction in sight. Continued exposure to tox gas results in toxic buildup which can be lethal.</description>
-    <level>4</level>
-    <iconPath>UI/Abilities/Smokepop</iconPath>
-    <writeCombatLog>True</writeCombatLog>
-    <hotKey>Misc10</hotKey>
-    <statBases>
-      <Ability_EntropyGain>30</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
-    </statBases>
-    <verbProperties>
-      <warmupTime>1</warmupTime>
-      <range>24.9</range>
-      <targetParams>
-        <canTargetPawns>False</canTargetPawns>
-        <canTargetLocations>True</canTargetLocations>
-      </targetParams>
-    </verbProperties>
-    <comps>
-      <li Class = "CompProperties_AbilitySmokepop">
-        <smokeRadius>3.5</smokeRadius>
-        <clamorType>Ability</clamorType>
-        <clamorRadius>15</clamorRadius>
-      </li>
-      <li Class="CompProperties_AbilityEffecterOnTarget">
-        <effecterDef>Skip_Exit</effecterDef>
-        <maintainForTicks>60</maintainForTicks>
-      </li>
-      <li Class="CompProperties_AbilityFleckOnTarget">
-        <fleckDefs>
-          <li>PsycastSkipInnerExit</li>
-          <li>PsycastSkipOuterRingExit</li>
-        </fleckDefs>
-        <sound>Psycast_Skip_Exit</sound>
-        <preCastTicks>5</preCastTicks>
-      </li>
-    </comps>
-  </AbilityDef>  -->
-  
-  <!-- Brickgate -->
-  <!-- Lvl 1 - Turn a chunk into stone blocks -->
-  
-  <!-- Thermal Shield -->
-  <!-- Lvl 2 - Boost a pawns comfortable temperature range by -24 and +24, lasts 3 days.
-	<description>Envelop the target in a thermal shield that will help protect them from extreme low and extreme high environmental temperature hazards.</description>
-    -->
-  
-  <!-- Chemskip -->
-  <!-- Lvl 2 - Turn one corpse (body size * x) into chemfuel. Reduce amount depending on how much it is degraded. -->
-  
   <!-- Mass Beckon -->
   <!-- Lvl 5 -->
   <AbilityDef ParentName="PsycastBase">
@@ -929,18 +847,6 @@
     </comps>
   </AbilityDef>
   
-  <!-- Static Burst -->
-  <!-- Lvl X - EMP AOE Attack to stun Mechs -->
-  
-  <!-- Endothermic Pinhole -->
-  <!-- Lvl X - Spawn a long term arctic pinhole at negatives to the pawn -->
-  
-  <!-- Air Bolt -->
-  <!-- Lvl X - Fire a super sonic burst of air at a specific target, short range -->
-  
-  <!-- Air Burst -->
-  <!-- Lvl X - Create a super sonic shock wave around the caster -->
-  
   <!-- Flashstep -->
   <!-- Lvl 3 -->
   <AbilityDef ParentName="PsycastBase">
@@ -1030,5 +936,133 @@
       </li>
     </comps>
   </AbilityDef>
+  
+  <!-- Comfort Shield -->
+  <!-- Lvl 2 - Boost a pawns comfortable temperature range by -24 and +24, lasts 3 days. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_ComfortShield</defName>
+    <label>comfort shield</label>
+    <description>Envelop the target in a thermal barrier that will help protect them from extreme low and extreme high environmental temperature hazards.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_ComfortShield</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
+	  <Ability_Duration>3000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.5</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_ComfortShield</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Brickgate -->
+  <!-- Lvl 1 - Turn a chunk into stone blocks -->
+  
+  <!-- Chemskip -->
+  <!-- Lvl 2 - Turn one corpse (body size * x) into chemfuel. Reduce amount depending on how much it is degraded. -->
+  
+  <!-- Static Burst -->
+  <!-- Lvl X - EMP AOE Attack to stun Mechs -->
+  
+  <!-- Endothermic Pinhole -->
+  <!-- Lvl X - Spawn a long term arctic pinhole at negatives to the pawn -->
+  
+  <!-- Air Bolt -->
+  <!-- Lvl X - Fire a super sonic burst of air at a specific target, short range -->
+  
+  <!-- Air Burst -->
+  <!-- Lvl X - Create a super sonic shock wave around the caster -->
+  
+  <!-- Dart -->
+  <!-- Had to table, no standard means to get the event to trigger without using the incident code, I'll need to build a abilityEffect to do this from the ground up
+  Lvl 3 - Spawn a meteorite event to randomly strike the map. 
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Dart</defName>
+    <label>dart</label>
+    <description>Although the small asteroids in this planets orbit are typically too large and heavy to skip, using skipgates and psychic guidance, the caster can skip a much lighter satellite in orbit into a direct collision course with one of these asteroids. Hitting it precisely and at tremendous speeds allows the casters to knock these asteroids out of orbit and enable them to land nearby.\n\nWhile the asteroid will land nearby, the caster cannot control exactly where it will land.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Dart</iconPath>
+    <statBases>
+      <Ability_EntropyGain>25</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.80</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <range>39.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+	<comps>
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_Dart">
+        <compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Dart</compClass>
+     </li>
+    </comps>
+  </AbilityDef> -->
+  
+  <!-- Gaspop -->
+  <!-- Lvl 4 - Generate a Tox Gas cloud 
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_Gaspop</defName>
+    <label>gaspop</label>
+    <description>Skip toxic particles up from deep under the ground surface to form a thick poisonous cloud. Tox gas burns the lungs and eyes, causing a temporary shortness of breath and reduction in sight. Continued exposure to tox gas results in toxic buildup which can be lethal.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/Smokepop</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <hotKey>Misc10</hotKey>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilitySmokepop">
+        <smokeRadius>3.5</smokeRadius>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>15</clamorRadius>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </comps>
+  </AbilityDef>  -->
   
 </Defs>
