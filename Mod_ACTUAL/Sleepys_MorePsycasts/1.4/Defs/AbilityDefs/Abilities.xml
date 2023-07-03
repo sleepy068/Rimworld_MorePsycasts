@@ -947,10 +947,12 @@
     <iconPath>UI/Abilities/SLP_Psycast_ComfortShield</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <statBases>
       <Ability_EntropyGain>30</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
-	  <Ability_Duration>3000</Ability_Duration>
+      <Ability_PsyfocusCost>0.125</Ability_PsyfocusCost>
+	  <Ability_Duration>5000</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>1.5</warmupTime>
