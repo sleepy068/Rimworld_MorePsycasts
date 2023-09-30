@@ -1,7 +1,8 @@
 Update v1.0.5 Build 12/06/23 | Post 
 
 Additions:
-N/A
+1 New Psycast:
+- Comfort Shield
 
 Changes:
 N/A
