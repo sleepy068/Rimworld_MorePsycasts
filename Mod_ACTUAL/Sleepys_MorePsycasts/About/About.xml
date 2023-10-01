@@ -86,6 +86,10 @@ Please post any issue reports to my Github. I appreciate any feedback but please
     </description>
 
     <modDependencies>
+	<li>
+		<packageId>Ludeon.RimWorld.Royalty</packageId>
+		<displayName>Royalty</displayName>
+	</li>
     </modDependencies>
 	
     <modDependenciesByVersion>
