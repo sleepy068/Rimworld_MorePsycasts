@@ -6,11 +6,12 @@
     <packageId>sleepy068.morepsycasts</packageId>
     <supportedVersions>
 		<li>1.4</li>
+		<li>1.5</li>
     </supportedVersions>
 
     <description>
 [img]https://i.imgur.com/IIdHbEw.png[/img]
-[h2]Sleepy's More Psycasts (v1.0.4)[/h2]
+[h2]Sleepy's More Psycasts (v1.0.5)[/h2]
 
 [b]Credit[/b]
 This mod is a fork of Noodles and DC's amazing [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2460833332]More Psycasts[/url] mod. I absolutely loved their mod, so much so i approached them to fork it when 1.4 released. During this process I became worried that what I envisioned and considered balanced was skewing too far from what they originally designed. In realising this, I supported Noodles in updating the original mod to 1.4 so as to ensure those that enjoyed that mod could continue to do so while I could make my fork exactly how I wanted too.
@@ -19,10 +20,9 @@ I love to add content to this game that I feel is missing or that I'd like expan
 
 You can find all the stats and exact effects of each Psycast here:
 
-
 [img]https://i.imgur.com/DbnM7jC.png[/img]
 [b]What Does This Mod Add?[/b]
-25 new psycasts:
+26 new psycasts:
 [img]https://i.imgur.com/SLmwvWv.png[/img]
 [img]https://i.imgur.com/2rh1iv6.png[/img]
 [img]https://i.imgur.com/o6QJzTR.png[/img]
@@ -48,6 +48,7 @@ You can find all the stats and exact effects of each Psycast here:
 [img]https://i.imgur.com/DarpE8a.png[/img]
 [img]https://i.imgur.com/bIh1sIe.png[/img]
 [img]https://i.imgur.com/22QLKRl.png[/img]
+[img]https://i.imgur.com/sefHngB.png[/img]
 
 [img]https://i.imgur.com/ss8ZNXk.png[/img]
 [b]Roadmap:[/b]
@@ -82,7 +83,6 @@ https://github.com/sleepy068/Rimworld_MorePsycasts
 
 Please post any issue reports to my Github. I appreciate any feedback but please keep in mind I have a goal in mind for the content I am adding so what I consider balanced may not always be what you'd consider balanced.
 
-    
     </description>
 
     <modDependencies>
