@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    
+  <!-- Renewal Sickness -->
+  <HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
+    <defName>SLP_RegenSickness</defName>
+    <label>renewal sickness</label>
+    <description>Deep psychic destabilisation of the body from hypercharging natural healing processes and pushing beyond them. Renewal Sickness, also known as Regeneration sickness, lasts from a few to several weeks depending on the level of exposure, causing consciousness reduction, discomfort, sluggishness and an increased appetite. It resolves itself with time.</description>
+    <isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
+	
+    <initialSeverity>7</initialSeverity>
+    <maxSeverity>21</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.5</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+    <stages>
+      <li>
+        <label>acclimatising</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.02</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>2.0</minSeverity>
+        <label>minor</label>
+		<painOffset>0.10</painOffset>
+		<hungerRateFactorOffset>0.1</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>5.0</minSeverity>
+        <label>major</label>
+		<painOffset>0.15</painOffset>
+		<hungerRateFactorOffset>0.2</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.1</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+        <minSeverity>10.0</minSeverity>
+        <label>severe</label>
+		<painOffset>0.30</painOffset>
+		<hungerRateFactorOffset>0.3</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.25</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.15</offset>
+          </li>
+        </capMods>
+      </li>
+	  <li>
+        <minSeverity>18.0</minSeverity>
+        <label>extreme</label>
+		<painOffset>0.35</painOffset>
+		<hungerRateFactorOffset>0.35</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.5</setMax>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Healing Pains -->
+  <HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
+    <defName>SLP_HealingPains</defName>
+    <label>healing pains</label>
+    <description>Residue pains and discomfort from psychically supercharging the bodies natural healing processes. Healing pains cause general pain throughout the body as well as making sleep less effective while the supercharged bodily functions return to normal. Healing pains will last days to weeks depending on the level of exposure. It will pass with time.</description>
+    <isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
+	
+    <initialSeverity>7</initialSeverity>
+    <maxSeverity>35</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-3.0</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+    <stages>
+      <li>
+        <label>acclimatising</label>
+		<painOffset>0.03</painOffset>
+		<restFallFactorOffset>0.05</restFallFactorOffset>
+        <capMods>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>3.5</minSeverity>
+        <label>minor</label>
+		<painOffset>0.1</painOffset>
+		<restFallFactorOffset>0.1</restFallFactorOffset>
+        <capMods>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>14.5</minSeverity>
+        <label>major</label>
+		<painOffset>0.2</painOffset>
+		<restFallFactorOffset>0.25</restFallFactorOffset>
+        <capMods>
+        </capMods>
+      </li>
+	  <li>
+        <minSeverity>22.0</minSeverity>
+        <label>severe</label>
+		<painOffset>0.3</painOffset>
+		<restFallFactorOffset>0.5</restFallFactorOffset>
+        <capMods>
+        </capMods>
+      </li>
+	  <li>
+        <minSeverity>29.0</minSeverity>
+        <label>extreme</label>
+		<painOffset>0.4</painOffset>
+		<restFallFactorOffset>1.0</restFallFactorOffset>
+        <capMods>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+	
+  <!-- Phoenix Syndrome -->
+  <HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
+    <defName>SLP_PhoenixSyndrome</defName>
+    <label>phoenix syndrome</label>
+    <description>Pains, blurred restored memories and serious discomfort from psychically restarting the body, flash restoring any damage it had and bringing the person back to life. Phoenix syndrome causes general pain throughout the body as well as an array of other issues related to being dead and that suddenly changing, including mental instability and learning difficulties. Phoenix syndrome will last months to years before it finally passes but it gets progressively worse if the person dies and is psychically resurrected again.</description>
+    <isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
+	
+    <initialSeverity>10</initialSeverity>
+    <maxSeverity>30</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.5</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	  <!--<li Class="HediffCompProperties_DisappearsOnDeath"/>-->
+    </comps>
+    <stages>
+      <li>
+        <label>acclimatising</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>1.0</minSeverity>
+        <label>minor</label>
+		<painOffset>0.075</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.10</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>6.5</minSeverity>
+        <label>major</label>
+		<painOffset>0.10</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.15</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+		<mentalStateGivers>
+          <li>
+            <mentalState>WanderConfused</mentalState>
+            <mtbDays>6</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+	  <li>
+        <minSeverity>11.0</minSeverity>
+        <label>severe</label>
+		<painOffset>0.15</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.30</offset>
+          </li>
+		  <li>
+            <capacity>Moving</capacity>
+            <offset>-0.15</offset>
+          </li>
+        </capMods>
+		<mentalStateGivers>
+          <li>
+            <mentalState>WanderConfused</mentalState>
+            <mtbDays>5</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+	  <li>
+        <minSeverity>21.0</minSeverity>
+        <label>extreme</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+	
+  <!-- ResSickness -->	
+  <HediffDef ParentName="DiseaseBase">
+    <defName>SLP_ResurrectionSickness</defName>
+    <label>resurrection sickness</label>
+    <description>After-effects of resurrection. Psychically-restarted body processes take time to rebalance themselves.</description>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>90000~150000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <vomitMtbDays>0.5</vomitMtbDays>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>0.1</postFactor>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <postFactor>0.1</postFactor>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Overdriven -->
+  <HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
+    <defName>SLP_Overdriven</defName>
+    <label>overdrive exhaustion</label>
+    <description>Serious pains, torn muscles and possibly broken bones from psychically removing the bodies natural muscle group and capability limiter. Only time and rest can help the body recover.</description>
+    <isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <makesAlert>false</makesAlert>
+    <initialSeverity>10</initialSeverity>
+    <maxSeverity>10</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-2.0</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+	<li>
+        <label>recovering</label>
+		<painOffset>0.10</painOffset>
+		<restFallFactorOffset>0.05</restFallFactorOffset>
+        <capMods>
+        </capMods>
+		<statOffsets>
+		  <ImmunityGainSpeed>-0.03</ImmunityGainSpeed>
+		  <InjuryHealingFactor>-0.5</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>2.0</minSeverity>
+        <label>minor</label>
+		<painOffset>0.20</painOffset>
+		<restFallFactorOffset>0.10</restFallFactorOffset>
+        <capMods>
+        </capMods>
+		<statOffsets>
+		  <ImmunityGainSpeed>-0.05</ImmunityGainSpeed>
+		  <InjuryHealingFactor>-0.10</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>6.0</minSeverity>
+        <label>major</label>
+		<painOffset>0.4</painOffset>
+		<restFallFactorOffset>0.20</restFallFactorOffset>
+		<hungerRateFactorOffset>0.10</hungerRateFactorOffset>
+        <capMods>
+			<li>
+				  <capacity>Consciousness</capacity>
+				  <offset>-0.07</offset>
+			</li>
+        </capMods>
+		<statOffsets>
+		  <ImmunityGainSpeed>-0.10</ImmunityGainSpeed>
+		  <InjuryHealingFactor>-0.20</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+	  <li>
+        <minSeverity>8.0</minSeverity>
+        <label>severe</label>
+		<painOffset>0.5</painOffset>
+		<restFallFactorOffset>0.30</restFallFactorOffset>
+		<hungerRateFactorOffset>0.20</hungerRateFactorOffset>
+        <capMods>
+			<li>
+				  <capacity>Consciousness</capacity>
+				  <offset>-0.10</offset>
+			</li>
+        </capMods>
+		<statOffsets>
+		  <ImmunityGainSpeed>-0.15</ImmunityGainSpeed>
+		  <InjuryHealingFactor>-0.25</InjuryHealingFactor>
+        </statOffsets>
+      </li>
+	  <li>
+        <minSeverity>9.0</minSeverity>
+        <label>onset</label>
+      </li>
+    </stages>
+  </HediffDef>
+  
+</Defs>
