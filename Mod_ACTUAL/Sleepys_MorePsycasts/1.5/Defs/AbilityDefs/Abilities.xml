@@ -182,7 +182,7 @@
 	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
     <statBases>
       <Ability_EntropyGain>40</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.55</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
 	  <Ability_Duration>42</Ability_Duration>
     </statBases>
     <verbProperties>

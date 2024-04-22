@@ -1,16 +1,16 @@
-Update v1.0.8 Build 27/03/24 | Post
+Update v1.0.10 Build 17/04/24 | Post 
 
 Additions:
 N/A
 
 Changes:
-N/A
+Reduced SLP_Overdriven negative effects margingly (about 15-20% less problematic to make using Potential Unleashed more useful)
 
 Localisation:
 N/A
 
 Bug Fixes:
-N/A
+SLP_Overdriven, recovering stage, InjuryHealingFactor negative set to -50% instead of -5%
 
 Code Changes:
 N/A
