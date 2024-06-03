@@ -99,7 +99,7 @@
       <li Class="Sleepys_MorePsycasts.HediffCompProperties_SLP_NeedOffset">
 	    <compClass>Sleepys_MorePsycasts.SLP_HediffComp_AdjustNeed</compClass>
         <need>Rest</need>
-        <offset>0.40</offset>
+        <offset>0.50</offset>
       </li>
     </comps>
   </HediffDef>
@@ -119,7 +119,7 @@
 		<capMods>
             <li>
               <capacity>Consciousness</capacity>
-              <offset>0.10</offset>
+              <offset>0.15</offset>
             </li>
 			<li>
               <capacity>Sight</capacity>
@@ -135,7 +135,7 @@
             </li>
           </capMods>
 		<statOffsets>
-		  <MentalBreakThreshold>-0.10</MentalBreakThreshold>
+		  <MentalBreakThreshold>-0.15</MentalBreakThreshold>
 		  <MeleeHitChance>4.00</MeleeHitChance>
 		  <MeleeDodgeChance>4.00</MeleeDodgeChance>
         </statOffsets>

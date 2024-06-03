@@ -144,7 +144,7 @@
 	  <Ability_Duration>20</Ability_Duration>
     </statBases>
     <verbProperties>
-      <warmupTime>10.0</warmupTime>
+      <warmupTime>5.0</warmupTime>
       <drawAimPie>False</drawAimPie>
 	  <range>-1</range>
       <targetParams>
@@ -404,7 +404,7 @@
     <level>1</level>
     <iconPath>UI/Abilities/SLP_Psycast_Ignite</iconPath>
     <statBases>
-	  <Ability_EntropyGain>5</Ability_EntropyGain>
+	  <Ability_EntropyGain>3</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
@@ -502,7 +502,7 @@
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_WordOfSleep</iconPath>
     <statBases>
-      <Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
       <!--<Ability_Duration>1</Ability_Duration>-->
     </statBases>
     <verbProperties>
@@ -536,7 +536,7 @@
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_WordOfVigor</iconPath>
     <statBases>
-      <Ability_PsyfocusCost>0.55</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
       <!--<Ability_Duration>1</Ability_Duration>-->
     </statBases>
     <verbProperties>
@@ -573,7 +573,7 @@
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
     <statBases>
       <Ability_EntropyGain>65</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.18</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
       <Ability_EffectRadius>15.9</Ability_EffectRadius>
       <Ability_Duration>45</Ability_Duration>
     </statBases>
@@ -650,8 +650,8 @@
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>50</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.09</Ability_PsyfocusCost>
 	  <Ability_Duration>168</Ability_Duration>
     </statBases>
     <verbProperties>

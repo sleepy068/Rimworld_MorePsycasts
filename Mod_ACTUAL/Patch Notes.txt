@@ -4,7 +4,24 @@ Additions:
 N/A
 
 Changes:
-N/A
+Reduced SLP_HealingPains Hediff severityPerDay from -3.0 to -3.5 (effected pawn will recover slightly faster).
+Reduced SLP_HealingPains Hediff MaxSeverity from 35 to 25 (Won't stack as signficantly)
+Removed SLP_HealingPains Hediff 'Extreme' Stage (Makes it easier to manage and less debilitating).
+
+Reduced SLP_RegenSickness Hediff severityPerDay from -0.5 to -1.0 (effected pawn will recover signficantly faster).
+Reduced SLP_RegenSickness Hediff 'Severe' Stage negatives slightly (reduced consciousness negatives)
+Reduced SLP_RegenSickness Hediff 'Extreme' Stage negatives slightly (reduced painoffset negatives)
+
+Reduced Deep Regeneration Warmup time from 10 seconds to 5 seconds
+Reduced Ignite Psyfocus cost from 5% to 3%
+Reduced Dash Psyfocus cost from 10% to 9%
+Reduced Dash Neural Heat Gain from 50 to 30
+Reduced Word of Sleep Psyfocus cost from 25% to 15% (Was just too high)
+Reduced Word of Vigor Psyfocus cost from 55% to 35% (Too high to be useful in a variety of situations)
+Increased Word of Vigor Sleep/Rest offset from +40% to +50%
+Increased Potential Unleashed Consciousness offset from +10% to +15%
+Increased Potential Unleashed MentalBreakThreshold from -10% to -15% (makes it harder to mentally break by an extra 5%)
+Reduced Skipscreen Psyfocus cost from 18% to 15%
 
 Localisation:
 N/A

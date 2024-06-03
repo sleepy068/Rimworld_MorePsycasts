@@ -144,7 +144,7 @@
 	  <Ability_Duration>20</Ability_Duration>
     </statBases>
     <verbProperties>
-      <warmupTime>10.0</warmupTime>
+      <warmupTime>5.0</warmupTime>
       <drawAimPie>False</drawAimPie>
 	  <range>-1</range>
       <targetParams>
@@ -405,7 +405,7 @@
     <iconPath>UI/Abilities/SLP_Psycast_Ignite</iconPath>
     <statBases>
 	  <Ability_EntropyGain>5</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
       <warmupTime>2</warmupTime>
@@ -502,7 +502,7 @@
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_WordOfSleep</iconPath>
     <statBases>
-      <Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
       <!--<Ability_Duration>1</Ability_Duration>-->
     </statBases>
     <verbProperties>
@@ -536,7 +536,7 @@
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_WordOfVigor</iconPath>
     <statBases>
-      <Ability_PsyfocusCost>0.55</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
       <!--<Ability_Duration>1</Ability_Duration>-->
     </statBases>
     <verbProperties>
@@ -573,7 +573,7 @@
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
     <statBases>
       <Ability_EntropyGain>65</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.18</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
       <Ability_EffectRadius>15.9</Ability_EffectRadius>
       <Ability_Duration>45</Ability_Duration>
     </statBases>
@@ -650,8 +650,8 @@
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>50</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.09</Ability_PsyfocusCost>
 	  <Ability_Duration>168</Ability_Duration>
     </statBases>
     <verbProperties>
@@ -995,86 +995,27 @@
   <!-- Lvl 2 - Turn one corpse (body size * x) into chemfuel. Reduce amount depending on how much it is degraded. -->
   
   <!-- Static Burst -->
-  <!-- Lvl X - EMP AOE Attack to stun Mechs -->
+  <!-- Lvl 1 - EMP AOE Attack to stun Mechs. -->
   
   <!-- Endothermic Pinhole -->
-  <!-- Lvl X - Spawn a long term arctic pinhole at negatives to the pawn -->
+  <!-- Lvl 3 - Spawn a long term arctic pinhole at a cost to the pawn. -->
   
   <!-- Air Bolt -->
-  <!-- Lvl X - Fire a super sonic burst of air at a specific target, short range -->
+  <!-- Lvl 1 - Fire a super sonic burst of air at a specific target, damaged and stunning the target, short range. -->
   
   <!-- Air Burst -->
-  <!-- Lvl X - Create a super sonic shock wave around the caster -->
+  <!-- Lvl 3 - Create a super sonic shock wave around the caster, damaging and stunning everyone excluding the caster. -->
   
   <!-- Dart -->
-  <!-- Had to table, no standard means to get the event to trigger without using the incident code, I'll need to build a abilityEffect to do this from the ground up
-  Lvl 3 - Spawn a meteorite event to randomly strike the map. 
-  <AbilityDef ParentName="PsycastBaseSkip">
-    <defName>SLP_PSY_Dart</defName>
-    <label>dart</label>
-    <description>Although the small asteroids in this planets orbit are typically too large and heavy to skip, using skipgates and psychic guidance, the caster can skip a much lighter satellite in orbit into a direct collision course with one of these asteroids. Hitting it precisely and at tremendous speeds allows the casters to knock these asteroids out of orbit and enable them to land nearby.\n\nWhile the asteroid will land nearby, the caster cannot control exactly where it will land.</description>
-    <level>3</level>
-    <iconPath>UI/Abilities/SLP_Psycast_Dart</iconPath>
-    <statBases>
-      <Ability_EntropyGain>25</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.80</Ability_PsyfocusCost>
-    </statBases>
-    <verbProperties>
-      <warmupTime>2</warmupTime>
-      <range>39.9</range>
-      <targetParams>
-        <canTargetPawns>False</canTargetPawns>
-        <canTargetLocations>True</canTargetLocations>
-      </targetParams>
-    </verbProperties>
-	<comps>
-	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_Dart">
-        <compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Dart</compClass>
-     </li>
-    </comps>
-  </AbilityDef> -->
+  <!-- Lvl 3 - Spawn a meteorite event to randomly strike the map. -->
   
-  <!-- Gaspop -->
-  <!-- Lvl 4 - Generate a Tox Gas cloud 
-  <AbilityDef ParentName="PsycastBaseSkip">
-    <defName>SLP_Gaspop</defName>
-    <label>gaspop</label>
-    <description>Skip toxic particles up from deep under the ground surface to form a thick poisonous cloud. Tox gas burns the lungs and eyes, causing a temporary shortness of breath and reduction in sight. Continued exposure to tox gas results in toxic buildup which can be lethal.</description>
-    <level>4</level>
-    <iconPath>UI/Abilities/Smokepop</iconPath>
-    <writeCombatLog>True</writeCombatLog>
-    <hotKey>Misc10</hotKey>
-    <statBases>
-      <Ability_EntropyGain>30</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
-    </statBases>
-    <verbProperties>
-      <warmupTime>1</warmupTime>
-      <range>24.9</range>
-      <targetParams>
-        <canTargetPawns>False</canTargetPawns>
-        <canTargetLocations>True</canTargetLocations>
-      </targetParams>
-    </verbProperties>
-    <comps>
-      <li Class = "CompProperties_AbilitySmokepop">
-        <smokeRadius>3.5</smokeRadius>
-        <clamorType>Ability</clamorType>
-        <clamorRadius>15</clamorRadius>
-      </li>
-      <li Class="CompProperties_AbilityEffecterOnTarget">
-        <effecterDef>Skip_Exit</effecterDef>
-        <maintainForTicks>60</maintainForTicks>
-      </li>
-      <li Class="CompProperties_AbilityFleckOnTarget">
-        <fleckDefs>
-          <li>PsycastSkipInnerExit</li>
-          <li>PsycastSkipOuterRingExit</li>
-        </fleckDefs>
-        <sound>Psycast_Skip_Exit</sound>
-        <preCastTicks>5</preCastTicks>
-      </li>
-    </comps>
-  </AbilityDef>  -->
+  <!-- Gaspop (Biotech Only) -->
+  <!-- Lvl 4 - Generate a Tox Gas cloud -->
+  
+  <!-- Deep Healing -->
+  <!-- Lvl 4 - Give a pawn regeneration for a short time -->
+  
+  <!-- Engulf -->
+  <!-- Lvl 2 - Engulf a small area in flames and set several small fires -->
   
 </Defs>
