@@ -413,7 +413,7 @@
 	<writeCombatLog>True</writeCombatLog>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>5</Ability_EntropyGain>
+      <Ability_EntropyGain>15</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
 	  <!--<Ability_EffectRadius>1.9</Ability_EffectRadius>-->
     </statBases>
@@ -445,7 +445,7 @@
     <projectile>
       <speed>200</speed>
       <damageDef>Flame</damageDef>
-      <explosionRadius>0.1</explosionRadius>
+      <explosionRadius>0.2</explosionRadius>
 	  <!--
       <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
       <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
@@ -1029,7 +1029,7 @@
     <writeCombatLog>True</writeCombatLog>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>36</Ability_EntropyGain>
+      <Ability_EntropyGain>45</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.06</Ability_PsyfocusCost>
 	  <!--<Ability_EffectRadius>1.9</Ability_EffectRadius>-->
     </statBases>
@@ -1072,7 +1072,6 @@
     </projectile>
   </ThingDef>
 
-  
   <!-- Brickgate -->
   <!-- Lvl 1 - Turn a chunk into stone blocks -->
   

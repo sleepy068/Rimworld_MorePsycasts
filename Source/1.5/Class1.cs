@@ -221,8 +221,18 @@ namespace Sleepys_MorePsycasts
             base.Apply(target, dest);
             Map map = this.parent.pawn.Map;
             Thing thing = target.Thing == null ? target.Cell.GetThingList(map).RandomElement<Thing>() : target.Thing;
+
             int num = (((thing.MaxHitPoints - thing.HitPoints) / 2) + (thing.MaxHitPoints / 20));
-            thing.HitPoints += num;
+            int CheckOverMaxHP = num + thing.HitPoints;
+
+            if (CheckOverMaxHP > thing.MaxHitPoints) {
+                thing.HitPoints = thing.MaxHitPoints;
+            }
+            else
+            {
+                thing.HitPoints += num;
+            }
+
             SoundDefOf.Psycast_Skip_Exit.PlayOneShot((SoundInfo)new TargetInfo(target.Cell, map));
             SLP_Utilities.SpawnFleck(target, FleckDefOf.PsycastSkipInnerExit, map);
             SLP_Utilities.SpawnFleck(target, FleckDefOf.PsycastSkipOuterRingExit, map);

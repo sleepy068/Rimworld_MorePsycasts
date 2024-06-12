@@ -17,6 +17,7 @@ Reduced SLP_RegenSickness Hediff 'Extreme' Stage negatives slightly (reduced pai
 
 Reduced Deep Regeneration Warmup time from 10 seconds to 5 seconds
 Reduced Ignite Psyfocus cost from 5% to 2% 
+Increased Ignite Neural Heat Gain from 5 to 15
 Reduced Dash Psyfocus cost from 10% to 9%
 Reduced Dash Neural Heat Gain from 50 to 30
 Reduced Word of Sleep Psyfocus cost from 25% to 15% (Was just too high)
