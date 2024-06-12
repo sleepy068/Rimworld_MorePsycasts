@@ -1,7 +1,8 @@
 Update v1.0.11 Build 11/05/24 | Post 
 
 Additions:
-N/A
+New psycasts only added for Rimworld version 1.5 (1.4 will only be supported with balance and bug fixes).
+
 
 Changes:
 Reduced SLP_HealingPains Hediff severityPerDay from -3.0 to -3.5 (effected pawn will recover slightly faster).
