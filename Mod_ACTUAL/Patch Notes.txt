@@ -1,10 +1,10 @@
 Update v1.0.11 Build 11/05/24 | Post 
+*New psycasts only added for Rimworld version 1.5 (1.4 will only be supported with balance and bug fixes).
+Some code changes will only be for 1.5 as it becomes too difficult to test and manage the branches.
 
 Additions:
 New Psycasts:
  - Engulf
-
-*New psycasts only added for Rimworld version 1.5 (1.4 will only be supported with balance and bug fixes).
 
 Changes:
 Reduced SLP_HealingPains Hediff severityPerDay from -3.0 to -3.5 (effected pawn will recover slightly faster).
@@ -25,10 +25,13 @@ Increased Word of Vigor Sleep/Rest offset from +40% to +50%
 Increased Potential Unleashed Consciousness offset from +10% to +15%
 Increased Potential Unleashed MentalBreakThreshold from -10% to -15% (makes it harder to mentally break by an extra 5%)
 Reduced Skipscreen Psyfocus cost from 18% to 15%
+Reduced Skipscreen Neural Heat Gain from 65 to 55
 Reduced Recondition Neural Heat Gain from 90 to 70
 
+Adjusted Recondition Repair Formala (now ((thing.MaxHitPoints - thing.HitPoints) / 2) + (thing.MaxHitPoints / 20)) results in a slight boost to repair and reduces the diminishing returns)(1.5 only)
+Increased Superficial Regeneration Scar Healing Factor from 3.0 to 6.0 (Heals twice the amount from scars now)(1.5 only)
 Adjusted the display order for psycasts so it makes better sense (1.5 only)
-Ingite Psycast Adjusted from code based fire spawn to a projectile fire spawn (results in a better fire and can be somewhat used in combat now)
+Ingite Psycast Adjusted from code based fire spawn to a projectile fire spawn (results in a better fire and can be somewhat used in combat now)(1.5 only)
 
 Localisation:
 N/A

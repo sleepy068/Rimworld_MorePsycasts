@@ -404,7 +404,7 @@
   </AbilityDef>
 
   <!-- Ignite -->
-  <AbilityDef ParentName="PsycastBase">
+  <AbilityDef ParentName="SLP_PsycastBaseCombat">
     <defName>SLP_PSY_Ignite</defName>
     <label>ignite</label>
     <description>Psychically energise the atoms of a nearby object to reach their ignition point, causing a flash fire.</description>
@@ -454,35 +454,6 @@
       <shadowSize>0</shadowSize>
     </projectile>
   </ThingDef>
-  
-  <!-- Old Ignite Code
-  <AbilityDef ParentName="PsycastBase">
-    <defName>SLP_PSY_Ignite</defName>
-    <label>ignite</label>
-    <description>Psychically energise the atoms of a nearby object to reach their ignition point, causing a small fire.</description>
-    <level>1</level>
-    <iconPath>UI/Abilities/SLP_Psycast_Ignite</iconPath>
-    <statBases>
-	  <Ability_EntropyGain>5</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
-    </statBases>
-    <verbProperties>
-      <warmupTime>2</warmupTime>
-      <range>9.9</range>
-      <targetParams>
-        <canTargetSelf>False</canTargetSelf>
-        <canTargetAnimals>False</canTargetAnimals>
-        <canTargetItems>True</canTargetItems>
-		<canTargetLocations>True</canTargetLocations>
-      </targetParams>
-    </verbProperties>
-    <comps>
-      <li Class = "CompProperties_AbilityEffect">
-		<compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Ignite</compClass>
-	    <sound>PsycastPsychicEffect</sound>
-      </li>
-    </comps>
-  </AbilityDef>-->
   
   <!-- Recondition -->
   <AbilityDef ParentName="PsycastBase">
@@ -631,7 +602,7 @@
     <iconPath>UI/Abilities/SLP_Psycast_Skipscreen</iconPath>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
     <statBases>
-      <Ability_EntropyGain>65</Ability_EntropyGain>
+      <Ability_EntropyGain>55</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
       <Ability_EffectRadius>15.9</Ability_EffectRadius>
       <Ability_Duration>45</Ability_Duration>
