@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+  <AbilityDef Name="SLP_PsycastBaseCombat" ParentName="PsycastBase" Abstract="True">
+    <category>Combat</category>
+  </AbilityDef>
+  
+  <AbilityDef Name="SLP_PsycastBaseHeal" ParentName="PsycastBase" Abstract="True">
+    <category>Healing</category>
+  </AbilityDef>
   
   <!-- Arctic Pinhole -->
-  <AbilityDef ParentName="PsycastBaseSkip">
+  <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_ArcticPinhole</defName>
     <label>arctic pinhole</label>
     <description>Generate a microscopic material-shielded skipgate linked to deep interstellar space. Atmospheric and Solar material are protected from leaking through the pinprick in spacetime into the vacuum but energy is not. The skipgate rapidly draws heat from the surrounding area and radiates it into deep space until it closes. The skipgate generates a very amount of light but this is only from the gate itself.</description>
@@ -45,7 +52,7 @@
   </AbilityDef>
   
   <!-- Immunity Boost -->
-  <AbilityDef ParentName="PsycastBase">
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_ImmunityBoost</defName>
     <label>immunity boost</label>
     <description>Generate a resonating energy field within the body of a organic being that boosts both the bodies ability to fight off infections and actively attacks foreign entities.</description>
@@ -86,7 +93,7 @@
   </AbilityDef>
   
   <!-- Healing Boost -->
-  <AbilityDef ParentName="PsycastBase">
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_HealingBoost</defName>
     <label>healing boost</label>
     <description>Generate a resonating energy field within the body of a organic being that boosts the bodies ability to repair damage.</description>
@@ -127,7 +134,7 @@
   </AbilityDef>
   
   <!-- Deep Regeneration -->
-  <AbilityDef ParentName="PsycastBase">
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_RegenMajor</defName>
     <label>deep regeneration</label>
     <description>Generate an incredibly powerful psychic energy field within the body of a organic being that boosts the bodies ability to heal. It will help with recovery from illness, fade scars, regenerate lost organs, limbs or even reset a brain suffering from addiction. It can be used on any condition but the caster wont be able to choose the specific one, instead the psychic flow will focus on the condition causing the most pain and problems. While the process is very quick, those exposed to it will be rather drained and will take significant time to adjust to the changes.</description>
@@ -173,7 +180,7 @@
   </AbilityDef>
   
   <!-- Flash Heal -->
-  <AbilityDef ParentName="PsycastBase">
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_FlashHeal</defName>
     <label>flash heal</label>
     <description>Generate a powerful resonating energy field within the body of a organic being that rapidly forces the body to repair damage. While the process is very quick, those exposed to it will be somewhat drained and it will take a little time to adjust. Continuous exposure will lengthen the time it takes to recover from the negative effects.</description>
@@ -216,7 +223,7 @@
   </AbilityDef>
   
   <!-- Superficial Regeneration -->
-  <AbilityDef ParentName="PsycastBase">
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_RegenMinor</defName>
     <label>superficial regeneration</label>
     <description>Generate a powerful psychic energy field within the body of a organic being that boosts the bodies ability to fade scars. It can be used on any scar type but the caster wont be able to choose the specific one, instead the psychic flow will attempt to focus on the condition causing the most pain and problems. While the process is somewhat quick, those exposed to it will be rather drained and will take some time to adjust to the changes.</description>
@@ -259,7 +266,7 @@
   </AbilityDef>
  
   <!-- Resurrect -->
-  <AbilityDef ParentName="PsycastBase">
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_Resurrect</defName>
     <label>resurrect</label>
     <description>Generate a psychic energy field within the body of a organic being so powerful it can bring one back from death. The drawbacks are serious, only the most powerful of psycasters won't be downed from such a cast.</description>
@@ -300,7 +307,7 @@
   </AbilityDef>
   
   <!-- Clean Skip -->
-  <AbilityDef ParentName="PsycastBaseSkip">
+  <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_CleanSkip</defName>
     <label>clean skip</label>
     <description>Skips all filth in the selected area into the core of a nearby star, destroying it immediately.</description>
@@ -328,7 +335,7 @@
   </AbilityDef>
   
   <!-- Fertility Skip -->
-  <AbilityDef ParentName="PsycastBaseSkip">
+  <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_FertilitySkip</defName>
     <label>fertility skip</label>
     <description>Using psychically linked skipgates to either remove or add components from soil, the soils fertility is increased. The precision of this psycast does not allow for the generation of rich soil.</description>
@@ -397,7 +404,59 @@
   </AbilityDef>
 
   <!-- Ignite -->
-  <AbilityDef ParentName="PsycastBaseSkip">
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Ignite</defName>
+    <label>ignite</label>
+    <description>Psychically energise the atoms of a nearby object to reach their ignition point, causing a flash fire.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Ignite</iconPath>
+	<writeCombatLog>True</writeCombatLog>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>5</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
+	  <!--<Ability_EffectRadius>1.9</Ability_EffectRadius>-->
+    </statBases>
+    <verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>2</warmupTime>
+      <range>14.9</range>
+      <targetParams>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>SLP_IgniteCast</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>SLP_IgniteCast</defName>
+    <label>ignite</label>
+    <graphicData>
+      <texPath>Things/Projectile/SLP_Invis</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(0.25,0.25)</drawSize>
+    </graphicData>
+	<thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>200</speed>
+      <damageDef>Flame</damageDef>
+      <explosionRadius>0.1</explosionRadius>
+	  <!--
+      <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+	  -->
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+      <shadowSize>0</shadowSize>
+    </projectile>
+  </ThingDef>
+  
+  <!-- Old Ignite Code
+  <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Ignite</defName>
     <label>ignite</label>
     <description>Psychically energise the atoms of a nearby object to reach their ignition point, causing a small fire.</description>
@@ -405,7 +464,7 @@
     <iconPath>UI/Abilities/SLP_Psycast_Ignite</iconPath>
     <statBases>
 	  <Ability_EntropyGain>5</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
       <warmupTime>2</warmupTime>
@@ -423,17 +482,17 @@
 	    <sound>PsycastPsychicEffect</sound>
       </li>
     </comps>
-  </AbilityDef>
+  </AbilityDef>-->
   
   <!-- Recondition -->
-  <AbilityDef ParentName="PsycastBaseSkip">
+  <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Recondition</defName>
     <label>recondition</label>
     <description>Rapidly generate thousands of microscopic skip gates across multiple planets and stellar objects to pick up specific atoms while focusing them to replace and organically repair any damaged items. The process will help repair the focused object but the neural heat generated is significant. The psycast will never be able to fully repair the item.</description>
     <level>5</level>
     <iconPath>UI/Abilities/SLP_Psycast_Recondition</iconPath>
     <statBases>
-	  <Ability_EntropyGain>90</Ability_EntropyGain>
+	  <Ability_EntropyGain>70</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
@@ -858,7 +917,7 @@
   
   <!-- Flashstep -->
   <!-- Lvl 3 -->
-  <AbilityDef ParentName="PsycastBase">
+  <AbilityDef ParentName="PsycastBaseSkip">
     <defName>SLP_PSY_Flashstep</defName>
     <label>flashstep</label>
     <description>Very briefly, the caster can move faster than the eye can follow, effectively allowing them to escape when needed or close the distance to any enemy quickly. Unlike a skip ability, the caster can only use this technique on themselves.</description>
@@ -903,7 +962,7 @@
   
   <!-- Skipstep -->
   <!-- Lvl 4 -->
-  <AbilityDef ParentName="PsycastBase">
+  <AbilityDef ParentName="PsycastBaseSkip">
     <defName>SLP_PSY_Skipstep</defName>
     <label>skipstep</label>
     <description>A much more powerful version of the flashstep that allows the caster to both briefly move faster than the eye can follow and utilise the skip's teleportation ability to increase the range and responsiveness. Unlike a true skip ability, the caster can only use this technique on themselves.</description>
@@ -970,8 +1029,8 @@
 	  <range>-1</range>
       <targetParams>
         <canTargetSelf>True</canTargetSelf>
-		<canTargetMechs>False</canTargetMechs>
         <canTargetAnimals>True</canTargetAnimals>
+        <canTargetItems>True</canTargetItems>
       </targetParams>
     </verbProperties>
     <comps>
@@ -987,6 +1046,61 @@
       </li>
     </comps>
   </AbilityDef>
+  
+  <!-- Engulf -->
+  <!-- Lvl 3 - Engulf a small area in flames and set several small fires -->
+  <AbilityDef ParentName="SLP_PsycastBaseCombat">
+    <defName>SLP_PSY_Engulf</defName>
+    <label>engulf</label>
+    <description>Teleport a nanoscopic piece of the core of a star and launch it into a nearby area, instantly engulfing the area as the energy quickly dissipates.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Engulf</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>36</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.06</Ability_PsyfocusCost>
+	  <!--<Ability_EffectRadius>1.9</Ability_EffectRadius>-->
+    </statBases>
+    <verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.25</warmupTime>
+      <range>14.9</range>
+      <targetParams>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+	  <soundCast>InfernoCannon_Fire</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>SLP_EngulfCast</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>SLP_EngulfCast</defName>
+    <label>engulf</label>
+    <graphicData>
+      <texPath>Things/Projectile/SLP_EngulfProj</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(0.25,0.25)</drawSize>
+    </graphicData>
+	<thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>70</speed>
+      <damageDef>Flame</damageDef>
+      <explosionRadius>2.5</explosionRadius>
+	  <!--
+      <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+	  -->
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+      <shadowSize>0.2</shadowSize>
+    </projectile>
+  </ThingDef>
+
   
   <!-- Brickgate -->
   <!-- Lvl 1 - Turn a chunk into stone blocks -->
@@ -1014,8 +1128,5 @@
   
   <!-- Deep Healing -->
   <!-- Lvl 4 - Give a pawn regeneration for a short time -->
-  
-  <!-- Engulf -->
-  <!-- Lvl 2 - Engulf a small area in flames and set several small fires -->
   
 </Defs>

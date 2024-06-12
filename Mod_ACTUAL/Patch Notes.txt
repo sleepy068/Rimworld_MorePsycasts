@@ -1,8 +1,10 @@
 Update v1.0.11 Build 11/05/24 | Post 
 
 Additions:
-New psycasts only added for Rimworld version 1.5 (1.4 will only be supported with balance and bug fixes).
+New Psycasts:
+ - Engulf
 
+*New psycasts only added for Rimworld version 1.5 (1.4 will only be supported with balance and bug fixes).
 
 Changes:
 Reduced SLP_HealingPains Hediff severityPerDay from -3.0 to -3.5 (effected pawn will recover slightly faster).
@@ -14,7 +16,7 @@ Reduced SLP_RegenSickness Hediff 'Severe' Stage negatives slightly (reduced cons
 Reduced SLP_RegenSickness Hediff 'Extreme' Stage negatives slightly (reduced painoffset negatives)
 
 Reduced Deep Regeneration Warmup time from 10 seconds to 5 seconds
-Reduced Ignite Psyfocus cost from 5% to 3%
+Reduced Ignite Psyfocus cost from 5% to 2% 
 Reduced Dash Psyfocus cost from 10% to 9%
 Reduced Dash Neural Heat Gain from 50 to 30
 Reduced Word of Sleep Psyfocus cost from 25% to 15% (Was just too high)
@@ -23,6 +25,10 @@ Increased Word of Vigor Sleep/Rest offset from +40% to +50%
 Increased Potential Unleashed Consciousness offset from +10% to +15%
 Increased Potential Unleashed MentalBreakThreshold from -10% to -15% (makes it harder to mentally break by an extra 5%)
 Reduced Skipscreen Psyfocus cost from 18% to 15%
+Reduced Recondition Neural Heat Gain from 90 to 70
+
+Adjusted the display order for psycasts so it makes better sense (1.5 only)
+Ingite Psycast Adjusted from code based fire spawn to a projectile fire spawn (results in a better fire and can be somewhat used in combat now)
 
 Localisation:
 N/A
@@ -31,4 +37,4 @@ Bug Fixes:
 N/A
 
 Code Changes:
-N/A
+Changed Ignite from external code to internal code (will ensure it works for the long term and reduced code overhead)(1.5 only)

@@ -405,7 +405,7 @@
     <iconPath>UI/Abilities/SLP_Psycast_Ignite</iconPath>
     <statBases>
 	  <Ability_EntropyGain>3</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
       <warmupTime>2</warmupTime>
@@ -433,7 +433,7 @@
     <level>5</level>
     <iconPath>UI/Abilities/SLP_Psycast_Recondition</iconPath>
     <statBases>
-	  <Ability_EntropyGain>90</Ability_EntropyGain>
+	  <Ability_EntropyGain>70</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
