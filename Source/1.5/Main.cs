@@ -747,26 +747,52 @@ namespace Sleepys_MorePsycasts
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
-            int numOfChunks = UnityEngine.Random.Range(1, 4);
-            SpawnShipChunks(target.Cell, this.parent.pawn.Map, numOfChunks);
+            int probabilityChunks = UnityEngine.Random.Range(1, 10);
+            int numOfChunks;
+            if (probabilityChunks < 3) //20% Chance for 2 Chunks
+            {
+                numOfChunks = 2;
+            }
+            else
+            {
+                numOfChunks = 1; //80% Chance for 1 Chunk
+            }
 
+            bool targetValid = Valid(target);
+            if (targetValid == true)
+            {
+                SpawnShipChunks(target.Cell, this.parent.pawn.Map, numOfChunks);
+            }
+
+
+        }
+        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+        {
+            if (!target.Cell.Roofed(this.parent.pawn.Map))
+                return true;
+            if (throwMessages)
+                Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityRoofed".Translate()), (LookTargets)target.ToTargetInfo(this.parent.pawn.Map), MessageTypeDefOf.RejectInput, false);
+            return false;
         }
 
         private void SpawnShipChunks(IntVec3 firstChunkPos, Map map, int count)
         {
-            bool allowRoof = false;
             this.SpawnChunk(firstChunkPos, map);
             for (int index = 0; index < count - 1; ++index)
             {
                 IntVec3 pos;
-                if (this.TryFindShipChunkDropCell(firstChunkPos, map, 25, out pos, allowRoof))
-                    this.SpawnChunk(pos, map);
+                if (this.TryFindShipChunkDropCell(firstChunkPos, map, 25, out pos))
+                {
+                    if (!pos.Roofed(this.parent.pawn.Map))
+                        this.SpawnChunk(pos, map);
+                }
+                
             }
         }
 
         private void SpawnChunk(IntVec3 pos, Map map) => SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, ThingDefOf.ShipChunk, pos, map);
 
-        private bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos, bool allowRoof) => CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out pos, nearLoc: nearLoc, nearLocMaxDist: maxDist, allowRoofedCells: allowRoof);
+        private bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos) => CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out pos, nearLoc: nearLoc, nearLocMaxDist: maxDist, allowRoofedCells: false, allowCellsWithItems: true, allowCellsWithBuildings: true, colonyReachable: true, avoidColonistsIfExplosive: false);
 
     }
 
