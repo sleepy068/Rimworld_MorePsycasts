@@ -1044,8 +1044,10 @@
 	  <soundCast>InfernoCannon_Fire</soundCast>
     </verbProperties>
     <comps>
-      <li Class="CompProperties_AbilityLaunchProjectile">
+      <li Class="Sleepys_MorePsycasts.CompProperties_SLP_AreaEffectLaunchProjectile">
+	    <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_AreaEffectLaunchProjectile</compClass>
         <projectileDef>SLP_EngulfCast</projectileDef>
+		<effectPreviewRadius>2.5</effectPreviewRadius>
       </li>
     </comps>
   </AbilityDef>
@@ -1072,6 +1074,39 @@
     </projectile>
   </ThingDef>
 
+  <!-- Dart -->
+  <!-- Lvl 3 - Spawn a meteorite or ship chunks to randomly strike the map. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Dart</defName>
+    <label>dart</label>
+    <description>While large ship chunks or meteorites in space are too large to directly skip to the plant's surface, by skipping a small object in space, such as a satellite or micrometeorite, into a precise collision course with these larger objects, their trajectory can be altered. This allows the caster to deorbit ship chunks or meteorites to land somewhere nearby. The collision is not accurate enough to specify the landing location.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Dart</iconPath>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>20</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.9</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>5.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>15.9</range>
+      <targetParams>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <li Class = "CompProperties_AbilityEffect">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_Dart</compClass>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  
   <!-- Brickgate -->
   <!-- Lvl 1 - Turn a chunk into stone blocks -->
   
@@ -1089,9 +1124,6 @@
   
   <!-- Air Burst -->
   <!-- Lvl 3 - Create a super sonic shock wave around the caster, damaging and stunning everyone excluding the caster. -->
-  
-  <!-- Dart -->
-  <!-- Lvl 3 - Spawn a meteorite event to randomly strike the map. -->
   
   <!-- Gaspop (Biotech Only) -->
   <!-- Lvl 4 - Generate a Tox Gas cloud -->

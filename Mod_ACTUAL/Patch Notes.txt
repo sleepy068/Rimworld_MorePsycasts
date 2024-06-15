@@ -5,6 +5,7 @@ Some code changes will only be for 1.5 as it becomes too difficult to test and m
 Additions:
 New Psycasts:
  - Engulf
+ - Dart
 
 Changes:
 Reduced SLP_HealingPains Hediff severityPerDay from -3.0 to -3.5 (effected pawn will recover slightly faster).

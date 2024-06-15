@@ -199,9 +199,9 @@ namespace Sleepys_MorePsycasts
 
         public override void CompPostTick(ref float severityAdjustment)
         {
-            float healrate = 0.2f;
+            float healrate = 0.1f;
             base.CompPostTick(ref severityAdjustment);
-            Hediff_Injury hediff_Injury = SLP_Utilities.SLP_FindPermanentInjury(base.Pawn);
+            Hediff_Injury hediff_Injury = SLP_Utilities.FindPermanentInjury(base.Pawn);
             if (hediff_Injury == null)
             {
                 severityAdjustment = -1;
@@ -221,23 +221,29 @@ namespace Sleepys_MorePsycasts
             base.Apply(target, dest);
             Map map = this.parent.pawn.Map;
             Thing thing = target.Thing == null ? target.Cell.GetThingList(map).RandomElement<Thing>() : target.Thing;
-
-            int num = (((thing.MaxHitPoints - thing.HitPoints) / 2) + (thing.MaxHitPoints / 20));
-            int CheckOverMaxHP = num + thing.HitPoints;
-
-            if (CheckOverMaxHP > thing.MaxHitPoints) {
-                thing.HitPoints = thing.MaxHitPoints;
-            }
-            else
-            {
-                thing.HitPoints += num;
-            }
-
+            int num = ((thing.MaxHitPoints - thing.HitPoints) / 2);
+            thing.HitPoints += num;
             SoundDefOf.Psycast_Skip_Exit.PlayOneShot((SoundInfo)new TargetInfo(target.Cell, map));
             SLP_Utilities.SpawnFleck(target, FleckDefOf.PsycastSkipInnerExit, map);
             SLP_Utilities.SpawnFleck(target, FleckDefOf.PsycastSkipOuterRingExit, map);
             SLP_Utilities.SpawnEffecter(target, EffecterDefOf.Skip_Exit, map, 60, this.parent);
         }
+    }
+
+    public class SLP_CompAbilityEffect_Ignite : CompAbilityEffect
+    {
+        public new CompProperties_AbilityEffect Props => (CompProperties_AbilityEffect)this.props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            if (target == (LocalTargetInfo)(Thing)null)
+                Log.Message("Tried to apply ignite to nothing.");
+            else
+                FireUtility.TryStartFireIn(target.Cell, this.parent.pawn.Map, 0.1f);
+        }
+
+        public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest) => (double)FireUtility.ChanceToStartFireIn(target.Cell, this.parent.pawn.Map) > 0.0;
     }
 
     public class SLP_CompAbilityEffect_CleanSkip : CompAbilityEffect
@@ -274,8 +280,7 @@ namespace Sleepys_MorePsycasts
         {
             base.Apply(target, dest);
             Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
-            if (!SLP_ResurrectionUtility.TryResurrectWithSideEffects(innerPawn))
-                return;
+            SLP_ResurrectionUtility.ResurrectWithSideEffects(innerPawn);
             Messages.Message((string)"MessagePawnResurrected".Translate((NamedArgument)(Thing)innerPawn), (LookTargets)(Thing)innerPawn, MessageTypeDefOf.PositiveEvent);
             MoteMaker.MakeAttachedOverlay((Thing)innerPawn, ThingDefOf.Mote_ResurrectFlash, Vector3.zero);
         }
@@ -734,85 +739,70 @@ namespace Sleepys_MorePsycasts
       }
     };
 
-        public static bool TryResurrect(Pawn pawn, ResurrectionParams parms = null)
+        public static void Resurrect(Pawn pawn)
         {
             if (!pawn.Dead)
-            {
                 Log.Error("Tried to resurrect a pawn who is not dead: " + pawn.ToStringSafe<Pawn>());
-                return false;
-            }
-            if (pawn.Discarded)
+            else if (pawn.Discarded)
             {
                 Log.Error("Tried to resurrect a discarded pawn: " + pawn.ToStringSafe<Pawn>());
-                return false;
             }
-            Corpse corpse = pawn.Corpse;
-            bool flag1 = false;
-            IntVec3 loc = IntVec3.Invalid;
-            Map map = (Map)null;
-            if (ModsConfig.AnomalyActive && corpse is UnnaturalCorpse)
+            else
             {
-                Messages.Message((string)"MessageUnnaturalCorpseResurrect".Translate(corpse.InnerPawn.Named("PAWN")), (LookTargets)(Thing)corpse, MessageTypeDefOf.NeutralEvent);
-                return false;
-            }
-            bool flag2 = Find.Selector.IsSelected((object)corpse);
-            if (corpse != null)
-            {
-                flag1 = corpse.SpawnedOrAnyParentSpawned;
-                loc = corpse.PositionHeld;
-                map = corpse.MapHeld;
-                corpse.InnerPawn = (Pawn)null;
-                corpse.Destroy(DestroyMode.Vanish);
-            }
-            if (flag1 && pawn.IsWorldPawn())
-                Find.WorldPawns.RemovePawn(pawn);
-            pawn.ForceSetStateToUnspawned();
-            PawnComponentsUtility.CreateInitialComponents(pawn);
-            pawn.health.Notify_Resurrected(parms == null || parms.restoreMissingParts, parms != null ? parms.gettingScarsChance : 0.0f);
-            if (pawn.Faction != null && pawn.Faction.IsPlayer)
-            {
-                pawn.workSettings?.EnableAndInitialize();
-                Find.StoryWatcher.watcherPopAdaptation.Notify_PawnEvent(pawn, PopAdaptationEvent.GainedColonist);
-            }
-            if (pawn.RaceProps.IsMechanoid && MechRepairUtility.IsMissingWeapon(pawn))
-                MechRepairUtility.GenerateWeapon(pawn);
-            if (flag1 && (parms == null || !parms.dontSpawn))
-            {
-                GenSpawn.Spawn((Thing)pawn, loc, map);
-                Lord lord;
-                if ((lord = pawn.GetLord()) != null)
-                    lord?.Notify_PawnUndowned(pawn);
-                else if (pawn.Faction != null && pawn.Faction != Faction.OfPlayer && pawn.HostileTo(Faction.OfPlayer) && (parms == null || !parms.noLord))
+                Corpse corpse = pawn.Corpse;
+                bool flag1 = false;
+                IntVec3 loc = IntVec3.Invalid;
+                Map map = (Map)null;
+                bool flag2 = Find.Selector.IsSelected((object)corpse);
+                if (corpse != null)
                 {
-                    LordJob_AssaultColony jobAssaultColony = parms == null ? new LordJob_AssaultColony(pawn.Faction) : new LordJob_AssaultColony(pawn.Faction, parms.canKidnap, parms.canTimeoutOrFlee, parms.sappers, parms.useAvoidGridSmart, parms.canSteal, parms.breachers, parms.canPickUpOpportunisticWeapons);
-                    LordMaker.MakeNewLord(pawn.Faction, (LordJob)jobAssaultColony, pawn.Map, Gen.YieldSingle<Pawn>(pawn));
+                    flag1 = corpse.Spawned;
+                    loc = corpse.Position;
+                    map = corpse.Map;
+                    corpse.InnerPawn = (Pawn)null;
+                    corpse.Destroy(DestroyMode.Vanish);
                 }
-                if (pawn.apparel != null)
+                if (flag1 && pawn.IsWorldPawn())
+                    Find.WorldPawns.RemovePawn(pawn);
+                pawn.ForceSetStateToUnspawned();
+                PawnComponentsUtility.CreateInitialComponents(pawn);
+                pawn.health.Notify_Resurrected();
+                if (pawn.Faction != null && pawn.Faction.IsPlayer)
                 {
-                    List<Apparel> wornApparel = pawn.apparel.WornApparel;
-                    for (int index = 0; index < wornApparel.Count; ++index)
-                        wornApparel[index].Notify_PawnResurrected(pawn);
+                    if (pawn.workSettings != null)
+                        pawn.workSettings.EnableAndInitialize();
+                    Find.StoryWatcher.watcherPopAdaptation.Notify_PawnEvent(pawn, PopAdaptationEvent.GainedColonist);
                 }
-            }
-            if (parms != null && parms.removeDiedThoughts)
+                if (pawn.RaceProps.IsMechanoid && MechRepairUtility.IsMissingWeapon(pawn))
+                    MechRepairUtility.GenerateWeapon(pawn);
+                if (flag1)
+                {
+                    GenSpawn.Spawn((Thing)pawn, loc, map);
+                    if (pawn.Faction != null && pawn.Faction != Faction.OfPlayer && pawn.HostileTo(Faction.OfPlayer))
+                        LordMaker.MakeNewLord(pawn.Faction, (LordJob)new LordJob_AssaultColony(pawn.Faction), pawn.Map, Gen.YieldSingle<Pawn>(pawn));
+                    if (pawn.apparel != null)
+                    {
+                        List<Apparel> wornApparel = pawn.apparel.WornApparel;
+                        for (int index = 0; index < wornApparel.Count; ++index)
+                            wornApparel[index].Notify_PawnResurrected();
+                    }
+                }
                 PawnDiedOrDownedThoughtsUtility.RemoveDiedThoughts(pawn);
-            pawn.royalty?.Notify_Resurrected();
-            if (pawn.guest != null && pawn.guest.IsInteractionEnabled(PrisonerInteractionModeDefOf.Execution))
-                pawn.guest.SetNoInteraction();
-            if (flag2 && pawn != null)
+                if (pawn.royalty != null)
+                    pawn.royalty.Notify_Resurrected();
+                if (pawn.guest != null && pawn.guest.interactionMode == PrisonerInteractionModeDefOf.Execution)
+                    pawn.guest.interactionMode = PrisonerInteractionModeDefOf.NoInteraction;
+                if (!flag2 || pawn == null)
+                    return;
                 Find.Selector.Select((object)pawn, false, false);
-            pawn.Drawer.renderer.SetAllGraphicsDirty();
-            if (parms != null && parms.invisibleStun)
-                pawn.stances.stunner.StunFor(5f.SecondsToTicks(), (Thing)pawn, false, false);
-            return true;
+            }
         }
 
-        public static bool TryResurrectWithSideEffects(Pawn pawn)
+        public static void ResurrectWithSideEffects(Pawn pawn)
         {
             Corpse corpse = pawn.Corpse;
             float x1 = corpse == null ? 0.0f : corpse.GetComp<CompRottable>().RotProgress / 60000f;
-            if (!SLP_ResurrectionUtility.TryResurrect(pawn))
-                return false;
+            ResurrectionUtility.Resurrect(pawn);
             BodyPartRecord brain = pawn.health.hediffSet.GetBrain();
             Hediff hediff1 = HediffMaker.MakeHediff(SLP_HediffDefOf.SLP_ResurrectionSickness, pawn);
             Hediff hediffslp = HediffMaker.MakeHediff(SLP_HediffDefOf.SLP_PhoenixSyndrome, pawn);
@@ -837,28 +827,26 @@ namespace Sleepys_MorePsycasts
                     }
                 }
             }
-            if (pawn.Dead)
-            {
-                Log.Error("The pawn has died while being resurrected.");
-                SLP_ResurrectionUtility.TryResurrect(pawn);
-            }
-            return true;
+            if (!pawn.Dead)
+                return;
+            Log.Error("The pawn has died while being resurrected.");
+            ResurrectionUtility.Resurrect(pawn);
         }
     }
 
     public class SLP_Utilities
     {
-        public static Hediff_Injury SLP_FindPermanentInjury(Pawn pawn, IEnumerable<BodyPartRecord> allowedBodyParts = null, params HediffDef[] exclude)
+        public static Hediff_Injury FindPermanentInjury(Pawn pawn, IEnumerable<BodyPartRecord> allowedBodyParts = null)
+        {
+            Hediff_Injury permanentInjury = (Hediff_Injury)null;
+            List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+            for (int index = 0; index < hediffs.Count; ++index)
             {
-                Hediff_Injury permanentInjury = (Hediff_Injury)null;
-                List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-                for (int index = 0; index < hediffs.Count; ++index)
-                {
-                    if (hediffs[index] is Hediff_Injury hd && hd.Visible && hd.IsPermanent() && hd.def.everCurableByItem && (allowedBodyParts == null || allowedBodyParts.Contains<BodyPartRecord>(hd.Part)) && (exclude == null || !((IEnumerable<HediffDef>)exclude).Contains<HediffDef>(hediffs[index].def)) && (permanentInjury == null || (double)hd.Severity > (double)permanentInjury.Severity))
-                        permanentInjury = hd;
-                }
-                return permanentInjury;
+                if (hediffs[index] is Hediff_Injury hd && hd.Visible && hd.IsPermanent() && hd.def.everCurableByItem && (allowedBodyParts == null || allowedBodyParts.Contains<BodyPartRecord>(hd.Part)) && (permanentInjury == null || (double)hd.Severity > (double)permanentInjury.Severity))
+                    permanentInjury = hd;
             }
+            return permanentInjury;
+        }
 
         public static IEnumerable<IntVec3> AffectedCells(LocalTargetInfo target, Map map, Ability parent)
         {
