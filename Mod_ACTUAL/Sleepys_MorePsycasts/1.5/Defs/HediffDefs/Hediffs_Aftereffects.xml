@@ -9,8 +9,8 @@
     <isBad>true</isBad>
 	<everCurableByItem>false</everCurableByItem>
 	
-    <initialSeverity>7</initialSeverity>
-    <maxSeverity>21</maxSeverity>
+    <initialSeverity>5</initialSeverity>
+    <maxSeverity>15</maxSeverity>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-1.0</severityPerDay>
@@ -45,7 +45,7 @@
         </capMods>
       </li>
       <li>
-        <minSeverity>5.0</minSeverity>
+        <minSeverity>6.0</minSeverity>
         <label>major</label>
 		<painOffset>0.15</painOffset>
 		<hungerRateFactorOffset>0.2</hungerRateFactorOffset>
@@ -61,7 +61,7 @@
         </capMods>
       </li>
 	  <li>
-        <minSeverity>10.0</minSeverity>
+        <minSeverity>11.0</minSeverity>
         <label>severe</label>
 		<painOffset>0.25</painOffset>
 		<hungerRateFactorOffset>0.3</hungerRateFactorOffset>
@@ -73,22 +73,6 @@
 		  <li>
             <capacity>Moving</capacity>
             <offset>-0.10</offset>
-          </li>
-        </capMods>
-      </li>
-	  <li>
-        <minSeverity>18.0</minSeverity>
-        <label>extreme</label>
-		<painOffset>0.30</painOffset>
-		<hungerRateFactorOffset>0.35</hungerRateFactorOffset>
-        <capMods>
-          <li>
-            <capacity>Consciousness</capacity>
-            <setMax>0.5</setMax>
-          </li>
-		  <li>
-            <capacity>Moving</capacity>
-            <offset>-0.2</offset>
           </li>
         </capMods>
       </li>
@@ -104,7 +88,7 @@
 	<everCurableByItem>false</everCurableByItem>
 	
     <initialSeverity>7</initialSeverity>
-    <maxSeverity>25</maxSeverity>
+    <maxSeverity>21</maxSeverity>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-3.5</severityPerDay>
@@ -115,32 +99,24 @@
     <stages>
       <li>
         <label>acclimatising</label>
-		<painOffset>0.03</painOffset>
-		<restFallFactorOffset>0.05</restFallFactorOffset>
+		<painOffset>0.05</painOffset>
+		<restFallFactorOffset>0.10</restFallFactorOffset>
         <capMods>
         </capMods>
       </li>
       <li>
         <minSeverity>3.5</minSeverity>
         <label>minor</label>
-		<painOffset>0.1</painOffset>
-		<restFallFactorOffset>0.1</restFallFactorOffset>
+		<painOffset>0.15</painOffset>
+		<restFallFactorOffset>0.15</restFallFactorOffset>
         <capMods>
         </capMods>
       </li>
       <li>
-        <minSeverity>14.5</minSeverity>
+        <minSeverity>14</minSeverity>
         <label>major</label>
 		<painOffset>0.2</painOffset>
 		<restFallFactorOffset>0.25</restFallFactorOffset>
-        <capMods>
-        </capMods>
-      </li>
-	  <li>
-        <minSeverity>22.0</minSeverity>
-        <label>severe</label>
-		<painOffset>0.3</painOffset>
-		<restFallFactorOffset>0.5</restFallFactorOffset>
         <capMods>
         </capMods>
       </li>

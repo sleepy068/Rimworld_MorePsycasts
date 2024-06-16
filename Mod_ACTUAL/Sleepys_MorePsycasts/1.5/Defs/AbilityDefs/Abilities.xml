@@ -65,7 +65,7 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>15</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.3</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
       <Ability_Duration>320</Ability_Duration>
     </statBases>
     <verbProperties>
@@ -106,7 +106,7 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>15</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.3</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
       <Ability_Duration>320</Ability_Duration>
     </statBases>
     <verbProperties>
@@ -138,7 +138,7 @@
     <defName>SLP_PSY_RegenMajor</defName>
     <label>deep regeneration</label>
     <description>Generate an incredibly powerful psychic energy field within the body of a organic being that boosts the bodies ability to heal. It will help with recovery from illness, fade scars, regenerate lost organs, limbs or even reset a brain suffering from addiction. It can be used on any condition but the caster wont be able to choose the specific one, instead the psychic flow will focus on the condition causing the most pain and problems. While the process is very quick, those exposed to it will be rather drained and will take significant time to adjust to the changes.</description>
-    <level>5</level>
+    <level>4</level>
     <iconPath>UI/Abilities/SLP_Psycast_DeepRegen</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
@@ -146,8 +146,8 @@
 	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>65</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.8</Ability_PsyfocusCost>
+      <Ability_EntropyGain>50</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.65</Ability_PsyfocusCost>
 	  <Ability_Duration>20</Ability_Duration>
     </statBases>
     <verbProperties>
@@ -193,8 +193,8 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>40</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
-	  <Ability_Duration>42</Ability_Duration>
+      <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
+	  <Ability_Duration>63</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>0.5</warmupTime>
@@ -227,7 +227,7 @@
     <defName>SLP_PSY_RegenMinor</defName>
     <label>superficial regeneration</label>
     <description>Generate a powerful psychic energy field within the body of a organic being that boosts the bodies ability to fade scars. It can be used on any scar type but the caster wont be able to choose the specific one, instead the psychic flow will attempt to focus on the condition causing the most pain and problems. While the process is somewhat quick, those exposed to it will be rather drained and will take some time to adjust to the changes.</description>
-    <level>4</level>
+    <level>3</level>
     <iconPath>UI/Abilities/SLP_Psycast_RegenMinor</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
@@ -235,8 +235,8 @@
 	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>50</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
 	  <Ability_Duration>300</Ability_Duration>
     </statBases>
     <verbProperties>
@@ -376,7 +376,7 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>5</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
 	  <Ability_Duration>180</Ability_Duration>
     </statBases>
     <verbProperties>

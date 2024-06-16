@@ -790,10 +790,15 @@ namespace Sleepys_MorePsycasts
             }
         }
 
-        private void SpawnChunk(IntVec3 pos, Map map) => SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, ThingDefOf.ShipChunk, pos, map);
+        private void SpawnChunk(IntVec3 pos, Map map)
+        {
+            SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, ThingDefOf.ShipChunk, pos, map);
+        }
 
-        private bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos) => CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out pos, nearLoc: nearLoc, nearLocMaxDist: maxDist, allowRoofedCells: false, allowCellsWithItems: true, allowCellsWithBuildings: true, colonyReachable: true, avoidColonistsIfExplosive: false);
-
+        private bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos)
+        {
+            return CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out pos, 10, nearLoc, maxDist, false);
+        }
     }
 
     //Utility Code
