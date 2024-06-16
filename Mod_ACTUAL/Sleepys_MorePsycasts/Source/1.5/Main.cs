@@ -37,6 +37,23 @@ namespace Sleepys_MorePsycasts
     }
 
     //Comp Ability Effect
+    public class SLP_CompAbilityEffect_Ignite : CompAbilityEffect
+    {
+        public new CompProperties_AbilityEffect Props => (CompProperties_AbilityEffect)this.props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            Pawn casterPawn = this.parent.pawn;
+            if (target == (LocalTargetInfo)(Thing)null)
+                Log.Message("Tried to apply ignite to nothing.");
+            else
+                FireUtility.TryStartFireIn(target.Cell, this.parent.pawn.Map, 0.4f, casterPawn);
+        }
+
+        public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest) => (double)FireUtility.ChanceToStartFireIn(target.Cell, this.parent.pawn.Map) > 0.0;
+    }
+
     public class CompAbilityEffect_SLP_GiveTwoHediff : CompAbilityEffect_WithDuration
     {
         public new CompProperties_SLP_AbilityGiveTwoHediff Props => (CompProperties_SLP_AbilityGiveTwoHediff)this.props;

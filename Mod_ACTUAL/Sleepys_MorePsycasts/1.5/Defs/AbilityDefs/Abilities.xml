@@ -404,56 +404,33 @@
   </AbilityDef>
 
   <!-- Ignite -->
-  <AbilityDef ParentName="SLP_PsycastBaseCombat">
+  <AbilityDef ParentName="PsycastBaseSkip">
     <defName>SLP_PSY_Ignite</defName>
     <label>ignite</label>
-    <description>Psychically energise the atoms of a nearby object to reach their ignition point, causing a flash fire.</description>
+    <description>Psychically energise the atoms of a nearby object to reach their ignition point, causing a small fire.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_Psycast_Ignite</iconPath>
-	<writeCombatLog>True</writeCombatLog>
-	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>15</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
-	  <!--<Ability_EffectRadius>1.9</Ability_EffectRadius>-->
+	  <Ability_EntropyGain>5</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
-	  <verbClass>Verb_CastAbility</verbClass>
-      <warmupTime>2</warmupTime>
-      <range>14.9</range>
+      <warmupTime>1</warmupTime>
+      <range>9.9</range>
       <targetParams>
-        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetItems>True</canTargetItems>
 		<canTargetLocations>True</canTargetLocations>
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class="CompProperties_AbilityLaunchProjectile">
-        <projectileDef>SLP_IgniteCast</projectileDef>
+      <li Class = "CompProperties_AbilityEffect">
+		<compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Ignite</compClass>
+	    <sound>PsycastPsychicEffect</sound>
       </li>
     </comps>
   </AbilityDef>
-  
-  <ThingDef ParentName="BaseBullet">
-    <defName>SLP_IgniteCast</defName>
-    <label>ignite</label>
-    <graphicData>
-      <texPath>Things/Projectile/SLP_Invis</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-	  <drawSize>(0.25,0.25)</drawSize>
-    </graphicData>
-	<thingClass>Projectile_Explosive</thingClass>
-    <projectile>
-      <speed>200</speed>
-      <damageDef>Flame</damageDef>
-      <explosionRadius>0.2</explosionRadius>
-	  <!--
-      <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
-      <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
-	  -->
-      <ai_IsIncendiary>true</ai_IsIncendiary>
-      <shadowSize>0</shadowSize>
-    </projectile>
-  </ThingDef>
   
   <!-- Recondition -->
   <AbilityDef ParentName="PsycastBase">

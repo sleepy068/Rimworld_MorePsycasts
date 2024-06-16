@@ -1,59 +1,11 @@
-Update v1.0.11 Build 11/05/24 | Post 
+Update v1.0.12 Build 16/06/24 | Post 
 *New psycasts only added for Rimworld version 1.5 (1.4 will only be supported with balance and bug fixes).
-Some code changes will only be for 1.5 as it becomes too difficult to test and manage the branches.
 
 Additions:
-New Psycasts:
- - Engulf
- - Dart
+N/A
 
 Changes:
-Reduced SLP_HealingPains Hediff severityPerDay from -3.0 to -3.5 (effected pawn will recover slightly faster).
-Reduced SLP_HealingPains Hediff MaxSeverity from 35 to 21 (Won't stack as signficantly)
-Removed SLP_HealingPains Hediff 'Serious' Stage
-Removed SLP_HealingPains Hediff 'Extreme' Stage (Makes it easier to manage and less debilitating).
-Balanced SLP_HealingPains Acclimatising, Minor and Major stages (increased them very slightly to adjust to the removed stages)
-
-Reduced SLP_RegenSickness Hediff severityPerDay from -0.5 to -1.0 (effected pawn will recover signficantly faster).
-Reduced SLP_RegenSickness Hediff 'Severe' Stage negatives slightly (reduced consciousness negatives)
-Reduced SLP_RegenSickness Hediff Stage initialSeverity from 7 to 5
-Reduced SLP_RegenSickness Hediff MaxSeverity from 21 to 15 (Won't stack as signficantly)
-Reduced SLP_RegenSickness Hediff Stage minSeverity spread (results in less time on the higher stages)
-Removed SLP_RegenSickness Hediff 'Extreme' Stage (Makes it easier to manage and far less debilitating if you want to spam the ability).
-
-Reduced Deep Regeneration psycast level from 5 to 4
-Reduced Deep Regeneration Warmup time from 10 seconds to 5 seconds
-Reduuced Deep Regeneration psycast cost from 80% to 65%
-Reduuced Deep Regeneration Neural Heat Gain from 65 to 50
-Reduced Superfical Regeneration psycast level from 4 to 3
-Reduced Superfical Regeneration psycast cost from 40% to 35%
-Reduced Superfical Regeneration Neural Heat Gain from 50 to 40
-Reduced Flash Heal Psyfocus cost from 25% to 20%
-Increased Flash Heal Duration from 42 ticks to 63 ticks (Ingame: 1.0 Hours to 1.5 Hours)
-Increased Flash Heal Injury Healing Factor from 1000% to 1500% (Heals about 11.8 Damage in total over the duration)
-Reduced Healing Boost Psyfocus cost from 30% to 15%
-Reduced Immunity Boost Psyfocus cost from 30% to 15%
-Reduced Haemostasis Psyfocus cost from 15% to 10%
-
-Reduced Ignite Psyfocus cost from 5% to 2% 
-Increased Ignite Neural Heat Gain from 5 to 15
-Reduced Dash Psyfocus cost from 10% to 9%
-Reduced Dash Neural Heat Gain from 50 to 30
-Reduced Word of Sleep Psyfocus cost from 25% to 15% (Was just too high)
-Reduced Word of Vigor Psyfocus cost from 55% to 35% (Too high to be useful in a variety of situations)
-Increased Word of Vigor Sleep/Rest offset from +40% to +50%
-Increased Potential Unleashed Consciousness offset from +10% to +15%
-Increased Potential Unleashed MentalBreakThreshold from -10% to -15% (makes it harder to mentally break by an extra 5%)
-Reduced Skipscreen Psyfocus cost from 18% to 15%
-Reduced Skipscreen Neural Heat Gain from 65 to 55
-Reduced Recondition Neural Heat Gain from 90 to 70
-
-Adjusted Recondition Repair Formala (now ((thing.MaxHitPoints - thing.HitPoints) / 2) + (thing.MaxHitPoints / 20)) results in a slight boost to repair and reduces the diminishing returns)(1.5 only)
-Increased Superficial Regeneration Scar Healing Factor from 3.0 to 6.0 (Heals twice the amount from scars now)(1.5 only)
-Adjusted the display order for psycasts so it makes better sense (1.5 only)
-Ingite Psycast Adjusted from code based fire spawn to a projectile fire spawn (results in a better fire and can be somewhat used in combat now)(1.5 only)
-
-Cleaned up the steam workshop description image (each block represents 10%, 10 or 1 second now, was a bit random before)
+N/A
 
 Localisation:
 N/A
@@ -62,8 +14,4 @@ Bug Fixes:
 N/A
 
 Code Changes:
-Changed Ignite from external code to internal code (will ensure it works for the long term and reduced code overhead)(1.5 only)
-
-Special thanks to the following for their assistance, their code advice helped greatly fixing debug issues:
-Arquebus
-RecalculateAllGlow()
+N/A
