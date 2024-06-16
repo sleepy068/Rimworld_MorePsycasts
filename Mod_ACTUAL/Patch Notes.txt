@@ -30,6 +30,7 @@ Reduced Superfical Regeneration psycast cost from 40% to 35%
 Reduced Superfical Regeneration Neural Heat Gain from 50 to 40
 Reduced Flash Heal Psyfocus cost from 25% to 20%
 Increased Flash Heal Duration from 42 ticks to 63 ticks (Ingame: 1.0 Hours to 1.5 Hours)
+Increased Flash Heal Injury Healing Factor from 1000% to 1500% (Heals about 11.8 Damage in total over the duration)
 Reduced Healing Boost Psyfocus cost from 30% to 15%
 Reduced Immunity Boost Psyfocus cost from 30% to 15%
 Reduced Haemostasis Psyfocus cost from 15% to 10%
@@ -52,7 +53,7 @@ Increased Superficial Regeneration Scar Healing Factor from 3.0 to 6.0 (Heals tw
 Adjusted the display order for psycasts so it makes better sense (1.5 only)
 Ingite Psycast Adjusted from code based fire spawn to a projectile fire spawn (results in a better fire and can be somewhat used in combat now)(1.5 only)
 
-Cleaned up the steam workshop description image (each block represents 10%, 10 or 1 second now)
+Cleaned up the steam workshop description image (each block represents 10%, 10 or 1 second now, was a bit random before)
 
 Localisation:
 N/A
@@ -63,6 +64,6 @@ N/A
 Code Changes:
 Changed Ignite from external code to internal code (will ensure it works for the long term and reduced code overhead)(1.5 only)
 
-Special thanks for their assistance, their code advice helped greatly fixing debug issues, you can find them on the Rimworld Discord:
+Special thanks to the following for their assistance, their code advice helped greatly fixing debug issues:
 Arquebus
 RecalculateAllGlow()

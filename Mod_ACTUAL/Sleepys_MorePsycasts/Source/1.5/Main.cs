@@ -747,26 +747,100 @@ namespace Sleepys_MorePsycasts
         public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
             base.Apply(target, dest);
-            int numOfChunks = UnityEngine.Random.Range(1, 4);
-            SpawnShipChunks(target.Cell, this.parent.pawn.Map, numOfChunks);
+            int probabilityChunks = UnityEngine.Random.Range(1, 11);
+            int numOfChunks;
+            if (probabilityChunks < 3) //20% Chance for 2 Chunks
+            {
+                numOfChunks = 2;
+            }
+            else
+            {
+                numOfChunks = 1; //80% Chance for 1 Chunk
+            }
 
+            int probabilityIntercept = UnityEngine.Random.Range(1, 11);
+            int interceptType;
+            if (probabilityIntercept < 4) 
+            {
+                interceptType = 1; //30% Chance for Meteorite
+            }
+            else
+            {
+                interceptType = 2; //70% Chance for Ship Chunks
+            }
+
+            bool targetValid = Valid(target);
+            if (targetValid == true)
+            {
+                if (interceptType == 2)
+                {
+                    SLP_SpawnShipChunks(target.Cell, this.parent.pawn.Map, numOfChunks);
+                }
+                if (interceptType == 1)
+                {
+                    SLP_SpawnMeteorite(target.Cell, this.parent.pawn.Map);
+                }
+
+            }
         }
 
-        private void SpawnShipChunks(IntVec3 firstChunkPos, Map map, int count)
+        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
         {
-            this.SpawnChunk(firstChunkPos, map);
+            if (target.Cell.Roofed(this.parent.pawn.Map))
+            {
+                if (throwMessages)
+                    Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityRoofed".Translate()), (LookTargets)target.ToTargetInfo(this.parent.pawn.Map), MessageTypeDefOf.RejectInput, false);
+                return false;
+            }
+            foreach (IntVec3 item in GenAdj.OccupiedRect(target.Cell, Rot4.North, new IntVec2(2, 2)))
+            {
+                RoofDef roof = item.GetRoof(this.parent.pawn.Map);
+                if (roof != null && roof.isThickRoof)
+                {
+                    if (throwMessages)
+                        Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityNotEnoughFreeSpace".Translate()), (LookTargets)target.ToTargetInfo(this.parent.pawn.Map), MessageTypeDefOf.RejectInput, false);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+        private void SLP_SpawnShipChunks(IntVec3 firstChunkPos, Map map, int count)
+        {
+            this.SpawnShipChunk(firstChunkPos, map);
             for (int index = 0; index < count - 1; ++index)
             {
                 IntVec3 pos;
                 if (this.TryFindShipChunkDropCell(firstChunkPos, map, 5, out pos))
-                    this.SpawnChunk(pos, map);
+                {
+                    if (!pos.Roofed(this.parent.pawn.Map))
+                        this.SpawnShipChunk(pos, map);
+                }
+                
             }
         }
 
-        private void SpawnChunk(IntVec3 pos, Map map) => SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, ThingDefOf.ShipChunk, pos, map);
+        private void SLP_SpawnMeteorite(IntVec3 firstChunkPos, Map map)
+        {
+            List<Thing> contents = ThingSetMakerDefOf.Meteorite.root.Generate();
+            this.SpawnMeteorite(firstChunkPos, map, contents);
+        }
 
-        private bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos) => CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out pos, nearLoc: nearLoc, nearLocMaxDist: maxDist);
+        private void SpawnMeteorite(IntVec3 pos, Map map, List<Thing> contents)
+        {
+            SkyfallerMaker.SpawnSkyfaller(ThingDefOf.MeteoriteIncoming, contents, pos, map);
+        }
 
+        private void SpawnShipChunk(IntVec3 pos, Map map)
+        {
+            SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, ThingDefOf.ShipChunk, pos, map);
+        }
+
+        private bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos)
+        {
+            return CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out pos, 10, nearLoc, maxDist, false);
+        }
     }
 
     //Utility Code

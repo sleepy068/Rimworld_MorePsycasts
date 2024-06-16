@@ -194,7 +194,7 @@
     <statBases>
       <Ability_EntropyGain>40</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
-	  <Ability_Duration>63</Ability_Duration>
+	  <Ability_Duration>84</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>0.5</warmupTime>
@@ -1075,11 +1075,11 @@
   </ThingDef>
 
   <!-- Dart -->
-  <!-- Lvl 3 - Spawn a meteorite or ship chunks to randomly strike the map. -->
+  <!-- Lvl 3 - Spawn a meteorite or ship chunks to strike the map. -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Dart</defName>
     <label>dart</label>
-    <description>While large ship chunks or meteorites in space are too large to directly skip to the plant's surface, by skipping a small object in space, such as a satellite or micrometeorite, into a precise collision course with these larger objects, their trajectory can be altered. This allows the caster to deorbit ship chunks or meteorites to land somewhere nearby. The collision is not accurate enough to specify the landing location.</description>
+    <description>Large ship chunks or meteorites in space are too large to directly skip to the plant's surface but by skipping a small object in space, such as a satellite or micrometeorite, into a precise collision course with these larger objects, their trajectory can be altered. This allows the caster to deorbit ship chunks or meteorites to land nearby. The collision is extremely accurate and the psycast gives basic reaction controls to the object to help guide and nudge it as it descends, allowing it to be extremely accurate and land where targeted.</description>
     <level>3</level>
     <iconPath>UI/Abilities/SLP_Psycast_Dart</iconPath>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
@@ -1087,10 +1087,10 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>20</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.9</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.7</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
-      <warmupTime>5.0</warmupTime>
+      <warmupTime>8.0</warmupTime>
       <drawAimPie>False</drawAimPie>
 	  <range>15.9</range>
       <targetParams>
@@ -1105,7 +1105,6 @@
       </li>
     </comps>
   </AbilityDef>
-  
   
   <!-- Brickgate -->
   <!-- Lvl 1 - Turn a chunk into stone blocks -->
