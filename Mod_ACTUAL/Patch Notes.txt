@@ -1,5 +1,5 @@
 Update v1.0.12 Build 16/06/24 | Post 
-*New psycasts only added for Rimworld version 1.5 (1.4 will only be supported with balance and bug fixes).
+*New content and adjustments, excluding bug fixes, will only be made to the Rimworld 1.5 Version of this mod (just a hassle maintaining both sorry)
 
 Additions:
 N/A
