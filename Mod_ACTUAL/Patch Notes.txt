@@ -8,7 +8,7 @@ Changes:
 N/A
 
 Localisation:
-N/A
+More grammer mistakes fixed.
 
 Bug Fixes:
 N/A

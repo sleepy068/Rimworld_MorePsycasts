@@ -12,7 +12,7 @@
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_ArcticPinhole</defName>
     <label>arctic pinhole</label>
-    <description>Generate a microscopic material-shielded skipgate linked to deep interstellar space. Atmospheric and Solar material are protected from leaking through the pinprick in spacetime into the vacuum but energy is not. The skipgate rapidly draws heat from the surrounding area and radiates it into deep space until it closes. The skipgate generates a very amount of light but this is only from the gate itself.</description>
+    <description>Generate a microscopic material-shielded skipgate linked to deep interstellar space. Atmospheric and Solar material are protected from leaking through the pinprick in spacetime into the vacuum but energy is not. The skipgate rapidly draws heat from the surrounding area and radiates it into deep space until it closes. The skipgate generates a very small amount of light but this is only from the gate itself.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_Psycast_ArcticPinhole</iconPath>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
