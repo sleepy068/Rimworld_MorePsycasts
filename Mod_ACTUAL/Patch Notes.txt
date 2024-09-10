@@ -8,7 +8,7 @@ Added new Psycasts:
 - Word of Friendship
 
 Changes:
-N/A
+Arctic Pinhole min temperature reduced from -5 to -9 (Results in a colder room).
 
 Localisation:
 More grammer mistakes fixed.
