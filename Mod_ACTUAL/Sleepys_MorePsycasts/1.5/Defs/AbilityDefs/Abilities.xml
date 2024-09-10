@@ -9,6 +9,7 @@
   </AbilityDef>
   
   <!-- Arctic Pinhole -->
+  <!-- Lvl 1 -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_ArcticPinhole</defName>
     <label>arctic pinhole</label>
@@ -52,6 +53,7 @@
   </AbilityDef>
   
   <!-- Immunity Boost -->
+  <!-- Lvl 2 -->
   <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_ImmunityBoost</defName>
     <label>immunity boost</label>
@@ -93,6 +95,7 @@
   </AbilityDef>
   
   <!-- Healing Boost -->
+  <!-- Lvl 2 -->
   <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_HealingBoost</defName>
     <label>healing boost</label>
@@ -134,6 +137,7 @@
   </AbilityDef>
   
   <!-- Deep Regeneration -->
+  <!-- Lvl 4 -->
   <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_RegenMajor</defName>
     <label>deep regeneration</label>
@@ -180,6 +184,7 @@
   </AbilityDef>
   
   <!-- Flash Heal -->
+  <!-- Lvl 3 -->
   <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_FlashHeal</defName>
     <label>flash heal</label>
@@ -223,6 +228,7 @@
   </AbilityDef>
   
   <!-- Superficial Regeneration -->
+  <!-- Lvl 3 -->
   <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_RegenMinor</defName>
     <label>superficial regeneration</label>
@@ -266,6 +272,7 @@
   </AbilityDef>
  
   <!-- Resurrect -->
+  <!-- Lvl 6 -->
   <AbilityDef ParentName="SLP_PsycastBaseHeal">
     <defName>SLP_PSY_Resurrect</defName>
     <label>resurrect</label>
@@ -307,6 +314,7 @@
   </AbilityDef>
   
   <!-- Clean Skip -->
+  <!-- Lvl 3 -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_CleanSkip</defName>
     <label>clean skip</label>
@@ -335,6 +343,7 @@
   </AbilityDef>
   
   <!-- Fertility Skip -->
+  <!-- Lvl 6 -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_FertilitySkip</defName>
     <label>fertility skip</label>
@@ -363,6 +372,7 @@
   </AbilityDef>
   
   <!-- Haemostasis  -->
+  <!-- Lvl 1 -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Haemostasis</defName>
     <label>haemostasis</label>
@@ -404,6 +414,7 @@
   </AbilityDef>
 
   <!-- Ignite -->
+  <!-- Lvl 1 -->
   <AbilityDef ParentName="PsycastBaseSkip">
     <defName>SLP_PSY_Ignite</defName>
     <label>ignite</label>
@@ -433,6 +444,7 @@
   </AbilityDef>
   
   <!-- Recondition -->
+  <!-- Lvl 5 -->
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Recondition</defName>
     <label>recondition</label>
@@ -461,12 +473,14 @@
   </AbilityDef>
   
   <!-- Interdiction -->
+  <!-- Lvl 4 -->
   <AbilityDef ParentName="PsycastBaseSkip">
     <defName>SLP_PSY_Interdiction</defName>
     <label>interdiction</label>
     <description>Teleport the target right next to the caster. Objects which are too large cannot be teleported.</description>
     <level>4</level>
     <iconPath>UI/Abilities/SLP_Psycast_Interdict</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <writeCombatLog>True</writeCombatLog>
     <showPsycastEffects>False</showPsycastEffects>
     <statBases>
@@ -502,12 +516,14 @@
   </AbilityDef>
   
   <!-- Word of Sleep -->
+  <!-- Lvl 2 -->
   <AbilityDef ParentName="WordOfBase">
     <defName>SLP_PSY_WordOfSleep</defName>
     <label>word of sleep</label>
     <description>Speak warm, soft and calming words to someone while using psychic suggestion to help them go to sleep. The caster must be careful the person isn't already too tired or they might fall asleep right then and there.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_WordOfSleep</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
       <!--<Ability_Duration>1</Ability_Duration>-->
@@ -536,12 +552,14 @@
   </AbilityDef>
   
   <!-- Word of Vigor -->
+  <!-- Lvl 2 -->
   <AbilityDef ParentName="WordOfBase">
     <defName>SLP_PSY_WordOfVigor</defName>
     <label>word of vigor</label>
     <description>Speak motivating and inspiring words to someone while using psychic suggestion to help them find hidden energy deep within.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_WordOfVigor</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
       <!--<Ability_Duration>1</Ability_Duration>-->
@@ -693,6 +711,7 @@
     <description>Speak about someone's faults and flaws while using psychic suggestion to implant disgust and hate in the listener. For days afterwards, the listener will feel psychically-induced rivalry towards the other person. This greatly reduces opinion and makes them much more likely to start social fights with that person if they get the chance. This power can be used to disconnect two other people, induce hate for the caster, or force oneself to hate another. The psycast will not work on those too young to understand the suggestion.</description>
     <level>3</level>
     <iconPath>UI/Abilities/SLP_Psycast_WordOfComtempt</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.5</Ability_PsyfocusCost>
       <Ability_Duration>8000</Ability_Duration>
@@ -725,6 +744,7 @@
     <description>Speak happy, soothing words to someone while using psychic suggestion to implant a much lower powered version of a joyfuzz loop in their mind, known as a psychic calm. The psychic calm will suppress uncomfortable thoughts and sensations in the target to improve mood. Unlike a joyfuzz, the psychic calm will not effect mental performance at the cost of a heavily reduced benefit and its inability for the caster to focus the cast on themselves.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_Psycast_PsychicCalm</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.45</Ability_PsyfocusCost>
       <Ability_Duration>3000</Ability_Duration>
@@ -759,6 +779,7 @@
     <description>Psychically command all targets in the area to approach the caster.</description>
     <level>5</level>
     <iconPath>UI/Abilities/SLP_Psycast_MassBeckon</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <writeCombatLog>True</writeCombatLog>
     <statBases>
       <Ability_EntropyGain>60</Ability_EntropyGain>
@@ -797,6 +818,7 @@
     <description>Slow all targets within a small area for a short time by suppressing motor activity in the brain.</description>
     <level>3</level>
     <iconPath>UI/Abilities/SLP_Psycast_MassBurden</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <writeCombatLog>True</writeCombatLog>
     <statBases>
       <Ability_EntropyGain>24</Ability_EntropyGain>
@@ -834,6 +856,7 @@
     <description>Momentarily disrupt motor function in the brain of all targets in a small area, preventing any movement.</description>
     <level>3</level>
     <iconPath>UI/Abilities/SLP_Psycast_StunPulse</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <writeCombatLog>True</writeCombatLog>
     <statBases>
       <Ability_EntropyGain>40</Ability_EntropyGain>
@@ -918,6 +941,7 @@
     <iconPath>UI/Abilities/SLP_Psycast_Skipstep</iconPath>
     <writeCombatLog>True</writeCombatLog>
     <showPsycastEffects>False</showPsycastEffects>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>25</Ability_EntropyGain> <!-- Balance 1.276 -->
       <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
@@ -1083,6 +1107,131 @@
     </comps>
   </AbilityDef>
   
+  <!-- Endothermic Pinhole -->
+  <!-- Lvl 3 - Spawn a long term arctic pinhole that cools to a lower degree (0 degrees C instead of -5 degrees C. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_EndoPinhole</defName>
+    <label>endothermic pinhole</label>
+    <description>Collapse a microscopic portion of space in on itself to form a physical endothermic loop. This results in a thermodynamic chain reaction that tries to fix the collapse but the psychic tampering of spacetime forces the the area to constantly recollapse. The chain reaction requires energy, creating a drain of thermal energy in the local area effectively cooling it for an extremely long time. Eventually the psychic energy dissipates and equilibrium is achieved, stopping the endothermic loop.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_EndoPinhole</iconPath>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+	<hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.30</Ability_PsyfocusCost>
+      <Ability_EffectRadius>14.9</Ability_EffectRadius>
+      <Ability_Duration>30000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.2</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilitySpawn">
+        <thingDef>SLP_ETH_EndothermicPinhole</thingDef>
+        <allowOnBuildings>False</allowOnBuildings>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>0.42</scale>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <scale>0.42</scale>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Supernova Pinhole -->
+  <!-- Lvl 3 - Spawn a long term solar pinhole that in addition, provides plant growing light -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_SupernovaPinhole</defName>
+    <label>supernova pinhole</label>
+    <description>Generate a microscopic shielded skipgate linked to the core of a nearby supernova. Visible and ultra violet radiation leak through the pinprick in spacetime but solar material is mostly prevented from passing through by the skipgate shield. This floods the area with light but only slightly warms the surrounding area until it closes. The light is bright enough that plants will grow.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_SupernovaPinhole</iconPath>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.30</Ability_PsyfocusCost>
+      <Ability_EffectRadius>4.9</Ability_EffectRadius>
+      <Ability_Duration>10000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.2</warmupTime>
+      <range>7.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilitySpawn">
+        <thingDef>SLP_ETH_SupernovaPinhole</thingDef>
+        <allowOnBuildings>False</allowOnBuildings>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>0.42</scale>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <scale>0.42</scale>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Word of Friendship -->
+  <!-- Lvl 2 - Similar effects as Word of Love but gender preference doesn't matter -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_WordOfFriendship</defName>
+    <label>word of friendship</label>
+    <description>Speak about someone's merit and strengths while using psychic suggestion to implant trust in the listener. For days afterwards, the listener will feel psychically-induced understanding towards the other person. This somewhat increases opinion and makes them much more likely to bond and become friends with the person. This power can be used to connect two other people, induce amity for the caster, or force oneself to like another. The psycast will not work on those too young to understand the suggestion.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_Psycast_WordOfFriendship</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
+      <Ability_Duration>8000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetMechs>False</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="Sleepys_MorePsycasts.CompProperties_SLP_AbilityWordOfFriendship">
+        <destination>Selected</destination>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>SLP_WordOfFriendship</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
   <!-- Brickgate -->
   <!-- Lvl 1 - Turn a chunk into stone blocks -->
   
@@ -1091,15 +1240,6 @@
   
   <!-- Static Burst -->
   <!-- Lvl 1 - EMP AOE Attack to stun Mechs. -->
-  
-  <!-- Endothermic Pinhole -->
-  <!-- Lvl 3 - Spawn a long term arctic pinhole at a cost to the pawn. -->
-  
-  <!-- Air Bolt -->
-  <!-- Lvl 1 - Fire a super sonic burst of air at a specific target, damaged and stunning the target, short range. -->
-  
-  <!-- Air Burst -->
-  <!-- Lvl 3 - Create a super sonic shock wave around the caster, damaging and stunning everyone excluding the caster. -->
   
   <!-- Gaspop (Biotech Only) -->
   <!-- Lvl 4 - Generate a Tox Gas cloud -->

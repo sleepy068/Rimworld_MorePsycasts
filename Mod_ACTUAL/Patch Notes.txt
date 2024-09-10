@@ -2,7 +2,10 @@ Update v1.0.12 Build 16/06/24 | Post
 *New content and adjustments, excluding bug fixes, will only be made to the Rimworld 1.5 Version of this mod (just a hassle maintaining both sorry)
 
 Additions:
-N/A
+Added new Psycasts:
+- Endothermic Pinhole
+- Supernova Pinhole
+- Word of Friendship
 
 Changes:
 N/A

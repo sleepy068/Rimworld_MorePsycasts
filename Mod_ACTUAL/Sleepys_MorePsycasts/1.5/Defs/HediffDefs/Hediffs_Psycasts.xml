@@ -201,4 +201,15 @@
     </stages>
   </HediffDef>
   
+  <!-- Psychic Friendship -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_PsychicFriendship</defName>
+    <label>psychic friendship</label>
+    <description>Psychically-induced amity. This increases an individual's opinion of someone else and increases the likelihood of friendship among to the two.</description>
+    <hediffClass>Sleepys_MorePsycasts.SLP_Hediff_PsychicFriendship</hediffClass>
+    <targetPrefix>for</targetPrefix>
+    <isBad>false</isBad>
+    <stages><li></li></stages>
+  </HediffDef>
+  
 </Defs>

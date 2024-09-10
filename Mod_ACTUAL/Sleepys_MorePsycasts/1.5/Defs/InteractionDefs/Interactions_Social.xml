@@ -65,5 +65,18 @@
       </rulesStrings>
     </logRulesInitiator>
   </InteractionDef> 
+  
+  <InteractionDef>
+    <defName>SLP_WordOfFriendship</defName>
+    <label>word of friendship</label>
+    <workerClass>InteractionWorker</workerClass>
+    <ignoreTimeSinceLastInteraction>True</ignoreTimeSinceLastInteraction>
+    <symbol>Things/Mote/SpeechSymbols/SLP_ID_WordOfFriendship</symbol>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] psychically suggested [RECIPIENT_nameDef] should feel a new friendship.</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
 
 </Defs>
