@@ -16,6 +16,7 @@
     <description>Generate a microscopic material-shielded skipgate linked to deep interstellar space. Atmospheric and Solar material are protected from leaking through the pinprick in spacetime into the vacuum but energy is not. The skipgate rapidly draws heat from the surrounding area and radiates it into deep space until it closes. The skipgate generates a very small amount of light but this is only from the gate itself.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_Psycast_ArcticPinhole</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
     <statBases>
       <Ability_PsyfocusCost>0.08</Ability_PsyfocusCost>
@@ -322,6 +323,7 @@
     <level>3</level>
     <iconPath>UI/Abilities/SLP_Psycast_CleanSkip</iconPath>
 	<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.1</Ability_PsyfocusCost>
 	  <Ability_EffectRadius>14.9</Ability_EffectRadius>
@@ -351,6 +353,7 @@
     <level>6</level>
     <iconPath>UI/Abilities/SLP_Psycast_FertilitySkip</iconPath>
 	<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.8</Ability_PsyfocusCost>
 	  <Ability_EffectRadius>1.9</Ability_EffectRadius>
@@ -421,6 +424,7 @@
     <description>Psychically energise the atoms of a nearby object to reach their ignition point, causing a small fire.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_Psycast_Ignite</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
 	  <Ability_EntropyGain>5</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
@@ -451,6 +455,7 @@
     <description>Rapidly generate thousands of microscopic skip gates across multiple planets and stellar objects to pick up specific atoms while focusing them to replace and organically repair any damaged items. The process will help repair the focused object but the neural heat generated is significant. The psycast will never be able to fully repair the item.</description>
     <level>5</level>
     <iconPath>UI/Abilities/SLP_Psycast_Recondition</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
 	  <Ability_EntropyGain>70</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
@@ -595,6 +600,7 @@
     <description>Generate a spherical skipgate that detonates any high level projectiles trying to pass in or out of it, such as a mortar rounds. People and items are not affected.</description>
     <level>4</level>
     <iconPath>UI/Abilities/SLP_Psycast_Skipscreen</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
     <statBases>
       <Ability_EntropyGain>55</Ability_EntropyGain>
@@ -894,6 +900,7 @@
     <description>Very briefly, the caster can move faster than the eye can follow, effectively allowing them to escape when needed or close the distance to any enemy quickly. Unlike a skip ability, the caster can only use this technique on themselves.</description>
     <level>3</level>
     <iconPath>UI/Abilities/SLP_Psycast_Flashstep</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <writeCombatLog>True</writeCombatLog>
     <showPsycastEffects>False</showPsycastEffects>
     <statBases>
@@ -1158,7 +1165,7 @@
   <AbilityDef ParentName="PsycastBaseSkip">
     <defName>SLP_SupernovaPinhole</defName>
     <label>supernova pinhole</label>
-    <description>Generate a microscopic shielded skipgate linked to the core of a nearby supernova. Visible and ultra violet radiation leak through the pinprick in spacetime but solar material is mostly prevented from passing through by the skipgate shield. This floods the area with light but only slightly warms the surrounding area until it closes. The light is bright enough that plants will grow.</description>
+    <description>Generate a microscopic shielded skipgate linked to the core of a nearby supernova. Visible and ultra violet radiation leak through the pinprick in spacetime but solar material is mostly prevented from passing through by the skipgate shield. This floods the area with light and warms the surrounding area until it closes. The light is bright enough that plants will grow but the heat leakage may make very small areas uncomfortably hot.</description>
     <level>3</level>
     <iconPath>UI/Abilities/SLP_Psycast_SupernovaPinhole</iconPath>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>

@@ -115,6 +115,7 @@
 		  <li Class="CompProperties_HeatPusher">
 			<compClass>CompHeatPusherPowered</compClass>
 			<heatPerSecond>1</heatPerSecond>
+			<heatPushMaxTemperature>38</heatPushMaxTemperature>
 		  </li>
 		  <li Class="CompProperties_DestroyAfterDelay">
 			<delayTicks>300000</delayTicks>
