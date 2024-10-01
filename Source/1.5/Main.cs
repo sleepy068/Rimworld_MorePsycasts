@@ -832,9 +832,9 @@ namespace Sleepys_MorePsycasts
             base.Apply(target, dest);
             int probabilityChunks = UnityEngine.Random.Range(1, 11);
             int numOfChunks;
-            if (probabilityChunks < 3) //20% Chance for 2 Chunks
+            if (probabilityChunks < 3) 
             {
-                numOfChunks = 2;
+                numOfChunks = 2; //20% Chance for 2 Chunks
             }
             else
             {

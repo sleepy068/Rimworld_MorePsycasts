@@ -1095,14 +1095,18 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>20</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.7</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.85</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
       <warmupTime>8.0</warmupTime>
       <drawAimPie>False</drawAimPie>
 	  <range>15.9</range>
       <targetParams>
-        <canTargetLocations>True</canTargetLocations>
+        <canTargetLocations>true</canTargetLocations>
+		<canTargetAnimals>false</canTargetAnimals>
+		<canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+		<canTargetSelf>false</canTargetSelf>
       </targetParams>
     </verbProperties>
     <comps>

@@ -9,7 +9,10 @@ Added new Psycasts:
 
 Changes:
 Arctic Pinhole min temperature reduced from -5 to -9 (Results in a colder room).
-Added MustBeCapableOfViolence false to all psycasts (No point of them having a psycast they can't use).
+Set MustBeCapableOfViolence to false to all psycasts to help prevent issues with non violent pawns.
+
+Dart can no longer target pawns (it is not an offensive psycast).
+Dart psyfocus cost increased from 70% to 85%. (Just a little too powerful utility wise)
 
 Localisation:
 More grammer mistakes fixed.
