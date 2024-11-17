@@ -1095,7 +1095,7 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>20</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.85</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.70</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
       <warmupTime>8.0</warmupTime>
@@ -1247,7 +1247,45 @@
   <!-- Lvl 1 - Turn a chunk into stone blocks -->
   
   <!-- Chemskip -->
-  <!-- Lvl 2 - Turn one corpse (body size * x) into chemfuel. Reduce amount depending on how much it is degraded. -->
+  <!-- Lvl 2 - Turn one corpse (chemfuel amount = (body current health / 2) + 10) into chemfuel. Reduce amount depending on how much it is degraded. -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_Chemskip</defName>
+    <label>chemskip</label>
+    <description>By using a psychic temporal energy field to specially condition and age a corpse by tens of thousands of years, it can be rapidly turned it into chemfuel. The more desiccated and damaged the corpse the less chemfuel can be created.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/WIP</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
+	  <Ability_Duration>0</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2.0</warmupTime>
+	  
+	  <range>-1</range>
+      <targetParams>
+	    <canTargetCorpses>True</canTargetCorpses>
+        <canTargetSelf>False</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetItems>False</canTargetItems>
+		<canTargetPawns>False</canTargetPawns>
+        <!--<canTargetHumans>False</canTargetHumans>-->
+		<neverTargetIncapacitated>True</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <li Class = "CompProperties_AbilityEffect">
+        <compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Resurrect</compClass>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Static Burst -->
   <!-- Lvl 1 - EMP AOE Attack to stun Mechs. -->
