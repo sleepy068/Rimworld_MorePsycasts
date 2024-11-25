@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <AbilityDef Name="SLP_PsycastBaseCombat" ParentName="PsycastBase" Abstract="True">
+
+  <!-- WordOf displayOrder 0 -->
+  <!-- PsycastBase displayOrder 1 -->
+  <!-- PsycastBaseSkip displayOrder 2 -->
+
+  <AbilityDef Name="SLP_PsycastBaseCombat" ParentName="PsycastBase" Abstract="True"><!-- displayOrder 3 -->
     <category>Combat</category>
   </AbilityDef>
   
-  <AbilityDef Name="SLP_PsycastBaseHeal" ParentName="PsycastBase" Abstract="True">
+  <AbilityDef Name="SLP_PsycastBaseHeal" ParentName="PsycastBase" Abstract="True"><!-- displayOrder 4 -->
     <category>Healing</category>
   </AbilityDef>
   
@@ -1254,8 +1259,6 @@
     <description>By using a psychic temporal energy field to specially condition and age a corpse by tens of thousands of years, it can be rapidly turned it into chemfuel. The more desiccated and damaged the corpse the less chemfuel can be created.</description>
     <level>2</level>
     <iconPath>UI/Abilities/WIP</iconPath>
-	<jobDef>CastAbilityOnThingMelee</jobDef>
-	<stunTargetWhileCasting>True</stunTargetWhileCasting>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
 	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -1265,8 +1268,8 @@
     </statBases>
     <verbProperties>
       <warmupTime>2.0</warmupTime>
-	  
-	  <range>-1</range>
+	  <drawAimPie>False</drawAimPie>
+	  <range>9.9</range>
       <targetParams>
 	    <canTargetCorpses>True</canTargetCorpses>
         <canTargetSelf>False</canTargetSelf>
@@ -1274,15 +1277,17 @@
         <canTargetAnimals>True</canTargetAnimals>
 		<canTargetItems>False</canTargetItems>
 		<canTargetPawns>False</canTargetPawns>
-        <!--<canTargetHumans>False</canTargetHumans>-->
 		<neverTargetIncapacitated>True</neverTargetIncapacitated>
       </targetParams>
     </verbProperties>
     <comps>
-	  <li Class = "CompProperties_AbilityEffect">
-        <compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Resurrect</compClass>
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilitySpawnOffCorpse">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_SpawnOffCorpse</compClass>
+		<thingDef>Chemfuel</thingDef>
         <psychic>True</psychic>
+		<allowOnBuildings>false</allowOnBuildings>
         <applicableToMechs>False</applicableToMechs>
+		<dropGear>true</dropGear>
       </li>
     </comps>
   </AbilityDef>

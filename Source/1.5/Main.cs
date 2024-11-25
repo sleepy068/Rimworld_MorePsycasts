@@ -41,6 +41,16 @@ namespace Sleepys_MorePsycasts
         public CompProperties_SLP_AreaEffectLaunchProjectile() => this.compClass = typeof(CompAbilityEffect_SLP_AreaEffectLaunchProjectile);
     }
 
+    public class CompProperties_SLP_AbilitySpawnOffCorpse : CompProperties_AbilityEffect
+    {
+        public ThingDef thingDef;
+        public bool allowOnBuildings = true;
+        public bool sendSkipSignal = true;
+        public bool dropGear = false;
+
+        public CompProperties_SLP_AbilitySpawnOffCorpse() => this.compClass = typeof(CompAbilityEffect_SLP_SpawnOffCorpse);
+    }
+
     //Comp Ability Effect
     public class SLP_CompAbilityEffect_Ignite : CompAbilityEffect
     {
@@ -736,6 +746,52 @@ namespace Sleepys_MorePsycasts
         public override void DrawEffectPreview(LocalTargetInfo target) => GenDraw.DrawRadiusRing(target.Cell, this.Props.effectPreviewRadius);
     }
 
+    public class CompAbilityEffect_SLP_SpawnOffCorpse : CompAbilityEffect
+    {
+        public CompProperties_SLP_AbilitySpawnOffCorpse Props => (CompProperties_SLP_AbilitySpawnOffCorpse)this.props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
+            Map map = this.parent.pawn.Map;
+            Thing thing = target.Thing == null ? target.Cell.GetThingList(map).RandomElement<Thing>() : target.Thing;
+            int healthFactor = thing.HitPoints;
+            int meatQtyAmount = (int)thing.GetStatValue(StatDefOf.MeatAmount);
+
+            if (this.Props.dropGear)
+                innerPawn.Strip(false);
+            if (innerPawn.Corpse != null)
+                innerPawn.Corpse.Destroy(DestroyMode.Vanish);
+            else
+                innerPawn.Destroy(DestroyMode.Vanish);
+
+            int i = 0;
+            float chemAmount = ((healthFactor * (meatQtyAmount / 3))/100) + 5;
+            // float chemAmount = ((meatQtyAmount / 3) * healthFactor) + 5;
+            while (i < chemAmount)
+            {
+                GenSpawn.Spawn(this.Props.thingDef, target.Cell, this.parent.pawn.Map);
+                i++;
+            }
+            
+            if (!this.Props.sendSkipSignal)
+                return;
+            CompAbilityEffect_Teleport.SendSkipUsedSignal(target, (Thing)this.parent.pawn);
+        }
+
+        /*
+        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+        {
+            if (!target.HasThing || !(target.Thing is Corpse thing) || thing.GetRotStage() != RotStage.Dessicated)
+                return base.Valid(target, throwMessages);
+            if (throwMessages)
+                Messages.Message((string)"SLPMessageCannotTurnIntoChemfuel".Translate(), (LookTargets)(Thing)thing, MessageTypeDefOf.RejectInput, false);
+            return false;
+        }
+        */
+    }
+
     //Hediff
     public class HediffCompProperties_SLP_NeedOffset : HediffCompProperties
     {
@@ -832,9 +888,9 @@ namespace Sleepys_MorePsycasts
             base.Apply(target, dest);
             int probabilityChunks = UnityEngine.Random.Range(1, 11);
             int numOfChunks;
-            if (probabilityChunks < 3) 
+            if (probabilityChunks < 3) //20% Chance for 2 Chunks
             {
-                numOfChunks = 2; //20% Chance for 2 Chunks
+                numOfChunks = 2;
             }
             else
             {

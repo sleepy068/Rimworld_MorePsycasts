@@ -7,5 +7,7 @@
   
   <PsychicFriendshipInduceIn>Induce psychic friendship in</PsychicFriendshipInduceIn>
   <PsychicFriendshipFor>Psychic friendship for</PsychicFriendshipFor>
+  
+  <SLPMessageCannotTurnIntoChemfuel>Must target corpse</SLPMessageCannotTurnIntoChemfuel>
 
 </LanguageData>
