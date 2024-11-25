@@ -1250,24 +1250,58 @@
   
   <!-- Brickgate -->
   <!-- Lvl 1 - Turn a chunk into stone blocks -->
-  
-  <!-- Chemskip -->
-  <!-- Lvl 2 - Turn one corpse (chemfuel amount = (body current health / 2) + 10) into chemfuel. Reduce amount depending on how much it is degraded. -->
   <AbilityDef ParentName="WordOfBase">
-    <defName>SLP_PSY_Chemskip</defName>
-    <label>chemskip</label>
-    <description>By using a psychic temporal energy field to specially condition and age a corpse by tens of thousands of years, it can be rapidly turned it into chemfuel. The more desiccated and damaged the corpse the less chemfuel can be created.</description>
-    <level>2</level>
-    <iconPath>UI/Abilities/WIP</iconPath>
+    <defName>SLP_PSY_Brickgate</defName>
+    <label>brickgate</label>
+    <description>By focusing skipgates into a 3d lattice structure and focusing them on a chunk of stone, the caster can cut the chunk into stone blocks. While effective and quick, the psycast wastes part of the stone in the process yielding less then a stone cutter.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_PSY_Brickgate</iconPath>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
 	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
+	  <Ability_EntropyGain>4</Ability_EntropyGain>
 	  <Ability_Duration>0</Ability_Duration>
     </statBases>
     <verbProperties>
-      <warmupTime>2.0</warmupTime>
+      <warmupTime>0.1</warmupTime>
+	  <drawAimPie>False</drawAimPie>
+      <targetParams>
+	    <canTargetCorpses>False</canTargetCorpses>
+        <canTargetSelf>False</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>False</canTargetAnimals>
+		<canTargetItems>True</canTargetItems>
+		<canTargetPawns>False</canTargetPawns>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilitySpawnBrickFromChunk">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_SpawnBrickFromChunk</compClass>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Chemskip -->
+  <!-- Lvl 2 - Turn one corpse into chemfuel. Reduced amount depending on how much it is degraded. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Chemskip</defName>
+    <label>chemskip</label>
+    <description>By using a psychic temporal energy field to specially condition and age a corpse by tens of thousands of years, it can be rapidly turned it into chemfuel. The special conditioning works best on fresh, intact and undamaged corpses, the more desiccated and damaged the corpse the less chemfuel can be created.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_PSY_Chemskip</iconPath>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+	  <Ability_Duration>0</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.0</warmupTime>
 	  <drawAimPie>False</drawAimPie>
 	  <range>9.9</range>
       <targetParams>

@@ -41,6 +41,24 @@ namespace Sleepys_MorePsycasts
         public CompProperties_SLP_AreaEffectLaunchProjectile() => this.compClass = typeof(CompAbilityEffect_SLP_AreaEffectLaunchProjectile);
     }
 
+    public class CompProperties_SLP_AbilitySpawnOffCorpse : CompProperties_AbilityEffect
+    {
+        public ThingDef thingDef;
+        public bool allowOnBuildings = true;
+        public bool sendSkipSignal = true;
+        public bool dropGear = false;
+
+        public CompProperties_SLP_AbilitySpawnOffCorpse() => this.compClass = typeof(CompAbilityEffect_SLP_SpawnOffCorpse);
+    }
+
+    public class CompProperties_SLP_AbilitySpawnBrickFromChunk : CompProperties_AbilityEffect
+    {
+        public bool sendSkipSignal = true;
+
+        public CompProperties_SLP_AbilitySpawnBrickFromChunk() => this.compClass = typeof(CompAbilityEffect_SLP_SpawnBrickFromChunk);
+    }
+
+
     //Comp Ability Effect
     public class SLP_CompAbilityEffect_Ignite : CompAbilityEffect
     {
@@ -736,6 +754,148 @@ namespace Sleepys_MorePsycasts
         public override void DrawEffectPreview(LocalTargetInfo target) => GenDraw.DrawRadiusRing(target.Cell, this.Props.effectPreviewRadius);
     }
 
+    public class CompAbilityEffect_SLP_SpawnOffCorpse : CompAbilityEffect
+    {
+        public CompProperties_SLP_AbilitySpawnOffCorpse Props => (CompProperties_SLP_AbilitySpawnOffCorpse)this.props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
+            Map map = this.parent.pawn.Map;
+            Thing thing = target.Thing == null ? target.Cell.GetThingList(map).RandomElement<Thing>() : target.Thing;
+            int healthFactor = thing.HitPoints;
+            int meatQtyAmount = (int)thing.GetStatValue(StatDefOf.MeatAmount);
+            float nutritionQtyAmount = thing.GetStatValue(StatDefOf.Nutrition);
+
+            if (this.Props.dropGear)
+                innerPawn.Strip(false);
+            if (innerPawn.Corpse != null)
+                innerPawn.Corpse.Destroy(DestroyMode.Vanish);
+            else
+                innerPawn.Destroy(DestroyMode.Vanish);
+
+            int i = 0;
+            float chemAmount = (healthFactor * ((meatQtyAmount / 10) + (nutritionQtyAmount * 6)) / 100) + 5;
+            // float chemAmount = ((healthFactor * (meatQtyAmount / 3))/100) + 5;
+
+            while (i < chemAmount)
+            {
+                GenSpawn.Spawn(this.Props.thingDef, target.Cell, this.parent.pawn.Map);
+                i++;
+            }
+            
+            if (!this.Props.sendSkipSignal)
+                return;
+            CompAbilityEffect_Teleport.SendSkipUsedSignal(target, (Thing)this.parent.pawn);
+        }
+
+        /*
+        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+        {
+            if (!target.HasThing || !(target.Thing is Corpse thing) || thing.GetRotStage() != RotStage.Dessicated)
+                return base.Valid(target, throwMessages);
+            if (throwMessages)
+                Messages.Message((string)"SLPMessageCannotTurnIntoChemfuel".Translate(), (LookTargets)(Thing)thing, MessageTypeDefOf.RejectInput, false);
+            return false;
+        }
+        */
+    }
+
+    public class CompAbilityEffect_SLP_SpawnBrickFromChunk : CompAbilityEffect
+    {
+        public CompProperties_SLP_AbilitySpawnBrickFromChunk Props => (CompProperties_SLP_AbilitySpawnBrickFromChunk)this.props;
+
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        {
+            base.Apply(target, dest);
+            Thing thing1 = target.Thing;
+            int i = 0;
+            int spawnBricksQty = 15;
+
+            if (thing1.def == SLP_ChunksDefOf.ChunkSandstone)
+            {
+                thing1.Destroy(DestroyMode.Vanish);
+                while (i < spawnBricksQty)
+                {
+                    GenSpawn.Spawn(SLP_ChunksDefOf.BlocksSandstone, target.Cell, this.parent.pawn.Map);
+                    i++;
+                }
+
+                if (!this.Props.sendSkipSignal)
+                    return;
+                CompAbilityEffect_Teleport.SendSkipUsedSignal(target, (Thing)this.parent.pawn);
+            }
+
+            if (thing1.def == SLP_ChunksDefOf.ChunkGranite)
+            {
+                thing1.Destroy(DestroyMode.Vanish);
+                while (i < spawnBricksQty)
+                {
+                    GenSpawn.Spawn(SLP_ChunksDefOf.BlocksGranite, target.Cell, this.parent.pawn.Map);
+                    i++;
+                }
+
+                if (!this.Props.sendSkipSignal)
+                    return;
+                CompAbilityEffect_Teleport.SendSkipUsedSignal(target, (Thing)this.parent.pawn);
+            }
+
+            if (thing1.def == SLP_ChunksDefOf.ChunkLimestone)
+            {
+                thing1.Destroy(DestroyMode.Vanish);
+                while (i < spawnBricksQty)
+                {
+                    GenSpawn.Spawn(SLP_ChunksDefOf.BlocksLimestone, target.Cell, this.parent.pawn.Map);
+                    i++;
+                }
+
+                if (!this.Props.sendSkipSignal)
+                    return;
+                CompAbilityEffect_Teleport.SendSkipUsedSignal(target, (Thing)this.parent.pawn);
+            }
+
+            if (thing1.def == SLP_ChunksDefOf.ChunkSlate)
+            {
+                thing1.Destroy(DestroyMode.Vanish);
+                while (i < spawnBricksQty)
+                {
+                    GenSpawn.Spawn(SLP_ChunksDefOf.BlocksSlate, target.Cell, this.parent.pawn.Map);
+                    i++;
+                }
+
+                if (!this.Props.sendSkipSignal)
+                    return;
+                CompAbilityEffect_Teleport.SendSkipUsedSignal(target, (Thing)this.parent.pawn);
+            }
+
+            if (thing1.def == SLP_ChunksDefOf.ChunkMarble)
+            {
+                thing1.Destroy(DestroyMode.Vanish);
+                while (i < spawnBricksQty)
+                {
+                    GenSpawn.Spawn(SLP_ChunksDefOf.BlocksMarble, target.Cell, this.parent.pawn.Map);
+                    i++;
+                }
+
+                if (!this.Props.sendSkipSignal)
+                    return;
+                CompAbilityEffect_Teleport.SendSkipUsedSignal(target, (Thing)this.parent.pawn);
+            }
+        }
+
+        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+        {
+            Thing thing = target.Thing;
+            if (thing.def == SLP_ChunksDefOf.ChunkSandstone || thing.def == SLP_ChunksDefOf.ChunkGranite || thing.def == SLP_ChunksDefOf.ChunkLimestone || thing.def == SLP_ChunksDefOf.ChunkSlate || thing.def == SLP_ChunksDefOf.ChunkMarble)
+                return base.Valid(target, throwMessages);
+            if (throwMessages)
+                Messages.Message((string)"SLPMessageCannotTurnIntoBricks".Translate(), (LookTargets)(Thing)thing, MessageTypeDefOf.RejectInput, false);
+            return false;
+        }
+    }
+
+
     //Hediff
     public class HediffCompProperties_SLP_NeedOffset : HediffCompProperties
     {
@@ -1131,6 +1291,21 @@ namespace Sleepys_MorePsycasts
         public static SoundDef SLP_Psycast_Shunpo;
         public static SoundDef SLP_Psycast_Shunpo2;
         public static SoundDef SLP_Psycast_Sonido;
+    }
+
+    [DefOf]
+    public static class SLP_ChunksDefOf
+    {
+        public static ThingDef ChunkSandstone;
+        public static ThingDef BlocksSandstone;
+        public static ThingDef ChunkGranite;
+        public static ThingDef BlocksGranite;
+        public static ThingDef ChunkLimestone;
+        public static ThingDef BlocksLimestone;
+        public static ThingDef ChunkSlate;
+        public static ThingDef BlocksSlate;
+        public static ThingDef ChunkMarble;
+        public static ThingDef BlocksMarble;
     }
 
 }
