@@ -1332,7 +1332,10 @@
   <!-- Gaspop (Biotech Only) -->
   <!-- Lvl 4 - Generate a Tox Gas cloud -->
   
-  <!-- Revitalise  -->
+  <!-- Revitalise -->
   <!-- Lvl 5 - Give a pawn regeneration for a short time -->
+  
+  <!-- Fertility Pulse -->
+  <!-- Lvl 3 - Force the growth of planets to increase by 3 days -->
   
 </Defs>
