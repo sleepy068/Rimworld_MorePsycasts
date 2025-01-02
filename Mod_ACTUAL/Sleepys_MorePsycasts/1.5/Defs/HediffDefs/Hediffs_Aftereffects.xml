@@ -267,7 +267,7 @@
     <stages>
 	<li>
         <label>recovering</label>
-		<painOffset>0.10</painOffset>
+		<painOffset>0.05</painOffset>
 		<restFallFactorOffset>0.05</restFallFactorOffset>
         <capMods>
         </capMods>
@@ -278,7 +278,7 @@
       <li>
         <minSeverity>2.0</minSeverity>
         <label>minor</label>
-		<painOffset>0.20</painOffset>
+		<painOffset>0.15</painOffset>
 		<restFallFactorOffset>0.10</restFallFactorOffset>
         <capMods>
         </capMods>
@@ -289,31 +289,31 @@
       <li>
         <minSeverity>6.0</minSeverity>
         <label>major</label>
-		<painOffset>0.4</painOffset>
+		<painOffset>0.25</painOffset>
 		<restFallFactorOffset>0.20</restFallFactorOffset>
 		<hungerRateFactorOffset>0.10</hungerRateFactorOffset>
         <capMods>
         </capMods>
 		<statOffsets>
-		  <ImmunityGainSpeed>-0.05</ImmunityGainSpeed>
+		  <ImmunityGainSpeed>-0.04</ImmunityGainSpeed>
 		  <InjuryHealingFactor>-0.20</InjuryHealingFactor>
         </statOffsets>
       </li>
 	  <li>
         <minSeverity>8.0</minSeverity>
         <label>severe</label>
-		<painOffset>0.5</painOffset>
+		<painOffset>0.35</painOffset>
 		<restFallFactorOffset>0.30</restFallFactorOffset>
 		<hungerRateFactorOffset>0.20</hungerRateFactorOffset>
         <capMods>
         </capMods>
 		<statOffsets>
-		  <ImmunityGainSpeed>-0.10</ImmunityGainSpeed>
+		  <ImmunityGainSpeed>-0.07</ImmunityGainSpeed>
 		  <InjuryHealingFactor>-0.25</InjuryHealingFactor>
         </statOffsets>
       </li>
 	  <li>
-        <minSeverity>9.0</minSeverity>
+        <minSeverity>8.9</minSeverity>
         <label>onset</label>
       </li>
     </stages>

@@ -384,7 +384,7 @@
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Haemostasis</defName>
     <label>haemostasis</label>
-    <description>Create psychic energy fields on any open wounds to help stop any bleeding for a short time.</description>
+    <description>Create psychic energy fields on any open wounds to significantly reduce any bleeding for a short time.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_Psycast_Haemostasis</iconPath>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
@@ -646,7 +646,7 @@
     <statBases>
       <Ability_EntropyGain>50</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
-	  <Ability_Duration>420</Ability_Duration>
+	  <Ability_Duration>500</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>3.0</warmupTime>
