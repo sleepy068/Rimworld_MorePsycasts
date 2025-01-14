@@ -33,7 +33,7 @@
 		  </li>
 		  <li Class="CompProperties_HeatPusher">
 			<compClass>CompHeatPusherPowered</compClass>
-			<heatPerSecond>-10</heatPerSecond>
+			<heatPerSecond>-30</heatPerSecond>
 			<heatPushMinTemperature>-9</heatPushMinTemperature>
 		  </li>
 		  <li Class="CompProperties_DestroyAfterDelay">
@@ -74,8 +74,8 @@
 		-->
 		  <li Class="CompProperties_HeatPusher">
 			<compClass>CompHeatPusherPowered</compClass>
-			<heatPerSecond>-2</heatPerSecond>
-			<heatPushMinTemperature>-3</heatPushMinTemperature>
+			<heatPerSecond>-30</heatPerSecond>
+			<heatPushMinTemperature>-5</heatPushMinTemperature>
 		  </li>
 		  <li Class="CompProperties_DestroyAfterDelay">
 			<delayTicks>300000</delayTicks>
@@ -115,7 +115,7 @@
 		  <li Class="CompProperties_HeatPusher">
 			<compClass>CompHeatPusherPowered</compClass>
 			<heatPerSecond>1</heatPerSecond>
-			<heatPushMaxTemperature>38</heatPushMaxTemperature>
+			<heatPushMaxTemperature>30</heatPushMaxTemperature>
 		  </li>
 		  <li Class="CompProperties_DestroyAfterDelay">
 			<delayTicks>300000</delayTicks>

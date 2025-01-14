@@ -1,4 +1,4 @@
-Update v1.0.15 Build 02/01/25 | Post 
+Update v1.0.17 Build 14/01/25 | Post 
 *New content and adjustments, excluding bug fixes, will only be made to the Rimworld 1.5 Version of this mod (just a hassle maintaining both sorry)
 
 Additions:
@@ -8,7 +8,7 @@ Changes:
 N/A
 
 Localisation:
-Updated Internal Mod Description
+N/A
 
 Bug Fixes:
 N/A

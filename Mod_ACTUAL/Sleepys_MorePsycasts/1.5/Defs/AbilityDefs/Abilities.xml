@@ -426,7 +426,7 @@
   <AbilityDef ParentName="PsycastBaseSkip">
     <defName>SLP_PSY_Ignite</defName>
     <label>ignite</label>
-    <description>Psychically energise the atoms of a nearby object to reach their ignition point, causing a small fire.</description>
+    <description>Psychically energise the atoms of a nearby object to reach their ignition point, causing a small fire. While useful for clearing plants or corpses, it cannot target living people or animals.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_Psycast_Ignite</iconPath>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -1092,7 +1092,7 @@
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Dart</defName>
     <label>dart</label>
-    <description>Large ship chunks or meteorites in space are too large to directly skip to the plant's surface but by skipping a small object in space, such as a satellite or micrometeorite, into a precise collision course with these larger objects, their trajectory can be altered. This allows the caster to deorbit ship chunks or meteorites to land nearby. The collision is extremely accurate and the psycast gives basic reaction controls to the object to help guide and nudge it as it descends, allowing it to be extremely accurate and land where targeted.</description>
+    <description>Large ship chunks or meteorites in space are too large to directly skip to the plant's surface but by skipping a small object in space, such as a satellite or micrometeorite, into a precise collision course with these larger objects, their trajectory can be altered. This allows the caster to deorbit ship chunks or meteorites to land nearby. The collision is extremely accurate and the psycast gives basic reaction controls to the object to help guide and nudge it as it descends, allowing it to be extremely accurate and land where targeted. The psycast takes a long time to cast making it ineffective in combat.</description>
     <level>3</level>
     <iconPath>UI/Abilities/SLP_Psycast_Dart</iconPath>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
