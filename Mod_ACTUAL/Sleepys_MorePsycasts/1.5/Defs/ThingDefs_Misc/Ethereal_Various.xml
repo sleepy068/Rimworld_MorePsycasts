@@ -78,7 +78,7 @@
 			<heatPushMinTemperature>-5</heatPushMinTemperature>
 		  </li>
 		  <li Class="CompProperties_DestroyAfterDelay">
-			<delayTicks>300000</delayTicks>
+			<delayTicks>1800000</delayTicks>
 		  </li>
 		</comps>
     </ThingDef>
@@ -118,7 +118,7 @@
 			<heatPushMaxTemperature>30</heatPushMaxTemperature>
 		  </li>
 		  <li Class="CompProperties_DestroyAfterDelay">
-			<delayTicks>300000</delayTicks>
+			<delayTicks>600000</delayTicks>
 		  </li>
 		</comps>
     </ThingDef>
