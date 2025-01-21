@@ -5,7 +5,7 @@ Additions:
 N/A
 
 Changes:
-N/A
+Added Vanilla Psycasts Expanded to the incompatible list of the mods about.xml (Thank you Artalus)
 
 Localisation:
 N/A

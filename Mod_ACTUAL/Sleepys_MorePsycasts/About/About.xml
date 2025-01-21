@@ -75,6 +75,7 @@ Please post any issue reports to my Github. I appreciate any feedback but please
     </loadAfter>
 
     <incompatibleWith>
+		<li>vanillaexpanded.vpsycastse</li>
     </incompatibleWith>
 	
 </ModMetaData>
