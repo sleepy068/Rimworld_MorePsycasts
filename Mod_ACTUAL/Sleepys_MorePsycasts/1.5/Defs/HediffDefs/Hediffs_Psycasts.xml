@@ -24,7 +24,7 @@
     <stages>
       <li>
         <statOffsets>
-          <InjuryHealingFactor>0.60</InjuryHealingFactor>
+          <InjuryHealingFactor>0.75</InjuryHealingFactor>
         </statOffsets>
       </li>
     </stages>
@@ -39,7 +39,7 @@
     <stages>
       <li>
         <statOffsets>
-          <InjuryHealingFactor>15.0</InjuryHealingFactor>
+          <InjuryHealingFactor>20.0</InjuryHealingFactor>
         </statOffsets>
       </li>
     </stages>

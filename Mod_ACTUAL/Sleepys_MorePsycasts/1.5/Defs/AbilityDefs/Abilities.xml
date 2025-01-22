@@ -73,7 +73,7 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>15</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.12</Ability_PsyfocusCost>
       <Ability_Duration>320</Ability_Duration>
     </statBases>
     <verbProperties>
@@ -115,7 +115,7 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>15</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.12</Ability_PsyfocusCost>
       <Ability_Duration>320</Ability_Duration>
     </statBases>
     <verbProperties>
@@ -395,7 +395,7 @@
     <statBases>
       <Ability_EntropyGain>5</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
-	  <Ability_Duration>180</Ability_Duration>
+	  <Ability_Duration>240</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>0.1</warmupTime>
@@ -435,8 +435,8 @@
       <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
-      <warmupTime>1</warmupTime>
-      <range>9.9</range>
+      <warmupTime>0.5</warmupTime>
+      <range>12.9</range>
       <targetParams>
         <canTargetSelf>False</canTargetSelf>
         <canTargetAnimals>False</canTargetAnimals>
@@ -494,12 +494,12 @@
     <writeCombatLog>True</writeCombatLog>
     <showPsycastEffects>False</showPsycastEffects>
     <statBases>
-      <Ability_EntropyGain>18</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
+      <Ability_EntropyGain>16</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.015</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
       <warmupTime>0.1</warmupTime>
-      <range>30.9</range><!--3 more than skip -->
+      <range>31.9</range><!--4 more than skip -->
       <targetParams>
         <canTargetSelf>False</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
@@ -511,7 +511,7 @@
         <compClass>CompAbilityEffect_Teleport</compClass>
         <destination>Caster</destination>
         <requiresLineOfSight>True</requiresLineOfSight>
-        <range>30.9</range>
+        <range>31.9</range>
 		<!--
         <clamorType>Ability</clamorType>
         <clamorRadius>10</clamorRadius>
@@ -794,13 +794,13 @@
     <writeCombatLog>True</writeCombatLog>
     <statBases>
       <Ability_EntropyGain>60</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.035</Ability_PsyfocusCost>
       <Ability_Duration>8</Ability_Duration>
 	  <Ability_EffectRadius>2.9</Ability_EffectRadius>
     </statBases>
     <verbProperties>
       <warmupTime>0.25</warmupTime>
-      <range>14.9</range>
+      <range>18.9</range>
       <targetParams>
         <canTargetAnimals>True</canTargetAnimals>
 		<canTargetLocations>True</canTargetLocations>
@@ -834,12 +834,12 @@
     <statBases>
       <Ability_EntropyGain>24</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
-      <Ability_Duration>17</Ability_Duration>
+      <Ability_Duration>20</Ability_Duration>
 	  <Ability_EffectRadius>3.9</Ability_EffectRadius>
     </statBases>
     <verbProperties>
       <warmupTime>0.25</warmupTime>
-      <range>23.9</range>
+      <range>24.9</range>
       <targetParams>
         <canTargetSelf>True</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
@@ -870,14 +870,14 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <writeCombatLog>True</writeCombatLog>
     <statBases>
-      <Ability_EntropyGain>40</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+      <Ability_EntropyGain>36</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.035</Ability_PsyfocusCost>
       <Ability_Duration>3.0</Ability_Duration>
 	  <Ability_EffectRadius>2.9</Ability_EffectRadius>
     </statBases>
     <verbProperties>
       <warmupTime>0.25</warmupTime>
-      <range>19.9</range>
+      <range>20.9</range>
       <targetParams>
         <canTargetSelf>True</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
@@ -909,12 +909,12 @@
     <writeCombatLog>True</writeCombatLog>
     <showPsycastEffects>False</showPsycastEffects>
     <statBases>
-      <Ability_EntropyGain>18</Ability_EntropyGain> <!-- Balance 1.272 -->
-      <Ability_PsyfocusCost>0.015</Ability_PsyfocusCost>
+      <Ability_EntropyGain>12</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
     </statBases>
 	<warmupSound></warmupSound>
     <verbProperties>
-      <warmupTime>0.13</warmupTime>
+      <warmupTime>0.10</warmupTime>
       <range>22.9</range>
       <targetParams>
 		<canTargetLocations>false</canTargetLocations>
@@ -938,7 +938,7 @@
         <clamorRadius>10</clamorRadius>
         <destClamorType>Ability</destClamorType>
         <destClamorRadius>10</destClamorRadius>
-        <stunTicks>5~10</stunTicks>	
+        <stunTicks>4~8</stunTicks>	
       </li>
     </comps>
   </AbilityDef>
@@ -955,12 +955,12 @@
     <showPsycastEffects>False</showPsycastEffects>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>25</Ability_EntropyGain> <!-- Balance 1.276 -->
-      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
+      <Ability_EntropyGain>20</Ability_EntropyGain> <!-- Balance 1.276 -->
+      <Ability_PsyfocusCost>0.018</Ability_PsyfocusCost>
     </statBases>
 	<warmupSound></warmupSound>
     <verbProperties>
-      <warmupTime>0.10</warmupTime>
+      <warmupTime>0.07</warmupTime>
       <range>31.9</range>
       <targetParams>
 		<canTargetLocations>false</canTargetLocations>
@@ -984,7 +984,7 @@
         <clamorRadius>10</clamorRadius>
         <destClamorType>Ability</destClamorType>
         <destClamorRadius>10</destClamorRadius>
-        <stunTicks>5~10</stunTicks>	
+        <stunTicks>3~7</stunTicks>	
       </li>
     </comps>
   </AbilityDef>
@@ -1321,7 +1321,7 @@
         <psychic>True</psychic>
 		<allowOnBuildings>false</allowOnBuildings>
         <applicableToMechs>False</applicableToMechs>
-		<dropGear>true</dropGear>
+		<dropGear>true</dropGear> <!-- Adjust this to false to destroy the pawns gear on psycast use instead of dropping it to the ground -->
       </li>
     </comps>
   </AbilityDef>

@@ -1,11 +1,11 @@
-Update v1.0.18 Build 19/01/25 | Post 
+Update v1.0.19 Build 22/01/25 | Post 
 *New content and adjustments, excluding bug fixes, will only be made to the Rimworld 1.5 Version of this mod (just a hassle maintaining both sorry)
 
 Additions:
 N/A
 
 Changes:
-Added Vanilla Psycasts Expanded to the incompatible list of the mods about.xml (Thank you Artalus)
+N/A
 
 Localisation:
 N/A
