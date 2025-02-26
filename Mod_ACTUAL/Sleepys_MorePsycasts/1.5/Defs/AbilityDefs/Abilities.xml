@@ -1338,4 +1338,7 @@
   <!-- Chlorokinesis -->
   <!-- Lvl 3 - Force the growth of planets to increase by 3 days -->
   
+  <!-- Superskip -->
+  <!-- Lvl 6 - Teleports Target to Target Location no matter the target size and without line of sight. -->
+  
 </Defs>
