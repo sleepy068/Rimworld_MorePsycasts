@@ -7,6 +7,90 @@
   <PsychicFriendshipInduceIn>Induce psychic friendship in</PsychicFriendshipInduceIn>
   <PsychicFriendshipFor>Psychic friendship for</PsychicFriendshipFor>
   <SLPMessageCannotTurnIntoChemfuel>Must target corpse</SLPMessageCannotTurnIntoChemfuel>
-  <SLPMessageCannotTurnIntoBricks>Must target stone chunk</SLPMessageCannotTurnIntoBricks>
- 
+  <SLPMessageCannotTurnIntoBricks>Must target stone chunk (common only)</SLPMessageCannotTurnIntoBricks>
+  
+  <!-- Mod Settings -->
+  <SLP_MorePsycastSettings>Sleepy's More Psycasts</SLP_MorePsycastSettings>
+  <SLP_MustRestart>You need to manually restart Rimworld to apply any changes.</SLP_MustRestart>
+  <SLP_DefaultSettings>By default, all check boxes are disabled (red) meaning no psycast has been removed.</SLP_DefaultSettings>
+  <SLP_EffectSettings>Changes remove the psycast from appearing in game but it won't effect pawns who already have the psycast before it is disabled.</SLP_EffectSettings>
+  
+  <SLP_PSY_ArcticPinholeExplain>Disable Arctic Pinhole</SLP_PSY_ArcticPinholeExplain>
+  <SLP_PSY_ArcticPinholeTooltip>Toggle Arctic Pinhole</SLP_PSY_ArcticPinholeTooltip>
+  <SLP_PSY_ImmunityBoostExplain>Disable Immunity Boost</SLP_PSY_ImmunityBoostExplain>
+  <SLP_PSY_ImmunityBoostTooltip>Toggle Immunity Boost</SLP_PSY_ImmunityBoostTooltip>
+  <SLP_PSY_HealingBoostExplain>Disable Healing Boost</SLP_PSY_HealingBoostExplain>
+  <SLP_PSY_HealingBoostTooltip>Toggle Healing Boost</SLP_PSY_HealingBoostTooltip>
+  <SLP_PSY_RegenMajorExplain>Disable Deep Regeneration</SLP_PSY_RegenMajorExplain>
+  <SLP_PSY_RegenMajorTooltip>Toggle Deep Regeneration</SLP_PSY_RegenMajorTooltip>
+  <SLP_PSY_FlashHealExplain>Disable Flash Heal</SLP_PSY_FlashHealExplain>
+  <SLP_PSY_FlashHealTooltip>Toggle Flash Heal</SLP_PSY_FlashHealTooltip>
+  <SLP_PSY_RegenMinorExplain>Disable Superficial Regeneration</SLP_PSY_RegenMinorExplain>
+  <SLP_PSY_RegenMinorTooltip>Toggle Superficial Regeneration</SLP_PSY_RegenMinorTooltip>
+  
+  <SLP_PSY_ResurrectExplain>Disable Resurrect</SLP_PSY_ResurrectExplain>
+  <SLP_PSY_ResurrectTooltip>Toggle Resurrect</SLP_PSY_ResurrectTooltip>
+  <SLP_PSY_CleanSkipExplain>Disable Clean Skip</SLP_PSY_CleanSkipExplain>
+  <SLP_PSY_CleanSkipTooltip>Toggle Clean Skip</SLP_PSY_CleanSkipTooltip>
+  <SLP_PSY_FertilitySkipExplain>Disable Fertility Skip</SLP_PSY_FertilitySkipExplain>
+  <SLP_PSY_FertilitySkipTooltip>Toggle Fertility Skip</SLP_PSY_FertilitySkipTooltip>
+  <SLP_PSY_HaemostasisExplain>Disable Haemostasis</SLP_PSY_HaemostasisExplain>
+  <SLP_PSY_HaemostasisTooltip>Toggle Haemostasis</SLP_PSY_HaemostasisTooltip>
+  <SLP_PSY_IgniteExplain>Disable Ignite</SLP_PSY_IgniteExplain>
+  <SLP_PSY_IgniteTooltip>Toggle Ignite</SLP_PSY_IgniteTooltip>
+  <SLP_PSY_ReconditionExplain>Disable Recondition</SLP_PSY_ReconditionExplain>
+  <SLP_PSY_ReconditionTooltip>Toggle Recondition</SLP_PSY_ReconditionTooltip>
+  
+  <SLP_PSY_InterdictionExplain>Disable Interdiction</SLP_PSY_InterdictionExplain>
+  <SLP_PSY_InterdictionTooltip>Toggle Interdiction</SLP_PSY_InterdictionTooltip>
+  <SLP_PSY_WordOfSleepExplain>Disable Word Of Sleep</SLP_PSY_WordOfSleepExplain>
+  <SLP_PSY_WordOfSleepTooltip>Toggle Word Of Sleep</SLP_PSY_WordOfSleepTooltip>
+  <SLP_PSY_WordOfVigorExplain>Disable Word Of Vigor</SLP_PSY_WordOfVigorExplain>
+  <SLP_PSY_WordOfVigorTooltip>Toggle Word Of Vigor</SLP_PSY_WordOfVigorTooltip>
+  <SLP_PSY_SkipscreenExplain>Disable Skipscreen</SLP_PSY_SkipscreenExplain>
+  <SLP_PSY_SkipscreenTooltip>Toggle Skipscreen</SLP_PSY_SkipscreenTooltip>
+  <SLP_PSY_PotentialUnleashedExplain>Disable Potential Unleashed</SLP_PSY_PotentialUnleashedExplain>
+  <SLP_PSY_PotentialUnleashedTooltip>Toggle Potential Unleashed</SLP_PSY_PotentialUnleashedTooltip>
+  <SLP_PSY_DashExplain>Disable Dash</SLP_PSY_DashExplain>
+  <SLP_PSY_DashTooltip>Toggle Dash</SLP_PSY_DashTooltip>
+  
+  <SLP_PSY_WordOfContemptExplain>Disable Word Of Contempt</SLP_PSY_WordOfContemptExplain>
+  <SLP_PSY_WordOfContemptTooltip>Toggle Word Of Contempt</SLP_PSY_WordOfContemptTooltip>
+  <SLP_PSY_CalmExplain>Disable Calm</SLP_PSY_CalmExplain>
+  <SLP_PSY_CalmTooltip>Toggle Calm</SLP_PSY_CalmTooltip>
+  <SLP_PSY_MassBeckonExplain>Disable Mass Beckon</SLP_PSY_MassBeckonExplain>
+  <SLP_PSY_MassBeckonTooltip>Toggle Mass Beckon</SLP_PSY_MassBeckonTooltip>
+  <SLP_PSY_MassBurdenExplain>Disable Mass Burden</SLP_PSY_MassBurdenExplain>
+  <SLP_PSY_MassBurdenTooltip>Toggle Mass Burden</SLP_PSY_MassBurdenTooltip>
+  <SLP_PSY_StunPulseExplain>Disable Stun Pulse</SLP_PSY_StunPulseExplain>
+  <SLP_PSY_StunPulseTooltip>Toggle Stun Pulse</SLP_PSY_StunPulseTooltip>
+  <SLP_PSY_FlashstepExplain>Disable Flashstep</SLP_PSY_FlashstepExplain>
+  <SLP_PSY_FlashstepTooltip>Toggle Flashstep</SLP_PSY_FlashstepTooltip>
+  
+  <SLP_PSY_SkipstepExplain>Disable Skipstep</SLP_PSY_SkipstepExplain>
+  <SLP_PSY_SkipstepTooltip>Toggle Skipstep</SLP_PSY_SkipstepTooltip>
+  <SLP_PSY_ComfortShieldExplain>Disable Comfort Shield</SLP_PSY_ComfortShieldExplain>
+  <SLP_PSY_ComfortShieldTooltip>Toggle Comfort Shield</SLP_PSY_ComfortShieldTooltip>
+  <SLP_PSY_EngulfExplain>Disable Engulf</SLP_PSY_EngulfExplain>
+  <SLP_PSY_EngulfTooltip>Toggle Engulf</SLP_PSY_EngulfTooltip>
+  <SLP_PSY_DartExplain>Disable Dart</SLP_PSY_DartExplain>
+  <SLP_PSY_DartTooltip>Toggle Dart</SLP_PSY_DartTooltip>
+  <SLP_PSY_EndoPinholeExplain>Disable Endothermic Pinhole</SLP_PSY_EndoPinholeExplain>
+  <SLP_PSY_EndoPinholeTooltip>Toggle Endothermic Pinhole</SLP_PSY_EndoPinholeTooltip>
+  <SLP_SupernovaPinholeExplain>Disable Supernova Pinhole</SLP_SupernovaPinholeExplain>
+  <SLP_SupernovaPinholeTooltip>Toggle Supernova Pinhole</SLP_SupernovaPinholeTooltip>
+  
+  <SLP_PSY_WordOfFriendshipExplain>Disable Word Of Friendship</SLP_PSY_WordOfFriendshipExplain>
+  <SLP_PSY_WordOfFriendshipTooltip>Toggle Word Of Friendship</SLP_PSY_WordOfFriendshipTooltip>
+  <SLP_PSY_BrickgateExplain>Disable Brickgate</SLP_PSY_BrickgateExplain>
+  <SLP_PSY_BrickgateTooltip>Toggle Brickgate</SLP_PSY_BrickgateTooltip>
+  <SLP_PSY_ChemskipExplain>Disable Chemskip</SLP_PSY_ChemskipExplain>
+  <SLP_PSY_ChemskipTooltip>Toggle Chemskip</SLP_PSY_ChemskipTooltip>
+  <SLP_PSY_StaticBurstExplain>Disable Static Burst</SLP_PSY_StaticBurstExplain>
+  <SLP_PSY_StaticBurstTooltip>Toggle Static Burst</SLP_PSY_StaticBurstTooltip>
+  <SLP_PSY_SuperskipExplain>Disable Superskip</SLP_PSY_SuperskipExplain>
+  <SLP_PSY_SuperskipTooltip>Toggle Superskip</SLP_PSY_SuperskipTooltip>
+  <SLP_PSY_RevitaliseExplain>Disable Revitalise</SLP_PSY_RevitaliseExplain>
+  <SLP_PSY_RevitaliseTooltip>Toggle Revitalise</SLP_PSY_RevitaliseTooltip>
+  
 </LanguageData>

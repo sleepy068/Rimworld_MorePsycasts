@@ -1390,7 +1390,7 @@
   <!-- Superskip -->
   <!-- Lvl 6 - Teleports Target to Target Location no matter the target size and without line of sight. -->
   <AbilityDef ParentName="PsycastBaseSkip">
-    <defName>SLP_Superskip</defName>
+    <defName>SLP_PSY_Superskip</defName>
     <label>superskip</label>
     <description>Teleport the target to a desired position far from its starting point. Unlike skip, superskip can teleport an object no matter how large it is and much further away. Superskip psychically links with the caster in such a way that the caster can sense objects they do not have line of sight on, allowing them to skip through any walls or materials in the way.</description>
     <level>6</level>

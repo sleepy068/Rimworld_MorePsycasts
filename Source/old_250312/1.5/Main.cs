@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Verse;
 using Verse.Sound;
 using Verse.AI.Group;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
-
 
 namespace Sleepys_MorePsycasts
 {
@@ -898,109 +896,6 @@ namespace Sleepys_MorePsycasts
     }
 
 
-    //Dart Psycast
-    public class CompAbilityEffect_SLP_Dart : CompAbilityEffect
-    {
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-        {
-            base.Apply(target, dest);
-            int probabilityChunks = UnityEngine.Random.Range(1, 11);
-            int numOfChunks;
-            if (probabilityChunks < 3) //20% Chance for 2 Chunks
-            {
-                numOfChunks = 2;
-            }
-            else
-            {
-                numOfChunks = 1; //80% Chance for 1 Chunk
-            }
-
-            int probabilityIntercept = UnityEngine.Random.Range(1, 11);
-            int interceptType;
-            if (probabilityIntercept < 4)
-            {
-                interceptType = 1; //30% Chance for Meteorite
-            }
-            else
-            {
-                interceptType = 2; //70% Chance for Ship Chunks
-            }
-
-            bool targetValid = Valid(target);
-            if (targetValid == true)
-            {
-                if (interceptType == 2)
-                {
-                    SLP_SpawnShipChunks(target.Cell, this.parent.pawn.Map, numOfChunks);
-                }
-                if (interceptType == 1)
-                {
-                    SLP_SpawnMeteorite(target.Cell, this.parent.pawn.Map);
-                }
-
-            }
-        }
-
-        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
-        {
-            if (target.Cell.Roofed(this.parent.pawn.Map))
-            {
-                if (throwMessages)
-                    Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityRoofed".Translate()), (LookTargets)target.ToTargetInfo(this.parent.pawn.Map), MessageTypeDefOf.RejectInput, false);
-                return false;
-            }
-            foreach (IntVec3 item in GenAdj.OccupiedRect(target.Cell, Rot4.North, new IntVec2(2, 2)))
-            {
-                RoofDef roof = item.GetRoof(this.parent.pawn.Map);
-                if (roof != null && roof.isThickRoof)
-                {
-                    if (throwMessages)
-                        Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityNotEnoughFreeSpace".Translate()), (LookTargets)target.ToTargetInfo(this.parent.pawn.Map), MessageTypeDefOf.RejectInput, false);
-                    return false;
-                }
-            }
-            return true;
-        }
-
-
-        private void SLP_SpawnShipChunks(IntVec3 firstChunkPos, Map map, int count)
-        {
-            this.SpawnShipChunk(firstChunkPos, map);
-            for (int index = 0; index < count - 1; ++index)
-            {
-                IntVec3 pos;
-                if (this.TryFindShipChunkDropCell(firstChunkPos, map, 5, out pos))
-                {
-                    if (!pos.Roofed(this.parent.pawn.Map))
-                        this.SpawnShipChunk(pos, map);
-                }
-
-            }
-        }
-
-        private void SLP_SpawnMeteorite(IntVec3 firstChunkPos, Map map)
-        {
-            List<Thing> contents = ThingSetMakerDefOf.Meteorite.root.Generate();
-            this.SpawnMeteorite(firstChunkPos, map, contents);
-        }
-
-        private void SpawnMeteorite(IntVec3 pos, Map map, List<Thing> contents)
-        {
-            SkyfallerMaker.SpawnSkyfaller(ThingDefOf.MeteoriteIncoming, contents, pos, map);
-        }
-
-        private void SpawnShipChunk(IntVec3 pos, Map map)
-        {
-            SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, ThingDefOf.ShipChunk, pos, map);
-        }
-
-        private bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos)
-        {
-            return CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out pos, 10, nearLoc, maxDist, false);
-        }
-    }
-
-
     //Hediff
     public class HediffCompProperties_SLP_NeedOffset : HediffCompProperties
     {
@@ -1089,386 +984,107 @@ namespace Sleepys_MorePsycasts
         }
     }
 
-
-    //Mod Settings
-    /**
-    public class SLP_MorePsycastSettings : ModSettings
+    //Dart Psycast
+    public class CompAbilityEffect_SLP_Dart : CompAbilityEffect
     {
-
-        //List of all psycasts added by this mod (prevents picking up all psycasts or all abilities, etc)
-        public bool ToggleSLP_PSY_ArcticPinhole;
-        public bool ToggleSLP_PSY_ImmunityBoost;
-        public bool ToggleSLP_PSY_HealingBoost;
-        public bool ToggleSLP_PSY_RegenMajor;
-        public bool ToggleSLP_PSY_FlashHeal;
-        public bool ToggleSLP_PSY_RegenMinor;
-        public bool ToggleSLP_PSY_Resurrect;
-        public bool ToggleSLP_PSY_CleanSkip;
-        public bool ToggleSLP_PSY_FertilitySkip;
-        public bool ToggleSLP_PSY_Haemostasis;
-        public bool ToggleSLP_PSY_Ignite;
-        public bool ToggleSLP_PSY_Recondition;
-        public bool ToggleSLP_PSY_Interdiction;
-        public bool ToggleSLP_PSY_WordOfSleep;
-        public bool ToggleSLP_PSY_WordOfVigor;
-        public bool ToggleSLP_PSY_Skipscreen;
-        public bool ToggleSLP_PSY_PotentialUnleashed;
-        public bool ToggleSLP_PSY_Dash;
-        public bool ToggleSLP_PSY_WordOfContempt;
-        public bool ToggleSLP_PSY_Calm;
-        public bool ToggleSLP_PSY_MassBeckon;
-        public bool ToggleSLP_PSY_MassBurden;
-        public bool ToggleSLP_PSY_StunPulse;
-        public bool ToggleSLP_PSY_Flashstep;
-        public bool ToggleSLP_PSY_Skipstep;
-        public bool ToggleSLP_PSY_ComfortShield;
-        public bool ToggleSLP_PSY_Engulf;
-        public bool ToggleSLP_PSY_Dart;
-        public bool ToggleSLP_PSY_EndoPinhole;
-        public bool ToggleSLP_SupernovaPinhole;
-        public bool ToggleSLP_PSY_WordOfFriendship;
-        public bool ToggleSLP_PSY_Brickgate;
-        public bool ToggleSLP_PSY_Chemskip;
-        public bool ToggleSLP_PSY_StaticBurst;
-        public bool ToggleSLP_PSY_Superskip;
-
-        //Conditionally Added Psycasts
-        public bool ToggleSLP_PSY_Revitalise;
-
-        // The part that writes settings to file.
-        public override void ExposeData()
+        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            Scribe_Values.Look(ref ToggleSLP_PSY_ArcticPinhole, "SLP_PSY_ArcticPinhole");
-            Scribe_Values.Look(ref ToggleSLP_PSY_ImmunityBoost, "SLP_PSY_ImmunityBoost");
-            Scribe_Values.Look(ref ToggleSLP_PSY_HealingBoost, "SLP_PSY_HealingBoost");
-            Scribe_Values.Look(ref ToggleSLP_PSY_RegenMajor, "SLP_PSY_RegenMajor");
-            Scribe_Values.Look(ref ToggleSLP_PSY_FlashHeal, "SLP_PSY_FlashHeal");
-            Scribe_Values.Look(ref ToggleSLP_PSY_RegenMinor, "SLP_PSY_RegenMinor");
+            base.Apply(target, dest);
+            int probabilityChunks = UnityEngine.Random.Range(1, 11);
+            int numOfChunks;
+            if (probabilityChunks < 3) //20% Chance for 2 Chunks
+            {
+                numOfChunks = 2;
+            }
+            else
+            {
+                numOfChunks = 1; //80% Chance for 1 Chunk
+            }
 
-            Scribe_Values.Look(ref ToggleSLP_PSY_Resurrect, "SLP_PSY_Resurrect");
-            Scribe_Values.Look(ref ToggleSLP_PSY_CleanSkip, "SLP_PSY_CleanSkip");
-            Scribe_Values.Look(ref ToggleSLP_PSY_FertilitySkip, "SLP_PSY_FertilitySkip");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Haemostasis, "SLP_PSY_Haemostasis");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Ignite, "SLP_PSY_Ignite");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Recondition, "SLP_PSY_Recondition");
+            int probabilityIntercept = UnityEngine.Random.Range(1, 11);
+            int interceptType;
+            if (probabilityIntercept < 4) 
+            {
+                interceptType = 1; //30% Chance for Meteorite
+            }
+            else
+            {
+                interceptType = 2; //70% Chance for Ship Chunks
+            }
 
-            Scribe_Values.Look(ref ToggleSLP_PSY_Interdiction, "SLP_PSY_Interdiction");
-            Scribe_Values.Look(ref ToggleSLP_PSY_WordOfSleep, "SLP_PSY_WordOfSleep");
-            Scribe_Values.Look(ref ToggleSLP_PSY_WordOfVigor, "SLP_PSY_WordOfVigor");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Skipscreen, "SLP_PSY_Skipscreen");
-            Scribe_Values.Look(ref ToggleSLP_PSY_PotentialUnleashed, "SLP_PSY_PotentialUnleashed");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Dash, "SLP_PSY_Dash");
+            bool targetValid = Valid(target);
+            if (targetValid == true)
+            {
+                if (interceptType == 2)
+                {
+                    SLP_SpawnShipChunks(target.Cell, this.parent.pawn.Map, numOfChunks);
+                }
+                if (interceptType == 1)
+                {
+                    SLP_SpawnMeteorite(target.Cell, this.parent.pawn.Map);
+                }
 
-            Scribe_Values.Look(ref ToggleSLP_PSY_WordOfContempt, "SLP_PSY_WordOfContempt");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Calm, "SLP_PSY_Calm");
-            Scribe_Values.Look(ref ToggleSLP_PSY_MassBeckon, "SLP_PSY_MassBeckon");
-            Scribe_Values.Look(ref ToggleSLP_PSY_MassBurden, "SLP_PSY_MassBurden");
-            Scribe_Values.Look(ref ToggleSLP_PSY_StunPulse, "SLP_PSY_StunPulse");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Flashstep, "SLP_PSY_Flashstep");
+            }
+        }
 
-            Scribe_Values.Look(ref ToggleSLP_PSY_Skipstep, "SLP_PSY_Skipstep");
-            Scribe_Values.Look(ref ToggleSLP_PSY_ComfortShield, "SLP_PSY_ComfortShield");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Engulf, "SLP_PSY_Engulf");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Dart, "SLP_PSY_Dart");
-            Scribe_Values.Look(ref ToggleSLP_PSY_EndoPinhole, "SLP_PSY_EndoPinhole");
-            Scribe_Values.Look(ref ToggleSLP_SupernovaPinhole, "SLP_SupernovaPinhole");
+        public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+        {
+            if (target.Cell.Roofed(this.parent.pawn.Map))
+            {
+                if (throwMessages)
+                    Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityRoofed".Translate()), (LookTargets)target.ToTargetInfo(this.parent.pawn.Map), MessageTypeDefOf.RejectInput, false);
+                return false;
+            }
+            foreach (IntVec3 item in GenAdj.OccupiedRect(target.Cell, Rot4.North, new IntVec2(2, 2)))
+            {
+                RoofDef roof = item.GetRoof(this.parent.pawn.Map);
+                if (roof != null && roof.isThickRoof)
+                {
+                    if (throwMessages)
+                        Messages.Message((string)("CannotUseAbility".Translate((NamedArgument)this.parent.def.label) + ": " + "AbilityNotEnoughFreeSpace".Translate()), (LookTargets)target.ToTargetInfo(this.parent.pawn.Map), MessageTypeDefOf.RejectInput, false);
+                    return false;
+                }
+            }
+            return true;
+        }
 
-            Scribe_Values.Look(ref ToggleSLP_PSY_WordOfFriendship, "SLP_PSY_WordOfFriendship");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Brickgate, "SLP_PSY_Brickgate");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Chemskip, "SLP_PSY_Chemskip");
-            Scribe_Values.Look(ref ToggleSLP_PSY_StaticBurst, "SLP_PSY_StaticBurst");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Superskip, "SLP_PSY_Superskip");
-            Scribe_Values.Look(ref ToggleSLP_PSY_Revitalise, "SLP_PSY_Revitalise");
-            base.ExposeData();
+
+        private void SLP_SpawnShipChunks(IntVec3 firstChunkPos, Map map, int count)
+        {
+            this.SpawnShipChunk(firstChunkPos, map);
+            for (int index = 0; index < count - 1; ++index)
+            {
+                IntVec3 pos;
+                if (this.TryFindShipChunkDropCell(firstChunkPos, map, 5, out pos))
+                {
+                    if (!pos.Roofed(this.parent.pawn.Map))
+                        this.SpawnShipChunk(pos, map);
+                }
+                
+            }
+        }
+
+        private void SLP_SpawnMeteorite(IntVec3 firstChunkPos, Map map)
+        {
+            List<Thing> contents = ThingSetMakerDefOf.Meteorite.root.Generate();
+            this.SpawnMeteorite(firstChunkPos, map, contents);
+        }
+
+        private void SpawnMeteorite(IntVec3 pos, Map map, List<Thing> contents)
+        {
+            SkyfallerMaker.SpawnSkyfaller(ThingDefOf.MeteoriteIncoming, contents, pos, map);
+        }
+
+        private void SpawnShipChunk(IntVec3 pos, Map map)
+        {
+            SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, ThingDefOf.ShipChunk, pos, map);
+        }
+
+        private bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos)
+        {
+            return CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out pos, 10, nearLoc, maxDist, false);
         }
     }
-
-    public class SLPMorePsycast_Mod : Mod
-    {
-        //private Vector2 ScrollPosition = Vector2.zero;
-        private static Vector2 scrollPosition = new Vector2(0f, 0f);
-        private static float totalContentHeight = 1000f;
-        private const float ScrollBarWidthMargin = 18f;
-
-        // A reference to the settings.
-        SLP_MorePsycastSettings settings;
-
-        // A mandatory constructor which resolves the reference to our settings.
-        public SLPMorePsycast_Mod(ModContentPack content) : base(content)
-        {
-            this.settings = GetSettings<SLP_MorePsycastSettings>();
-        }
-
-        // The GUI part to set settings.
-        public override void DoSettingsWindowContents(Rect inRect)
-        {
-            //Big thank you to LWD Deep Storage, their mod settings code helped me add in the scroll bar
-            Rect outerRect = inRect.ContractedBy(10f);
-            Widgets.DrawHighlight(outerRect);
-            bool scrollBarVisible = totalContentHeight > outerRect.height;
-            var scrollViewTotal = new Rect(0f, 0f, outerRect.width - (scrollBarVisible ? ScrollBarWidthMargin : 0), totalContentHeight);
-            Widgets.BeginScrollView(outerRect, ref scrollPosition, scrollViewTotal);
-            Listing_Standard listingStandard = new Listing_Standard(GameFont.Tiny);
-            listingStandard.Begin(new Rect(0f, 0f, scrollViewTotal.width, 9999f));
-
-            listingStandard.Label("SLP_MustRestart".Translate());
-            listingStandard.GapLine();
-            listingStandard.Label("SLP_DefaultSettings".Translate());
-            listingStandard.Label("SLP_EffectSettings".Translate());
-            listingStandard.GapLine();
-            listingStandard.CheckboxLabeled("SLP_PSY_ArcticPinholeExplain".Translate(), ref settings.ToggleSLP_PSY_ArcticPinhole, "SLP_PSY_ArcticPinholeTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_ImmunityBoostExplain".Translate(), ref settings.ToggleSLP_PSY_ImmunityBoost, "SLP_PSY_ImmunityBoostTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_HealingBoostExplain".Translate(), ref settings.ToggleSLP_PSY_HealingBoost, "SLP_PSY_HealingBoostTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_RegenMajorExplain".Translate(), ref settings.ToggleSLP_PSY_RegenMajor, "SLP_PSY_RegenMajorTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_FlashHealExplain".Translate(), ref settings.ToggleSLP_PSY_FlashHeal, "SLP_PSY_FlashHealTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_RegenMinorExplain".Translate(), ref settings.ToggleSLP_PSY_RegenMinor, "SLP_PSY_RegenMinorTooltip".Translate());
-
-            listingStandard.CheckboxLabeled("SLP_PSY_ResurrectExplain".Translate(), ref settings.ToggleSLP_PSY_Resurrect, "SLP_PSY_ResurrectTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_CleanSkipExplain".Translate(), ref settings.ToggleSLP_PSY_CleanSkip, "SLP_PSY_CleanSkipTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_FertilitySkipExplain".Translate(), ref settings.ToggleSLP_PSY_FertilitySkip, "SLP_PSY_FertilitySkipTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_HaemostasisExplain".Translate(), ref settings.ToggleSLP_PSY_Haemostasis, "SLP_PSY_HaemostasisTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_IgniteExplain".Translate(), ref settings.ToggleSLP_PSY_Ignite, "SLP_PSY_IgniteTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_ReconditionExplain".Translate(), ref settings.ToggleSLP_PSY_Recondition, "SLP_PSY_ReconditionTooltip".Translate());
-
-            listingStandard.CheckboxLabeled("SLP_PSY_InterdictionExplain".Translate(), ref settings.ToggleSLP_PSY_Interdiction, "SLP_PSY_InterdictionTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_WordOfSleepExplain".Translate(), ref settings.ToggleSLP_PSY_WordOfSleep, "SLP_PSY_WordOfSleepTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_WordOfVigorExplain".Translate(), ref settings.ToggleSLP_PSY_WordOfVigor, "SLP_PSY_WordOfVigorTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_SkipscreenExplain".Translate(), ref settings.ToggleSLP_PSY_Skipscreen, "SLP_PSY_SkipscreenTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_PotentialUnleashedExplain".Translate(), ref settings.ToggleSLP_PSY_PotentialUnleashed, "SLP_PSY_PotentialUnleashedTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_DashExplain".Translate(), ref settings.ToggleSLP_PSY_Dash, "SLP_PSY_DashTooltip".Translate());
-
-            listingStandard.CheckboxLabeled("SLP_PSY_WordOfContemptExplain".Translate(), ref settings.ToggleSLP_PSY_WordOfContempt, "SLP_PSY_WordOfContemptTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_CalmExplain".Translate(), ref settings.ToggleSLP_PSY_Calm, "SLP_PSY_CalmTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_MassBeckonExplain".Translate(), ref settings.ToggleSLP_PSY_MassBeckon, "SLP_PSY_MassBeckonTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_MassBurdenExplain".Translate(), ref settings.ToggleSLP_PSY_MassBurden, "SLP_PSY_MassBurdenTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_StunPulseExplain".Translate(), ref settings.ToggleSLP_PSY_StunPulse, "SLP_PSY_StunPulseTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_FlashstepExplain".Translate(), ref settings.ToggleSLP_PSY_Flashstep, "SLP_PSY_FlashstepTooltip".Translate());
-
-            listingStandard.CheckboxLabeled("SLP_PSY_SkipstepExplain".Translate(), ref settings.ToggleSLP_PSY_Skipstep, "SLP_PSY_SkipstepTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_ComfortShieldExplain".Translate(), ref settings.ToggleSLP_PSY_ComfortShield, "SLP_PSY_ComfortShieldTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_EngulfExplain".Translate(), ref settings.ToggleSLP_PSY_Engulf, "SLP_PSY_EngulfTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_DartExplain".Translate(), ref settings.ToggleSLP_PSY_Dart, "SLP_PSY_DartTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_EndoPinholeExplain".Translate(), ref settings.ToggleSLP_PSY_EndoPinhole, "SLP_PSY_EndoPinholeTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_SupernovaPinholeExplain".Translate(), ref settings.ToggleSLP_SupernovaPinhole, "SLP_SupernovaPinholeTooltip".Translate());
-
-            listingStandard.CheckboxLabeled("SLP_PSY_WordOfFriendshipExplain".Translate(), ref settings.ToggleSLP_PSY_WordOfFriendship, "SLP_PSY_WordOfFriendshipTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_BrickgateExplain".Translate(), ref settings.ToggleSLP_PSY_Brickgate, "SLP_PSY_BrickgateTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_ChemskipExplain".Translate(), ref settings.ToggleSLP_PSY_Chemskip, "SLP_PSY_ChemskipTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_StaticBurstExplain".Translate(), ref settings.ToggleSLP_PSY_StaticBurst, "SLP_PSY_StaticBurstTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_SuperskipExplain".Translate(), ref settings.ToggleSLP_PSY_Superskip, "SLP_PSY_SuperskipTooltip".Translate());
-            listingStandard.CheckboxLabeled("SLP_PSY_RevitaliseExplain".Translate(), ref settings.ToggleSLP_PSY_Revitalise, "SLP_PSY_RevitaliseTooltip".Translate());
-            
-            listingStandard.GapLine();
-            totalContentHeight = listingStandard.CurHeight + 10f;
-            listingStandard.End();
-            Widgets.EndScrollView();
-            base.DoSettingsWindowContents(inRect);
-        }
-
-        // Override SettingsCategory to show up in the list of settings.
-        // Using .Translate() is optional, but does allow for localisation.
-        public override string SettingsCategory()
-        {
-            return "SLP_MorePsycastSettings".Translate();
-        }
-
-        public override void WriteSettings()
-        {
-            base.WriteSettings();
-            RemoveToggledPsycasts(); // This cant be here, it only seems to remove the toggled stuff if you check the mod settings before playing.
-        }
-
-        public void RemoveToggledPsycasts()
-        {
-
-            settings = GetSettings<SLP_MorePsycastSettings>();
-            int numDisabled = 0;
-
-            if (settings.ToggleSLP_PSY_ArcticPinhole == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_ArcticPinhole);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_ImmunityBoost == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_ImmunityBoost);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_HealingBoost == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_HealingBoost);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_RegenMajor == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_RegenMajor);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_FlashHeal == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_FlashHeal);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_RegenMinor == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_RegenMinor);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Resurrect == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Resurrect);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_CleanSkip == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_CleanSkip);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_FertilitySkip == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_FertilitySkip);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Haemostasis == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Haemostasis);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Ignite == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Ignite);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Recondition == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Recondition);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Interdiction == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Interdiction);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_WordOfSleep == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_WordOfSleep);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_WordOfVigor == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_WordOfVigor);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Skipscreen == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Skipscreen);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_PotentialUnleashed == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_PotentialUnleashed);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Dash == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Dash);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_WordOfContempt == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_WordOfContempt);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Calm == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Calm);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_MassBeckon == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_MassBeckon);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_MassBurden == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_MassBurden);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_StunPulse == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_StunPulse);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Flashstep == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Flashstep);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Skipstep == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Skipstep);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_ComfortShield == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_ComfortShield);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Engulf == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Engulf);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Dart == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Dart);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_EndoPinhole == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_EndoPinhole);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_SupernovaPinhole == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_SupernovaPinhole);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_WordOfFriendship == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_WordOfFriendship);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Brickgate == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Brickgate);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Chemskip == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Chemskip);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_StaticBurst == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_StaticBurst);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Superskip == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Superskip);
-                numDisabled++;
-            }
-            if (settings.ToggleSLP_PSY_Revitalise == true)
-            {
-                DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Revitalise);
-                numDisabled++;
-            }
-            Log.Message("Sleepy's More Psycasts - Disabled Psycasts: " + numDisabled);
-            return;
-        }
-    }
-    **/
 
     //Utility Code
     public static class SLP_ResurrectionUtility
@@ -1690,50 +1306,6 @@ namespace Sleepys_MorePsycasts
         public static ThingDef BlocksSlate;
         public static ThingDef ChunkMarble;
         public static ThingDef BlocksMarble;
-    }
-
-    [DefOf]
-    public static class SLP_PsycastDefs
-    {
-        public static AbilityDef SLP_PSY_ArcticPinhole;
-        public static AbilityDef SLP_PSY_ImmunityBoost;
-        public static AbilityDef SLP_PSY_HealingBoost;
-        public static AbilityDef SLP_PSY_RegenMajor;
-        public static AbilityDef SLP_PSY_FlashHeal;
-        public static AbilityDef SLP_PSY_RegenMinor;
-        public static AbilityDef SLP_PSY_Resurrect;
-        public static AbilityDef SLP_PSY_CleanSkip;
-        public static AbilityDef SLP_PSY_FertilitySkip;
-        public static AbilityDef SLP_PSY_Haemostasis;
-        public static AbilityDef SLP_PSY_Ignite;
-        public static AbilityDef SLP_PSY_Recondition;
-        public static AbilityDef SLP_PSY_Interdiction;
-        public static AbilityDef SLP_PSY_WordOfSleep;
-        public static AbilityDef SLP_PSY_WordOfVigor;
-        public static AbilityDef SLP_PSY_Skipscreen;
-        public static AbilityDef SLP_PSY_PotentialUnleashed;
-        public static AbilityDef SLP_PSY_Dash;
-        public static AbilityDef SLP_PSY_WordOfContempt;
-        public static AbilityDef SLP_PSY_Calm;
-        public static AbilityDef SLP_PSY_MassBeckon;
-        public static AbilityDef SLP_PSY_MassBurden;
-        public static AbilityDef SLP_PSY_StunPulse;
-        public static AbilityDef SLP_PSY_Flashstep;
-        public static AbilityDef SLP_PSY_Skipstep;
-        public static AbilityDef SLP_PSY_ComfortShield;
-        public static AbilityDef SLP_PSY_Engulf;
-        public static AbilityDef SLP_PSY_Dart;
-        public static AbilityDef SLP_PSY_EndoPinhole;
-        public static AbilityDef SLP_SupernovaPinhole;
-        public static AbilityDef SLP_PSY_WordOfFriendship;
-        public static AbilityDef SLP_PSY_Brickgate;
-        public static AbilityDef SLP_PSY_Chemskip;
-        public static AbilityDef SLP_PSY_StaticBurst;
-        public static AbilityDef SLP_PSY_Superskip;
-
-        //Conditionally Added Psycasts
-        public static AbilityDef SLP_PSY_Revitalise;
-
     }
 
 }
