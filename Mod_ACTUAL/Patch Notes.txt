@@ -2,10 +2,13 @@ Update v1.0.19 Build 22/01/25 | Post
 *New content and adjustments, excluding bug fixes, will only be made to the Rimworld 1.5 Version of this mod (just a hassle maintaining both sorry)
 
 Additions:
-N/A
+3 New Psycasts
+- Static Burst
+- Revitialise (Anomaly Only)
+- Superskip
 
 Changes:
-N/A
+Increased Skipscreen Ability_Duration from 45 ticks to 84 ticks (about 1 hours to 2 hours in game).
 
 Localisation:
 N/A

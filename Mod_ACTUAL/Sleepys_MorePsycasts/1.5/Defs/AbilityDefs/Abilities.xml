@@ -611,7 +611,7 @@
       <Ability_EntropyGain>55</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
       <Ability_EffectRadius>15.9</Ability_EffectRadius>
-      <Ability_Duration>45</Ability_Duration>
+      <Ability_Duration>84</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>1</warmupTime>
@@ -1328,17 +1328,106 @@
   
   <!-- Static Burst -->
   <!-- Lvl 1 - EMP AOE Attack to stun Mechs. -->
+  <AbilityDef ParentName="SLP_PsycastBaseCombat">
+    <defName>SLP_PSY_StaticBurst</defName>
+    <label>static burst</label>
+    <description>By using skipgates to compress the free electrons of the air around the target area a charge separation can be created. This charge separation will quickly discharge creating an electrical burst, temporarily disabling electronics and depleting shields.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_PSY_StaticBurst</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>12</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.025</Ability_PsyfocusCost>
+	  <!--<Ability_EffectRadius>1.9</Ability_EffectRadius>-->
+    </statBases>
+    <verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.3</warmupTime>
+      <range>28.9</range>
+      <targetParams>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="Sleepys_MorePsycasts.CompProperties_SLP_AreaEffectLaunchProjectile">
+	    <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_AreaEffectLaunchProjectile</compClass>
+        <projectileDef>SLP_StaticBurstCast</projectileDef>
+		<effectPreviewRadius>4.5</effectPreviewRadius>
+      </li>
+    </comps>
+  </AbilityDef>
   
+  <ThingDef ParentName="BaseBullet">
+    <defName>SLP_StaticBurstCast</defName>
+    <label>static burst</label>
+    <graphicData>
+      <texPath>Things/Projectile/SLP_Invis</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(0.25,0.25)</drawSize>
+    </graphicData>
+	<thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>240</speed>
+      <damageDef>EMP</damageDef>
+      <explosionRadius>4.5</explosionRadius>
+	  <!--
+      <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+	  -->
+      <ai_IsIncendiary>false</ai_IsIncendiary>
+      <shadowSize>0.0</shadowSize>
+    </projectile>
+  </ThingDef>
+
   <!-- Gaspop (Biotech Only) -->
   <!-- Lvl 4 - Generate a Tox Gas cloud -->
-  
-  <!-- Revitalise -->
-  <!-- Lvl 5 - Give a pawn regeneration for a short time -->
   
   <!-- Chlorokinesis -->
   <!-- Lvl 3 - Force the growth of planets to increase by 3 days -->
   
   <!-- Superskip -->
   <!-- Lvl 6 - Teleports Target to Target Location no matter the target size and without line of sight. -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_Superskip</defName>
+    <label>superskip</label>
+    <description>Teleport the target to a desired position far from its starting point. Unlike skip, superskip can teleport an object no matter how large it is and much further away. Superskip psychically links with the caster in such a way that the caster can sense objects they do not have line of sight on, allowing them to skip through any walls or materials in the way.</description>
+    <level>6</level>
+    <iconPath>UI/Abilities/SLP_PSY_SuperSkip</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <showPsycastEffects>False</showPsycastEffects>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.06</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+	  <requireLineOfSight>False</requireLineOfSight>
+      <warmupTime>0.05</warmupTime>
+      <range>35.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetItems>True</canTargetItems>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityTeleport">
+        <compClass>CompAbilityEffect_Teleport</compClass>
+        <destination>Selected</destination>
+        <requiresLineOfSight>False</requiresLineOfSight>
+        <range>38.9</range>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+        <destClamorType>Ability</destClamorType>
+        <destClamorRadius>10</destClamorRadius>
+        <stunTicks>18~60</stunTicks>
+		<maxBodySize>99</maxBodySize>
+        <goodwillImpact>-15</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+    </comps>
+  </AbilityDef>
   
 </Defs>
