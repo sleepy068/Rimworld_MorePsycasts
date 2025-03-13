@@ -1095,7 +1095,7 @@ namespace Sleepys_MorePsycasts
     public class SLP_MorePsycastSettings : ModSettings
     {
 
-        //List of all psycasts added by this mod (prevents picking up all psycasts or all abilities, etc)
+        //List of all psycasts added by this mod (prevents picking up all psycasts or all abilities with a loop)
         public bool ToggleSLP_PSY_ArcticPinhole;
         public bool ToggleSLP_PSY_ImmunityBoost;
         public bool ToggleSLP_PSY_HealingBoost;
@@ -1275,9 +1275,10 @@ namespace Sleepys_MorePsycasts
         public override void WriteSettings()
         {
             base.WriteSettings();
-            RemoveToggledPsycasts(); // This cant be here, it only seems to remove the toggled stuff if you check the mod settings before playing.
+            //RemoveToggledPsycasts(); // This cant be here, it only seems to remove the toggled stuff if you check the mod settings before playing.
         }
 
+        
         public void RemoveToggledPsycasts()
         {
 
@@ -1467,8 +1468,8 @@ namespace Sleepys_MorePsycasts
             Log.Message("Sleepy's More Psycasts - Disabled Psycasts: " + numDisabled);
             return;
         }
-    }
     **/
+    
 
     //Utility Code
     public static class SLP_ResurrectionUtility
