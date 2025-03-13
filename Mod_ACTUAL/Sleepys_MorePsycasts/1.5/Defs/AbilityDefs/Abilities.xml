@@ -115,7 +115,7 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>15</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.12</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.09</Ability_PsyfocusCost>
       <Ability_Duration>320</Ability_Duration>
     </statBases>
     <verbProperties>
