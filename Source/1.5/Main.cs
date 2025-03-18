@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Verse;
 using Verse.Sound;
 using Verse.AI.Group;
@@ -897,7 +896,6 @@ namespace Sleepys_MorePsycasts
         }
     }
 
-
     //Dart Psycast
     public class CompAbilityEffect_SLP_Dart : CompAbilityEffect
     {
@@ -1179,6 +1177,7 @@ namespace Sleepys_MorePsycasts
             Scribe_Values.Look(ref ToggleSLP_PSY_StaticBurst, "SLP_PSY_StaticBurst");
             Scribe_Values.Look(ref ToggleSLP_PSY_Superskip, "SLP_PSY_Superskip");
             Scribe_Values.Look(ref ToggleSLP_PSY_Revitalise, "SLP_PSY_Revitalise");
+
             base.ExposeData();
         }
     }
@@ -1258,6 +1257,7 @@ namespace Sleepys_MorePsycasts
             listingStandard.CheckboxLabeled("SLP_PSY_SuperskipExplain".Translate(), ref settings.ToggleSLP_PSY_Superskip, "SLP_PSY_SuperskipTooltip".Translate());
             listingStandard.CheckboxLabeled("SLP_PSY_RevitaliseExplain".Translate(), ref settings.ToggleSLP_PSY_Revitalise, "SLP_PSY_RevitaliseTooltip".Translate());
             
+
             listingStandard.GapLine();
             totalContentHeight = listingStandard.CurHeight + 10f;
             listingStandard.End();
@@ -1465,11 +1465,12 @@ namespace Sleepys_MorePsycasts
                 DefDatabase<AbilityDef>.AllDefsListForReading.Remove(SLP_PsycastDefs.SLP_PSY_Revitalise);
                 numDisabled++;
             }
+
             Log.Message("Sleepy's More Psycasts - Disabled Psycasts: " + numDisabled);
             return;
         }
     **/
-    
+
 
     //Utility Code
     public static class SLP_ResurrectionUtility

@@ -144,7 +144,6 @@ C:\Users\ethan\Documents\GitHub\Rimworld_MorePsycasts\Source\1.5\build\UnityEngi
 C:\Users\ethan\Documents\GitHub\Rimworld_MorePsycasts\Source\1.5\build\UnityEngine.UIModule.dll
 C:\Users\ethan\Documents\GitHub\Rimworld_MorePsycasts\Source\1.5\build\UnityEngine.Physics2DModule.dll
 C:\Users\ethan\Documents\GitHub\Rimworld_MorePsycasts\Source\1.5\build\UnityEngine.AnimationModule.dll
-C:\Users\ethan\Documents\GitHub\Rimworld_MorePsycasts\Source\1.5\obj\Debug\Sleepys_MorePsycasts.csproj.AssemblyReference.cache
 C:\Users\ethan\Documents\GitHub\Rimworld_MorePsycasts\Source\1.5\obj\Debug\Sleepys_MorePsycasts.csproj.CoreCompileInputs.cache
 C:\Users\ethan\Documents\GitHub\Rimworld_MorePsycasts\Source\1.5\obj\Debug\Sleepys_MorePsycasts.csproj.CopyComplete
 C:\Users\ethan\Documents\GitHub\Rimworld_MorePsycasts\Source\1.5\obj\Debug\Sleepys_MorePsycasts.dll
