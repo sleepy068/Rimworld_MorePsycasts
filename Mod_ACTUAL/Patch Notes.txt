@@ -1,18 +1,10 @@
-Update v1.0.19 Build 22/01/25 | Post 
-*New content and adjustments, excluding bug fixes, will only be made to the Rimworld 1.5 Version of this mod (just a hassle maintaining both sorry)
-
-Additions:
-3 New Psycasts
-- Static Burst
-- Revitialise (Anomaly Only)
-- Superskip
+Update v1.0.20 Build 08/04/25 | Post 
 
 Changes:
-Increased Skipscreen Ability_Duration from 45 ticks to 84 ticks (about 1 hours to 2 hours in game).
-Reduced Healing Boost psyfocus cost from 12% to 9% (Did the exact math on how much it heals so this balances it better).
+N/A
 
 Localisation:
-Cleared up Brickgate error description so the player knows it only works on vanilla stone chunks.
+N/A
 
 Bug Fixes:
 N/A

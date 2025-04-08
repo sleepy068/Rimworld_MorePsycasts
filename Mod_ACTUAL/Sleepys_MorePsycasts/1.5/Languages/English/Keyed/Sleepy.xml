@@ -12,8 +12,8 @@
   <!-- Mod Settings -->
   <SLP_MorePsycastSettings>Sleepy's More Psycasts</SLP_MorePsycastSettings>
   <SLP_MustRestart>You need to manually restart Rimworld to apply any changes.</SLP_MustRestart>
-  <SLP_DefaultSettings>By default, all check boxes are disabled (red) meaning no psycast has been removed.</SLP_DefaultSettings>
-  <SLP_EffectSettings>Changes remove the psycast from appearing in game but it won't effect pawns who already have the psycast before it is disabled.</SLP_EffectSettings>
+  <SLP_DefaultSettings>By default, all check boxes are enabled (green tick) meaning no psycast has been disabled.</SLP_DefaultSettings>
+  <SLP_EffectSettings>Disabling removes the psycast from appearing in game and will cause a red log error if removed during an ongoing game.</SLP_EffectSettings>
   
   <SLP_PSY_ArcticPinholeExplain>Disable Arctic Pinhole</SLP_PSY_ArcticPinholeExplain>
   <SLP_PSY_ArcticPinholeTooltip>Toggle Arctic Pinhole</SLP_PSY_ArcticPinholeTooltip>
@@ -90,7 +90,17 @@
   <SLP_PSY_StaticBurstTooltip>Toggle Static Burst</SLP_PSY_StaticBurstTooltip>
   <SLP_PSY_SuperskipExplain>Disable Superskip</SLP_PSY_SuperskipExplain>
   <SLP_PSY_SuperskipTooltip>Toggle Superskip</SLP_PSY_SuperskipTooltip>
+  
+  <!-- Added only with Anomaly -->
+  <SLP_AnomalySettings>Added only with Anomaly (Please do not edit these without Anomaly DLC)</SLP_AnomalySettings>
   <SLP_PSY_RevitaliseExplain>Disable Revitalise</SLP_PSY_RevitaliseExplain>
   <SLP_PSY_RevitaliseTooltip>Toggle Revitalise</SLP_PSY_RevitaliseTooltip>
+  
+  <!-- Added only with Biotech -->
+  <SLP_BiotechSettings>Added only with Biotech (Please do not edit these without Biotech DLC)</SLP_BiotechSettings>
+  <SLP_PSY_EnergiseExplain>Disable Energise</SLP_PSY_EnergiseExplain>
+  <SLP_PSY_EnergiseTooltip>Toggle Energise</SLP_PSY_EnergiseTooltip>
+  
+  <SLP_RestartForChanges>Please restart Rimworld to load these new changes.</SLP_RestartForChanges>
   
 </LanguageData>

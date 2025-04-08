@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Energise (Biotech Only) -->
+  <!-- Lvl 4 - Partially recharge a mech's energy -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_Energise</defName>
+    <label>energise</label>
+    <description>By converting psychic energy into a dense electrical field within a Mech, the psycaster can partially recharge a Mech's internal battery.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_PSY_Energise</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
+      <!--<Ability_Duration>1</Ability_Duration>-->
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetCorpses>False</canTargetCorpses>
+        <canTargetSelf>False</canTargetSelf>
+		<canTargetMechs>True</canTargetMechs>
+        <canTargetAnimals>False</canTargetAnimals>
+		<canTargetItems>False</canTargetItems>
+		<canTargetPawns>True</canTargetPawns>
+		<canTargetHumans>False</canTargetHumans>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Energise</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>True</applicableToMechs>
+        <goodwillImpact>0</goodwillImpact>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+</Defs>

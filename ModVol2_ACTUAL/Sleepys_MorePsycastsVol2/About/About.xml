@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Sleepy's More Psycasts Volume 2</name>
+    <author>Sleepy068</author>
+    <url>https://github.com/sleepy068/Rimworld_MorePsycasts</url>
+    <packageId>sleepy068.morepsycastsvol2</packageId>
+    <supportedVersions>
+		<li>1.5</li>
+    </supportedVersions>
+
+    <description>
+[img]https://i.imgur.com/IIdHbEw.png[/img]
+[h2]Sleepy's More Psycasts - Volume 2[/h2]
+Modding is easier together, this mod is licensed under [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 UNIVERSAL[/url]. 
+
+Even more psycasts for those that love an option for everything. This mod was created to reduce over bloating my original psycast mod, Sleepy's More Psycasts and give players more options for what they might want in their game.
+
+I love to add content to this game that I feel is missing or that I'd like expanded. I figure that if I enjoy what I've added, others may too so I to post my mods to the workshop. Balance is critical to me as I am a vanilla player and I'll try to ensure nothing is unbalanced but ultimately I have a goal in mind for the content I am adding so what I consider balanced may not always be what you'd consider balanced. Hopefully you enjoy the mod none the less.
+
+You can find all the stats and exact effects of each Psycast here:
+
+[img]https://i.imgur.com/DbnM7jC.png[/img]
+[b]What Does This Mod Add?[/b]
+x new psycasts (y with DLC):
+
+[img]https://i.imgur.com/ss8ZNXk.png[/img]
+[b]Roadmap:[/b]
+- Add new and interesting psycasts
+
+[img]https://i.imgur.com/YySbEPN.png[/img]
+[b]On Going Games:[/b]
+- Safe to add to an ongoing game
+- It will cause issues if removed from an existing save (consider starting a new game to see if you are happy with the content).
+
+[b]Compatibility[/b]
+- Vanilla Psycasts Expanded: Not Compatible (Not planned)
+
+[b]Integrated Compatibility:[/b]
+None at the moment.
+
+[img]https://i.imgur.com/gghc3iQ.png[/img]
+[b]Conflicts[/b]
+Vanilla Psycasts Expanded: Psycasts from this mod won't show up, have no tech tree and won't spawn as psytrainers.
+
+[img]https://i.imgur.com/31kQWwH.png[/img]
+[b]Known Issues[/b]
+None at the moment.
+
+[img]https://i.imgur.com/WokZwPP.png[/img]
+[b]Language Support[/b]
+English (Always Latest)(Developed in this Language)
+
+Github:
+https://github.com/sleepy068/Rimworld_MorePsycasts
+
+Please post any issue reports to my Github. I appreciate any feedback but please keep in mind I have a goal in mind for the content I am adding so what I consider balanced may not always be what you'd consider balanced.
+
+    </description>
+
+    <modDependencies>
+	<li>
+		<packageId>Ludeon.RimWorld.Royalty</packageId>
+		<displayName>Royalty</displayName>
+	</li>
+    </modDependencies>
+	
+    <modDependenciesByVersion>
+    </modDependenciesByVersion>
+
+    <loadAfter>
+    </loadAfter>
+
+    <incompatibleWith>
+		<li>vanillaexpanded.vpsycastse</li>
+    </incompatibleWith>
+	
+</ModMetaData>
