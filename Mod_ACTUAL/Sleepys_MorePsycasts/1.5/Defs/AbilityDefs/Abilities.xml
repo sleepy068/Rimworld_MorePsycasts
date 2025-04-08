@@ -499,7 +499,7 @@
     </statBases>
     <verbProperties>
       <warmupTime>0.1</warmupTime>
-      <range>31.9</range><!--4 more than skip -->
+      <range>32.9</range><!--7 more than skip -->
       <targetParams>
         <canTargetSelf>False</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
@@ -511,7 +511,7 @@
         <compClass>CompAbilityEffect_Teleport</compClass>
         <destination>Caster</destination>
         <requiresLineOfSight>True</requiresLineOfSight>
-        <range>31.9</range>
+        <range>32.9</range>
 		<!--
         <clamorType>Ability</clamorType>
         <clamorRadius>10</clamorRadius>

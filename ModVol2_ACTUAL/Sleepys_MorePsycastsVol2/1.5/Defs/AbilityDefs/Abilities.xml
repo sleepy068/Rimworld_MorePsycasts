@@ -19,35 +19,31 @@
   <!-- Beast Bond -->
   <!-- Lvl 2 - Turn a neutral animal to your side temporarily. -->
   
-  <!-- Fear -->
-  <!-- Lvl 2 - Psychically terrify a target, forcing them to flee in panic. -->
-  
   <!-- Guidance -->
   <!-- Lvl 2 - Psychically link to an individual and give them guidance while they learn new skills.  -->
   <!-- WordOf -->
   <!-- +25% Learning -->
   <!-- 3 Days -->
   
+  <!-- Fear -->
+  <!-- Lvl 3 - Psychically terrify a target, forcing them to flee in panic. -->
+  
   <!-- Extinguish -->
   <!-- Lvl 4 - Drench a large area in firefoam, stopping fire and extinguishing creatures on fire. -->
   
   <!-- Gaspop (Biotech Only) -->
-  <!-- Lvl 4 - Skip a cluster of toxic gases from nearby planets and generate a Tox Gas cloud -->
+  <!-- Lvl 4 - Skip a cluster of toxic gases from nearby planets to the target location, generating a Tox Gas cloud. -->
   
   <!-- Command -->
-  <!-- Lvl 5 - Psychically command another human to drop their weapon. -->
+  <!-- Lvl 4 - Psychically command another human to drop their weapon. -->
+  
+  <!-- Ethereal Beauty -->
+  <!-- Lvl 5 - Make the target extremely beautiful and desirable for a short time, connecting the person more closely with others. -->
   
   <!-- Healing Bloom -->
   <!-- Lvl 6 - Generate a resonating energy field within the body of many organic beings within range that boosts the bodies ability to repair damage and fight infections. -->
   <!-- +100% Healing -->
   <!-- +10% Immunity Gain Speed -->
   <!-- 3 Days -->
-  
-  <!-- ================================================= -->
-  <!-- ========= Not Sure How To Implement Yet ========= -->
-  <!-- ================================================= -->
-  
-  <!-- Chlorokinesis -->
-  <!-- Lvl 3 - Force the growth of planets to increase by 3 days -->
  
 </Defs>

@@ -20,6 +20,9 @@
   <!-- Lvl 1 - Psychically instil doubt and distress in a target's mind, reducing its ability to fight effectively. -->
   <!-- -6 shooting, -4 melee, -2 melee dodge chance -->
   
+  <!-- Fire Shield -->
+  <!-- Lvl 2 - Shield a target in psychic energy, making them immune to fire and extreme high temperatures for a short time. -->
+  
   <!-- Hunter's Mark -->
   <!-- Lvl 3 - Psychically reduce a targets defences and the bonds within their muscles, skin and armour, causing them to take more damage. -->
   
@@ -38,5 +41,8 @@
   
   <!-- Firestorm -->
   <!-- Lvl 6 - Unless a torrent of flames and flammable liquids from the target location. -->
+  
+  <!-- Meteor Swarm -->
+  <!-- Lvl 6 - Unleash a swarm of meteor showers to obliterate the target area. -->
   
 </Defs>
