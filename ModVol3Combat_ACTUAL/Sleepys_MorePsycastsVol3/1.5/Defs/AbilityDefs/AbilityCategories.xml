@@ -2,12 +2,12 @@
 <Defs>
   
   <AbilityCategoryDef>
-    <defName>SLP_V2_Combat</defName>
+    <defName>SLP_V3_Combat</defName>
     <displayOrder>3</displayOrder>
   </AbilityCategoryDef>
 
   <AbilityCategoryDef>
-    <defName>SLP_V2_Healing</defName>
+    <defName>SLP_V3_Healing</defName>
     <displayOrder>4</displayOrder>
   </AbilityCategoryDef>
 

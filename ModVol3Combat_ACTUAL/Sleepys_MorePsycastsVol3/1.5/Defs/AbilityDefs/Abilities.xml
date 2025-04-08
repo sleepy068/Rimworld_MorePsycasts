@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- WordOf displayOrder 0 -->
+  <!-- PsycastBase displayOrder 1 -->
+  <!-- PsycastBaseSkip displayOrder 2 -->
+
+  <AbilityDef Name="SLP_V3_PsycastBaseCombat" ParentName="PsycastBase" Abstract="True"><!-- displayOrder 3 -->
+    <category>Combat</category>
+  </AbilityDef>
+  
+  <AbilityDef Name="SLP_V3_PsycastBaseHeal" ParentName="PsycastBase" Abstract="True"><!-- displayOrder 4 -->
+    <category>Healing</category>
+  </AbilityDef>
+  
+  <!-- =========================== -->
+  <!-- ========== Combat ========== -->
+  <!-- =========================== -->
+  <!-- Hex -->
+  <!-- Lvl 1 - Psychically instil doubt and distress in a target's mind, reducing its ability to fight effectively. -->
+  <!-- -6 shooting, -4 melee, -2 melee dodge chance -->
+  
+  <!-- Hunter's Mark -->
+  <!-- Lvl 3 - Psychically reduce a targets defences and the bonds within their muscles, skin and armour, causing them to take more damage. -->
+  
+  <!-- Phantom Bolt -->
+  <!-- Lvl 3 - Summon and release a psychic energy blast that can pass through matter to find and hit its target, causing some damage. -->
+  
+  <!-- Eldritch Blast -->
+  <!-- Lvl 4 - Summon and release a beam of crackling energy at an opponent, causing significant damage. -->
+  
+  <!-- Mass Hex -->
+  <!-- Lvl 4 - Psychically instil doubt and distress in a group of target's minds, reducing their ability to fight effectively. -->
+  <!-- -6 shooting, -4 melee, -2 melee dodge chance -->
+  
+  <!-- Paralysing Punch -->
+  <!-- Lvl 5 - Hit a target with a overwhelming psychic blast, instantly knocking them unconscious for a short time. -->
+  
+</Defs>
