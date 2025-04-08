@@ -27,7 +27,7 @@
   <!-- Lvl 3 - Summon and release a psychic energy blast that can pass through matter to find and hit its target, causing some damage. -->
   
   <!-- Eldritch Blast -->
-  <!-- Lvl 4 - Summon and release a beam of crackling energy at an opponent, causing significant damage. -->
+  <!-- Lvl 4 - Summon and release a beam of crackling energy at an opponent, causing decent damage and stagger. -->
   
   <!-- Mass Hex -->
   <!-- Lvl 4 - Psychically instil doubt and distress in a group of target's minds, reducing their ability to fight effectively. -->
@@ -35,5 +35,8 @@
   
   <!-- Paralysing Punch -->
   <!-- Lvl 5 - Hit a target with a overwhelming psychic blast, instantly knocking them unconscious for a short time. -->
+  
+  <!-- Firestorm -->
+  <!-- Lvl 6 - Unless a torrent of flames and flammable liquids from the target location. -->
   
 </Defs>
