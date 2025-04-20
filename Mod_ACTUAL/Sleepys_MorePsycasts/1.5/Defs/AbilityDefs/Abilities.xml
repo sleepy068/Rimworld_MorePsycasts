@@ -1424,13 +1424,4 @@
     </comps>
   </AbilityDef>
   
-  <!-- Chlorokinesis -->
-  <!-- Lvl 3 - Force the growth of planets to increase by 3 days -->
-  
-  <!-- Extinguish -->
-  <!-- Lvl 4 - Drench a large area in firefoam, stopping fire and extinguishing creatures on fire. -->
-  
-  <!-- Gaspop (Biotech Only) -->
-  <!-- Lvl 4 - Generate a Tox Gas cloud -->
-  
 </Defs>
