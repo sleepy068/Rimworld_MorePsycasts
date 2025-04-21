@@ -24,13 +24,14 @@
   <!-- Lvl 2 - Shield a target in psychic energy, making them immune to fire and extreme high temperatures for a short time. -->
   
   <!-- Hunter's Mark -->
-  <!-- Lvl 3 - Psychically reduce a targets defences and the bonds within their muscles, skin and armour, causing them to take more damage. -->
+  <!-- Lvl 3 - Psychically reduce a targets defences causing them to take more damage. -->
+  <!-- +20% incoming Damage -->
   
   <!-- Phantom Bolt -->
   <!-- Lvl 3 - Summon and release a psychic energy blast that can pass through matter to find and hit its target, causing some damage. -->
   
-  <!-- Eldritch Blast -->
-  <!-- Lvl 4 - Summon and release a beam of crackling energy at an opponent, causing decent damage and stagger. -->
+  <!-- Force Blast -->
+  <!-- Lvl 4 - Summon and release a beam of explosive energy at an opponent, causing decent damage and stagger. -->
   
   <!-- Mass Hex -->
   <!-- Lvl 4 - Psychically instil doubt and distress in a group of target's minds, reducing their ability to fight effectively. -->
@@ -43,6 +44,6 @@
   <!-- Lvl 6 - Unless a torrent of flames and flammable liquids from the target location. -->
   
   <!-- Meteor Swarm -->
-  <!-- Lvl 6 - Unleash a swarm of meteor showers to obliterate the target area. -->
+  <!-- Lvl 6 - Unleash a swarm of meteors to showers and obliterate the target area. Will only ever be rock type meteors. -->
   
 </Defs>
