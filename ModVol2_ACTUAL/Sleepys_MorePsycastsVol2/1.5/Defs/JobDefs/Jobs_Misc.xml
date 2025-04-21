@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--============ Psycast Effects ============-->
+  <!-- Flee in Panic -->
+  <JobDef>
+    <defName>SLP_FleeInPanic</defName>
+    <driverClass>JobDriver_Flee</driverClass>
+    <reportString>fleeing.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    <waitAfterArriving>2000</waitAfterArriving>
+    <casualInterruptible>false</casualInterruptible>
+    <playerInterruptible>false</playerInterruptible>
+    <suspendable>false</suspendable>
+  </JobDef>
+  
+</Defs>
