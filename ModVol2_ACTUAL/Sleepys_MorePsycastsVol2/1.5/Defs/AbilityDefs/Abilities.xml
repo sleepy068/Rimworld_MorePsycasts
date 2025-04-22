@@ -24,6 +24,9 @@
     <description>Psychically link to another individual to guide them and give them advice as they go about their work and their day.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_PSY_Guidance</iconPath>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
@@ -47,43 +50,6 @@
       </li>
       <li Class="CompProperties_AbilitySocialInteraction">
         <interactionDef>SLP_INT_Guidance</interactionDef>
-      </li>
-    </comps>
-  </AbilityDef>
-  
-  <!-- Fear -->
-  <!-- Lvl 3 - Psychically terrify a target, forcing them to flee in panic. -->
-  <AbilityDef ParentName="SLP_V2_PsycastBaseCombat">
-    <defName>SLP_PSY_Fear</defName>
-    <label>fear</label>
-    <description>Psychically induce dread and panic in the target, forcing them to flee in panic. In their panic, they'll flee in whatever direction makes sense to them at the time, even if that wouldn't make sense to others.</description>
-    <level>3</level>
-    <iconPath>UI/Abilities/SLP_PSY_Fear</iconPath>
-    <writeCombatLog>True</writeCombatLog>
-    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-    <statBases>
-      <Ability_EntropyGain>20</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.015</Ability_PsyfocusCost>
-      <Ability_Duration>8</Ability_Duration>
-    </statBases>
-    <verbProperties>
-      <warmupTime>0.25</warmupTime>
-      <range>25.9</range>
-      <targetParams>
-        <canTargetAnimals>True</canTargetAnimals>
-        <neverTargetIncapacitated>True</neverTargetIncapacitated>
-      </targetParams>
-    </verbProperties>
-    <comps>
-      <li Class ="CompProperties_AbilityForceJob">
-        <compClass>CompAbilityEffect_ForceJob</compClass>
-        <jobDef>SLP_FleeInPanic</jobDef>
-        <destination>RandomInRange</destination>
-        <durationMultiplier>PsychicSensitivity</durationMultiplier>
-        <psychic>True</psychic>
-      </li>
-      <li Class="CompProperties_AbilityFleckOnTarget">
-        <fleckDef>PsycastPsychicEffect</fleckDef>
       </li>
     </comps>
   </AbilityDef>
@@ -117,6 +83,11 @@
         <screenShakeIntensity>0.5</screenShakeIntensity>
         <clamorType>Ability</clamorType>
         <clamorRadius>10</clamorRadius>
+      </li>
+	  <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>CoveredInFirefoam</hediffDef>
+        <psychic>True</psychic>
       </li>
       <li Class="CompProperties_AbilityEffecterOnTarget">
         <effecterDef>Skip_Exit</effecterDef>
@@ -180,6 +151,9 @@
     <description>Using psychic powers, the caster can visually change the appear of another to make them extremely beautiful. The changes are only an illusion that will fade away after several days. It won't have any effect on those that are either already stunning and won't effect those that don't care about someones appearance.</description>
     <level>5</level>
     <iconPath>UI/Abilities/SLP_PSY_EtherealBeauty</iconPath>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.45</Ability_PsyfocusCost>
@@ -215,6 +189,8 @@
     <description>Generate a resonating energy field within the body of all organic beings within range of the target area that boosts the bodies ability to repair damage and fight infections.</description>
     <level>6</level>
     <iconPath>UI/Abilities/SLP_PSY_HealingBloom</iconPath>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <writeCombatLog>True</writeCombatLog>
     <statBases>

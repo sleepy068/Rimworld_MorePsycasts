@@ -60,7 +60,7 @@
   <AbilityDef ParentName="PsycastBaseSkip">
     <defName>SLP_PSY_GasPop</defName>
     <label>gaspop</label>
-    <description>Skip toxic particles up from under the ground surface to form a thick cloud. The toxic fumes burn the lungs and eyes causing a temporary shortness of breath and reduction in sight. Continued exposure to tox gas results in toxic buildup which can be lethal.</description>
+    <description>Skip toxic particles up from under the ground surface to form a thick cloud. The toxic fumes burn the lungs and eyes causing a temporary shortness of breath and reduction in sight. Continued exposure to tox gas results in toxic buildup which can be lethal. Outside an enclosed space, the gas will quickly spread which can catch the caster off guard if they are not careful.</description>
     <level>4</level>
     <iconPath>UI/Abilities/SLP_PSY_Gaspop</iconPath>
     <writeCombatLog>True</writeCombatLog>
@@ -71,7 +71,7 @@
     </statBases>
     <verbProperties>
       <warmupTime>1</warmupTime>
-      <range>24.9</range>
+      <range>29.9</range>
       <targetParams>
         <canTargetPawns>False</canTargetPawns>
         <canTargetLocations>True</canTargetLocations>

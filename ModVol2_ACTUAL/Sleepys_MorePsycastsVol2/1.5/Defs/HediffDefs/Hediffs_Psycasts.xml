@@ -41,8 +41,8 @@
       <li>
         <capMods>
           <li>
-            <capacity>Consciousness</capacity>
-            <setMax>0.1</setMax>
+            <capacity>Manipulation</capacity>
+            <setMax>0.01</setMax>
           </li>
         </capMods>
       </li>
