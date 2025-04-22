@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- WordOf displayOrder 0 -->
+  <!-- PsycastBase displayOrder 1 -->
+  <!-- PsycastBaseSkip displayOrder 2 -->
+  <!-- SLP_V2_PsycastBaseCombat displayOrder 3 -->
+  <!-- SLP_V2_PsycastBaseHeal displayOrder 4 -->
+
+  <!-- =========================== -->
+  <!-- ========= Utility ========= -->
+  <!-- =========================== -->
+  <!-- Beast Bond -->
+  <!-- Lvl 2 - Turn a neutral animal to your side temporarily. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_BeastBond</defName>
+    <label>beast bond</label>
+    <description>The caster establishes a telepathic link that charms a nearby animal to fight on your side.</description>
+    <level>2</level>
+	<iconPath>UI/Abilities/SLP_PSY_BeastBond</iconPath>
+    <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+    <!--<jobDef>CastAbilityOnThingWithoutWeaponInterruptible</jobDef>-->
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>15</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.24</Ability_PsyfocusCost>
+      <Ability_Duration>500</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.0</warmupTime>
+      <range>39.9</range>
+      <targetParams>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+        <canTargetSelf>false</canTargetSelf>
+        <neverTargetIncapacitated>True</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveMentalState">
+        <compClass>CompAbilityEffect_GiveMentalState</compClass>
+        <stateDef>BerserkWarcall</stateDef>
+        <goodwillImpact>-75</goodwillImpact>
+		<psychic>True</psychic>
+		<durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <excludeNPCFactions>true</excludeNPCFactions>
+      </li>
+	  <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Gaspop (Biotech Only) -->
+  <!-- Lvl 4 - Skip a cluster of toxic gases from nearby planets to the target location, generating a Tox Gas cloud. -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_GasPop</defName>
+    <label>gaspop</label>
+    <description>Skip toxic particles up from under the ground surface to form a thick cloud. The toxic fumes burn the lungs and eyes causing a temporary shortness of breath and reduction in sight. Continued exposure to tox gas results in toxic buildup which can be lethal.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_PSY_Gaspop</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "Sleepys_MorePsycastsVol2.CompProperties_SLP_AbilityGaspop">
+        <smokeRadius>3.5</smokeRadius>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>15</clamorRadius>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+</Defs>

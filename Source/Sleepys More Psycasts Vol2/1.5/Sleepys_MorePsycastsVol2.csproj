@@ -7,8 +7,8 @@
     <ProjectGuid>{605A154D-EF44-4D70-A91A-57ABE9A9D8A3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sleepys_MorePsycasts</RootNamespace>
-    <AssemblyName>Sleepys_MorePsycasts</AssemblyName>
+    <RootNamespace>Sleepys_MorePsycastsVol2</RootNamespace>
+    <AssemblyName>Sleepys_MorePsycastsVol2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

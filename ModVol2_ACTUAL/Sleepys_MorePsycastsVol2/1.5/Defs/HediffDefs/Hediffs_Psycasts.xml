@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Guidance -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_Guidance</defName>
+    <label>psychic guidance</label>
+    <description>Psychically-linked guidance.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <GlobalLearningFactor>0.25</GlobalLearningFactor>
+		  <LearningRateFactor MayRequire="Ludeon.RimWorld.Biotech">0.25</LearningRateFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Ethereal Beauty -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_EtherealBeauty</defName>
+    <label>ethereal beauty</label>
+    <description>Psychically-induced visual beauty.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+          <PawnBeauty>6</PawnBeauty>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Command -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_Command</defName>
+    <label>psychic command</label>
+    <description>Psychically-reduced manipulation.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Healing Bloom -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_HealingBloom</defName>
+    <label>psychic healing bloom</label>
+    <description>Psychically-induced immune system boost.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+		  <InjuryHealingFactor>1.00</InjuryHealingFactor>
+          <ImmunityGainSpeed>0.10</ImmunityGainSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+</Defs>

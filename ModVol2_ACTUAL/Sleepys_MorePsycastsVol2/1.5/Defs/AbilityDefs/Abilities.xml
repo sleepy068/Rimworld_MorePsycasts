@@ -16,35 +16,233 @@
   <!-- =========================== -->
   <!-- ========= Utility ========= -->
   <!-- =========================== -->
-  <!-- Beast Bond -->
-  <!-- Lvl 2 - Turn a neutral animal to your side temporarily. -->
-  
   <!-- Guidance -->
   <!-- Lvl 2 - Psychically link to an individual and give them guidance while they learn new skills.  -->
-  <!-- WordOf -->
-  <!-- +25% Learning -->
-  <!-- 3 Days -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_Guidance</defName>
+    <label>guidance</label>
+    <description>Psychically link to another individual to guide them and give them advice as they go about their work and their day.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_PSY_Guidance</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
+      <Ability_Duration>3000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>False</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Guidance</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>SLP_INT_Guidance</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Fear -->
   <!-- Lvl 3 - Psychically terrify a target, forcing them to flee in panic. -->
+  <AbilityDef ParentName="SLP_V2_PsycastBaseCombat">
+    <defName>SLP_PSY_Fear</defName>
+    <label>fear</label>
+    <description>Psychically induce dread and panic in the target, forcing them to flee in panic. In their panic, they'll flee in whatever direction makes sense to them at the time, even if that wouldn't make sense to others.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_PSY_Fear</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>20</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.015</Ability_PsyfocusCost>
+      <Ability_Duration>8</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.25</warmupTime>
+      <range>25.9</range>
+      <targetParams>
+        <canTargetAnimals>True</canTargetAnimals>
+        <neverTargetIncapacitated>True</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class ="CompProperties_AbilityForceJob">
+        <compClass>CompAbilityEffect_ForceJob</compClass>
+        <jobDef>SLP_FleeInPanic</jobDef>
+        <destination>RandomInRange</destination>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Extinguish -->
   <!-- Lvl 4 - Drench a large area in firefoam, stopping fire and extinguishing creatures on fire. -->
-  
-  <!-- Gaspop (Biotech Only) -->
-  <!-- Lvl 4 - Skip a cluster of toxic gases from nearby planets to the target location, generating a Tox Gas cloud. -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Extinguish</defName>
+    <label>extinguish</label>
+    <description>Douse a target area in firefoam, extinguishing both fires and putting people on fire out. The firefoam is made up of skipped organic materials and while its composition isn't exactly the same as actual firefoam it performs just as well.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_PSY_Extinguish</iconPath>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.045</Ability_PsyfocusCost>
+      <Ability_EffectRadius>4.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "Sleepys_MorePsycastsVol2.CompProperties_SLP_AbilityFoamskip">
+        <screenShakeIntensity>0.5</screenShakeIntensity>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Command -->
   <!-- Lvl 4 - Psychically command another human to drop their weapon. -->
+  <AbilityDef ParentName="SLP_V2_PsycastBaseCombat">
+    <defName>SLP_PSY_Command</defName>
+    <label>command</label>
+    <description>Psychically command the target's manipulation to seize up, forcing them to drop their weapon and be unable to fight properly.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_PSY_Command</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.06</Ability_PsyfocusCost>
+      <Ability_Duration>15</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.5</warmupTime>
+      <range>30.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Command</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <goodwillImpact>-50</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Ethereal Beauty -->
   <!-- Lvl 5 - Make the target extremely beautiful and desirable for a short time, connecting the person more closely with others. -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_EtherealBeauty</defName>
+    <label>ethereal beauty</label>
+    <description>Using psychic powers, the caster can visually change the appear of another to make them extremely beautiful. The changes are only an illusion that will fade away after several days. It won't have any effect on those that are either already stunning and won't effect those that don't care about someones appearance.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/SLP_PSY_EtherealBeauty</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.45</Ability_PsyfocusCost>
+      <Ability_Duration>5000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>True</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_EtherealBeauty</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>SLP_INT_Beauty</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Healing Bloom -->
   <!-- Lvl 6 - Generate a resonating energy field within the body of many organic beings within range that boosts the bodies ability to repair damage and fight infections. -->
-  <!-- +100% Healing -->
-  <!-- +10% Immunity Gain Speed -->
-  <!-- 3 Days -->
+  <AbilityDef ParentName="SLP_V2_PsycastBaseHeal">
+    <defName>SLP_PSY_HealingBloom</defName>
+    <label>healing bloom</label>
+    <description>Generate a resonating energy field within the body of all organic beings within range of the target area that boosts the bodies ability to repair damage and fight infections.</description>
+    <level>6</level>
+    <iconPath>UI/Abilities/SLP_PSY_HealingBloom</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <writeCombatLog>True</writeCombatLog>
+    <statBases>
+      <Ability_EntropyGain>60</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.75</Ability_PsyfocusCost>
+      <Ability_Duration>4000</Ability_Duration>
+	  <Ability_EffectRadius>5.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.00</warmupTime>
+      <range>15.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_HealingBloom</hediffDef>
+        <psychic>True</psychic>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- ======================================================== -->
   <!-- ========= Will need to do a bit to get working ========= -->
