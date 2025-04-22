@@ -37,6 +37,7 @@
       <targetParams>
         <canTargetAnimals>False</canTargetAnimals>
         <canTargetSelf>False</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
       </targetParams>
     </verbProperties>
     <comps>
@@ -74,7 +75,7 @@
       <warmupTime>1</warmupTime>
       <range>24.9</range>
       <targetParams>
-        <canTargetPawns>False</canTargetPawns>
+        <canTargetPawns>True</canTargetPawns>
         <canTargetLocations>True</canTargetLocations>
       </targetParams>
     </verbProperties>
@@ -109,7 +110,7 @@
   <AbilityDef ParentName="SLP_V2_PsycastBaseCombat">
     <defName>SLP_PSY_Command</defName>
     <label>command</label>
-    <description>Psychically command the target's manipulation to seize up, forcing them to drop their weapon and be unable to fight properly.</description>
+    <description>Psychically command a humanoid or mechanoid target's manipulation to seize up, forcing them to drop their weapon and be unable to fight properly.</description>
     <level>4</level>
     <iconPath>UI/Abilities/SLP_PSY_Command</iconPath>
     <writeCombatLog>True</writeCombatLog>
@@ -164,6 +165,7 @@
       <targetParams>
         <canTargetAnimals>False</canTargetAnimals>
         <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
       </targetParams>
     </verbProperties>
     <comps>
@@ -206,12 +208,14 @@
         <canTargetSelf>True</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
         <canTargetLocations>True</canTargetLocations>
+		<canTargetMechs>False</canTargetMechs>
       </targetParams>
     </verbProperties>
     <comps>
       <li Class = "CompProperties_AbilityGiveHediff">
         <compClass>CompAbilityEffect_GiveHediff</compClass>
         <hediffDef>SLP_Psycast_HealingBloom</hediffDef>
+		<durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">

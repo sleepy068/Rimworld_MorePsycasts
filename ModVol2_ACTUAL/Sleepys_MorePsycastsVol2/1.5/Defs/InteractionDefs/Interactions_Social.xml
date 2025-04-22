@@ -19,7 +19,7 @@
     <label>ethereal beauty</label>
     <workerClass>InteractionWorker</workerClass>
     <ignoreTimeSinceLastInteraction>True</ignoreTimeSinceLastInteraction>
-    <symbol>Things/Mote/SpeechSymbols/SLP_PSY_Beauty</symbol>
+    <symbol>Things/Mote/SpeechSymbols/SLP_ID_Beauty</symbol>
     <logRulesInitiator>
       <rulesStrings>
         <li>r_logentry->[INITIATOR_nameDef] psychically changed the visual appearance of [RECIPIENT_nameDef] to make them stunningly beautiful.</li>

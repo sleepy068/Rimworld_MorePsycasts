@@ -18,27 +18,223 @@
   <!-- =========================== -->
   <!-- Hex -->
   <!-- Lvl 1 - Psychically instil doubt and distress in a target's mind, reducing its ability to fight effectively. -->
-  <!-- -6 shooting, -4 melee, -2 melee dodge chance -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_Hex</defName>
+    <label>hex</label>
+    <description>Psychically instil doubt and distress in a target's mind, reducing its ability to fight effectively.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_PSY_Hex</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>25</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.075</Ability_PsyfocusCost>
+      <Ability_Duration>240</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.5</warmupTime>
+      <range>35.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>True</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Hex</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <goodwillImpact>-25</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Fire Shield -->
   <!-- Lvl 2 - Shield a target in psychic energy, making them immune to fire and extreme high temperatures for a short time. -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_Fireshield</defName>
+    <label>fire shield</label>
+	<category>Combat</category>
+    <description>Psychically generate a powerful shield around the target that protects them from extreme heat and prevents them from getting set on fire.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_PSY_Fireshield</iconPath>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
+      <Ability_Duration>180</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.5</warmupTime>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>False</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Fireshield</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>SLP_INT_Fireshield</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Hunter's Mark -->
   <!-- Lvl 3 - Psychically reduce a targets defences causing them to take more damage. -->
-  <!-- +20% incoming Damage -->
-  
-  <!-- Phantom Bolt -->
-  <!-- Lvl 3 - Summon and release a psychic energy blast that can pass through matter to find and hit its target, causing some damage. -->
-  
-  <!-- Force Blast -->
-  <!-- Lvl 4 - Summon and release a beam of explosive energy at an opponent, causing decent damage and stagger. -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_Huntersmark</defName>
+    <label>hunter's mark</label>
+    <description>Psychically reduce a target's defences causing them to take more damage from attacks.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_PSY_HuntersMark</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+      <Ability_Duration>240</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.0</warmupTime>
+      <range>45.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>True</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_HuntersMark</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <goodwillImpact>-25</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Mass Hex -->
   <!-- Lvl 4 - Psychically instil doubt and distress in a group of target's minds, reducing their ability to fight effectively. -->
-  <!-- -6 shooting, -4 melee, -2 melee dodge chance -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_MassHex</defName>
+    <label>mass hex</label>
+    <description>Psychically instil doubt and distress in a group of target's mind, reducing their ability to fight effectively.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_PSY_MassHex</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>55</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
+      <Ability_Duration>240</Ability_Duration>
+	  <Ability_EffectRadius>3.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.5</warmupTime>
+      <range>30.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+		<canTargetMechs>True</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Hex</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <goodwillImpact>-25</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
   
   <!-- Paralysing Punch -->
   <!-- Lvl 5 - Hit a target with a overwhelming psychic blast, instantly knocking them unconscious for a short time. -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_ParalysingPunch</defName>
+    <label>paralysing punch</label>
+    <description>Hit a target with a overwhelming psychic punch, instantly knocking them unconscious for a very short time.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/SLP_PSY_ParalysingPunch</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
+      <Ability_Duration>42</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.5</warmupTime>
+      <range>1.0</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>True</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Hex</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <goodwillImpact>-25</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+	  <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>SLP_BUL_ParalysingPunch</projectileDef>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>SLP_BUL_ParalysingPunch</defName>
+    <label>paralysing punch</label>
+    <graphicData>
+      <texPath>Things/Projectile/SLP_Invis</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <armorPenetrationBase>0.25</armorPenetrationBase>
+      <stoppingPower>1</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
   
   <!-- Firestorm -->
   <!-- Lvl 6 - Unless a torrent of flames and flammable liquids from the target location. -->

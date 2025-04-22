@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!-- Hex -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_Hex</defName>
+    <label>psychic hex</label>
+    <description>Psychically reduced combat abilities.</description>
+    <isBad>true</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+			<ShootingAccuracyPawn>-6.00</ShootingAccuracyPawn>
+			<MeleeHitChance>-4.00</MeleeHitChance>
+			<MeleeDodgeChance>-2.00</MeleeDodgeChance>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Fire Shield -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_Fireshield</defName>
+    <label>psychic fire shield</label>
+    <description>Psychically enhanced thermal protection.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+			<ComfyTemperatureMax>240</ComfyTemperatureMax>
+			<Flammability>0</Flammability>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Hunter's Mark -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_HuntersMark</defName>
+    <label>hunter's mark</label>
+    <description>Psychically reduced defence.</description>
+    <isBad>true</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+			<IncomingDamageFactor>0.20</IncomingDamageFactor>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Paralysing Punch -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_ParalysingPunch</defName>
+    <label>paralysed</label>
+    <description>Psychically-induced paralysis.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+</Defs>
