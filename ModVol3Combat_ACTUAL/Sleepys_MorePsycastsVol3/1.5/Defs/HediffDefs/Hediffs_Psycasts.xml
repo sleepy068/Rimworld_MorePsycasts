@@ -7,6 +7,7 @@
     <label>psychic hex</label>
     <description>Psychically reduced combat abilities.</description>
     <isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
     <stages>
       <li>
         <statOffsets>
@@ -40,6 +41,7 @@
     <label>hunter's mark</label>
     <description>Psychically reduced defence.</description>
     <isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
     <stages>
       <li>
         <statOffsets>
@@ -54,7 +56,8 @@
     <defName>SLP_Psycast_ParalysingPunch</defName>
     <label>paralysed</label>
     <description>Psychically-induced paralysis.</description>
-    <isBad>false</isBad>
+    <isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
     <stages>
       <li>
         <capMods>

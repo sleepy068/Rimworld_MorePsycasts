@@ -65,4 +65,39 @@
     </stages>
   </HediffDef>
   
+  <!-- Resonance (Caster) -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_ResonanceCaster</defName>
+    <label>psychic resonance</label>
+    <description>Psychic ability donation.</description>
+    <isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <statOffsets>
+		  <PsychicSensitivity>-0.90</PsychicSensitivity>
+		  <PsychicEntropyRecoveryRate>-0.50</PsychicEntropyRecoveryRate>
+		  <MeditationFocusGain>-0.40</MeditationFocusGain>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Resonance (Target) -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_ResonanceTarget</defName>
+    <label>psychic resonance</label>
+    <description>Inherited psychic boost.</description>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+		  <PsychicSensitivity>0.90</PsychicSensitivity>
+		  <PsychicEntropyRecoveryRate>0.05</PsychicEntropyRecoveryRate>
+		  <MeditationFocusGain>0.10</MeditationFocusGain>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
 </Defs>

@@ -55,6 +55,54 @@
     </comps>
   </AbilityDef>
   
+  <!-- Resonance -->
+  <!-- Lvl 3 - Psychically link to another psycaster, granting them a significant boost to their psychic sensitivity at the cost of reducing the casters. -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_Resonance</defName>
+    <label>resonance</label>
+    <description>Psychically link to another psycaster, granting them a significant boost to their psychic abilities at the cost of significantly reducing the casters.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_PSY_Resonance</iconPath>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.65</Ability_PsyfocusCost>
+      <Ability_Duration>1500</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>False</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_ResonanceCaster</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+		<applyToSelf>True</applyToSelf>
+		<onlyApplyToSelf>True</onlyApplyToSelf>
+		<applyToTarget>False</applyToTarget>
+      </li>
+	  <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_ResonanceTarget</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+		<applyToSelf>False</applyToSelf>
+		<onlyApplyToSelf>False</onlyApplyToSelf>
+		<applyToTarget>True</applyToTarget>
+      </li>
+    </comps>
+  </AbilityDef>
+  
   <!-- Extinguish -->
   <!-- Lvl 4 - Drench a large area in firefoam, stopping fire and extinguishing creatures on fire. -->
   <AbilityDef ParentName="PsycastBaseSkip">
