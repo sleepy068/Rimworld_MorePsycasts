@@ -241,7 +241,7 @@
   <AbilityDef ParentName="SLP_PsycastBaseCombat">
     <defName>SLP_PSY_Firestorm</defName>
     <label>firestorm</label>
-    <description>Teleport a large reserve of subterranean crude oil or other flammable materials directly to the target area, igniting it with a thermal pulse. This instantly engulfs the area in flames and fuel. Depending on the fuel that is skipped, it may burn for some time or it may instantly evaporate.</description>
+    <description>Teleport a large reserve of subterranean organic fuels or other flammable materials directly to the target area, igniting it with a thermal pulse. This instantly engulfs the area in flames and fuel. Depending on the fuel that is skipped, it may burn for some time or it may instantly evaporate.</description>
     <level>6</level>
     <iconPath>UI/Abilities/SLP_PSY_Firestorm</iconPath>
     <writeCombatLog>True</writeCombatLog>
