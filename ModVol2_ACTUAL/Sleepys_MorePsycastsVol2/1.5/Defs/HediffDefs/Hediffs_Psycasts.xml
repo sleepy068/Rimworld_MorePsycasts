@@ -70,15 +70,40 @@
     <defName>SLP_Psycast_ResonanceCaster</defName>
     <label>psychic resonance</label>
     <description>Psychic ability donation.</description>
-    <isBad>false</isBad>
+    <isBad>true</isBad>
 	<everCurableByItem>false</everCurableByItem>
+	
+	<initialSeverity>1.5</initialSeverity>
+    <maxSeverity>4.5</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.0</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
     <stages>
+	  <li>
+        <label>echoes</label>
+		<statOffsets>
+		  <PsychicSensitivity>-0.80</PsychicSensitivity>
+		  <PsychicEntropyRecoveryRate>-0.40</PsychicEntropyRecoveryRate>
+		  <MeditationFocusGain>-0.35</MeditationFocusGain>
+		</statOffsets>
+      </li>
       <li>
-        <statOffsets>
-		  <PsychicSensitivity>-0.90</PsychicSensitivity>
-		  <PsychicEntropyRecoveryRate>-0.50</PsychicEntropyRecoveryRate>
-		  <MeditationFocusGain>-0.40</MeditationFocusGain>
-        </statOffsets>
+        <minSeverity>1.51</minSeverity>
+        <label>consequence</label>
+		<capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.20</offset>
+          </li>
+        </capMods>
+		<statOffsets>
+		  <PsychicSensitivity>-1.60</PsychicSensitivity>
+		  <PsychicEntropyRecoveryRate>-0.80</PsychicEntropyRecoveryRate>
+		  <MeditationFocusGain>-0.70</MeditationFocusGain>
+		</statOffsets>
       </li>
     </stages>
   </HediffDef>
@@ -89,10 +114,18 @@
     <label>psychic resonance</label>
     <description>Inherited psychic boost.</description>
     <isBad>false</isBad>
+	<initialSeverity>1.5</initialSeverity>
+    <maxSeverity>1.5</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.0</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
     <stages>
       <li>
         <statOffsets>
-		  <PsychicSensitivity>0.90</PsychicSensitivity>
+		  <PsychicSensitivity>0.80</PsychicSensitivity>
 		  <PsychicEntropyRecoveryRate>0.05</PsychicEntropyRecoveryRate>
 		  <MeditationFocusGain>0.10</MeditationFocusGain>
         </statOffsets>

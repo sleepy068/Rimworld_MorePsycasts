@@ -60,7 +60,7 @@
   <AbilityDef ParentName="WordOfBase">
     <defName>SLP_PSY_Resonance</defName>
     <label>resonance</label>
-    <description>Psychically link to another psycaster, granting them a significant boost to their psychic abilities at the cost of significantly reducing the casters.</description>
+    <description>Psychically link to another psycaster granting them a significant boost to their psychic abilities at the cost of significantly reducing the casters.</description>
     <level>3</level>
     <iconPath>UI/Abilities/SLP_PSY_Resonance</iconPath>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
@@ -89,8 +89,8 @@
 		<onlyApplyToSelf>True</onlyApplyToSelf>
 		<applyToTarget>False</applyToTarget>
       </li>
-	  <li Class="CompProperties_AbilityGiveHediff">
-        <compClass>CompAbilityEffect_GiveHediff</compClass>
+	  <li Class="Sleepys_MorePsycastsVol2.CompProperties_SLP_AbilityGiveAnotherHediff">
+        <compClass>Sleepys_MorePsycastsVol2.CompAbilityEffect_SLP_GiveAnotherHediff</compClass>
         <hediffDef>SLP_Psycast_ResonanceTarget</hediffDef>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <onlyBrain>True</onlyBrain>

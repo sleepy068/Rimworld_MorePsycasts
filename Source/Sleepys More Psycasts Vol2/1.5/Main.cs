@@ -28,6 +28,18 @@ namespace Sleepys_MorePsycastsVol2
         }
     }
 
+	public class CompProperties_SLP_AbilityGiveAnotherHediff : CompProperties_AbilityEffectWithDuration
+	{
+		public HediffDef hediffDef;
+		public bool onlyBrain;
+		public bool applyToSelf;
+		public bool onlyApplyToSelf;
+		public bool applyToTarget = true;
+		public bool replaceExisting;
+		public float severity = -1f;
+		public bool ignoreSelf;
+	}
+
 	//Comp Ability Effect
 	public class CompAbilityEffect_SLP_Gaspop : CompAbilityEffect
     {
@@ -114,6 +126,62 @@ namespace Sleepys_MorePsycastsVol2
 				return false;
 			}
 			return true;
+		}
+	}
+
+	public class CompAbilityEffect_SLP_GiveAnotherHediff : CompAbilityEffect_WithDuration
+	{
+		public CompProperties_SLP_AbilityGiveAnotherHediff Props => (CompProperties_SLP_AbilityGiveAnotherHediff)this.props;
+
+		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			base.Apply(target, dest);
+			if (this.Props.ignoreSelf && target.Pawn == this.parent.pawn)
+				return;
+			if (!this.Props.onlyApplyToSelf && this.Props.applyToTarget)
+				this.ApplyInner(target.Pawn, this.parent.pawn);
+			if (!this.Props.applyToSelf && !this.Props.onlyApplyToSelf)
+				return;
+			this.ApplyInner(this.parent.pawn, target.Pawn);
+		}
+
+		protected void ApplyInner(Pawn target, Pawn other)
+		{
+			if (target == null)
+				return;
+			if (this.TryResist(target))
+			{
+				MoteMaker.ThrowText(target.DrawPos, target.Map, (string)"Resisted".Translate());
+			}
+			else
+			{
+				if (this.Props.replaceExisting)
+				{
+					Hediff firstHediffOfDef = target.health.hediffSet.GetFirstHediffOfDef(this.Props.hediffDef);
+					if (firstHediffOfDef != null)
+						target.health.RemoveHediff(firstHediffOfDef);
+				}
+				Hediff hediff = HediffMaker.MakeHediff(this.Props.hediffDef, target, this.Props.onlyBrain ? target.health.hediffSet.GetBrain() : (BodyPartRecord)null);
+				HediffComp_Disappears comp1 = hediff.TryGetComp<HediffComp_Disappears>();
+				if (comp1 != null)
+					comp1.ticksToDisappear = this.GetDurationSeconds(target).SecondsToTicks();
+				if ((double)this.Props.severity >= 0.0)
+					hediff.Severity = this.Props.severity;
+				HediffComp_Link comp2 = hediff.TryGetComp<HediffComp_Link>();
+				if (comp2 != null)
+				{
+					comp2.other = (Thing)other;
+					comp2.drawConnection = target == this.parent.pawn;
+				}
+				target.health.AddHediff(hediff);
+			}
+		}
+
+		protected virtual bool TryResist(Pawn pawn) => false;
+
+		public override bool AICanTargetNow(LocalTargetInfo target)
+		{
+			return this.parent.pawn.Faction != Faction.OfPlayer && target.Pawn != null;
 		}
 	}
 
