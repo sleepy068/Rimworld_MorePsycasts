@@ -60,13 +60,13 @@
   <AbilityDef ParentName="WordOfBase">
     <defName>SLP_PSY_Resonance</defName>
     <label>resonance</label>
-    <description>Psychically link to another psycaster granting them a significant boost to their psychic abilities at the cost of significantly reducing the casters.</description>
+    <description>Psychically link to another psycaster granting them a significant boost to their psychic abilities at the cost of significantly reducing the casters psychic abilities. An extremely powerful psycaster can theoretically link to multiple other psycasters gifting each the same boost in psychic ability with no addition negative effects to the caster.</description>
     <level>3</level>
     <iconPath>UI/Abilities/SLP_PSY_Resonance</iconPath>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_PsyfocusCost>0.65</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.75</Ability_PsyfocusCost>
       <Ability_Duration>1500</Ability_Duration>
     </statBases>
     <verbProperties>
