@@ -240,8 +240,8 @@
   <!-- Lvl 6 - Unless a torrent of flames and flammable liquids from the target location. -->
   <AbilityDef ParentName="SLP_PsycastBaseCombat">
     <defName>SLP_PSY_Firestorm</defName>
-    <label>engulf</label>
-    <description>Teleport a nanoscopic piece of the core of a star and launch it into a nearby area, instantly engulfing the area as the energy quickly dissipates.</description>
+    <label>firestorm</label>
+    <description>Teleport a large reserve of subterranean crude oil or other flammable materials directly to the target area, igniting it with a thermal pulse. This instantly engulfs the area in flames and fuel. Depending on the fuel that is skipped, it may burn for some time or it may instantly evaporate.</description>
     <level>6</level>
     <iconPath>UI/Abilities/SLP_PSY_Firestorm</iconPath>
     <writeCombatLog>True</writeCombatLog>
