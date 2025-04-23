@@ -11,6 +11,7 @@ using UnityEngine;
 
 namespace Sleepys_MorePsycastsVol2
 {
+
     //Comp Properties
     public class CompProperties_SLP_AbilityGaspop : CompProperties_AbilityEffect
     {
@@ -27,8 +28,8 @@ namespace Sleepys_MorePsycastsVol2
         }
     }
 
-    //Comp Ability Effect
-    public class CompAbilityEffect_SLP_Gaspop : CompAbilityEffect
+	//Comp Ability Effect
+	public class CompAbilityEffect_SLP_Gaspop : CompAbilityEffect
     {
         public CompProperties_SLP_AbilityGaspop Props => (CompProperties_SLP_AbilityGaspop)this.props;
 
@@ -115,7 +116,5 @@ namespace Sleepys_MorePsycastsVol2
 			return true;
 		}
 	}
-	
-	//Hediff
 
 }

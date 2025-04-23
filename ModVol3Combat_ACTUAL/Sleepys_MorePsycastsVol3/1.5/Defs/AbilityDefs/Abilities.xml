@@ -150,7 +150,7 @@
       <Ability_EntropyGain>55</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
       <Ability_Duration>240</Ability_Duration>
-	  <Ability_EffectRadius>3.9</Ability_EffectRadius>
+	  <Ability_EffectRadius>2.5</Ability_EffectRadius>
     </statBases>
     <verbProperties>
       <warmupTime>0.5</warmupTime>
@@ -182,6 +182,7 @@
   <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
     <defName>SLP_PSY_ParalysingPunch</defName>
     <label>paralysing punch</label>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
     <description>Hit a target with a overwhelming psychic punch, instantly knocking them unconscious for a very short time.</description>
     <level>5</level>
     <iconPath>UI/Abilities/SLP_PSY_ParalysingPunch</iconPath>
@@ -190,11 +191,10 @@
     <statBases>
       <Ability_EntropyGain>40</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
-      <Ability_Duration>42</Ability_Duration>
+      <Ability_Duration>25</Ability_Duration>
     </statBases>
     <verbProperties>
-      <warmupTime>0.5</warmupTime>
-      <range>1.0</range>
+      <warmupTime>0.1</warmupTime>
       <targetParams>
         <canTargetSelf>True</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
@@ -205,7 +205,7 @@
     <comps>
       <li Class = "CompProperties_AbilityGiveHediff">
         <compClass>CompAbilityEffect_GiveHediff</compClass>
-        <hediffDef>SLP_Psycast_Hex</hediffDef>
+        <hediffDef>SLP_Psycast_ParalysingPunch</hediffDef>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
         <goodwillImpact>-25</goodwillImpact>
@@ -230,7 +230,7 @@
     <projectile>
       <damageDef>Blunt</damageDef>
       <damageAmountBase>10</damageAmountBase>
-      <armorPenetrationBase>0.25</armorPenetrationBase>
+      <armorPenetrationBase>0.33</armorPenetrationBase>
       <stoppingPower>1</stoppingPower>
       <speed>90</speed>
     </projectile>
@@ -238,8 +238,107 @@
   
   <!-- Firestorm -->
   <!-- Lvl 6 - Unless a torrent of flames and flammable liquids from the target location. -->
+  <AbilityDef ParentName="SLP_PsycastBaseCombat">
+    <defName>SLP_PSY_Firestorm</defName>
+    <label>engulf</label>
+    <description>Teleport a nanoscopic piece of the core of a star and launch it into a nearby area, instantly engulfing the area as the energy quickly dissipates.</description>
+    <level>6</level>
+    <iconPath>UI/Abilities/SLP_PSY_Firestorm</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>65</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.14</Ability_PsyfocusCost>
+	  <!--<Ability_EffectRadius>1.9</Ability_EffectRadius>-->
+    </statBases>
+    <verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>1.0</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+	  <soundCast>InfernoCannon_Fire</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="Sleepys_MorePsycastsVol3.CompProperties_SLPV2_AreaEffectLaunchProjectile">
+	    <compClass>Sleepys_MorePsycastsVol3.CompAbilityEffect_SLPV2_AreaEffectLaunchProjectile</compClass>
+        <projectileDef>SLP_FirestormCast</projectileDef>
+		<effectPreviewRadius>4.5</effectPreviewRadius>
+      </li>
+    </comps>
+  </AbilityDef>
   
-  <!-- Meteor Swarm -->
-  <!-- Lvl 6 - Unleash a swarm of meteors to showers and obliterate the target area. Will only ever be rock type meteors. -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>SLP_FirestormCast</defName>
+    <label>engulf</label>
+    <graphicData>
+      <texPath>Things/Projectile/SLP_Invis</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(0.25,0.25)</drawSize>
+    </graphicData>
+	<thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>110</speed>
+      <damageDef>Flame</damageDef>
+      <explosionRadius>4.5</explosionRadius>
+      <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.80</preExplosionSpawnChance>
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+      <shadowSize>0.2</shadowSize>
+    </projectile>
+  </ThingDef>
+
+  <!-- Force Blast -->
+  <!-- Lvl 4 - Psychically generate a tunnel of aerokinetic energy that will strike the target with force. -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_ForceBlast</defName>
+    <label>force blast</label>
+    <description>Psychically generate a tunnel of aerokinetic energy that will strike the target with force.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_PSY_ForceBlast</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.065</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.2</warmupTime>
+	  <range>24.9</range>
+	  <!--<soundCast>PiercingSpine_Launch</soundCast>-->
+      <targetParams>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>True</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>SLP_BUL_ForceBlast</projectileDef>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>SLP_BUL_ForceBlast</defName>
+    <label>force blast</label>
+    <graphicData>
+      <texPath>Things/Projectile/SLP_Invis</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>18</damageAmountBase>
+      <armorPenetrationBase>0.50</armorPenetrationBase>
+      <stoppingPower>1</stoppingPower>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
   
 </Defs>
