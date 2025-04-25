@@ -341,4 +341,168 @@
     </projectile>
   </ThingDef>
   
+  <!-- Clairvoyance -->
+  <!-- Lvl 2 - Psychically grant the target an exceptional boost to their senses, allowing them to perceive and react to attacks faster then ever. This will significantly boost their ability to dodge melee attacks and avoid setting off traps. -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_Clairvoyance</defName>
+    <label>clairvoyance</label>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+    <description>Psychically grant the target an exceptional boost to their senses, allowing them to perceive and react to attacks faster then ever. This will significantly boost their ability to dodge melee attacks and avoid setting off traps.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_PSY_Clairvoyance</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>20</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+      <Ability_Duration>168</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.0</warmupTime>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>True</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Clairvoyance</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <goodwillImpact>-25</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Frostbite -->
+  <!-- Lvl 1 - Psychically and rapidly cool a target, instantly giving them a dangerous level of Hypothermia. -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_Frostbite</defName>
+    <label>frostbite</label>
+    <description>Psychically and rapidly cool a target to a specific temperature, instantly giving them a serious level of hypothermia. The psycast will have the opposite effect if the target is already suffering from dangerous levels of hypothermia, reducing its severity instead.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_PSY_Frostbite</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>20</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.12</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>3.0</warmupTime>
+      <range>15.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>False</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>Hypothermia</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+		<replaceExisting>True</replaceExisting>
+        <goodwillImpact>-25</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+		<severity>0.60</severity>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Thermal Shock -->
+  <!-- Lvl 1 - Psychically and rapidly heat a target, instantly giving them a dangerous level of Heatstroke. -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_ThermalShock</defName>
+    <label>thermal shock</label>
+    <description>Psychically and rapidly heat a target to a specific temperature, instantly giving them a serious level of heatstroke. The psycast will have the opposite effect if the target is already suffering from dangerous levels of heatstroke, reducing its severity instead.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_PSY_ThermalShock</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>20</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.12</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>3.0</warmupTime>
+      <range>15.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>False</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>Heatstroke</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+		<replaceExisting>True</replaceExisting>
+        <goodwillImpact>-25</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+		<severity>0.60</severity>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Hypervelocity -->
+  <!-- Lvl 4 -  -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_Hypervelocity</defName>
+    <label>hypervelocity</label>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+    <description>Psychically overdrive a targets reflexes and movement, allowing them to move incredible faster and fight just as quickly.\n\nThe body will be driven past its limits and the target will suffer greatly after these effects wear off.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_PSY_Hypervelocity</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>45</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
+      <Ability_Duration>252</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>3.0</warmupTime>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>False</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "Sleepys_MorePsycastsVol3.CompProperties_SLPV2_AbilityGiveTwoHediff">
+        <compClass>Sleepys_MorePsycastsVol3.CompAbilityEffect_SLPV2_GiveTwoHediff</compClass>
+		<hediffDef>SLP_Overdriven_V2</hediffDef>
+        <hediffDef2>SLP_Psycast_Hypervelocity</hediffDef2>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
 </Defs>

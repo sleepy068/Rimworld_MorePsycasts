@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Patch>
+	<!-- Uses original Overdriven instead of standalone one. -->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Sleepy's More Psycasts</li>
+		</mods>
+		
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/AbilityDef[defName="SLP_PSY_Hypervelocity"]/comps/li/hediffDef</xpath>
+					<value>
+						<hediffDef>SLP_Overdriven</hediffDef>
+					</value>
+				</li>
+			</operations>
+		</match>
+		
+	</Operation>
+</Patch>
