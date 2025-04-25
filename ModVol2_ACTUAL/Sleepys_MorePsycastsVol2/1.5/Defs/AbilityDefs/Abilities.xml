@@ -193,12 +193,12 @@
   </AbilityDef>
   
   <!-- Ethereal Beauty -->
-  <!-- Lvl 5 - Make the target extremely beautiful and desirable for a short time, connecting the person more closely with others. -->
+  <!-- Lvl 3 - Make the target extremely beautiful and desirable for a short time, connecting the person more closely with others. -->
   <AbilityDef ParentName="WordOfBase">
     <defName>SLP_PSY_EtherealBeauty</defName>
     <label>ethereal beauty</label>
     <description>Using psychic powers, the caster can visually change the appear of another to make them extremely beautiful. The changes are only an illusion that will fade away after several days. It won't have any effect on those that are either already stunning and won't effect those that don't care about someones appearance.</description>
-    <level>5</level>
+    <level>3</level>
     <iconPath>UI/Abilities/SLP_PSY_EtherealBeauty</iconPath>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
     <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>

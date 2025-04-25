@@ -347,7 +347,7 @@
     <defName>SLP_PSY_Clairvoyance</defName>
     <label>clairvoyance</label>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
-    <description>Psychically grant the target an exceptional boost to their senses, allowing them to perceive and react to attacks faster then ever. This will significantly boost their ability to dodge melee attacks and avoid setting off traps.</description>
+    <description>Psychically grant the target, even mechanoids, an exceptional boost to their senses, allowing them to perceive and react to attacks faster then ever before. This will significantly boost their ability to dodge melee attacks and avoid setting off traps.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_PSY_Clairvoyance</iconPath>
     <writeCombatLog>True</writeCombatLog>
