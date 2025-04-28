@@ -137,7 +137,7 @@
     <stages>
       <li>
         <statOffsets>
-			<ShootingAccuracyPawn>0.03</ShootingAccuracyPawn>
+			<ShootingAccuracyPawn>3.0</ShootingAccuracyPawn>
 			<ShootingAccuracyFactor_Medium>0.10</ShootingAccuracyFactor_Medium>
 			<ShootingAccuracyFactor_Long>0.20</ShootingAccuracyFactor_Long>
 		</statOffsets>
