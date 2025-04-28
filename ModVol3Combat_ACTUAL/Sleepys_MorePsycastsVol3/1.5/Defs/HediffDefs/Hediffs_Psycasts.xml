@@ -110,4 +110,39 @@
     </stages>
   </HediffDef>
   
+  <!-- Reckless Rage -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_RecklessRage</defName>
+    <label>reckless rage</label>
+    <description>Psychically-induced rage.</description>
+    <isBad>False</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+			<MeleeDodgeChance>-4.00</MeleeDodgeChance>
+			<IncomingDamageFactor>0.15</IncomingDamageFactor>
+			<MeleeDamageFactor>0.15</MeleeDamageFactor>
+			<MeleeHitChance>6.00</MeleeHitChance>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Sniper -->
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>SLP_Psycast_Sniper</defName>
+    <label>sniper</label>
+    <description>Psychically-enhanced accuracy.</description>
+    <isBad>False</isBad>
+    <stages>
+      <li>
+        <statOffsets>
+			<ShootingAccuracyPawn>0.03</ShootingAccuracyPawn>
+			<ShootingAccuracyFactor_Medium>0.10</ShootingAccuracyFactor_Medium>
+			<ShootingAccuracyFactor_Long>0.20</ShootingAccuracyFactor_Long>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
 </Defs>

@@ -232,7 +232,7 @@
       <damageAmountBase>10</damageAmountBase>
       <armorPenetrationBase>0.33</armorPenetrationBase>
       <stoppingPower>1</stoppingPower>
-      <speed>90</speed>
+      <speed>300</speed>
     </projectile>
   </ThingDef>
   
@@ -290,57 +290,6 @@
     </projectile>
   </ThingDef>
 
-  <!-- Force Blast -->
-  <!-- Lvl 4 - Psychically generate a tunnel of aerokinetic energy that will strike the target with force. -->
-  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
-    <defName>SLP_PSY_ForceBlast</defName>
-    <label>force blast</label>
-    <description>Psychically generate a tunnel of aerokinetic energy that will strike the target with force.</description>
-    <level>4</level>
-    <iconPath>UI/Abilities/SLP_PSY_ForceBlast</iconPath>
-    <writeCombatLog>True</writeCombatLog>
-    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-    <statBases>
-      <Ability_EntropyGain>40</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.065</Ability_PsyfocusCost>
-    </statBases>
-    <verbProperties>
-      <warmupTime>0.2</warmupTime>
-	  <range>24.9</range>
-	  <!--<soundCast>PiercingSpine_Launch</soundCast>-->
-      <targetParams>
-        <canTargetSelf>False</canTargetSelf>
-        <canTargetAnimals>True</canTargetAnimals>
-        <canTargetLocations>False</canTargetLocations>
-		<canTargetMechs>True</canTargetMechs>
-      </targetParams>
-    </verbProperties>
-    <comps>
-	  <li Class="CompProperties_AbilityLaunchProjectile">
-        <projectileDef>SLP_BUL_ForceBlast</projectileDef>
-      </li>
-      <li Class="CompProperties_AbilityFleckOnTarget">
-        <fleckDef>PsycastPsychicEffect</fleckDef>
-      </li>
-    </comps>
-  </AbilityDef>
-  
-  <ThingDef ParentName="BaseBullet">
-    <defName>SLP_BUL_ForceBlast</defName>
-    <label>force blast</label>
-    <graphicData>
-      <texPath>Things/Projectile/SLP_Invis</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <projectile>
-      <damageDef>Bullet</damageDef>
-      <damageAmountBase>18</damageAmountBase>
-      <armorPenetrationBase>0.50</armorPenetrationBase>
-      <stoppingPower>1</stoppingPower>
-      <speed>70</speed>
-    </projectile>
-  </ThingDef>
-  
   <!-- Clairvoyance -->
   <!-- Lvl 2 - Psychically grant the target an exceptional boost to their senses, allowing them to perceive and react to attacks faster then ever. This will significantly boost their ability to dodge melee attacks and avoid setting off traps. -->
   <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
@@ -350,7 +299,7 @@
     <description>Psychically grant the target, even mechanoids, an exceptional boost to their senses, allowing them to perceive and react to attacks faster then ever before. This will significantly boost their ability to dodge melee attacks and avoid setting off traps.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_PSY_Clairvoyance</iconPath>
-    <writeCombatLog>True</writeCombatLog>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>20</Ability_EntropyGain>
@@ -387,7 +336,7 @@
   <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
     <defName>SLP_PSY_Frostbite</defName>
     <label>frostbite</label>
-    <description>Psychically and rapidly cool a target to a specific temperature, instantly giving them a serious level of hypothermia. The psycast will have the opposite effect if the target is already suffering from dangerous levels of hypothermia, reducing its severity instead.</description>
+    <description>Psychically and rapidly cool a target to a specific temperature, instantly giving them a serious level of hypothermia. The psycast will have the opposite effect if the target is already suffering from dangerous levels of hypothermia, reducing its severity instead to prevent killing them.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_PSY_Frostbite</iconPath>
     <writeCombatLog>True</writeCombatLog>
@@ -428,7 +377,7 @@
   <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
     <defName>SLP_PSY_ThermalShock</defName>
     <label>thermal shock</label>
-    <description>Psychically and rapidly heat a target to a specific temperature, instantly giving them a serious level of heatstroke. The psycast will have the opposite effect if the target is already suffering from dangerous levels of heatstroke, reducing its severity instead.</description>
+    <description>Psychically and rapidly heat a target to a specific temperature, instantly giving them a serious level of heatstroke. The psycast will have the opposite effect if the target is already suffering from dangerous levels of heatstroke, reducing its severity instead to prevent killing them.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_PSY_ThermalShock</iconPath>
     <writeCombatLog>True</writeCombatLog>
@@ -465,15 +414,15 @@
   </AbilityDef>
   
   <!-- Hypervelocity -->
-  <!-- Lvl 4 -  -->
+  <!-- Lvl 4 -->
   <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
     <defName>SLP_PSY_Hypervelocity</defName>
     <label>hypervelocity</label>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
-    <description>Psychically overdrive a targets reflexes and movement, allowing them to move incredible faster and fight just as quickly.\n\nThe body will be driven past its limits and the target will suffer greatly after these effects wear off.</description>
+    <description>Psychically overdrive a targets reflexes and movement, allowing them to move incredibly faster and fight just as quickly.\n\nThe body will be driven past its limits and the target will suffer greatly after these effects wear off.</description>
     <level>4</level>
     <iconPath>UI/Abilities/SLP_PSY_Hypervelocity</iconPath>
-    <writeCombatLog>True</writeCombatLog>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_EntropyGain>45</Ability_EntropyGain>
@@ -504,5 +453,86 @@
       </li>
     </comps>
   </AbilityDef>
+  
+  <!-- Reckless Rage -->
+  <!-- Lvl 5 -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_RecklessRage</defName>
+    <label>reckless rage</label>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+    <description>Psychically grant the target unbridled rage. This will significantly increases their melee damage output and melee ability at the risky cost of taking more damage and having a reduced dodge chance.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/SLP_PSY_RecklessRage</iconPath>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>50</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.30</Ability_PsyfocusCost>
+      <Ability_Duration>240</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.0</warmupTime>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>True</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_RecklessRage</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <goodwillImpact>-25</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Sniper -->
+  <!-- Lvl 2 -->
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
+    <defName>SLP_PSY_Sniper</defName>
+    <label>sniper</label>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+    <description>Psychically grant the target, even mechanoids, an exceptional boost to their aiming sense and accuracy. This will boost the targets long range accuracy significantly and short range accuracy slightly.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_PSY_Sniper</iconPath>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>0</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
+      <Ability_Duration>168</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.0</warmupTime>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetLocations>False</canTargetLocations>
+		<canTargetMechs>True</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Sniper</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
   
 </Defs>
