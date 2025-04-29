@@ -332,17 +332,17 @@
   </AbilityDef>
   
   <!-- Frostbite -->
-  <!-- Lvl 1 - Psychically and rapidly cool a target, instantly giving them a dangerous level of Hypothermia. -->
+  <!-- Lvl 3 - Psychically and rapidly cool a target, instantly giving them a dangerous level of Hypothermia. -->
   <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
     <defName>SLP_PSY_Frostbite</defName>
     <label>frostbite</label>
     <description>Psychically and rapidly cool a target to a specific temperature, instantly giving them a serious level of hypothermia. The psycast will have the opposite effect if the target is already suffering from dangerous levels of hypothermia, reducing its severity instead to prevent killing them.</description>
-    <level>1</level>
+    <level>3</level>
     <iconPath>UI/Abilities/SLP_PSY_Frostbite</iconPath>
     <writeCombatLog>True</writeCombatLog>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>20</Ability_EntropyGain>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.12</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
@@ -364,7 +364,7 @@
 		<replaceExisting>True</replaceExisting>
         <goodwillImpact>-25</goodwillImpact>
         <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
-		<severity>0.60</severity>
+		<severity>0.50</severity>
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>PsycastPsychicEffect</fleckDef>
@@ -373,17 +373,17 @@
   </AbilityDef>
   
   <!-- Thermal Shock -->
-  <!-- Lvl 1 - Psychically and rapidly heat a target, instantly giving them a dangerous level of Heatstroke. -->
+  <!-- Lvl 3 - Psychically and rapidly heat a target, instantly giving them a dangerous level of Heatstroke. -->
   <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
     <defName>SLP_PSY_ThermalShock</defName>
     <label>thermal shock</label>
     <description>Psychically and rapidly heat a target to a specific temperature, instantly giving them a serious level of heatstroke. The psycast will have the opposite effect if the target is already suffering from dangerous levels of heatstroke, reducing its severity instead to prevent killing them.</description>
-    <level>1</level>
+    <level>3</level>
     <iconPath>UI/Abilities/SLP_PSY_ThermalShock</iconPath>
     <writeCombatLog>True</writeCombatLog>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_EntropyGain>20</Ability_EntropyGain>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.12</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
@@ -405,7 +405,7 @@
 		<replaceExisting>True</replaceExisting>
         <goodwillImpact>-25</goodwillImpact>
         <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
-		<severity>0.60</severity>
+		<severity>0.50</severity>
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>PsycastPsychicEffect</fleckDef>

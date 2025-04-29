@@ -120,7 +120,7 @@
       <li>
         <statOffsets>
 			<MeleeDodgeChance>-4.00</MeleeDodgeChance>
-			<IncomingDamageFactor>0.15</IncomingDamageFactor>
+			<IncomingDamageFactor>0.10</IncomingDamageFactor>
 			<MeleeDamageFactor>0.15</MeleeDamageFactor>
 			<MeleeHitChance>6.00</MeleeHitChance>
 		</statOffsets>
