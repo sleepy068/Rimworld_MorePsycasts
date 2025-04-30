@@ -62,7 +62,7 @@
     <defName>SLP_PSY_Fireshield</defName>
     <label>fire shield</label>
 	<category>Combat</category>
-    <description>Psychically generate a powerful shield around the target that protects them from extreme heat and prevents them from getting set on fire.</description>
+    <description>Psychically generate a powerful shield around the target that protects them from extreme heat and prevents them from getting set on fire for a short time.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_PSY_Fireshield</iconPath>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
@@ -241,7 +241,7 @@
   <AbilityDef ParentName="SLP_PsycastBaseCombat">
     <defName>SLP_PSY_Firestorm</defName>
     <label>firestorm</label>
-    <description>Teleport a large reserve of subterranean organic fuels or other flammable materials directly to the target area, igniting it with a thermal pulse. This instantly engulfs the area in flames and fuel. Depending on the fuel that is skipped, it may burn for some time or it may instantly evaporate.</description>
+    <description>Teleport a large reserve of subterranean organic fuels or other flammable materials directly to the target area, igniting it with a thermal pulse. This instantly engulfs a large area in flames and fuel. Depending on the fuel that is skipped, it may burn for some time or it may instantly evaporate.</description>
     <level>6</level>
     <iconPath>UI/Abilities/SLP_PSY_Firestorm</iconPath>
     <writeCombatLog>True</writeCombatLog>
@@ -296,7 +296,7 @@
     <defName>SLP_PSY_Clairvoyance</defName>
     <label>clairvoyance</label>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
-    <description>Psychically grant the target, even mechanoids, an exceptional boost to their senses, allowing them to perceive and react to attacks faster then ever before. This will significantly boost their ability to dodge melee attacks and avoid setting off traps.</description>
+    <description>Psychically grant the target, even a mechanoid, an exceptional boost to their senses, allowing them to perceive and react to attacks faster then ever before. This will significantly boost the target's ability to dodge melee attacks and avoid setting off traps.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_PSY_Clairvoyance</iconPath>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
@@ -322,8 +322,7 @@
         <hediffDef>SLP_Psycast_Clairvoyance</hediffDef>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
-        <goodwillImpact>-25</goodwillImpact>
-        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+		<onlyBrain>True</onlyBrain>
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>PsycastPsychicEffect</fleckDef>
@@ -419,7 +418,7 @@
     <defName>SLP_PSY_Hypervelocity</defName>
     <label>hypervelocity</label>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
-    <description>Psychically overdrive a targets reflexes and movement, allowing them to move incredibly faster and fight just as quickly.\n\nThe body will be driven past its limits and the target will suffer greatly after these effects wear off.</description>
+    <description>Psychically overdrive a target's reflexes and movement, allowing them to move incredibly fast and fight with impossible speed.\n\nFor the psycast to work, the body will be driven past its normal motion and reaction limits but these are in place for a reason and the target will suffer greatly after these effects wear off.</description>
     <level>4</level>
     <iconPath>UI/Abilities/SLP_PSY_Hypervelocity</iconPath>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
@@ -446,6 +445,9 @@
         <hediffDef2>SLP_Psycast_Hypervelocity</hediffDef2>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
+		<onlyBrain>True</onlyBrain>
+		<goodwillImpact>-25</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
         <applicableToMechs>False</applicableToMechs>
       </li>
       <li Class="CompProperties_AbilityFleckOnTarget">
@@ -460,7 +462,7 @@
     <defName>SLP_PSY_RecklessRage</defName>
     <label>reckless rage</label>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
-    <description>Psychically grant the target unbridled rage. This will significantly increases their melee damage output and melee ability at the risky cost of taking more damage and having a reduced dodge chance.</description>
+    <description>Psychically force onto the target unbridled rage. This will significantly increase their melee damage output and melee capabilities. It comes with a cost however, as the target's recklessness causes them to take more damage and when drunk on this kind of power they are less able to dodge attacks.</description>
     <level>5</level>
     <iconPath>UI/Abilities/SLP_PSY_RecklessRage</iconPath>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
@@ -486,6 +488,7 @@
         <hediffDef>SLP_Psycast_RecklessRage</hediffDef>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
+		<onlyBrain>True</onlyBrain>
         <goodwillImpact>-25</goodwillImpact>
         <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
       </li>
@@ -501,7 +504,7 @@
     <defName>SLP_PSY_Sniper</defName>
     <label>sniper</label>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
-    <description>Psychically grant the target, even mechanoids, an exceptional boost to their aiming sense and accuracy. This will boost the targets long range accuracy significantly and short range accuracy slightly.</description>
+    <description>Psychically grant the target, even a mechanoid, an exceptional boost to their aiming sense and accuracy. This will boost the target's long range accuracy significantly and short range accuracy slightly.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_PSY_Sniper</iconPath>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>

@@ -278,7 +278,7 @@
     <defName>SLP_PSY_CleanStride</defName>
     <label>clean stride</label>
 	<jobDef>CastAbilityOnThingMelee</jobDef>
-    <description>Psychically link skipgates to the bottom of the targets feet or base structure that remove debris and dirt before it can be spread to other surfaces. This results in the target not producing anywhere near as much filth as they may normally.</description>
+    <description>Psychically link skipgates to the bottom of the target's feet or base structure that remove debris and dirt before it can be spread to other surfaces. This results in the target not producing anywhere near as much filth as they may normally.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_PSY_CleanStride</iconPath>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
