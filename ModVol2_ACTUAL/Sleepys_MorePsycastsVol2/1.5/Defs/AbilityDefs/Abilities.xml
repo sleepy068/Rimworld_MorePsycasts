@@ -245,7 +245,7 @@
     <writeCombatLog>True</writeCombatLog>
     <statBases>
       <Ability_EntropyGain>60</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.75</Ability_PsyfocusCost>
+      <Ability_PsyfocusCost>0.65</Ability_PsyfocusCost>
       <Ability_Duration>4000</Ability_Duration>
 	  <Ability_EffectRadius>3.9</Ability_EffectRadius>
     </statBases>
