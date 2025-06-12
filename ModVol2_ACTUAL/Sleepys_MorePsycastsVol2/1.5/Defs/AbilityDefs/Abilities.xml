@@ -30,7 +30,7 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
-      <Ability_Duration>3000</Ability_Duration>
+      <Ability_Duration>3024</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>2</warmupTime>
@@ -67,7 +67,7 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.75</Ability_PsyfocusCost>
-      <Ability_Duration>1500</Ability_Duration>
+      <Ability_Duration>1512</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>1</warmupTime>
@@ -206,7 +206,7 @@
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
       <Ability_PsyfocusCost>0.45</Ability_PsyfocusCost>
-      <Ability_Duration>5000</Ability_Duration>
+      <Ability_Duration>5040</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>1</warmupTime>
@@ -246,7 +246,7 @@
     <statBases>
       <Ability_EntropyGain>60</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.65</Ability_PsyfocusCost>
-      <Ability_Duration>4000</Ability_Duration>
+      <Ability_Duration>4032</Ability_Duration>
 	  <Ability_EffectRadius>3.9</Ability_EffectRadius>
     </statBases>
     <verbProperties>
@@ -286,7 +286,7 @@
     <statBases>
       <Ability_EntropyGain>0</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
-      <Ability_Duration>3000</Ability_Duration>
+      <Ability_Duration>3024</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>1.0</warmupTime>

@@ -29,7 +29,7 @@
     <statBases>
       <Ability_EntropyGain>25</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.075</Ability_PsyfocusCost>
-      <Ability_Duration>240</Ability_Duration>
+      <Ability_Duration>252</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>0.5</warmupTime>
@@ -109,7 +109,7 @@
     <statBases>
       <Ability_EntropyGain>30</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
-      <Ability_Duration>240</Ability_Duration>
+      <Ability_Duration>252</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>1.0</warmupTime>
@@ -149,7 +149,7 @@
     <statBases>
       <Ability_EntropyGain>55</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
-      <Ability_Duration>240</Ability_Duration>
+      <Ability_Duration>252</Ability_Duration>
 	  <Ability_EffectRadius>2.5</Ability_EffectRadius>
     </statBases>
     <verbProperties>
@@ -426,7 +426,7 @@
     <statBases>
       <Ability_EntropyGain>45</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
-      <Ability_Duration>252</Ability_Duration>
+      <Ability_Duration>336</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>3.0</warmupTime>
@@ -470,7 +470,7 @@
     <statBases>
       <Ability_EntropyGain>50</Ability_EntropyGain>
       <Ability_PsyfocusCost>0.30</Ability_PsyfocusCost>
-      <Ability_Duration>240</Ability_Duration>
+      <Ability_Duration>252</Ability_Duration>
     </statBases>
     <verbProperties>
       <warmupTime>1.0</warmupTime>
