@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Article Pinhole -->
+	<ThingDef ParentName="EtherealThingBase">
+		<defName>SLP_ETH_ArcticPinhole</defName>
+		<label>arctic pinhole</label>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<drawOffscreen>true</drawOffscreen>
+		<category>PsychicEmitter</category>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<graphicData>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <texPath>Things/Mote/SolarPinhole</texPath>
+		  <shaderType>MoteGlowDistorted</shaderType>
+		  <!--<color>(0, 3, 34)</color>-->
+		  <color>(255, 255, 245)</color>
+		  <drawSize>2</drawSize>
+		  <shaderParameters>
+			<_DistortionTex>/Other/Ripples</_DistortionTex>
+			<_distortionIntensity>0.05</_distortionIntensity>
+			<_DistortionScale>0.4</_DistortionScale>
+			<_distortionScrollSpeed>(0.07, 0.07, 0.0)</_distortionScrollSpeed>
+		  </shaderParameters>
+		</graphicData>
+		<comps>
+		  <li Class="CompProperties_Glower">
+			<glowRadius>3</glowRadius>
+			<glowColor>(0, 11, 81 ,0)</glowColor>
+			<!--<glowColor>(208,217,217,0)</glowColor>-->
+		  </li>
+		  <li Class="CompProperties_HeatPusher">
+			<compClass>CompHeatPusherPowered</compClass>
+			<heatPerSecond>-30</heatPerSecond>
+			<heatPushMinTemperature>-9</heatPushMinTemperature>
+		  </li>
+		  <li Class="CompProperties_DestroyAfterDelay">
+			<delayTicks>300000</delayTicks>
+		  </li>
+		</comps>
+    </ThingDef>
+	
+	<!-- Endothermic Pinhole -->
+	<ThingDef ParentName="EtherealThingBase">
+		<defName>SLP_ETH_EndothermicPinhole</defName>
+		<label>endothermic pinhole</label>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<drawOffscreen>true</drawOffscreen>
+		<category>PsychicEmitter</category>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<graphicData>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <texPath>Things/Mote/EtherealGraphics/SLP_MOTE_EndoPinhole</texPath>
+		  <shaderType>MoteGlowDistorted</shaderType>
+		  <!--<color>(255, 255, 255)</color>-->
+		  <drawSize>1</drawSize>
+		  <shaderParameters>
+			<_DistortionTex>/Other/Ripples</_DistortionTex>
+			<_distortionIntensity>0.10</_distortionIntensity> <!--  Default 0.05 -->
+			<_DistortionScale>0.4</_DistortionScale>
+			<_distortionScrollSpeed>(0.07, 0.07, 0.0)</_distortionScrollSpeed>
+		  </shaderParameters>
+		</graphicData>
+		<comps>
+		<!--
+		  <li Class="CompProperties_Glower">
+			<glowRadius>3</glowRadius>
+			<glowColor>(0, 11, 81 ,0)</glowColor>
+		  </li>
+		-->
+		  <li Class="CompProperties_HeatPusher">
+			<compClass>CompHeatPusherPowered</compClass>
+			<heatPerSecond>-30</heatPerSecond>
+			<heatPushMinTemperature>-5</heatPushMinTemperature>
+		  </li>
+		  <li Class="CompProperties_DestroyAfterDelay">
+			<delayTicks>1800000</delayTicks>
+		  </li>
+		</comps>
+    </ThingDef>
+	
+	<!-- Supernova Pinhole -->
+	<ThingDef ParentName="EtherealThingBase">
+		<defName>SLP_ETH_SupernovaPinhole</defName>
+		<label>supernova pinhole</label>
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<drawOffscreen>true</drawOffscreen>
+		<category>PsychicEmitter</category>
+		<altitudeLayer>MoteOverheadLow</altitudeLayer>
+		<graphicData>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <texPath>Things/Mote/EtherealGraphics/SLP_MOTE_SupernovaPinhole</texPath>
+		  <shaderType>MoteGlowDistorted</shaderType>
+		  <color>(255, 255, 245)</color>
+		  <drawSize>1</drawSize>
+		  <shaderParameters>
+			<_DistortionTex>/Other/Ripples</_DistortionTex>
+			<_distortionIntensity>0.05</_distortionIntensity>
+			<_DistortionScale>0.4</_DistortionScale>
+			<_distortionScrollSpeed>(0.07, 0.07, 0.0)</_distortionScrollSpeed>
+		  </shaderParameters>
+		</graphicData>
+		<comps>
+		  <li Class="CompProperties_Glower">
+		    <overlightRadius>5.9</overlightRadius>
+			<glowRadius>9</glowRadius>
+			<glowColor>(217,217,208,0)</glowColor>
+		  </li>
+		  <li Class="CompProperties_HeatPusher">
+			<compClass>CompHeatPusherPowered</compClass>
+			<heatPerSecond>1</heatPerSecond>
+			<heatPushMaxTemperature>30</heatPushMaxTemperature>
+		  </li>
+		  <li Class="CompProperties_DestroyAfterDelay">
+			<delayTicks>600000</delayTicks>
+		  </li>
+		</comps>
+    </ThingDef>
+	
+	<!-- Skipshield  -->
+	<ThingDef ParentName="EtherealThingBase">
+    <defName>SLP_MortarShieldPsychic</defName>
+    <label>skipscreen</label>
+    <thingClass>ThingWithComps</thingClass>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <drawOffscreen>true</drawOffscreen>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Ethereal/PsychicShieldRipples</texPath>
+      <shaderType>BulletShieldPsychic</shaderType>
+      <color>(180, 231, 237)</color>
+      <drawSize>29.9</drawSize>
+      <shaderParameters>
+        <_PulseInterval>1.5</_PulseInterval>
+        <_DistortionScale>0.25</_DistortionScale>
+        <_DistortionIntensity>0.10</_DistortionIntensity>
+        <_MinAlpha>0.1</_MinAlpha>
+        <_MaxAlpha>0.3</_MaxAlpha>
+        <_DistortionTex>/Things/Mote/SmokeTiled</_DistortionTex>
+      </shaderParameters>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_ProjectileInterceptor">
+        <radius>15.9</radius>
+        <interceptGroundProjectiles>false</interceptGroundProjectiles>
+		<interceptAirProjectiles>true</interceptAirProjectiles>
+        <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+        <interceptOutgoingProjectiles>true</interceptOutgoingProjectiles>
+        <color>(0.4, 0.4, 0.4)</color>
+        <minAlpha>0.2</minAlpha>
+        <interceptEffect>Interceptor_BlockedProjectilePsychic</interceptEffect>
+      </li>
+      <li Class="CompProperties_DestroyAfterDelay">
+        <delayTicks>2700</delayTicks>
+      </li>
+    </comps>
+  </ThingDef>
+  
+</Defs>

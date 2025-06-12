@@ -1,0 +1,1427 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- WordOf displayOrder 0 -->
+  <!-- PsycastBase displayOrder 1 -->
+  <!-- PsycastBaseSkip displayOrder 2 -->
+
+  <AbilityDef Name="SLP_PsycastBaseCombat" ParentName="PsycastBase" Abstract="True"><!-- displayOrder 3 -->
+    <category>Combat</category>
+  </AbilityDef>
+  
+  <AbilityDef Name="SLP_PsycastBaseHeal" ParentName="PsycastBase" Abstract="True"><!-- displayOrder 4 -->
+    <category>Healing</category>
+  </AbilityDef>
+  
+  <!-- Arctic Pinhole -->
+  <!-- Lvl 1 -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_ArcticPinhole</defName>
+    <label>arctic pinhole</label>
+    <description>Generate a microscopic material-shielded skipgate linked to deep interstellar space. Atmospheric and Solar material are protected from leaking through the pinprick in spacetime into the vacuum but energy is not. The skipgate rapidly draws heat from the surrounding area and radiates it into deep space until it closes. The skipgate generates a very small amount of light but this is only from the gate itself.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_Psycast_ArcticPinhole</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <statBases>
+      <Ability_PsyfocusCost>0.08</Ability_PsyfocusCost>
+      <Ability_EffectRadius>14.9</Ability_EffectRadius>
+      <Ability_Duration>5000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.2</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilitySpawn">
+        <thingDef>SLP_ETH_ArcticPinhole</thingDef>
+        <allowOnBuildings>False</allowOnBuildings>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>0.42</scale>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <scale>0.42</scale>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Immunity Boost -->
+  <!-- Lvl 2 -->
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
+    <defName>SLP_PSY_ImmunityBoost</defName>
+    <label>immunity boost</label>
+    <description>Generate a resonating energy field within the body of a organic being that boosts both the bodies ability to fight off infections and actively attacks foreign entities.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_Psycast_ImmunityBoost</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>15</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.12</Ability_PsyfocusCost>
+      <Ability_Duration>320</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>4.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_ImmunityBoost</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Healing Boost -->
+  <!-- Lvl 2 -->
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
+    <defName>SLP_PSY_HealingBoost</defName>
+    <label>healing boost</label>
+    <description>Generate a resonating energy field within the body of a organic being that boosts the bodies ability to repair damage.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_Psycast_HealingBoost</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>15</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.09</Ability_PsyfocusCost>
+      <Ability_Duration>320</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>4.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_HealingBoost</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Deep Regeneration -->
+  <!-- Lvl 4 -->
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
+    <defName>SLP_PSY_RegenMajor</defName>
+    <label>deep regeneration</label>
+    <description>Generate an incredibly powerful psychic energy field within the body of a organic being that boosts the bodies ability to heal. It will help with recovery from illness, fade scars, regenerate lost organs, limbs or even reset a brain suffering from addiction. It can be used on any condition but the caster wont be able to choose the specific one, instead the psychic flow will focus on the condition causing the most pain and problems. While the process is very quick, those exposed to it will be rather drained and will take significant time to adjust to the changes.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_Psycast_DeepRegen</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>50</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.65</Ability_PsyfocusCost>
+	  <Ability_Duration>20</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>5.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_RegenSickness</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+	  <li Class = "CompProperties_AbilityEffect">
+        <compClass>CompAbilityEffect_FixWorstHealthCondition</compClass>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Flash Heal -->
+  <!-- Lvl 3 -->
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
+    <defName>SLP_PSY_FlashHeal</defName>
+    <label>flash heal</label>
+    <description>Generate a powerful resonating energy field within the body of a organic being that rapidly forces the body to repair damage. While the process is very quick, those exposed to it will be somewhat drained and it will take a little time to adjust. Continuous exposure will lengthen the time it takes to recover from the negative effects.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_FlashHeal</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
+	  <Ability_Duration>84</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.5</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <!-- Clone of the GiveHediff CompProp and CompAbility code that allows me to give two hediffs at once instead of only one -->
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityGiveTwoHediff">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_GiveTwoHediff</compClass>
+		<hediffDef>SLP_Psycast_FlashHeal</hediffDef>
+        <hediffDef2>SLP_HealingPains</hediffDef2>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Superficial Regeneration -->
+  <!-- Lvl 3 -->
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
+    <defName>SLP_PSY_RegenMinor</defName>
+    <label>superficial regeneration</label>
+    <description>Generate a powerful psychic energy field within the body of a organic being that boosts the bodies ability to fade scars. It can be used on any scar type but the caster wont be able to choose the specific one, instead the psychic flow will attempt to focus on the condition causing the most pain and problems. While the process is somewhat quick, those exposed to it will be rather drained and will take some time to adjust to the changes.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_RegenMinor</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
+	  <Ability_Duration>300</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>5.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <!-- Clone of the GiveHediff CompProp and CompAbility code that allows me to give two hediffs at once instead of only one -->
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityGiveTwoHediff">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_GiveTwoHediff</compClass>
+		<hediffDef>SLP_Psycast_SuperficialRegen</hediffDef>
+        <hediffDef2>SLP_HealingPains</hediffDef2>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+ 
+  <!-- Resurrect -->
+  <!-- Lvl 6 -->
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
+    <defName>SLP_PSY_Resurrect</defName>
+    <label>resurrect</label>
+    <description>Generate a psychic energy field within the body of a organic being so powerful it can bring one back from death. The drawbacks are serious, only the most powerful of psycasters won't be downed from such a cast.</description>
+    <level>6</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Res</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>150</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.9</Ability_PsyfocusCost>
+	  <Ability_Duration>0</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>5.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+	    <canTargetCorpses>True</canTargetCorpses>
+        <canTargetSelf>False</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetItems>False</canTargetItems>
+		<canTargetPawns>False</canTargetPawns>
+        <!--<canTargetHumans>False</canTargetHumans>-->
+		<neverTargetIncapacitated>True</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <li Class = "CompProperties_AbilityEffect">
+        <compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Resurrect</compClass>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Clean Skip -->
+  <!-- Lvl 3 -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_CleanSkip</defName>
+    <label>clean skip</label>
+    <description>Skips all filth in the selected area into the core of a nearby star, destroying it immediately.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_CleanSkip</iconPath>
+	<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.1</Ability_PsyfocusCost>
+	  <Ability_EffectRadius>14.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityEffect">
+		<compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_CleanSkip</compClass>
+	    <sound>PsycastPsychicEffect</sound>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Fertility Skip -->
+  <!-- Lvl 6 -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_FertilitySkip</defName>
+    <label>fertility skip</label>
+    <description>Using psychically linked skipgates to either remove or add components from soil, the soils fertility is increased. The precision of this psycast does not allow for the generation of rich soil.</description>
+    <level>6</level>
+    <iconPath>UI/Abilities/SLP_Psycast_FertilitySkip</iconPath>
+	<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.8</Ability_PsyfocusCost>
+	  <Ability_EffectRadius>1.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>3</warmupTime>
+      <range>14.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityEffect">
+		<compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_FertilitySkip</compClass>
+	    <sound>PsycastPsychicEffect</sound>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Haemostasis  -->
+  <!-- Lvl 1 -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Haemostasis</defName>
+    <label>haemostasis</label>
+    <description>Create psychic energy fields on any open wounds to significantly reduce any bleeding for a short time.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Haemostasis</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>5</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.10</Ability_PsyfocusCost>
+	  <Ability_Duration>240</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.1</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Haemostasis</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- Ignite -->
+  <!-- Lvl 1 -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Ignite</defName>
+    <label>ignite</label>
+    <description>Psychically energise the atoms of a nearby object to reach their ignition point, causing a small fire. While useful for clearing plants or corpses, it cannot target living people or animals.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Ignite</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+	  <Ability_EntropyGain>5</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.5</warmupTime>
+      <range>12.9</range>
+      <targetParams>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetItems>True</canTargetItems>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityEffect">
+		<compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Ignite</compClass>
+	    <sound>PsycastPsychicEffect</sound>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Recondition -->
+  <!-- Lvl 5 -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Recondition</defName>
+    <label>recondition</label>
+    <description>Rapidly generate thousands of microscopic skip gates across multiple planets and stellar objects to pick up specific atoms while focusing them to replace and organically repair any damaged items. The process will help repair the focused object but the neural heat generated is significant. The psycast will never be able to fully repair the item.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Recondition</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+	  <Ability_EntropyGain>70</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2.5</warmupTime>
+      <range>14.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+		<canTargetItems>True</canTargetItems>
+		<canTargetBuildings>True</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityEffect">
+		<compClass>Sleepys_MorePsycasts.SLP_CompAbilityEffect_Recondition</compClass>
+	    <sound>PsycastPsychicEffect</sound>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Interdiction -->
+  <!-- Lvl 4 -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Interdiction</defName>
+    <label>interdiction</label>
+    <description>Teleport the target right next to the caster. Objects which are too large cannot be teleported.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Interdict</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <writeCombatLog>True</writeCombatLog>
+    <showPsycastEffects>False</showPsycastEffects>
+    <statBases>
+      <Ability_EntropyGain>16</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.015</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.1</warmupTime>
+      <range>32.9</range><!--7 more than skip -->
+      <targetParams>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetItems>True</canTargetItems>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityTeleport">
+        <compClass>CompAbilityEffect_Teleport</compClass>
+        <destination>Caster</destination>
+        <requiresLineOfSight>True</requiresLineOfSight>
+        <range>32.9</range>
+		<!--
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+        <destClamorType>Ability</destClamorType>
+        <destClamorRadius>10</destClamorRadius>
+		-->
+        <stunTicks>12~45</stunTicks>
+        <goodwillImpact>-15</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Word of Sleep -->
+  <!-- Lvl 2 -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_WordOfSleep</defName>
+    <label>word of sleep</label>
+    <description>Speak warm, soft and calming words to someone while using psychic suggestion to help them go to sleep. The caster must be careful the person isn't already too tired or they might fall asleep right then and there.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_Psycast_WordOfSleep</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+      <!--<Ability_Duration>1</Ability_Duration>-->
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>True</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_WordOfSleep</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+        <goodwillImpact>-25</goodwillImpact>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>SLP_WordOfSleep</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Word of Vigor -->
+  <!-- Lvl 2 -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_WordOfVigor</defName>
+    <label>word of vigor</label>
+    <description>Speak motivating and inspiring words to someone while using psychic suggestion to help them find hidden energy deep within.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_Psycast_WordOfVigor</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
+      <!--<Ability_Duration>1</Ability_Duration>-->
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>True</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_WordOfVigor</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+        <goodwillImpact>0</goodwillImpact>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>SLP_WordOfVigor</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Skipscreen -->
+  <!-- Lvl 4 - Generate an anti mortar shield -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Skipscreen</defName>
+    <label>skipscreen</label>
+    <description>Generate a spherical skipgate that detonates any high level projectiles trying to pass in or out of it, such as a mortar rounds. People and items are not affected.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Skipscreen</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <statBases>
+      <Ability_EntropyGain>55</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+      <Ability_EffectRadius>15.9</Ability_EffectRadius>
+      <Ability_Duration>84</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilitySpawn">
+        <thingDef>SLP_MortarShieldPsychic</thingDef>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>BulletShieldAreaEffect</fleckDef>
+        <sound>Psycast_Skip_Exit</sound>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Potential Unleashed -->
+  <!-- Lvl 5 - Enhance a pawn by 30% in most generic and combat fields (4hrs), after it is done, causes negative effects and damage to the pawn (Overdriven) -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_PotentialUnleashed</defName>
+    <label>potential unleashed</label>
+    <description>Using psychic energy and suggestion, the caster can remove the limits the body places on muscle groups and bodily functions of the target. This effectively allows the target to have hysterical strength, dulled pain and go beyond their bodies limits in almost every way.\n\nThe body has these limits in place for a reason and the target will suffer greatly after these effects wear off.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/SLP_Psycast_PotentialUnleashed</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <statBases>
+      <Ability_EntropyGain>50</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.40</Ability_PsyfocusCost>
+	  <Ability_Duration>500</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>3.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <!-- Clone of the GiveHediff CompProp and CompAbility code that allows me to give two hediffs at once instead of only one -->
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityGiveTwoHediff">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_GiveTwoHediff</compClass>
+		<hediffDef>SLP_Overdriven</hediffDef>
+        <hediffDef2>SLP_Psycast_PU</hediffDef2>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Dash -->
+  <!-- Lvl 3 - Increase Movement Speed of target or self. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Dash</defName>
+    <label>dash</label>
+    <description>Use psychic energy to increase the target's movement speed temporarily.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Dash</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.09</Ability_PsyfocusCost>
+	  <Ability_Duration>168</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.1</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Psycast_Dash</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Word of Contempt -->
+  <!-- Lvl 3 - Similar effects as Word of Love but negative -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_WordOfContempt</defName>
+    <label>word of contempt</label>
+    <description>Speak about someone's faults and flaws while using psychic suggestion to implant disgust and hate in the listener. For days afterwards, the listener will feel psychically-induced rivalry towards the other person. This greatly reduces opinion and makes them much more likely to start social fights with that person if they get the chance. This power can be used to disconnect two other people, induce hate for the caster, or force oneself to hate another. The psycast will not work on those too young to understand the suggestion.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_WordOfComtempt</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.5</Ability_PsyfocusCost>
+      <Ability_Duration>8000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetMechs>False</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="Sleepys_MorePsycasts.CompProperties_SLP_AbilityWordOfContempt">
+        <destination>Selected</destination>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>SLP_WordOfContempt</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Psychic Calm -->
+  <!-- Lvl 2 - Similar effects to Word of Joy but heavily reduced and with no negatives -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_Calm</defName>
+    <label>psychic calm</label>
+    <description>Speak happy, soothing words to someone while using psychic suggestion to implant a much lower powered version of a joyfuzz loop in their mind, known as a psychic calm. The psychic calm will suppress uncomfortable thoughts and sensations in the target to improve mood. Unlike a joyfuzz, the psychic calm will not effect mental performance at the cost of a heavily reduced benefit and its inability for the caster to focus the cast on themselves.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_Psycast_PsychicCalm</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.45</Ability_PsyfocusCost>
+      <Ability_Duration>3000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>False</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_Calm</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>SLP_Calm</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Mass Beckon -->
+  <!-- Lvl 5 -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_MassBeckon</defName>
+    <label>mass beckon</label>
+    <description>Psychically command all targets in the area to approach the caster.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/SLP_Psycast_MassBeckon</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <writeCombatLog>True</writeCombatLog>
+    <statBases>
+      <Ability_EntropyGain>60</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.035</Ability_PsyfocusCost>
+      <Ability_Duration>8</Ability_Duration>
+	  <Ability_EffectRadius>2.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.25</warmupTime>
+      <range>18.9</range>
+      <targetParams>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetLocations>True</canTargetLocations>
+        <neverTargetIncapacitated>True</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityForceJob">
+        <compClass>CompAbilityEffect_ForceJob</compClass>
+        <jobDef>GotoMindControlled</jobDef>
+        <destination>Caster</destination>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Mass Burden -->
+  <!-- Lvl 3 -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_MassBurden</defName>
+    <label>mass burden</label>
+    <description>Slow all targets within a small area for a short time by suppressing motor activity in the brain.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_MassBurden</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <writeCombatLog>True</writeCombatLog>
+    <statBases>
+      <Ability_EntropyGain>24</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
+      <Ability_Duration>20</Ability_Duration>
+	  <Ability_EffectRadius>3.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.25</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>PsychicBurden</hediffDef>
+        <psychic>True</psychic>
+        <goodwillImpact>-10</goodwillImpact>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Stun Pulse -->
+  <!-- Lvl 3 -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_StunPulse</defName>
+    <label>stun pulse</label>
+    <description>Momentarily disrupt motor function in the brain of all targets in a small area, preventing any movement.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_StunPulse</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <writeCombatLog>True</writeCombatLog>
+    <statBases>
+      <Ability_EntropyGain>36</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.035</Ability_PsyfocusCost>
+      <Ability_Duration>3.0</Ability_Duration>
+	  <Ability_EffectRadius>2.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.25</warmupTime>
+      <range>20.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityEffectWithDuration">
+        <compClass>CompAbilityEffect_Stun</compClass>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <goodwillImpact>-10</goodwillImpact>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Flashstep -->
+  <!-- Lvl 3 -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Flashstep</defName>
+    <label>flashstep</label>
+    <description>Very briefly, the caster can move faster than the eye can follow, effectively allowing them to escape when needed or close the distance to any enemy quickly. Unlike a skip ability, the caster can only use this technique on themselves.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Flashstep</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <writeCombatLog>True</writeCombatLog>
+    <showPsycastEffects>False</showPsycastEffects>
+    <statBases>
+      <Ability_EntropyGain>12</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
+    </statBases>
+	<warmupSound></warmupSound>
+    <verbProperties>
+      <warmupTime>0.10</warmupTime>
+      <range>22.9</range>
+      <targetParams>
+		<canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+		<canTargetSelf>true</canTargetSelf>
+		<!--
+		<canTargetAnimals>False</canTargetAnimals>
+		<onlyTargetColonists>True</onlyTargetColonists>
+        <neverTargetIncapacitated>True</neverTargetIncapacitated>
+		-->
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityTeleport">
+		<compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_Flashstep</compClass>
+        <destination>Selected</destination>
+        <requiresLineOfSight>True</requiresLineOfSight>
+        <range>22.9</range>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+        <destClamorType>Ability</destClamorType>
+        <destClamorRadius>10</destClamorRadius>
+        <stunTicks>4~8</stunTicks>	
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Skipstep -->
+  <!-- Lvl 4 -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Skipstep</defName>
+    <label>skipstep</label>
+    <description>A much more powerful version of the flashstep that allows the caster to both briefly move faster than the eye can follow and utilise the skip's teleportation ability to increase the range and responsiveness. Unlike a true skip ability, the caster can only use this technique on themselves.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Skipstep</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <showPsycastEffects>False</showPsycastEffects>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>20</Ability_EntropyGain> <!-- Balance 1.276 -->
+      <Ability_PsyfocusCost>0.018</Ability_PsyfocusCost>
+    </statBases>
+	<warmupSound></warmupSound>
+    <verbProperties>
+      <warmupTime>0.07</warmupTime>
+      <range>31.9</range>
+      <targetParams>
+		<canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+		<canTargetSelf>true</canTargetSelf>
+		<!--
+		<canTargetAnimals>False</canTargetAnimals>
+		<onlyTargetColonists>True</onlyTargetColonists>
+        <neverTargetIncapacitated>True</neverTargetIncapacitated>
+		-->
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityTeleport">
+		<compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_Skipstep</compClass>
+        <destination>Selected</destination>
+        <requiresLineOfSight>True</requiresLineOfSight>
+        <range>31.9</range>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+        <destClamorType>Ability</destClamorType>
+        <destClamorRadius>10</destClamorRadius>
+        <stunTicks>3~7</stunTicks>	
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Comfort Shield -->
+  <!-- Lvl 2 - Boost a pawns comfortable temperature range by -24 and +24, lasts 3 days. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_ComfortShield</defName>
+    <label>comfort shield</label>
+    <description>Envelop the target in a thermal barrier that will help protect them from extreme low and extreme high environmental temperature hazards.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_ComfortShield</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>30</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.125</Ability_PsyfocusCost>
+	  <Ability_Duration>5000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.5</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetItems>True</canTargetItems>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SLP_ComfortShield</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Engulf -->
+  <!-- Lvl 3 - Engulf a small area in flames and set several small fires -->
+  <AbilityDef ParentName="SLP_PsycastBaseCombat">
+    <defName>SLP_PSY_Engulf</defName>
+    <label>engulf</label>
+    <description>Teleport a nanoscopic piece of the core of a star and launch it into a nearby area, instantly engulfing the area as the energy quickly dissipates.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Engulf</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>45</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.06</Ability_PsyfocusCost>
+	  <!--<Ability_EffectRadius>1.9</Ability_EffectRadius>-->
+    </statBases>
+    <verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.25</warmupTime>
+      <range>14.9</range>
+      <targetParams>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+	  <soundCast>InfernoCannon_Fire</soundCast>
+    </verbProperties>
+    <comps>
+      <li Class="Sleepys_MorePsycasts.CompProperties_SLP_AreaEffectLaunchProjectile">
+	    <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_AreaEffectLaunchProjectile</compClass>
+        <projectileDef>SLP_EngulfCast</projectileDef>
+		<effectPreviewRadius>2.5</effectPreviewRadius>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>SLP_EngulfCast</defName>
+    <label>engulf</label>
+    <graphicData>
+      <texPath>Things/Projectile/SLP_EngulfProj</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(0.25,0.25)</drawSize>
+    </graphicData>
+	<thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>70</speed>
+      <damageDef>Flame</damageDef>
+      <explosionRadius>2.5</explosionRadius>
+	  <!--
+      <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+	  -->
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+      <shadowSize>0.2</shadowSize>
+    </projectile>
+  </ThingDef>
+
+  <!-- Dart -->
+  <!-- Lvl 3 - Spawn a meteorite or ship chunks to strike the map. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Dart</defName>
+    <label>dart</label>
+    <description>Large ship chunks or meteorites in space are too large to directly skip to the plant's surface but by skipping a small object in space, such as a satellite or micrometeorite, into a precise collision course with these larger objects, their trajectory can be altered. This allows the caster to deorbit ship chunks or meteorites to land nearby. The collision is extremely accurate and the psycast gives basic reaction controls to the object to help guide and nudge it as it descends, allowing it to be extremely accurate and land where targeted. The psycast takes a long time to cast making it ineffective in combat.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_Dart</iconPath>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>20</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.70</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>8.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>15.9</range>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+		<canTargetAnimals>false</canTargetAnimals>
+		<canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+		<canTargetSelf>false</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <li Class = "CompProperties_AbilityEffect">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_Dart</compClass>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Endothermic Pinhole -->
+  <!-- Lvl 3 - Spawn a long term arctic pinhole that cools to a lower degree (0 degrees C instead of -5 degrees C. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_EndoPinhole</defName>
+    <label>endothermic pinhole</label>
+    <description>Collapse a microscopic portion of space in on itself to form a physical endothermic loop. This results in a thermodynamic chain reaction that tries to fix the collapse but the psychic tampering of spacetime forces the the area to constantly recollapse. The chain reaction requires energy, creating a drain of thermal energy in the local area effectively cooling it for an extremely long time. Eventually the psychic energy dissipates and equilibrium is achieved, stopping the endothermic loop.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_EndoPinhole</iconPath>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+	<hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.30</Ability_PsyfocusCost>
+      <Ability_EffectRadius>14.9</Ability_EffectRadius>
+      <Ability_Duration>30000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.2</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilitySpawn">
+        <thingDef>SLP_ETH_EndothermicPinhole</thingDef>
+        <allowOnBuildings>False</allowOnBuildings>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>0.42</scale>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <scale>0.42</scale>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Supernova Pinhole -->
+  <!-- Lvl 3 - Spawn a long term solar pinhole that in addition, provides plant growing light -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_SupernovaPinhole</defName>
+    <label>supernova pinhole</label>
+    <description>Generate a microscopic shielded skipgate linked to the core of a nearby supernova. Visible and ultra violet radiation leak through the pinprick in spacetime but solar material is mostly prevented from passing through by the skipgate shield. This floods the area with light and warms the surrounding area until it closes. The light is bright enough that plants will grow but the heat leakage may make very small areas uncomfortably hot.</description>
+    <level>3</level>
+    <iconPath>UI/Abilities/SLP_Psycast_SupernovaPinhole</iconPath>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.30</Ability_PsyfocusCost>
+      <Ability_EffectRadius>4.9</Ability_EffectRadius>
+      <Ability_Duration>10000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.2</warmupTime>
+      <range>7.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilitySpawn">
+        <thingDef>SLP_ETH_SupernovaPinhole</thingDef>
+        <allowOnBuildings>False</allowOnBuildings>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>0.42</scale>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <scale>0.42</scale>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Word of Friendship -->
+  <!-- Lvl 2 - Similar effects as Word of Love but gender preference doesn't matter -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_WordOfFriendship</defName>
+    <label>word of friendship</label>
+    <description>Speak about someone's merit and strengths while using psychic suggestion to implant trust in the listener. For days afterwards, the listener will feel psychically-induced understanding towards the other person. This somewhat increases opinion and makes them much more likely to bond and become friends with the person. This power can be used to connect two other people, induce amity for the caster, or force oneself to like another. The psycast will not work on those too young to understand the suggestion.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_Psycast_WordOfFriendship</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
+      <Ability_Duration>8000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetMechs>False</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="Sleepys_MorePsycasts.CompProperties_SLP_AbilityWordOfFriendship">
+        <destination>Selected</destination>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>SLP_WordOfFriendship</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Brickgate -->
+  <!-- Lvl 1 - Turn a chunk into stone blocks -->
+  <AbilityDef ParentName="WordOfBase">
+    <defName>SLP_PSY_Brickgate</defName>
+    <label>brickgate</label>
+    <description>By focusing skipgates into a 3d lattice structure and focusing them on a chunk of stone, the caster can cut the chunk into stone blocks. While effective and quick, the psycast wastes part of the stone in the process yielding less then a stone cutter.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_PSY_Brickgate</iconPath>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
+	  <Ability_EntropyGain>4</Ability_EntropyGain>
+	  <Ability_Duration>0</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>0.1</warmupTime>
+	  <drawAimPie>False</drawAimPie>
+      <targetParams>
+	    <canTargetCorpses>False</canTargetCorpses>
+        <canTargetSelf>False</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>False</canTargetAnimals>
+		<canTargetItems>True</canTargetItems>
+		<canTargetPawns>False</canTargetPawns>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilitySpawnBrickFromChunk">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_SpawnBrickFromChunk</compClass>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Chemskip -->
+  <!-- Lvl 2 - Turn one corpse into chemfuel. Reduced amount depending on how much it is degraded. -->
+  <AbilityDef ParentName="PsycastBase">
+    <defName>SLP_PSY_Chemskip</defName>
+    <label>chemskip</label>
+    <description>By using a psychic temporal energy field to specially condition and age a corpse by tens of thousands of years, it can be rapidly turned it into chemfuel. The special conditioning works best on fresh, intact and undamaged corpses, the more desiccated and damaged the corpse the less chemfuel can be created.</description>
+    <level>2</level>
+    <iconPath>UI/Abilities/SLP_PSY_Chemskip</iconPath>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+	  <Ability_Duration>0</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1.0</warmupTime>
+	  <drawAimPie>False</drawAimPie>
+	  <range>9.9</range>
+      <targetParams>
+	    <canTargetCorpses>True</canTargetCorpses>
+        <canTargetSelf>False</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetItems>False</canTargetItems>
+		<canTargetPawns>False</canTargetPawns>
+		<neverTargetIncapacitated>True</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilitySpawnOffCorpse">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_SpawnOffCorpse</compClass>
+		<thingDef>Chemfuel</thingDef>
+        <psychic>True</psychic>
+		<allowOnBuildings>false</allowOnBuildings>
+        <applicableToMechs>False</applicableToMechs>
+		<dropGear>true</dropGear> <!-- Adjust this to false to destroy the pawns gear on psycast use instead of dropping it to the ground -->
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- Static Burst -->
+  <!-- Lvl 1 - EMP AOE Attack to stun Mechs. -->
+  <AbilityDef ParentName="SLP_PsycastBaseCombat">
+    <defName>SLP_PSY_StaticBurst</defName>
+    <label>static burst</label>
+    <description>By using skipgates to compress the free electrons of the air around the target area a charge separation can be created. This charge separation will quickly discharge creating an electrical burst, temporarily disabling electronics and depleting shields.</description>
+    <level>1</level>
+    <iconPath>UI/Abilities/SLP_PSY_StaticBurst</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>12</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.025</Ability_PsyfocusCost>
+	  <!--<Ability_EffectRadius>1.9</Ability_EffectRadius>-->
+    </statBases>
+    <verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.3</warmupTime>
+      <range>28.9</range>
+      <targetParams>
+        <canTargetAnimals>True</canTargetAnimals>
+		<canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="Sleepys_MorePsycasts.CompProperties_SLP_AreaEffectLaunchProjectile">
+	    <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_AreaEffectLaunchProjectile</compClass>
+        <projectileDef>SLP_StaticBurstCast</projectileDef>
+		<effectPreviewRadius>4.5</effectPreviewRadius>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>SLP_StaticBurstCast</defName>
+    <label>static burst</label>
+    <graphicData>
+      <texPath>Things/Projectile/SLP_Invis</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(0.25,0.25)</drawSize>
+    </graphicData>
+	<thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>240</speed>
+      <damageDef>EMP</damageDef>
+      <explosionRadius>4.5</explosionRadius>
+	  <!--
+      <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+      <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+	  -->
+      <ai_IsIncendiary>false</ai_IsIncendiary>
+      <shadowSize>0.0</shadowSize>
+    </projectile>
+  </ThingDef>
+
+  <!-- Superskip -->
+  <!-- Lvl 6 - Teleports Target to Target Location no matter the target size and without line of sight. -->
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SLP_PSY_Superskip</defName>
+    <label>superskip</label>
+    <description>Teleport the target to a desired position far from its starting point. Unlike skip, superskip can teleport an object no matter how large it is and much further away. Superskip psychically links with the caster in such a way that the caster can sense objects they do not have line of sight on, allowing them to skip through any walls or materials in the way.</description>
+    <level>6</level>
+    <iconPath>UI/Abilities/SLP_PSY_SuperSkip</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <showPsycastEffects>False</showPsycastEffects>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>40</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.06</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+	  <requireLineOfSight>False</requireLineOfSight>
+      <warmupTime>0.05</warmupTime>
+      <range>35.9</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetItems>True</canTargetItems>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityTeleport">
+        <compClass>CompAbilityEffect_Teleport</compClass>
+        <destination>Selected</destination>
+        <requiresLineOfSight>False</requiresLineOfSight>
+        <range>38.9</range>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+        <destClamorType>Ability</destClamorType>
+        <destClamorRadius>10</destClamorRadius>
+        <stunTicks>18~60</stunTicks>
+		<maxBodySize>99</maxBodySize>
+        <goodwillImpact>-15</goodwillImpact>
+        <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+</Defs>

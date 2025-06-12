@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Revitalise (Anomaly Only)-->
+  <!-- Lvl 5 - Give a pawn regeneration for a short time -->
+  <AbilityDef ParentName="SLP_PsycastBaseHeal">
+    <defName>SLP_PSY_Revitalise</defName>
+    <label>revitalise</label>
+    <description>Generate a powerful but slow releasing energy field within the body of a organic being that allows the body to slowly regenerate lost parts, heal scars and basically any existing damage. Regeneration has no effect on addictions or disease. The regeneration experience does drain the user and it will take a little time to adjust to the discomfort. Continuous exposure will lengthen the time it takes to recover from the negative effects.</description>
+    <level>5</level>
+    <iconPath>UI/Abilities/SLP_PSY_Revitalise</iconPath>
+	<jobDef>CastAbilityOnThingMelee</jobDef>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_EntropyGain>50</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.55</Ability_PsyfocusCost>
+	  <Ability_Duration>10000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>5.0</warmupTime>
+      <drawAimPie>False</drawAimPie>
+	  <range>-1</range>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+		<canTargetMechs>False</canTargetMechs>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	  <!-- Clone of the GiveHediff CompProp and CompAbility code that allows me to give two hediffs at once instead of only one -->
+	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityGiveTwoHediff">
+        <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_GiveTwoHediff</compClass>
+		<hediffDef>SLP_Psycast_Regeneration</hediffDef>
+        <hediffDef2>SLP_HealingPains</hediffDef2>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+</Defs>

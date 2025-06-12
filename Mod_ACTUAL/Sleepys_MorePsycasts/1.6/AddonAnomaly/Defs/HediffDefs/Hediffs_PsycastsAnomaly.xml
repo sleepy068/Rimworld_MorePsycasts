@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Regeneration -->
+  <HediffDef ParentName = "PsycastHediffBase">
+	<defName>SLP_Psycast_Regeneration</defName>
+	<label>regeneration</label>
+	<description>Psychically-induced regeneration.</description>
+	<isBad>false</isBad>
+	<stages>
+	  <li>
+		<regeneration>15</regeneration>
+	  </li>
+	</stages>
+  </HediffDef>
+  
+</Defs>

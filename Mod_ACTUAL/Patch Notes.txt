@@ -1,8 +1,7 @@
-Update v1.0.20 Build 08/04/25 | Post 
+Update v1.0.21 Build 12/06/25 | Post 
 
 Changes:
-Adjusted Interdiction area range from 31.9 to 32.9 (just a small boost due to its niche nature).
-Increased Revitalise Psyfocus cost from 45% to 55%
+N/A
 
 Localisation:
 N/A

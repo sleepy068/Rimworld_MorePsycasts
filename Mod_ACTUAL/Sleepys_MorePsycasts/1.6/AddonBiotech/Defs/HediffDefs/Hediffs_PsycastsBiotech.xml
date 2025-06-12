@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Energise -->
+  <HediffDef ParentName = "PsycastHediffBase">
+    <defName>SLP_Psycast_Energise</defName>
+	<hediffClass>HediffWithComps</hediffClass>
+	<label>energise</label>
+	<description>Psychically-induced energy.</description>
+	<isBad>false</isBad>
+	<comps>
+      <li Class="Sleepys_MorePsycasts.HediffCompProperties_SLP_NeedOffset">
+	    <compClass>Sleepys_MorePsycasts.SLP_HediffComp_AdjustNeed</compClass>
+        <need>MechEnergy</need>
+        <offset>40</offset>
+      </li>
+    </comps>
+  </HediffDef>
+  
+</Defs>
