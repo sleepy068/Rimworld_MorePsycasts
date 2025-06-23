@@ -1,4 +1,4 @@
-Update v1.0.0 Build 08/04/25 | Post 
+Update v1.0. Build 23/06/25 | Post 
 Initial Release
 
 Changes:

@@ -21,7 +21,7 @@
   <AbilityDef ParentName="WordOfBase">
     <defName>SLP_PSY_Guidance</defName>
     <label>guidance</label>
-    <description>Psychically link to another individual to guide them and give them advice as they go about their work and their day.</description>
+    <description>Psychically link to another individual to guide them and give them advice as they go about their work and their day, increasing the rate at which they learn new skills.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_PSY_Guidance</iconPath>
 	<stunTargetWhileCasting>True</stunTargetWhileCasting>
@@ -70,7 +70,7 @@
       <Ability_Duration>1512</Ability_Duration>
     </statBases>
     <verbProperties>
-      <warmupTime>1</warmupTime>
+      <warmupTime>3.5</warmupTime>
       <targetParams>
         <canTargetAnimals>False</canTargetAnimals>
         <canTargetSelf>False</canTargetSelf>

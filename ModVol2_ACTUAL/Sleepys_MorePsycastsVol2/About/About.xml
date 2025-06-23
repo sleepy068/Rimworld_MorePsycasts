@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-    <name>Sleepy's More Psycasts Volume 2</name>
+    <name>Sleepy's More Psycasts - Volume 2</name>
     <author>Sleepy068</author>
     <url>https://github.com/sleepy068/Rimworld_MorePsycasts</url>
     <packageId>sleepy068.morepsycastsvol2</packageId>
@@ -19,13 +19,16 @@ I love to add content to this game that I feel is missing or that I'd like expan
 
 You can find all the stats and exact effects of each Psycast here:
 
+
 [img]https://i.imgur.com/DbnM7jC.png[/img]
 [b]What Does This Mod Add?[/b]
-x new psycasts (y with DLC):
+7 new psycasts (Extra 2 with Biotech DLC):
+[img]https://i.imgur.com/ZFlZl2O.png[/img]
 
 [img]https://i.imgur.com/ss8ZNXk.png[/img]
 [b]Roadmap:[/b]
-- Add new and interesting psycasts
+- Add new and interesting psycasts (Goal is to add no more then 12-15 Psycasts per volume)
+- Balancing and Adjustments
 
 [img]https://i.imgur.com/YySbEPN.png[/img]
 [b]On Going Games:[/b]
@@ -55,6 +58,7 @@ https://github.com/sleepy068/Rimworld_MorePsycasts
 
 Please post any issue reports to my Github. I appreciate any feedback but please keep in mind I have a goal in mind for the content I am adding so what I consider balanced may not always be what you'd consider balanced.
 
+    
     </description>
 
     <modDependencies>

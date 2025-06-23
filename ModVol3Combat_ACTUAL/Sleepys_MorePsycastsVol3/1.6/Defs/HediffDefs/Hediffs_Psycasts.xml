@@ -60,8 +60,8 @@
     <stages>
       <li>
         <statOffsets>
-			<MeleeDodgeChance>12.00</MeleeDodgeChance>
-			<PawnTrapSpringChance>-0.40</PawnTrapSpringChance>
+			<MeleeDodgeChance>14.00</MeleeDodgeChance>
+			<PawnTrapSpringChance>-0.95</PawnTrapSpringChance>
 		</statOffsets>
       </li>
     </stages>

@@ -17,11 +17,11 @@
   <!-- ========== Combat ========== -->
   <!-- =========================== -->
   <!-- Hex -->
-  <!-- Lvl 1 - Psychically instil doubt and distress in a target's mind, reducing its ability to fight effectively. -->
+  <!-- Lvl 1 - Psychically instil doubt and distress in a target's mind, reducing their ability to fight effectively. -->
   <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
     <defName>SLP_PSY_Hex</defName>
     <label>hex</label>
-    <description>Psychically instil doubt and distress in a target's mind, reducing its ability to fight effectively.</description>
+    <description>Psychically instil doubt and distress in a target's mind, reducing their ability to fight effectively.</description>
     <level>1</level>
     <iconPath>UI/Abilities/SLP_PSY_Hex</iconPath>
     <writeCombatLog>True</writeCombatLog>
@@ -141,7 +141,7 @@
   <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
     <defName>SLP_PSY_MassHex</defName>
     <label>mass hex</label>
-    <description>Psychically instil doubt and distress in a group of target's mind, reducing their ability to fight effectively.</description>
+    <description>Psychically instil doubt and distress in a group of target's minds, reducing their ability to fight effectively.</description>
     <level>4</level>
     <iconPath>UI/Abilities/SLP_PSY_MassHex</iconPath>
     <writeCombatLog>True</writeCombatLog>
@@ -196,7 +196,7 @@
     <verbProperties>
       <warmupTime>0.1</warmupTime>
       <targetParams>
-        <canTargetSelf>True</canTargetSelf>
+        <canTargetSelf>False</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
         <canTargetLocations>False</canTargetLocations>
 		<canTargetMechs>True</canTargetMechs>
@@ -211,15 +211,18 @@
         <goodwillImpact>-25</goodwillImpact>
         <applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
       </li>
+	  <!--
 	  <li Class="CompProperties_AbilityLaunchProjectile">
         <projectileDef>SLP_BUL_ParalysingPunch</projectileDef>
       </li>
+	  -->
       <li Class="CompProperties_AbilityFleckOnTarget">
         <fleckDef>PsycastPsychicEffect</fleckDef>
       </li>
     </comps>
   </AbilityDef>
   
+  <!--
   <ThingDef ParentName="BaseBullet">
     <defName>SLP_BUL_ParalysingPunch</defName>
     <label>paralysing punch</label>
@@ -235,6 +238,7 @@
       <speed>300</speed>
     </projectile>
   </ThingDef>
+  -->
   
   <!-- Firestorm -->
   <!-- Lvl 6 - Unless a torrent of flames and flammable liquids from the target location. -->

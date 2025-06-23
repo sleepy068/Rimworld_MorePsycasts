@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-    <name>Sleepy's More Psycasts Volume 3</name>
+    <name>Sleepy's More Psycasts - Volume 3</name>
     <author>Sleepy068</author>
     <url>https://github.com/sleepy068/Rimworld_MorePsycasts</url>
     <packageId>sleepy068.morepsycastsvol3</packageId>
@@ -10,11 +10,11 @@
 
     <description>
 [img]https://i.imgur.com/IIdHbEw.png[/img]
-[h2]Sleepy's More Psycasts - Volume 3 - Combat Psycasts[/h2]
+[h2]Sleepy's More Psycasts - Volume 3[/h2]
 Modding is easier together, this mod is licensed under [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 UNIVERSAL[/url]. 
 
-Even more psycasts for those that love an option for everything. This mod was created to reduce over bloating my original psycast mod, Sleepy's More Psycasts and give players more options for what they might want in their game.
-This time, this mod is focusing specifically on direct and indirect combat use psycasts.
+Even more psycasts for those that love an option for everything. This mod was created to reduce over bloating my original psycast mod, Sleepy's More Psycasts and to give players more options for what they might want in their game.
+This mod is focusing specifically on combat focused psycasts.
 
 I love to add content to this game that I feel is missing or that I'd like expanded. I figure that if I enjoy what I've added, others may too so I to post my mods to the workshop. Balance is critical to me as I am a vanilla player and I'll try to ensure nothing is unbalanced but ultimately I have a goal in mind for the content I am adding so what I consider balanced may not always be what you'd consider balanced. Hopefully you enjoy the mod none the less.
 
@@ -22,11 +22,13 @@ You can find all the stats and exact effects of each Psycast here:
 
 [img]https://i.imgur.com/DbnM7jC.png[/img]
 [b]What Does This Mod Add?[/b]
-x new psycasts (y with DLC):
+12 new psycasts:
+[img]https://i.imgur.com/LboN7Sj.png[/img]
 
 [img]https://i.imgur.com/ss8ZNXk.png[/img]
 [b]Roadmap:[/b]
-- Add new and interesting psycasts
+- Feature complete (might add 1 or 2 more but max of 15 psycasts per volume).
+- Balancing and Adjustments
 
 [img]https://i.imgur.com/YySbEPN.png[/img]
 [b]On Going Games:[/b]
@@ -56,6 +58,7 @@ https://github.com/sleepy068/Rimworld_MorePsycasts
 
 Please post any issue reports to my Github. I appreciate any feedback but please keep in mind I have a goal in mind for the content I am adding so what I consider balanced may not always be what you'd consider balanced.
 
+    
     </description>
 
     <modDependencies>
