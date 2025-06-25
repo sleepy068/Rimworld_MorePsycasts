@@ -72,6 +72,7 @@ Please post any issue reports to my Github. I appreciate any feedback but please
     </modDependenciesByVersion>
 
     <loadAfter>
+		<li>sleepy068.morepsycasts</li>
     </loadAfter>
 
     <incompatibleWith>
