@@ -319,4 +319,30 @@
     </stages>
   </HediffDef>
   
+  <!-- Regrowth Pains -->
+  <HediffDef ParentName="DiseaseBase"> <!--PsycastHediffBase DiseaseBase -->
+    <defName>SLP_RegrowthPains</defName>
+    <label>regrowth pains</label>
+    <description>Sharp pains and overall discomfort from psychically regenerating the body. Psychically regrowing the body causes a fairly significant amount of pain and it will last for as long as the body continues to regenerate.</description>
+    <isBad>true</isBad>
+	<everCurableByItem>false</everCurableByItem>
+	
+    <initialSeverity>10</initialSeverity>
+    <maxSeverity>10</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+    <stages>
+      <li>
+		<painOffset>0.35</painOffset>
+        <capMods>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+	
 </Defs>

@@ -168,43 +168,37 @@ namespace Sleepys_MorePsycasts
             foreach (IntVec3 affectedCell in AffectedCells(target, map, this.parent))
             {
                 TerrainDef terrain = map.terrainGrid.TerrainAt(affectedCell);
-                if (!terrain.IsRiver)
+
+                bool isValidTerrain = !terrain.IsFloor && !terrain.IsFine && !terrain.IsRiver && !terrain.IsFlood 
+                && !terrain.IsWater && !terrain.IsOcean && !terrain.IsSubstructure 
+                && terrain != SLP_TerrianDefsOf.Space && terrain != SLP_TerrianDefsOf.LavaDeep
+                && terrain != SLP_TerrianDefsOf.OrbitalPlatform && terrain != SLP_TerrianDefsOf.MechanoidPlatform 
+                && terrain != SLP_TerrianDefsOf.AncientMegastructure && terrain != SLP_TerrianDefsOf.CooledLava;
+                
+                if (isValidTerrain)
                 {
-                    /*
-                    if (terrain.IsWater)
+                    List<TerrainDef> terrainDefList = new List<TerrainDef>();
+                    terrainDefList.Add(TerrainDefOf.Gravel);
+                    terrainDefList.Add(TerrainDefOf.Soil);
+                    terrainDefList.Add(TerrainDefOf.SoilRich);
+                    foreach (TerrainThreshold terrainThreshold in map.Biome.terrainsByFertility)
                     {
-                        TerrainDef named = DefDatabase<TerrainDef>.GetNamed("Mud");
-                        if (named != null)
-                            map.terrainGrid.SetTerrain(affectedCell, named);
-                        else
-                            map.terrainGrid.SetTerrain(affectedCell, TerrainDefOf.Sand);
+                        if (!terrainDefList.Contains(terrainThreshold.terrain))
+                            terrainDefList.Add(terrainThreshold.terrain);
                     }
-                    else
-                    */
-                    if (!terrain.IsWater)
+                    foreach (TerrainPatchMaker terrainPatchMaker in map.Biome.terrainPatchMakers)
                     {
-                        List<TerrainDef> terrainDefList = new List<TerrainDef>();
-                        terrainDefList.Add(TerrainDefOf.Gravel);
-                        terrainDefList.Add(TerrainDefOf.Soil);
-                        foreach (TerrainThreshold terrainThreshold in map.Biome.terrainsByFertility)
+                        foreach (TerrainThreshold threshold in terrainPatchMaker.thresholds)
                         {
-                            if (!terrainDefList.Contains(terrainThreshold.terrain))
-                                terrainDefList.Add(terrainThreshold.terrain);
+                            if (!terrainDefList.Contains(threshold.terrain))
+                                terrainDefList.Add(threshold.terrain);
                         }
-                        foreach (TerrainPatchMaker terrainPatchMaker in map.Biome.terrainPatchMakers)
-                        {
-                            foreach (TerrainThreshold threshold in terrainPatchMaker.thresholds)
-                            {
-                                if (!terrainDefList.Contains(threshold.terrain))
-                                    terrainDefList.Add(threshold.terrain);
-                            }
-                        }
-                        IOrderedEnumerable<TerrainDef> source = terrainDefList.FindAll((Predicate<TerrainDef>)(e => (double)e.fertility > (double)terrain.fertility && (double)e.fertility <= 1.0)).OrderBy<TerrainDef, float>((Func<TerrainDef, float>)(e => e.fertility));
-                        if (source.Count<TerrainDef>() != 0)
-                        {
-                            TerrainDef newTerr = source.First<TerrainDef>();
-                            map.terrainGrid.SetTerrain(affectedCell, newTerr);
-                        }
+                    }
+                    IOrderedEnumerable<TerrainDef> source = terrainDefList.FindAll((Predicate<TerrainDef>)(e => (double)e.fertility > (double)terrain.fertility && (double)e.fertility <= 1.41)).OrderBy<TerrainDef, float>((Func<TerrainDef, float>)(e => e.fertility));
+                    if (source.Count<TerrainDef>() != 0)
+                    {
+                        TerrainDef newTerr = source.First<TerrainDef>();
+                        map.terrainGrid.SetTerrain(affectedCell, newTerr);
                     }
                 }
             }
@@ -995,7 +989,7 @@ namespace Sleepys_MorePsycasts
 
         private bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos)
         {
-            return CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out pos, 10, nearLoc, maxDist, false);
+            return CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, ThingDefOf.ShipChunk.terrainAffordanceNeeded, out pos, 10, nearLoc, maxDist);
         }
     }
 
@@ -1309,6 +1303,18 @@ namespace Sleepys_MorePsycasts
         public static ThingDef BlocksSlate;
         public static ThingDef ChunkMarble;
         public static ThingDef BlocksMarble;
+    }
+
+    [DefOf]
+    public static class SLP_TerrianDefsOf
+    {
+        public static TerrainDef Space;
+        public static TerrainDef LavaDeep;
+        public static TerrainDef CooledLava;
+        public static TerrainDef OrbitalPlatform;
+        public static TerrainDef MechanoidPlatform;
+        public static TerrainDef AncientMegastructure;
+        public static TerrainDef AncientTile;
     }
 
 }

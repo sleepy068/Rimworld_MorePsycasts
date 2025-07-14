@@ -34,7 +34,7 @@
 	  <li Class = "Sleepys_MorePsycasts.CompProperties_SLP_AbilityGiveTwoHediff">
         <compClass>Sleepys_MorePsycasts.CompAbilityEffect_SLP_GiveTwoHediff</compClass>
 		<hediffDef>SLP_Psycast_Regeneration</hediffDef>
-        <hediffDef2>SLP_HealingPains</hediffDef2>
+        <hediffDef2>SLP_RegrowthPains</hediffDef2>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
         <psychic>True</psychic>
         <applicableToMechs>False</applicableToMechs>
