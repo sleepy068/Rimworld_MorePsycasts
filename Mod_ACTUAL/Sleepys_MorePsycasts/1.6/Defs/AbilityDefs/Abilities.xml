@@ -354,7 +354,7 @@
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_FertilitySkip</defName>
     <label>fertility skip</label>
-    <description>By concentrating hundreds of skip gates across a small surface area, the area is be slowly transformed into viable soil for growing plants. Repeated use of the psycast further increases the fertility up to and including rich soil. Some surfaces, such as water or artificial floors, cannot be changed.</description>
+    <description>By concentrating hundreds of skip gates across a small surface area, the area is slowly transformed into viable soil for growing plants. Repeated use of the psycast further increases the fertility up to and including rich soil. Some surfaces, such as water or artificial floors, cannot be changed.</description>
     <level>6</level>
     <iconPath>UI/Abilities/SLP_Psycast_FertilitySkip</iconPath>
 	<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
