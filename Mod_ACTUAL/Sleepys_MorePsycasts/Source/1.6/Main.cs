@@ -169,11 +169,18 @@ namespace Sleepys_MorePsycasts
             {
                 TerrainDef terrain = map.terrainGrid.TerrainAt(affectedCell);
 
-                bool isValidTerrain = !terrain.IsFloor && !terrain.IsFine && !terrain.IsRiver && !terrain.IsFlood 
-                && !terrain.IsWater && !terrain.IsOcean && !terrain.IsSubstructure 
-                && terrain != SLP_TerrianDefsOf.Space && terrain != SLP_TerrianDefsOf.LavaDeep
-                && terrain != SLP_TerrianDefsOf.OrbitalPlatform && terrain != SLP_TerrianDefsOf.MechanoidPlatform 
-                && terrain != SLP_TerrianDefsOf.AncientMegastructure && terrain != SLP_TerrianDefsOf.CooledLava;
+                bool isValidTerrain = !terrain.IsFloor && !terrain.IsFine && !terrain.IsRiver && !terrain.IsFlood
+                && !terrain.IsWater && !terrain.IsOcean && !terrain.IsSubstructure;
+
+                
+                if (ModLister.OdysseyInstalled == true)
+                {
+                    isValidTerrain = !terrain.IsFloor && !terrain.IsFine && !terrain.IsRiver && !terrain.IsFlood
+                    && !terrain.IsWater && !terrain.IsOcean && !terrain.IsSubstructure
+                    && terrain != TerrainDefOf.Space && terrain != TerrainDefOf.LavaDeep
+                    && terrain != TerrainDefOf.OrbitalPlatform && terrain != TerrainDefOf.MechanoidPlatform
+                    && terrain != TerrainDefOf.AncientMegastructure && terrain != TerrainDefOf.CooledLava;
+                }
                 
                 if (isValidTerrain)
                 {
@@ -1303,18 +1310,6 @@ namespace Sleepys_MorePsycasts
         public static ThingDef BlocksSlate;
         public static ThingDef ChunkMarble;
         public static ThingDef BlocksMarble;
-    }
-
-    [DefOf]
-    public static class SLP_TerrianDefsOf
-    {
-        public static TerrainDef Space;
-        public static TerrainDef LavaDeep;
-        public static TerrainDef CooledLava;
-        public static TerrainDef OrbitalPlatform;
-        public static TerrainDef MechanoidPlatform;
-        public static TerrainDef AncientMegastructure;
-        public static TerrainDef AncientTile;
     }
 
 }
