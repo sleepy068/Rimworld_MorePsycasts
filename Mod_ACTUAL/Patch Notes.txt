@@ -4,7 +4,7 @@ Changes:
 N/A
 
 Localisation:
-N/A
+Made it clearer Revitialise is a long term healing psycast to help differeniate it from Deep Regen.
 
 Bug Fixes:
 N/A
