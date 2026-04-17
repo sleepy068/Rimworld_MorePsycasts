@@ -494,12 +494,12 @@
     <writeCombatLog>True</writeCombatLog>
     <showPsycastEffects>False</showPsycastEffects>
     <statBases>
-      <Ability_EntropyGain>16</Ability_EntropyGain>
-      <Ability_PsyfocusCost>0.015</Ability_PsyfocusCost>
+      <Ability_EntropyGain>12</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.0075</Ability_PsyfocusCost>
     </statBases>
     <verbProperties>
       <warmupTime>0.1</warmupTime>
-      <range>32.9</range><!--7 more than skip -->
+      <range>33.9</range>
       <targetParams>
         <canTargetSelf>False</canTargetSelf>
         <canTargetAnimals>True</canTargetAnimals>
@@ -511,7 +511,7 @@
         <compClass>CompAbilityEffect_Teleport</compClass>
         <destination>Caster</destination>
         <requiresLineOfSight>True</requiresLineOfSight>
-        <range>32.9</range>
+        <range>33.9</range>
 		<!--
         <clamorType>Ability</clamorType>
         <clamorRadius>10</clamorRadius>

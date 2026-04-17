@@ -135,7 +135,7 @@
     <maxSeverity>30</maxSeverity>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
-        <severityPerDay>-0.5</severityPerDay>
+        <severityPerDay>-0.33</severityPerDay>
         <showDaysToRecover>true</showDaysToRecover>
       </li>
 	  <!--<li Class="HediffCompProperties_DisappearsOnDeath"/>-->

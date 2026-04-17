@@ -1,7 +1,11 @@
 Update v1.0.24 Build 22/12/25 | Post 
 
 Changes:
-N/A
+Reduced Interdiction Psyfocus cost from 1.50% to 0.75%
+Reduced Interdiction Neural Heat Gain from 16 to 12
+Increased Interdiction range from 32.9 to 33.9
+
+Increase Phoenix Syndrome duration from 20.0 days to 30.0 days (Better balance vs in game rez options).
 
 Localisation:
 Made it clearer Revitialise is a long term healing psycast to help differeniate it from Deep Regen.
