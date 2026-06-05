@@ -6,11 +6,11 @@
   <!-- PsycastBaseSkip displayOrder 2 -->
 
   <AbilityDef Name="SLP_V3_PsycastBaseCombat" ParentName="PsycastBase" Abstract="True"><!-- displayOrder 3 -->
-    <category>Combat</category>
+    <category>SLP_V3_Combat</category>
   </AbilityDef>
   
   <AbilityDef Name="SLP_V3_PsycastBaseHeal" ParentName="PsycastBase" Abstract="True"><!-- displayOrder 4 -->
-    <category>Healing</category>
+    <category>SLP_V3_Healing</category>
   </AbilityDef>
   
   <!-- =========================== -->
@@ -61,7 +61,7 @@
   <AbilityDef ParentName="WordOfBase">
     <defName>SLP_PSY_Fireshield</defName>
     <label>fire shield</label>
-	<category>Combat</category>
+	<category>SLP_V3_Combat</category>
     <description>Psychically generate a powerful shield around the target that protects them from extreme heat and prevents them from getting set on fire for a short time.</description>
     <level>2</level>
     <iconPath>UI/Abilities/SLP_PSY_Fireshield</iconPath>
@@ -242,7 +242,7 @@
   
   <!-- Firestorm -->
   <!-- Lvl 6 - Unless a torrent of flames and flammable liquids from the target location. -->
-  <AbilityDef ParentName="SLP_PsycastBaseCombat">
+  <AbilityDef ParentName="SLP_V3_PsycastBaseCombat">
     <defName>SLP_PSY_Firestorm</defName>
     <label>firestorm</label>
     <description>Teleport a large reserve of subterranean organic fuels or other flammable materials directly to the target area, igniting it with a thermal pulse. This instantly engulfs a large area in flames and fuel. Depending on the fuel that is skipped, it may burn for some time or it may instantly evaporate.</description>

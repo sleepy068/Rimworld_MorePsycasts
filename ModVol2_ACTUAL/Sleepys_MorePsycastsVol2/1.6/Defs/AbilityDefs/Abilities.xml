@@ -6,11 +6,11 @@
   <!-- PsycastBaseSkip displayOrder 2 -->
 
   <AbilityDef Name="SLP_V2_PsycastBaseCombat" ParentName="PsycastBase" Abstract="True"><!-- displayOrder 3 -->
-    <category>Combat</category>
+    <category>SLP_V2_Combat</category>
   </AbilityDef>
   
   <AbilityDef Name="SLP_V2_PsycastBaseHeal" ParentName="PsycastBase" Abstract="True"><!-- displayOrder 4 -->
-    <category>Healing</category>
+    <category>SLP_V2_Healing</category>
   </AbilityDef>
   
   <!-- =========================== -->
