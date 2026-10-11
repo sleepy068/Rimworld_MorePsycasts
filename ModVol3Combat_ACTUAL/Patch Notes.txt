@@ -1,10 +1,10 @@
-Update v1.0.2 Build 25/06/25 | Post 03/06/26
+Update v1.0.4 Build 11/10/26 | Post 
 
 Changes:
 N/A
 
 Localisation:
-Fixed up ability defs not pointing to the correct ability categories (Thanks Matt)
+N/A
 
 Bug Fixes:
 N/A

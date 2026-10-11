@@ -457,7 +457,7 @@
   <AbilityDef ParentName="PsycastBase">
     <defName>SLP_PSY_Recondition</defName>
     <label>recondition</label>
-    <description>Rapidly generate thousands of microscopic skip gates across multiple planets and stellar objects to pick up specific atoms while focusing them to replace and organically repair any damaged items. The process will help repair the focused object but the neural heat generated is significant. The psycast will never be able to fully repair the item.</description>
+    <description>Rapidly generate thousands of microscopic skip gates across multiple planets and stellar objects to pick up specific atoms while focusing them to replace and organically repair any damaged items. The process will help repair the focused object but the neural heat generated is significant.</description>
     <level>5</level>
     <iconPath>UI/Abilities/SLP_Psycast_Recondition</iconPath>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
